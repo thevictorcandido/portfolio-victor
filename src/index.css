@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Paleta Quase Preto (Base orgânica profunda) */
+  --color-pitch-950: #080A08;
+  --color-pitch-900: #0C0F0D;
+  --color-pitch-850: #111613;
+  --color-pitch-800: #171E19;
+  --color-pitch-700: #202B23;
+  --color-pitch-border: rgba(220, 230, 222, 0.08);
+  --color-pitch-border-hover: rgba(220, 230, 222, 0.18);
+
+  /* Paleta Verde Musgo Escuro & Detalhes */
+  --color-moss-900: #152218;
+  --color-moss-800: #1F3023;
+  --color-moss-700: #2B4231;
+  --color-moss-600: #3A5742;
+  --color-moss-500: #4B6F55;
+  --color-moss-400: #628E6E;
+  --color-moss-300: #84B18F;
+  --color-moss-light: #A7CCAF;
+
+  /* Paleta Branco Bege (Elegante & Confortável para Leitura) */
+  --color-beige-50: #FAF7F2;
+  --color-beige-100: #F4EFE6;
+  --color-beige-200: #ECE5D8;
+  --color-beige-300: #DDD3C1;
+  --color-beige-400: #B8ADA0;
+  --color-beige-muted: #8F877C;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-pitch-900);
+  color: var(--color-beige-100);
+  overflow-x: hidden;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0F0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #233026;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #364B3B;
+}
+
+/* Technical grid background pattern */
+.bg-tech-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(220, 235, 224, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 235, 224, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(132, 177, 143, 0.08) 1px, transparent 1px);
+}
