@@ -1,9 +1,11 @@
 import { ArrowUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { portfolioData } from '../data/portfolioData'
 
 const CURRENT_YEAR = new Date().getFullYear()
 
 export default function Footer() {
+  const { t } = useTranslation()
   const { personal } = portfolioData
 
   const scrollToTop = () => {
@@ -27,7 +29,7 @@ export default function Footer() {
 
         {/* Detalhe de Estilo */}
         <div className="flex items-center gap-2 text-xs text-stone-400">
-          <span>Design Editorial Contemporâneo</span>
+          <span>{t('footer.rights')}</span>
           <span>✦</span>
           <span>React & Tailwind CSS</span>
         </div>
@@ -38,7 +40,7 @@ export default function Footer() {
           onClick={scrollToTop}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-stone-50 border border-stone-200/80 text-xs font-semibold text-stone-800 transition-all shadow-2xs hover:shadow-xs cursor-pointer"
         >
-          <span>Voltar ao topo</span>
+          <span>{t('hero.scrollDown')}</span>
           <ArrowUp className="w-3.5 h-3.5 text-stone-500" />
         </button>
 

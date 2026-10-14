@@ -1,4 +1,5 @@
 import { Server, Brain, Sparkles, CheckCircle2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { BorderBeam } from './ui/border-beam'
 import { Marquee } from './ui/marquee'
 import {
@@ -32,6 +33,7 @@ const techIconMap = {
 }
 
 export default function Skills() {
+  const { t } = useTranslation()
   const { skillsCategories } = portfolioData
 
   return (
@@ -46,21 +48,21 @@ export default function Skills() {
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
             <span>04</span>
             <span className="w-8 h-px bg-stone-300" />
-            <span>Habilidades & Repertório</span>
+            <span>{t('skills.tag')}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
-            Backend no centro, <br />
+            {t('skills.headline')} <br />
             <span className="font-display font-light text-stone-700 italic inline-block mt-1">
-              potencializado por inteligência artificial.
+              {t('skills.headlineHighlight')}
             </span>
           </h2>
           <p className="mt-4 text-base text-stone-600 leading-relaxed font-normal max-w-2xl">
-            Minha atuação é concentrada no desenvolvimento de sistemas sólidos de backend, microsserviços e APIs, combinados à aplicação estratégica de modelos de IA generativa e análise de dados.
+            {t('skills.subtitle')}
           </p>
         </div>
 
-        {/* Cards de Categorias no Modelo 21st.dev (Logo Cloud 15 + BorderBeam + Marquee) */}
-        <div className="space-y-12 md:space-y-16">
+        {/* Cards de Categoria inspirados no Logo Cloud 15 */}
+        <div className="space-y-12">
           {skillsCategories.map((cat) => {
             const isBackend = cat.id === 'backend'
             const Icon = isBackend ? Server : Brain
@@ -68,6 +70,10 @@ export default function Skills() {
             const badgeBg = isBackend
               ? 'bg-emerald-50 text-emerald-800 border-emerald-200/70'
               : 'bg-purple-50 text-purple-800 border-purple-200/70'
+
+            const categoryTitle = isBackend ? t('skills.backendCategory') : t('skills.aiCategory')
+            const categoryDesc = isBackend ? t('skills.backendDesc') : t('skills.aiDesc')
+            const categoryBadge = isBackend ? t('skills.backendBadge') : t('skills.aiBadge')
 
             return (
               <div
@@ -103,64 +109,69 @@ export default function Skills() {
                               backgroundSize: '200% auto',
                             }}
                           >
-                            {cat.category}
+                            {categoryTitle}
                           </span>
                         </h3>
                       </div>
                       <p className="text-xs sm:text-sm text-stone-500 font-medium mt-0.5">
-                        {cat.description}
+                        {categoryDesc}
                       </p>
                     </div>
                   </div>
 
-                  {/* Badge de Destaque de Foco */}
-                  <div className="self-start md:self-auto">
-                    <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold border ${badgeBg}`}>
-                      <span className={`w-2 h-2 rounded-full ${isBackend ? 'bg-emerald-500 animate-pulse' : 'bg-purple-500 animate-pulse'}`} />
-                      <span>{cat.focusBadge}</span>
-                    </span>
-                  </div>
+                  {/* Badge de Destaque */}
+                  <span className={`self-start md:self-auto px-3.5 py-1.5 rounded-full text-xs font-semibold border inline-flex items-center gap-1.5 ${badgeBg}`}>
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>{categoryBadge}</span>
+                  </span>
                 </div>
 
-                {/* Marquee Contínuo de Logos (Modelo Logo Cloud 15) */}
-                <div className="mb-8 py-3 bg-stone-50/70 rounded-2xl border border-stone-200/50 overflow-hidden">
-                  <Marquee duration={isBackend ? 22 : 26} pauseOnHover={true} gap="2.5rem">
+                {/* Carrossel Infinito de Logos / Tecnologias (Marquee) */}
+                <div className="relative py-4 overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                  <Marquee pauseOnHover className="[--duration:28s]">
                     {cat.technologies.map((tech) => {
-                      const TechIconComp = techIconMap[tech.name] || Sparkles
+                      const TechIcon = techIconMap[tech.name] || CheckCircle2
 
                       return (
                         <div
                           key={tech.name}
-                          className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-stone-200/70 shadow-2xs text-stone-800 shrink-0 select-none hover:shadow-xs transition-shadow"
+                          className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-stone-50/80 hover:bg-stone-100/90 border border-stone-200/70 transition-all duration-300 hover:scale-105 shadow-2xs group/tech cursor-default mx-2"
                         >
-                          <TechIconComp className="w-5 h-5 shrink-0" />
-                          <span className="text-xs font-bold font-mono tracking-tight text-stone-900">
-                            {tech.name}
-                          </span>
+                          <div className="w-8 h-8 rounded-xl bg-white border border-stone-200/80 flex items-center justify-center p-1.5 shadow-2xs group-hover/tech:border-stone-400 transition-colors">
+                            <TechIcon className="w-full h-full" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold font-display text-stone-900">
+                              {tech.name}
+                            </p>
+                            <p className="text-[11px] text-stone-500 font-medium">
+                              {tech.role}
+                            </p>
+                          </div>
                         </div>
                       )
                     })}
                   </Marquee>
                 </div>
 
-                {/* Grid Interno Detalhado das Tecnologias & Papéis */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                {/* Grid Responsivo das Tecnologias da Categoria */}
+                <div className="mt-8 pt-6 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                   {cat.technologies.map((tech) => {
-                    const TechIconComp = techIconMap[tech.name] || CheckCircle2
+                    const TechIcon = techIconMap[tech.name] || CheckCircle2
 
                     return (
                       <div
                         key={tech.name}
-                        className="p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-stone-200/70 hover:border-stone-300 hover:bg-white hover:shadow-sm transition-all group/item flex items-center gap-3"
+                        className="p-3.5 rounded-xl bg-stone-50/60 hover:bg-white border border-stone-200/60 transition-all duration-200 hover:shadow-2xs text-center flex flex-col items-center justify-center gap-2 group/card"
                       >
-                        <div className="w-9 h-9 rounded-xl bg-stone-100 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                          <TechIconComp className="w-5 h-5" />
+                        <div className="w-7 h-7 rounded-lg bg-white border border-stone-200 flex items-center justify-center p-1 group-hover/card:scale-110 transition-transform">
+                          <TechIcon className="w-full h-full" />
                         </div>
-                        <div className="min-w-0">
-                          <p className="text-xs sm:text-sm font-bold text-stone-900 truncate">
+                        <div>
+                          <p className="text-xs font-bold font-display text-stone-900">
                             {tech.name}
                           </p>
-                          <p className="text-[11px] text-stone-500 truncate">
+                          <p className="text-[10px] text-stone-500 line-clamp-1">
                             {tech.role}
                           </p>
                         </div>

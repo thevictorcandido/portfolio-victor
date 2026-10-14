@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { BlurText } from './ui/blur-text'
+import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Hero() {
+  const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef(null)
   const buttonRef = useRef(null)
@@ -27,13 +30,13 @@ export default function Hero() {
   }, [menuOpen])
 
   const navLinks = [
-    { label: 'INÍCIO', href: '#hero', highlight: true },
-    { label: 'SOBRE', href: '#about' },
-    { label: 'PROJETOS', href: '#projects' },
-    { label: 'EXPERIÊNCIA', href: '#experience' },
-    { label: 'HABILIDADES', href: '#skills' },
-    { label: 'FORMAÇÃO', href: '#education' },
-    { label: 'CONTATO', href: '#contact' },
+    { label: t('nav.home'), href: '#hero', highlight: true },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.education'), href: '#education' },
+    { label: t('nav.contact'), href: '#contact' },
   ]
 
   return (
@@ -57,7 +60,7 @@ export default function Hero() {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 -ml-2 rounded-full text-stone-600 hover:text-stone-950 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-400 cursor-pointer flex items-center gap-2"
-            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
           >
             {menuOpen ? (
               <X className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
@@ -75,18 +78,19 @@ export default function Hero() {
               ref={menuRef}
               className="absolute top-full left-0 mt-3 w-56 sm:w-64 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-stone-200/80 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
             >
-              <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-2 px-2">
-                Navegação
+              <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-2 px-2 flex items-center justify-between">
+                <span>Navegação</span>
+                <LanguageSwitcher className="scale-90" />
               </div>
               <nav className="flex flex-col gap-1">
                 {navLinks.map((item) => (
                   <a
-                    key={item.label}
+                    key={item.href}
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-xl text-sm font-semibold tracking-wide transition-all ${
+                    className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wider transition-colors ${
                       item.highlight
-                        ? 'bg-stone-900 text-white shadow-xs'
+                        ? 'bg-stone-950 text-white font-bold'
                         : 'text-stone-700 hover:text-stone-950 hover:bg-stone-100/80'
                     }`}
                   >
@@ -99,7 +103,7 @@ export default function Hero() {
                 <span>PUC Minas</span>
                 <span className="text-emerald-600 font-semibold flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Disponível
+                  {t('hero.availability')}
                 </span>
               </div>
             </div>
@@ -117,13 +121,15 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Lado Direito: Tag de Status / Botão Rápido de Contato */}
-        <div className="flex items-center gap-3">
+        {/* Lado Direito: Seletor de Idioma (PT / EN) + Botão Rápido de Contato */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <LanguageSwitcher />
+
           <a
             href="#contact"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-white hover:bg-black transition-all shadow-xs hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-white hover:bg-black transition-all shadow-xs hover:scale-[1.02]"
           >
-            <span>Contato</span>
+            <span>{t('hero.contactBtn')}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -185,7 +191,7 @@ export default function Hero() {
         {/* Frase animada com BlurText por palavras */}
         <div className="flex justify-center mb-2">
           <BlurText
-            text="Designing human experiences in code."
+            text={t('hero.subtitle')}
             delay={130}
             animateBy="words"
             direction="top"
@@ -196,14 +202,14 @@ export default function Hero() {
 
         {/* Assinatura de identidade de Victor */}
         <p className="text-xs sm:text-sm text-stone-500 font-normal mb-4 sm:mb-6">
-          Engenharia de Software na PUC Minas · Operações & Web no Grupo GVS
+          {t('hero.roleAndCompany')}
         </p>
 
         {/* Botão de Scroll Down com Chevron */}
         <a
           href="#about"
           className="inline-flex items-center justify-center p-2 rounded-full text-stone-500 hover:text-stone-950 transition-colors animate-bounce cursor-pointer"
-          aria-label="Rolar para a seção Sobre"
+          aria-label={t('hero.scrollDown')}
         >
           <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={2} />
         </a>

@@ -1,44 +1,48 @@
 import { ArrowUpRight, GraduationCap, Sparkles, Briefcase, Mail } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { GithubIcon, LinkedinIcon } from './Icons'
 import { FloatingDock } from './ui/floating-dock'
 import { portfolioData } from '../data/portfolioData'
 
 export default function About() {
+  const { t } = useTranslation()
   const { personal } = portfolioData
 
-  // Cards que restaram (sem o número de repositórios) adaptados para o formato Floating Dock
+  // Cards que restaram (sem o número de repositórios) adaptados para o formato Floating Dock com i18n
   const dockItems = [
     {
-      title: "PUC Minas · Engenharia de Software",
+      title: t('about.dock.puc'),
       icon: <GraduationCap className="h-5 w-5 text-stone-700" />,
       href: "#education",
     },
     {
-      title: "AI-Native · Fluxo com IA",
+      title: t('about.dock.ai'),
       icon: <Sparkles className="h-5 w-5 text-stone-700" />,
       href: "#skills",
     },
     {
-      title: "Grupo GVS · Vivência em TI & COR",
+      title: t('about.dock.gvs'),
       icon: <Briefcase className="h-5 w-5 text-stone-700" />,
       href: "#experience",
     },
     {
-      title: "GitHub · Código & Projetos",
+      title: t('about.dock.github'),
       icon: <GithubIcon className="h-5 w-5 text-stone-700" />,
       href: personal.social?.github || "https://github.com/thevictorcandido",
     },
     {
-      title: "LinkedIn · Rede Profissional",
+      title: t('about.dock.linkedin'),
       icon: <LinkedinIcon className="h-5 w-5 text-stone-700" />,
       href: personal.social?.linkedin || "https://www.linkedin.com/in/victorcandidoleite/",
     },
     {
-      title: "Email · Conversar com Victor",
+      title: t('about.dock.email'),
       icon: <Mail className="h-5 w-5 text-stone-700" />,
       href: `mailto:${personal.social?.email || "victorcandidoleite@gmail.com"}`,
     },
   ]
+
+  const bioParagraphs = t('about.bioParagraphs', { returnObjects: true }) || personal.bio
 
   return (
     <section
@@ -52,12 +56,12 @@ export default function About() {
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
             <span>01</span>
             <span className="w-8 h-px bg-stone-300" />
-            <span>Trajetória & Visão</span>
+            <span>{t('about.tag')}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
-            Criando com rigor técnico, <br />
+            {t('about.headline')} <br />
             <span className="font-display font-light text-stone-700 italic inline-block mt-1">
-              pensando como criador de produtos.
+              {t('about.headlineHighlight')}
             </span>
           </h2>
         </div>
@@ -77,14 +81,14 @@ export default function About() {
             <div className="absolute bottom-5 left-5 right-5 z-20 flex items-center justify-between text-stone-100 pointer-events-none">
               <div>
                 <p className="text-xs uppercase tracking-wider font-semibold text-stone-300 font-sans">
-                  Desenvolvedor & Criador
+                  {t('about.photoRole')}
                 </p>
                 <p className="text-sm font-bold font-display text-white">
                   Victor Cândido Leite
                 </p>
               </div>
               <span className="text-[11px] px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/20 font-medium text-stone-100">
-                Belo Horizonte, MG
+                {t('about.photoCity')}
               </span>
             </div>
           </div>
@@ -95,26 +99,27 @@ export default function About() {
             {/* Bloco Superior: Nome e Frase em Destaque */}
             <div>
               <p className="text-xs font-semibold tracking-[0.25em] text-stone-400 uppercase font-sans mb-3">
-                ENGENHARIA DE SOFTWARE · FOCO EM BACKEND & IA
+                {t('about.roleCategory')}
               </p>
               
               <h3 className="text-3xl sm:text-4xl lg:text-5xl leading-[1.1] font-display font-light tracking-tight text-stone-900">
-                Victor <br />
-                <span className="font-bold text-stone-950">Cândido Leite</span>
+                {t('about.nameLight')} <br />
+                <span className="font-bold text-stone-950">{t('about.nameBold')}</span>
               </h3>
 
               {/* Frase / Citação integrada no estilo do card */}
               <blockquote className="mt-6 font-display font-medium text-base sm:text-lg md:text-xl text-stone-800 leading-snug italic border-l-2 border-stone-900/60 pl-4 py-1">
-                “Acredito que o bom software é aquele que une precisão lógica e sensibilidade estética — tornando o complexo simples e agradável para quem o utiliza.”
+                {t('about.quote')}
               </blockquote>
 
               {/* Texto sobre mim (Biografia) */}
               <div className="mt-6 space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
-                {personal.bio.map((paragraph, index) => (
-                  <p key={index} className="leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
+                {Array.isArray(bioParagraphs) &&
+                  bioParagraphs.map((paragraph, index) => (
+                    <p key={index} className="leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
               </div>
             </div>
 
@@ -134,7 +139,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-xs font-bold font-display uppercase tracking-wider text-stone-900">
-                    Vamos conversar
+                    {t('about.ctaTalk')}
                   </p>
                   <p className="text-xs text-stone-500 font-sans">
                     {personal.social?.email || "victorcandidoleite@gmail.com"}

@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import { Mail, Copy, Check, Send, ArrowUpRight, MessageSquare } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { GithubIcon, LinkedinIcon } from './Icons'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Contact() {
+  const { t } = useTranslation()
   const { personal } = portfolioData
   const [copied, setCopied] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const handleCopyEmail = () => {
-    if (personal.social.email) {
+    if (personal.social?.email) {
       navigator.clipboard.writeText(personal.social.email)
       setCopied(true)
       setTimeout(() => setCopied(false), 2500)
@@ -34,12 +36,12 @@ export default function Contact() {
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
             <span>06</span>
             <span className="w-8 h-px bg-stone-300" />
-            <span>Contato & Parcerias</span>
+            <span>{t('contact.tag')}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
-            Vamos conversar? <br />
+            {t('contact.headline')} <br />
             <span className="font-display font-light text-stone-700 italic inline-block mt-1">
-              Aberto para projetos & oportunidades.
+              {t('contact.headlineHighlight')}
             </span>
           </h2>
         </div>
@@ -50,55 +52,51 @@ export default function Contact() {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl sm:text-3xl font-display font-bold text-stone-900 mb-4">
-                Tem uma ideia, desafio técnico ou vaga em vista?
+                {t('contact.headline')} {t('contact.headlineHighlight')}
               </h3>
               <p className="text-base text-stone-600 leading-relaxed font-normal">
-                Estou sempre entusiasmado para discutir novas oportunidades de estágio,
-                desenvolvimento de produtos, projetos acadêmicos ou colaborações no ecossistema de software.
+                {t('contact.subtitle')}
               </p>
             </div>
 
-            {/* Cartão de Copiar E-mail */}
-            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            {/* Card de Email Direto com Cópia Rápida */}
+            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-stone-100 flex items-center justify-center text-stone-900 shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
-                    E-mail direto
+                  <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider">
+                    Email
                   </p>
-                  <a
-                    href={`mailto:${personal.social.email}`}
-                    className="text-sm font-semibold text-stone-900 hover:underline"
-                  >
-                    {personal.social.email}
-                  </a>
+                  <p className="text-sm sm:text-base font-bold font-display text-stone-900 break-all">
+                    {personal.social?.email}
+                  </p>
                 </div>
               </div>
 
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold transition-all cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-stone-100 hover:bg-stone-200/80 text-stone-800 transition-colors cursor-pointer shrink-0"
               >
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Copiado!</span>
+                    <span className="text-emerald-700">Copiado!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-stone-600" />
+                    <Copy className="w-3.5 h-3.5 text-stone-500" />
                     <span>Copiar</span>
                   </>
                 )}
               </button>
             </div>
 
-            {/* Redes Sociais em Cartões Leves */}
-            <div className="grid grid-cols-2 gap-3.5">
-              {personal.social.github && (
+            {/* Redes e Acessos Rápidos */}
+            <div className="grid grid-cols-2 gap-3">
+              {personal.social?.github && (
                 <a
                   href={personal.social.github}
                   target="_blank"
@@ -113,7 +111,7 @@ export default function Contact() {
                 </a>
               )}
 
-              {personal.social.linkedin && (
+              {personal.social?.linkedin && (
                 <a
                   href={personal.social.linkedin}
                   target="_blank"
@@ -132,7 +130,7 @@ export default function Contact() {
             {/* Disponibilidade */}
             <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span>Resposta costumeira em poucas horas. Localizado em Belo Horizonte / Nova Lima, MG.</span>
+              <span>{t('contact.locationValue')}</span>
             </div>
           </div>
 
@@ -140,10 +138,10 @@ export default function Contact() {
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-stone-200/80 shadow-md shadow-stone-900/5">
             <h4 className="text-xl font-display font-bold text-stone-900 mb-1 flex items-center gap-2">
               <MessageSquare className="w-5 h-5 text-stone-700" />
-              Envie uma mensagem direta
+              {t('contact.headline')}
             </h4>
             <p className="text-xs text-stone-500 mb-6 font-normal">
-              Preencha os campos abaixo para iniciar o contato.
+              {t('contact.subtitle')}
             </p>
 
             {formSubmitted ? (
@@ -163,13 +161,13 @@ export default function Contact() {
                     htmlFor="name"
                     className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
-                    Seu Nome
+                    {t('contact.nameLabel')}
                   </label>
                   <input
                     id="name"
                     type="text"
                     required
-                    placeholder="Ex: Maria Clara"
+                    placeholder={t('contact.namePlaceholder')}
                     className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all"
                   />
                 </div>
@@ -179,13 +177,13 @@ export default function Contact() {
                     htmlFor="email"
                     className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
-                    Seu E-mail
+                    {t('contact.emailLabel')}
                   </label>
                   <input
                     id="email"
                     type="email"
                     required
-                    placeholder="Ex: maria@empresa.com"
+                    placeholder={t('contact.emailPlaceholder')}
                     className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all"
                   />
                 </div>
@@ -195,23 +193,23 @@ export default function Contact() {
                     htmlFor="message"
                     className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
-                    Mensagem
+                    {t('contact.messageLabel')}
                   </label>
                   <textarea
                     id="message"
-                    rows={4}
                     required
-                    placeholder="Conte sobre sua ideia, desafio ou projeto..."
+                    rows={4}
+                    placeholder={t('contact.messagePlaceholder')}
                     className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-stone-950 hover:bg-black text-white text-sm font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer"
+                  className="w-full py-3.5 rounded-full font-semibold text-sm bg-stone-950 text-white hover:bg-black transition-all shadow-xs hover:shadow-md hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer mt-2"
                 >
-                  <Send className="w-4 h-4 text-stone-300" />
-                  <span>Enviar Mensagem</span>
+                  <span>{t('contact.sendBtn')}</span>
+                  <Send className="w-4 h-4" />
                 </button>
               </form>
             )}

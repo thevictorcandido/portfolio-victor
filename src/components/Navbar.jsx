@@ -1,11 +1,24 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+
+  const navKeyMap = {
+    hero: 'nav.home',
+    about: 'nav.about',
+    projects: 'nav.projects',
+    experience: 'nav.experience',
+    skills: 'nav.skills',
+    education: 'nav.education',
+    contact: 'nav.contact',
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +39,8 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  if (!isScrolled) return null
 
   return (
     <header
@@ -53,6 +68,7 @@ export default function Navbar() {
             <ol className="flex items-center gap-1">
               {portfolioData.navItems.map((item) => {
                 const isActive = activeSection === item.id
+                const label = t(navKeyMap[item.id] || 'nav.home')
                 return (
                   <li key={item.id}>
                     <a
@@ -63,7 +79,7 @@ export default function Navbar() {
                           : 'text-stone-600 hover:text-stone-950 hover:bg-stone-50/70'
                       }`}
                     >
-                      {item.label}
+                      {label}
                     </a>
                   </li>
                 )
@@ -71,61 +87,67 @@ export default function Navbar() {
             </ol>
           </nav>
 
-          {/* Botão de Ação Direta (Pílula Preta da Referência) */}
+          {/* Botão de Ação Direta + Seletor de Idioma */}
           <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher className="scale-90" />
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide bg-stone-900 text-stone-50 hover:bg-black transition-all shadow-xs hover:shadow-md hover:scale-[1.02]"
             >
-              <span>Vamos conversar</span>
+              <span>{t('about.ctaTalk')}</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-stone-300" />
             </a>
           </div>
 
           {/* Botão Mobile */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-stone-200 text-stone-800 shadow-xs"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher className="scale-90" />
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-stone-200 text-stone-800 shadow-xs"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Menu Mobile Flutuante */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-3 p-4 rounded-3xl bg-white/95 backdrop-blur-xl border border-stone-200/80 shadow-xl shadow-stone-900/5 animate-in fade-in slide-in-from-top-2 duration-200">
             <ol className="flex flex-col gap-1">
-              {portfolioData.navItems.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-medium text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-colors"
-                  >
-                    <span>{item.label}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-stone-400" />
-                  </a>
-                </li>
-              ))}
+              {portfolioData.navItems.map((item) => {
+                const label = t(navKeyMap[item.id] || 'nav.home')
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-medium text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-colors"
+                    >
+                      <span>{label}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-stone-400" />
+                    </a>
+                  </li>
+                )
+              })}
             </ol>
             <div className="mt-3 pt-3 border-t border-stone-100 flex items-center justify-between">
               <span className="text-xs text-stone-500 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                Disponível para projetos
+                {t('hero.availability')}
               </span>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-stone-900 text-white"
+                className="text-xs font-bold text-stone-900 underline"
               >
-                Falar comigo
+                {t('about.ctaTalk')}
               </a>
             </div>
           </div>
         )}
-
       </div>
     </header>
   )

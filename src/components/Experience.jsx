@@ -1,11 +1,20 @@
 import { useState, useEffect, useRef } from 'react'
 import { Calendar, MapPin, ArrowUpRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Experience() {
+  const { t } = useTranslation()
   const { experiences } = portfolioData
   const containerRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
+
+  // Mapeamento das chaves de tradução para cada uma das 3 experiências
+  const roleKeys = {
+    'exp-1': 'cor',
+    'exp-2': 'web',
+    'exp-3': 'mkt',
+  }
 
   // Acompanhamento suave do progresso do scroll na timeline (padrão timeline-01)
   useEffect(() => {
@@ -15,7 +24,6 @@ export default function Experience() {
       const windowHeight = window.innerHeight
       const totalHeight = rect.height
 
-      // Começa quando o topo do container atinge o meio da tela e finaliza na base
       const current = windowHeight / 2 - rect.top
       const progress = Math.min(Math.max(current / totalHeight, 0), 1)
       setScrollProgress(progress)
@@ -38,16 +46,16 @@ export default function Experience() {
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
             <span>03</span>
             <span className="w-8 h-px bg-stone-300" />
-            <span>Vivência & Trajetória</span>
+            <span>{t('experience.tag')}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
-            Trajetória & evolução, <br />
+            {t('experience.headline')} <br />
             <span className="font-display font-light text-stone-700 italic inline-block mt-1">
-              vivência prática no Grupo GVS.
+              {t('experience.headlineHighlight')}
             </span>
           </h2>
           <p className="mt-4 text-base md:text-lg text-stone-600 leading-relaxed">
-            Da criação multimídia e liderança na reformulação completa do website corporativo à administração e monitoramento crítico de redes, telecomunicações e supervisórios SCADA no Centro de Operações Remotas.
+            {t('experience.subtitle')}
           </p>
         </div>
 
@@ -78,6 +86,15 @@ export default function Experience() {
           <div className="space-y-16 md:space-y-24">
             {experiences.map((exp, index) => {
               const isEven = index % 2 === 0
+              const rKey = roleKeys[exp.id] || 'cor'
+              const roleData = t(`experience.roles.${rKey}`, { returnObjects: true }) || {}
+
+              const roleTitle = roleData.title || exp.role
+              const rolePeriod = roleData.period || exp.period
+              const roleLocation = roleData.location || exp.location
+              const roleSummary = roleData.summary || exp.summary
+              const roleCaption = roleData.caption || exp.imageCaption
+              const roleBullets = roleData.bullets || exp.bullets
 
               return (
                 <div
@@ -106,18 +123,18 @@ export default function Experience() {
                       >
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/70 text-xs font-semibold text-stone-800">
                           <Calendar className="w-3.5 h-3.5 text-stone-500" />
-                          {exp.period}
+                          {rolePeriod}
                         </span>
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-stone-200/50 text-[11px] font-medium text-stone-600">
                           <MapPin className="w-3 h-3 text-stone-400" />
-                          {exp.location}
+                          {roleLocation}
                         </span>
                       </div>
 
                       {/* Cargo e Empresa */}
                       <div className="space-y-1 mt-1">
                         <h3 className="text-2xl sm:text-3xl font-display font-bold text-stone-900 tracking-tight leading-snug">
-                          {exp.role}
+                          {roleTitle}
                         </h3>
                         <a
                           href={exp.companyUrl}
@@ -136,7 +153,7 @@ export default function Experience() {
 
                       {/* Resumo da Atuação */}
                       <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal mt-1">
-                        {exp.summary}
+                        {roleSummary}
                       </p>
 
                       {/* Bullets de Impacto e Responsabilidades */}
@@ -145,17 +162,18 @@ export default function Experience() {
                           isEven ? 'md:text-right' : 'md:text-left'
                         }`}
                       >
-                        {exp.bullets.map((bullet, bIdx) => (
-                          <li
-                            key={bIdx}
-                            className={`flex items-start gap-2.5 ${
-                              isEven ? 'md:flex-row-reverse' : 'flex-row'
-                            }`}
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 shrink-0" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
+                        {Array.isArray(roleBullets) &&
+                          roleBullets.map((bullet, bIdx) => (
+                            <li
+                              key={bIdx}
+                              className={`flex items-start gap-2.5 ${
+                                isEven ? 'md:flex-row-reverse' : 'flex-row'
+                              }`}
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 shrink-0" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
                       </ul>
 
                       {/* Tags de Tecnologias & Competências */}
@@ -197,10 +215,10 @@ export default function Experience() {
                       <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                       {/* Badge com legenda da imagem */}
-                      {exp.imageCaption && (
+                      {roleCaption && (
                         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                           <span className="px-3 py-1 rounded-full bg-stone-900/85 backdrop-blur-md text-[11px] font-medium text-stone-100 border border-white/10 shadow-sm">
-                            {exp.imageCaption}
+                            {roleCaption}
                           </span>
                         </div>
                       )}
