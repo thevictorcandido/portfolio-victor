@@ -1,76 +1,201 @@
 @import "tailwindcss";
 
+/* -------------------------------------------------------------------------- */
+/* Fontes Locais & Customizadas: Smile Moon & Hyperlegible Sans               */
+/* -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Smile Moon';
+  src: url('/fonts/SmileMoon.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hyperlegible Sans';
+  src: url('/fonts/HyperlegibleSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hyperlegible Sans';
+  src: url('/fonts/HyperlegibleSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hyperlegible Sans';
+  src: url('/fonts/HyperlegibleSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hyperlegible Sans';
+  src: url('/fonts/HyperlegibleSans-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-display: 'Hyperlegible Sans', system-ui, -apple-system, sans-serif;
+  --font-special: 'Smile Moon', cursive, sans-serif;
 
-  /* Paleta Quase Preto (Base orgânica profunda) */
-  --color-pitch-950: #080A08;
-  --color-pitch-900: #0C0F0D;
-  --color-pitch-850: #111613;
-  --color-pitch-800: #171E19;
-  --color-pitch-700: #202B23;
-  --color-pitch-border: rgba(220, 230, 222, 0.08);
-  --color-pitch-border-hover: rgba(220, 230, 222, 0.18);
+  /* Paleta Branco Bege (Inspirada no design editorial da referência) */
+  --color-warm-bg: #FAF8F5;
+  --color-warm-surface: #FFFFFF;
+  --color-warm-card: #FFFFFF;
+  --color-warm-card-subtle: #F4EFEA;
+  --color-warm-border: rgba(0, 0, 0, 0.06);
+  --color-warm-border-hover: rgba(0, 0, 0, 0.14);
 
-  /* Paleta Verde Musgo Escuro & Detalhes */
-  --color-moss-900: #152218;
-  --color-moss-800: #1F3023;
-  --color-moss-700: #2B4231;
-  --color-moss-600: #3A5742;
-  --color-moss-500: #4B6F55;
-  --color-moss-400: #628E6E;
-  --color-moss-300: #84B18F;
-  --color-moss-light: #A7CCAF;
+  --color-warm-dark: #151515;
+  --color-warm-dark-hover: #000000;
+  --color-warm-charcoal: #2A2A2A;
+  --color-warm-body: #4C4842;
+  --color-warm-muted: #7E7870;
 
-  /* Paleta Branco Bege (Elegante & Confortável para Leitura) */
-  --color-beige-50: #FAF7F2;
-  --color-beige-100: #F4EFE6;
-  --color-beige-200: #ECE5D8;
-  --color-beige-300: #DDD3C1;
-  --color-beige-400: #B8ADA0;
-  --color-beige-muted: #8F877C;
+  --color-moss-accent: #2B4636;
+  --color-moss-subtle: #EBF1ED;
+  --color-moss-hover: #3A5C47;
+}
+
+/* Classes Utilitárias de Tipografia */
+.font-sans, body {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+.font-display, .font-heading, .font-title {
+  font-family: 'Hyperlegible Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-special, .font-smile-moon, .font-script {
+  font-family: 'Smile Moon', cursive, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-pitch-900);
-  color: var(--color-beige-100);
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-warm-bg);
+  color: var(--color-warm-dark);
   overflow-x: hidden;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0C0F0D;
+  background: #FAF8F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #233026;
-  border-radius: 4px;
+  background: #D8D2C6;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #364B3B;
+  background: #B5ACA0;
 }
 
-/* Technical grid background pattern */
-.bg-tech-grid {
-  background-size: 36px 36px;
-  background-image: 
-    linear-gradient(to right, rgba(220, 235, 224, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(220, 235, 224, 0.03) 1px, transparent 1px);
+/* Máscara de fusão orgânica inferior da foto */
+.mask-fade-b {
+  mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
 }
 
-.bg-dot-grid {
-  background-size: 24px 24px;
-  background-image: radial-gradient(rgba(132, 177, 143, 0.08) 1px, transparent 1px);
+.mask-fade-all {
+  mask-image: radial-gradient(circle at 50% 45%, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, black 60%, transparent 100%);
+}
+
+/* Animações suaves de rotação e flutuação */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+@keyframes float-gentle-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes float-gentle-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-0.5deg);
+  }
+}
+
+.animate-float-1 {
+  animation: float-gentle-1 6s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-gentle-2 7s ease-in-out 1s infinite;
+}
+
+/* Padrão orgânico muito suave para dar textura sem parecer tech */
+.bg-warm-grain {
+  background-color: #FAF8F5;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Animações dos componentes 21st.dev (Border Beam & Marquee)                */
+/* -------------------------------------------------------------------------- */
+
+@keyframes border-beam {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.animate-border-beam {
+  animation: border-beam var(--duration) infinite linear;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

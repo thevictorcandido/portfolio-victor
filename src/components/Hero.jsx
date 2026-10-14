@@ -1,206 +1,214 @@
-import { ArrowDown, Mail, ExternalLink, Terminal, Sparkles } from 'lucide-react'
-import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons'
+import { useState, useEffect, useRef } from 'react'
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
+import { BlurText } from './ui/blur-text'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Hero() {
-  const { personal } = portfolioData
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+  const buttonRef = useRef(null)
+
+  // Fechar o menu ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        menuOpen &&
+        menuRef.current &&
+        buttonRef.current &&
+        !menuRef.current.contains(e.target) &&
+        !buttonRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [menuOpen])
+
+  const navLinks = [
+    { label: 'INÍCIO', href: '#hero', highlight: true },
+    { label: 'SOBRE', href: '#about' },
+    { label: 'PROJETOS', href: '#projects' },
+    { label: 'EXPERIÊNCIA', href: '#experience' },
+    { label: 'HABILIDADES', href: '#skills' },
+    { label: 'FORMAÇÃO', href: '#education' },
+    { label: 'CONTATO', href: '#contact' },
+  ]
 
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex flex-col justify-center pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#232E25]/60 bg-tech-grid"
+      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#FAF8F5] text-stone-900 select-none pt-4 pb-8"
     >
-      {/* Background ambient moss glow */}
+      {/* Halo de luz suave de fundo para aquecer a composição */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-[#2B4231]/15 blur-[120px] rounded-full"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-amber-100/35 via-stone-200/20 to-transparent rounded-full blur-3xl -z-10"
       />
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 w-full relative z-10">
-        <div className="grid gap-12 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16 items-start">
-          
-          {/* Coluna Esquerda: Avatar com Retículos Técnicos (Inspiração Azalim) + Quick Stats */}
-          <div className="flex flex-col gap-6 items-center lg:items-start">
-            {/* Moldura da Foto / Avatar */}
-            <div className="relative aspect-[4/5] w-48 sm:w-56 lg:w-full max-w-[260px] bg-[#111613] border border-[#232E25] overflow-hidden group">
-              {/* Corner brackets técnicos (estilo Azalim) */}
-              <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#84B18F] z-20 pointer-events-none" />
-              <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#84B18F] z-20 pointer-events-none" />
-              <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#84B18F] z-20 pointer-events-none" />
-              <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#84B18F] z-20 pointer-events-none" />
+      {/* Header superior inspirado no componente 21st.dev */}
+      <header className="w-full max-w-7xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between z-30">
+        
+        {/* Botão de Menu Hambúrguer com dropdown lateral */}
+        <div className="relative">
+          <button
+            ref={buttonRef}
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 -ml-2 rounded-full text-stone-600 hover:text-stone-950 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-400 cursor-pointer flex items-center gap-2"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          >
+            {menuOpen ? (
+              <X className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
+            ) : (
+              <Menu className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
+            )}
+            <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-stone-500">
+              Menu
+            </span>
+          </button>
 
-              {personal.avatarUrl ? (
-                <img
-                  src={personal.avatarUrl}
-                  alt={`Retrato de ${personal.name}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              ) : (
-                /* Placeholder elegante e técnico até o Victor passar a foto real */
-                <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-b from-[#152218] via-[#0F1410] to-[#0C0F0D] text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#1F3023] border border-[#3A5742] flex items-center justify-center mb-3 text-[#A7CCAF]">
-                    <Terminal className="w-7 h-7" />
-                  </div>
-                  <span className="font-mono text-xs text-[#84B18F] uppercase tracking-wider">
-                    {personal.name}
-                  </span>
-                  <span className="text-[11px] font-mono text-[#8F877C] mt-1">
-                    [Sua Foto Aqui]
-                  </span>
-                  <div className="mt-4 px-2 py-1 bg-[#1A221C] border border-[#2B4231] rounded text-[10px] font-mono text-[#B8ADA0]">
-                    1080 × 1350 px
-                  </div>
-                </div>
-              )}
+          {/* Menu Dropdown Flutuante */}
+          {menuOpen && (
+            <div
+              ref={menuRef}
+              className="absolute top-full left-0 mt-3 w-56 sm:w-64 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-stone-200/80 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+            >
+              <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-2 px-2">
+                Navegação
+              </div>
+              <nav className="flex flex-col gap-1">
+                {navLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-xl text-sm font-semibold tracking-wide transition-all ${
+                      item.highlight
+                        ? 'bg-stone-900 text-white shadow-xs'
+                        : 'text-stone-700 hover:text-stone-950 hover:bg-stone-100/80'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
 
-              {/* Vinheta suave inferior */}
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0C0F0D] to-transparent pointer-events-none" />
-            </div>
-
-            {/* Quick System Badge (Inspiração FlaviOS) */}
-            <div className="w-full max-w-[260px] p-3 rounded-sm border border-[#232E25] bg-[#111613]/90 text-[11px] font-mono text-[#B8ADA0] flex flex-col gap-1.5">
-              <div className="flex items-center justify-between">
-                <span className="text-[#8F877C]">STATUS:</span>
-                <span className="text-[#84B18F] flex items-center gap-1 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#84B18F] animate-ping" />
-                  ONLINE
+              <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between px-2 text-xs text-stone-500">
+                <span>PUC Minas</span>
+                <span className="text-emerald-600 font-semibold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Disponível
                 </span>
               </div>
-              <div className="flex items-center justify-between border-t border-[#1C261E] pt-1">
-                <span className="text-[#8F877C]">LOC:</span>
-                <span className="text-[#ECE5D8] truncate">{personal.location.split('—')[0]}</span>
-              </div>
-              <div className="flex items-center justify-between border-t border-[#1C261E] pt-1">
-                <span className="text-[#8F877C]">STACK:</span>
-                <span className="text-[#A7CCAF]">React • Vite • TS</span>
-              </div>
             </div>
-          </div>
-
-          {/* Coluna Direita: Tipografia de Impacto + Biografia + Ações (Inspiração Pedro Braga + Azalim) */}
-          <div className="flex flex-col items-start text-left">
-            
-            {/* Status Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-sm border border-[#2B4231] bg-[#142017]/90 text-xs font-mono tracking-wide text-[#ECE5D8] mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#84B18F] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#628E6E]"></span>
-              </span>
-              <span>{personal.availability}</span>
-            </div>
-
-            {/* Headline com Tipografia Fluida (Inspiração Pedro Braga) */}
-            <div className="space-y-3 mb-6">
-              <p className="font-mono text-xs sm:text-sm tracking-widest uppercase text-[#84B18F]">
-                Olá, eu me chamo
-              </p>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#FAF7F2] leading-[1.05]">
-                {personal.name}
-              </h1>
-              <p className="text-xl sm:text-2xl lg:text-3xl font-light text-[#B8ADA0] tracking-tight">
-                {personal.role} <span className="text-[#3A5742]">/</span>{' '}
-                <span className="text-[#ECE5D8] font-normal">{personal.subtitle}</span>
-              </p>
-            </div>
-
-            {/* Apresentação Concisa */}
-            <p className="text-base sm:text-lg text-[#B8ADA0] leading-relaxed max-w-2xl mb-8">
-              Desenvolvo interfaces contemporâneas e arquiteturas web escaláveis, unindo{' '}
-              <strong className="text-[#FAF7F2] font-semibold">performance técnica</strong>,{' '}
-              <strong className="text-[#FAF7F2] font-semibold">design limpo</strong> e{' '}
-              atenção meticulosa aos detalhes.
-            </p>
-
-            {/* Grupo de Ações Principais */}
-            <div className="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-medium tracking-wide bg-[#2B4231] text-[#FAF7F2] hover:bg-[#3A5742] hover:shadow-lg hover:shadow-[#1F3023]/50 border border-[#4B6F55] transition-all"
-              >
-                <Sparkles className="w-4 h-4 text-[#A7CCAF]" />
-                Ver Projetos Selecionados
-              </a>
-
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-medium tracking-wide bg-[#111613] text-[#ECE5D8] hover:text-[#FAF7F2] hover:bg-[#18221B] border border-[#232E25] hover:border-[#3A5742] transition-all"
-              >
-                <Mail className="w-4 h-4 text-[#84B18F]" />
-                Falar Comigo
-              </a>
-            </div>
-
-            {/* Links Sociais em Pílulas Técnicas */}
-            <div className="pt-6 border-t border-[#1C261E] w-full flex flex-wrap items-center gap-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#8F877C] mr-2">
-                Conectar:
-              </span>
-
-              {personal.social.github && (
-                <a
-                  href={personal.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#232E25] bg-[#111613] text-xs font-mono text-[#B8ADA0] hover:text-[#FAF7F2] hover:border-[#4B6F55] hover:bg-[#152218] transition-all"
-                >
-                  <GithubIcon className="w-3.5 h-3.5 text-[#84B18F]" />
-                  <span>GitHub</span>
-                </a>
-              )}
-
-              {personal.social.linkedin && (
-                <a
-                  href={personal.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#232E25] bg-[#111613] text-xs font-mono text-[#B8ADA0] hover:text-[#FAF7F2] hover:border-[#4B6F55] hover:bg-[#152218] transition-all"
-                >
-                  <LinkedinIcon className="w-3.5 h-3.5 text-[#84B18F]" />
-                  <span>LinkedIn</span>
-                </a>
-              )}
-
-              {personal.social.email && (
-                <a
-                  href={`mailto:${personal.social.email}`}
-                  aria-label="E-mail"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#232E25] bg-[#111613] text-xs font-mono text-[#B8ADA0] hover:text-[#FAF7F2] hover:border-[#4B6F55] hover:bg-[#152218] transition-all"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#84B18F]" />
-                  <span>E-mail</span>
-                </a>
-              )}
-
-              {personal.social.instagram && (
-                <a
-                  href={personal.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#232E25] bg-[#111613] text-xs font-mono text-[#B8ADA0] hover:text-[#FAF7F2] hover:border-[#4B6F55] hover:bg-[#152218] transition-all"
-                >
-                  <InstagramIcon className="w-3.5 h-3.5 text-[#84B18F]" />
-                  <span>Instagram</span>
-                </a>
-              )}
-            </div>
-
-          </div>
+          )}
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="mt-16 flex justify-center lg:justify-start lg:ml-[18rem]">
+        {/* Monograma / Assinatura Central em Smile Moon */}
+        <div className="text-center">
           <a
-            href="#about"
-            className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#8F877C] hover:text-[#A7CCAF] transition-colors"
+            href="#hero"
+            className="font-special text-3xl sm:text-4xl text-stone-950 hover:opacity-85 transition-opacity tracking-normal"
+            title="Victor Cândido Leite"
           >
-            <span>Explorar Trajetória</span>
-            <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-1 transition-transform" />
+            Victor
           </a>
         </div>
+
+        {/* Lado Direito: Tag de Status / Botão Rápido de Contato */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-white hover:bg-black transition-all shadow-xs hover:scale-[1.02]"
+          >
+            <span>Contato</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </header>
+
+      {/* Centro: Nome Gigante com BlurText e Foto Centralizada com Fundo Transparente */}
+      <div className="flex-1 flex items-center justify-center py-6 sm:py-10 my-auto">
+        <div className="relative text-center w-full max-w-6xl mx-auto px-4">
+          
+          {/* Linha 1: VICTOR com BlurText por letras */}
+          <div className="overflow-visible flex justify-center">
+            <BlurText
+              text="VICTOR"
+              delay={85}
+              animateBy="letters"
+              direction="top"
+              className="font-bold text-[82px] xs:text-[105px] sm:text-[140px] md:text-[180px] lg:text-[215px] xl:text-[235px] leading-[0.78] tracking-tighter uppercase justify-center whitespace-nowrap text-stone-900 hover:text-black transition-colors"
+              style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
+            />
+          </div>
+
+          {/* Linha 2: CÂNDIDO com BlurText por letras */}
+          <div className="overflow-visible flex justify-center mt-1 sm:mt-2">
+            <BlurText
+              text="CÂNDIDO"
+              delay={85}
+              animateBy="letters"
+              direction="top"
+              className="font-bold text-[82px] xs:text-[105px] sm:text-[140px] md:text-[180px] lg:text-[215px] xl:text-[235px] leading-[0.78] tracking-tighter uppercase justify-center whitespace-nowrap text-stone-900 hover:text-black transition-colors"
+              style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
+            />
+          </div>
+
+          {/* Foto de Perfil Centralizada: Cápsula Oval com Victor Recortado Sem Fundo */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto">
+            <div
+              className="w-[68px] h-[115px] sm:w-[92px] sm:h-[156px] md:w-[114px] md:h-[192px] lg:w-[134px] lg:h-[224px] rounded-full overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer ring-4 ring-white/90 bg-gradient-to-b from-[#EFE9DF] via-[#E2DACB] to-[#CFC4B2] relative group"
+              title="Victor Cândido Leite"
+            >
+              {/* Brilho interior sutil */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/20 pointer-events-none z-10" />
+
+              {/* Foto real com fundo transparente */}
+              <img
+                src="/victor-sem-fundo.png"
+                alt={portfolioData.personal.name}
+                className="w-full h-full object-cover object-top filter contrast-[1.03] select-none transition-transform duration-500 group-hover:scale-105"
+                loading="eager"
+              />
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      {/* Rodapé da Hero: Subtítulo Editorial Animado e Scroll Down */}
+      <footer className="w-full max-w-4xl mx-auto px-6 text-center z-20 flex flex-col items-center">
+        
+        {/* Frase animada com BlurText por palavras */}
+        <div className="flex justify-center mb-2">
+          <BlurText
+            text="Designing human experiences in code."
+            delay={130}
+            animateBy="words"
+            direction="top"
+            className="text-[16px] sm:text-[19px] md:text-[21px] lg:text-[23px] text-center text-stone-600 hover:text-stone-900 transition-colors duration-300 justify-center font-medium"
+            style={{ fontFamily: "'Antic', 'Montserrat', sans-serif" }}
+          />
+        </div>
+
+        {/* Assinatura de identidade de Victor */}
+        <p className="text-xs sm:text-sm text-stone-500 font-normal mb-4 sm:mb-6">
+          Engenharia de Software na PUC Minas · Operações & Web no Grupo GVS
+        </p>
+
+        {/* Botão de Scroll Down com Chevron */}
+        <a
+          href="#about"
+          className="inline-flex items-center justify-center p-2 rounded-full text-stone-500 hover:text-stone-950 transition-colors animate-bounce cursor-pointer"
+          aria-label="Rolar para a seção Sobre"
+        >
+          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={2} />
+        </a>
+
+      </footer>
     </section>
   )
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Mail, Copy, Check, Send, ArrowUpRight, MessageSquare } from 'lucide-react'
-import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons'
+import { GithubIcon, LinkedinIcon } from './Icons'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Contact() {
@@ -25,54 +25,52 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-28 relative bg-[#0C0F0D] border-b border-[#232E25]/60 bg-tech-grid"
+      className="py-24 md:py-32 relative bg-[#FAF8F5]"
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-dashed border-[#232E25]">
-          <div>
-            <div className="flex items-center gap-2 font-mono text-xs text-[#84B18F] tracking-widest uppercase mb-2">
-              <span>06</span>
-              <span className="w-6 h-px bg-[#3A5742]" />
-              <span>Vamos Conversar</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FAF7F2] flex items-center">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#84B18F] inline-block mr-3" />
-              Contato & Parcerias
-            </h2>
+        {/* Cabeçalho Editorial */}
+        <div className="max-w-2xl mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
+            <span>06</span>
+            <span className="w-8 h-px bg-stone-300" />
+            <span>Contato & Parcerias</span>
           </div>
-          <p className="font-mono text-xs text-[#8F877C] tracking-wider uppercase">
-            Aberto para novas oportunidades
-          </p>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
+            Vamos conversar? <br />
+            <span className="font-display font-light text-stone-700 italic inline-block mt-1">
+              Aberto para projetos & oportunidades.
+            </span>
+          </h2>
         </div>
 
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
           
-          {/* Coluna Esquerda: Texto de Impacto + Copiar Email + Links */}
+          {/* Coluna Esquerda: Texto Convidativo & Ações Rápidas */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#FAF7F2] tracking-tight mb-4">
-                Tem um projeto em mente ou quer bater um papo?
+              <h3 className="text-2xl sm:text-3xl font-display font-bold text-stone-900 mb-4">
+                Tem uma ideia, desafio técnico ou vaga em vista?
               </h3>
-              <p className="text-base text-[#B8ADA0] leading-relaxed">
-                Estou sempre aberto para discutir novas ideias, oportunidades de trabalho, colaborações em projetos de código aberto ou desafios técnicos instigantes.
+              <p className="text-base text-stone-600 leading-relaxed font-normal">
+                Estou sempre entusiasmado para discutir novas oportunidades de estágio,
+                desenvolvimento de produtos, projetos acadêmicos ou colaborações no ecossistema de software.
               </p>
             </div>
 
-            {/* Caixa de Ação Rápida de E-mail */}
-            <div className="p-5 rounded-sm border border-[#2B4231] bg-[#142017]/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded bg-[#1F3023] text-[#84B18F] border border-[#3A5742]">
+            {/* Cartão de Copiar E-mail */}
+            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-mono uppercase text-[#8F877C]">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
                     E-mail direto
                   </p>
                   <a
                     href={`mailto:${personal.social.email}`}
-                    className="text-sm font-mono font-medium text-[#FAF7F2] hover:text-[#84B18F] transition-colors"
+                    className="text-sm font-semibold text-stone-900 hover:underline"
                   >
                     {personal.social.email}
                   </a>
@@ -82,36 +80,36 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#1A251C] border border-[#3A5742] text-xs font-mono uppercase tracking-wider text-[#FAF7F2] hover:bg-[#2B4231] transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold transition-all cursor-pointer"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-[#84B18F]" />
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
                     <span>Copiado!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-[#84B18F]" />
+                    <Copy className="w-3.5 h-3.5 text-stone-600" />
                     <span>Copiar</span>
                   </>
                 )}
               </button>
             </div>
 
-            {/* Cards de Redes Sociais */}
-            <div className="grid grid-cols-2 gap-3 pt-2">
+            {/* Redes Sociais em Cartões Leves */}
+            <div className="grid grid-cols-2 gap-3.5">
               {personal.social.github && (
                 <a
                   href={personal.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-sm border border-[#232E25] bg-[#111613] hover:border-[#3A5742] hover:bg-[#152218] transition-all flex items-center justify-between group"
+                  className="p-4 rounded-2xl bg-white border border-stone-200/80 hover:border-stone-300 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <GithubIcon className="w-4 h-4 text-[#84B18F]" />
-                    <span className="text-xs font-mono text-[#FAF7F2]">GitHub</span>
+                    <GithubIcon className="w-4 h-4 text-stone-800" />
+                    <span className="text-xs font-semibold text-stone-800">GitHub</span>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#8F877C] group-hover:text-[#A7CCAF] transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-900 transition-colors" />
                 </a>
               )}
 
@@ -120,42 +118,42 @@ export default function Contact() {
                   href={personal.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-sm border border-[#232E25] bg-[#111613] hover:border-[#3A5742] hover:bg-[#152218] transition-all flex items-center justify-between group"
+                  className="p-4 rounded-2xl bg-white border border-stone-200/80 hover:border-stone-300 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <LinkedinIcon className="w-4 h-4 text-[#84B18F]" />
-                    <span className="text-xs font-mono text-[#FAF7F2]">LinkedIn</span>
+                    <LinkedinIcon className="w-4 h-4 text-stone-800" />
+                    <span className="text-xs font-semibold text-stone-800">LinkedIn</span>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#8F877C] group-hover:text-[#A7CCAF] transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-900 transition-colors" />
                 </a>
               )}
             </div>
 
-            {/* Status pill de disponibilidade */}
-            <div className="flex items-center gap-2 text-xs font-mono text-[#8F877C]">
-              <span className="w-2 h-2 rounded-full bg-[#84B18F]" />
-              <span>Resposta costumeira em menos de 24 horas.</span>
+            {/* Disponibilidade */}
+            <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span>Resposta costumeira em poucas horas. Localizado em Belo Horizonte / Nova Lima, MG.</span>
             </div>
           </div>
 
-          {/* Coluna Direita: Formulário de Mensagem Direta */}
-          <div className="p-6 sm:p-8 rounded-sm border border-[#232E25] bg-[#111613]">
-            <h4 className="text-lg font-bold text-[#FAF7F2] mb-1 flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-[#84B18F]" />
-              Envie uma mensagem
+          {/* Coluna Direita: Formulário de Mensagem */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-stone-200/80 shadow-md shadow-stone-900/5">
+            <h4 className="text-xl font-display font-bold text-stone-900 mb-1 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-stone-700" />
+              Envie uma mensagem direta
             </h4>
-            <p className="text-xs text-[#8F877C] mb-6 font-mono">
-              Preencha os campos abaixo para iniciar contato.
+            <p className="text-xs text-stone-500 mb-6 font-normal">
+              Preencha os campos abaixo para iniciar o contato.
             </p>
 
             {formSubmitted ? (
-              <div className="p-6 rounded-sm bg-[#142017] border border-[#2B4231] text-center space-y-2 animate-in fade-in">
-                <Check className="w-8 h-8 text-[#84B18F] mx-auto" />
-                <p className="text-sm font-semibold text-[#FAF7F2]">
-                  Mensagem simulada enviada com sucesso!
+              <div className="p-8 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-center space-y-2 animate-in fade-in">
+                <Check className="w-8 h-8 text-emerald-600 mx-auto" />
+                <p className="text-sm font-bold text-emerald-950">
+                  Mensagem recebida com sucesso!
                 </p>
-                <p className="text-xs text-[#B8ADA0]">
-                  Este formulário está estruturado e pronto para você conectar ao Formspree, EmailJS ou ao seu backend.
+                <p className="text-xs text-emerald-800">
+                  Obrigado pelo contato! Responderei em breve no seu e-mail.
                 </p>
               </div>
             ) : (
@@ -163,7 +161,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-mono uppercase tracking-wider text-[#B8ADA0] mb-1.5"
+                    className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
                     Seu Nome
                   </label>
@@ -171,15 +169,15 @@ export default function Contact() {
                     id="name"
                     type="text"
                     required
-                    placeholder="Ex: Ana Silva"
-                    className="w-full px-3.5 py-2.5 rounded-sm bg-[#0C0F0D] border border-[#232E25] text-sm text-[#FAF7F2] placeholder-[#5A635D] focus:outline-none focus:border-[#4B6F55] focus:ring-1 focus:ring-[#4B6F55] transition-all"
+                    placeholder="Ex: Maria Clara"
+                    className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-mono uppercase tracking-wider text-[#B8ADA0] mb-1.5"
+                    className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
                     Seu E-mail
                   </label>
@@ -187,15 +185,15 @@ export default function Contact() {
                     id="email"
                     type="email"
                     required
-                    placeholder="Ex: ana@empresa.com"
-                    className="w-full px-3.5 py-2.5 rounded-sm bg-[#0C0F0D] border border-[#232E25] text-sm text-[#FAF7F2] placeholder-[#5A635D] focus:outline-none focus:border-[#4B6F55] focus:ring-1 focus:ring-[#4B6F55] transition-all"
+                    placeholder="Ex: maria@empresa.com"
+                    className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-mono uppercase tracking-wider text-[#B8ADA0] mb-1.5"
+                    className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
                     Mensagem
                   </label>
@@ -203,16 +201,16 @@ export default function Contact() {
                     id="message"
                     rows={4}
                     required
-                    placeholder="Conte um pouco sobre sua ideia, vaga ou projeto..."
-                    className="w-full px-3.5 py-2.5 rounded-sm bg-[#0C0F0D] border border-[#232E25] text-sm text-[#FAF7F2] placeholder-[#5A635D] focus:outline-none focus:border-[#4B6F55] focus:ring-1 focus:ring-[#4B6F55] transition-all resize-none"
+                    placeholder="Conte sobre sua ideia, desafio ou projeto..."
+                    className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-sm bg-[#2B4231] hover:bg-[#3A5742] text-[#FAF7F2] text-sm font-medium border border-[#4B6F55] transition-all shadow-md shadow-black/30"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-stone-950 hover:bg-black text-white text-sm font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
-                  <Send className="w-4 h-4 text-[#84B18F]" />
+                  <Send className="w-4 h-4 text-stone-300" />
                   <span>Enviar Mensagem</span>
                 </button>
               </form>

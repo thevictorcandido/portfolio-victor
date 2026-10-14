@@ -10,35 +10,35 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0C0F0D] text-[#ECE5D8] selection:bg-[#3A5742] selection:text-[#FAF7F2]">
-      {/* Barra de Navegação Fixa com Backdrop Blur */}
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-stone-900 selection:text-stone-50">
+      {/* Barra de Navegação Flutuante no Estilo da Referência */}
       <Navbar />
 
       {/* Conteúdo Principal do Portfólio */}
       <main>
-        {/* Seção Hero: Apresentação de Alto Impacto */}
+        {/* Seção Hero: Apresentação com Referência Mindly & Foto do Victor */}
         <Hero />
 
-        {/* 01: Sobre Mim & Filosofia de Desenvolvimento */}
+        {/* 01: Sobre Mim & Visão Editorial */}
         <About />
 
-        {/* 02: Projetos em Destaque & Filtros */}
+        {/* 02: Projetos Selecionados com Cartões Arredondados */}
         <Projects />
 
-        {/* 03: Experiência Profissional & Linha do Tempo */}
+        {/* 03: Vivência & Trajetória */}
         <Experience />
 
-        {/* 04: Conhecimento Técnico & Stack */}
+        {/* 04: Habilidades & Stack Técnica */}
         <Skills />
 
-        {/* 05: Formação Acadêmica & Cursos */}
+        {/* 05: Formação Acadêmica na PUC Minas */}
         <Education />
 
-        {/* 06: Contato Direto & Formulário */}
+        {/* 06: Contato & Conexão Direta */}
         <Contact />
       </main>
 
-      {/* Rodapé com Direitos e Ações */}
+      {/* Rodapé Editorial */}
       <Footer />
     </div>
   )

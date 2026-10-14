@@ -1,91 +1,174 @@
-import { Code, Database, Wrench, Sparkles } from 'lucide-react'
+import { Server, Brain, Sparkles, CheckCircle2 } from 'lucide-react'
+import { BorderBeam } from './ui/border-beam'
+import { Marquee } from './ui/marquee'
+import {
+  PythonIcon,
+  JavaIcon,
+  NodeIcon,
+  PostgresIcon,
+  DockerIcon,
+  RedisIcon,
+  GitIcon,
+  OpenAiIcon,
+  PyTorchIcon,
+  HuggingFaceIcon,
+  LangChainIcon,
+} from './TechIcons'
 import { portfolioData } from '../data/portfolioData'
+
+// Mapeamento de ícones oficiais para cada tecnologia
+const techIconMap = {
+  Python: PythonIcon,
+  Java: JavaIcon,
+  'Node.js': NodeIcon,
+  PostgreSQL: PostgresIcon,
+  Docker: DockerIcon,
+  Redis: RedisIcon,
+  'Git & GitHub': GitIcon,
+  'OpenAI API': OpenAiIcon,
+  LangChain: LangChainIcon,
+  PyTorch: PyTorchIcon,
+  'Hugging Face': HuggingFaceIcon,
+}
 
 export default function Skills() {
   const { skillsCategories } = portfolioData
 
-  const categoryIcons = {
-    'Frontend & Interfaces': Code,
-    'Backend & Dados': Database,
-    'Ferramentas & DevOps': Wrench,
-  }
-
   return (
     <section
       id="skills"
-      className="py-20 lg:py-28 border-b border-[#232E25]/60 relative bg-[#0C0F0D]"
+      className="py-24 md:py-32 relative bg-[#FAF8F5] overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-dashed border-[#232E25]">
-          <div>
-            <div className="flex items-center gap-2 font-mono text-xs text-[#84B18F] tracking-widest uppercase mb-2">
-              <span>04</span>
-              <span className="w-6 h-px bg-[#3A5742]" />
-              <span>Conhecimento Técnico</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FAF7F2] flex items-center">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#84B18F] inline-block mr-3" />
-              Stack & Habilidades
-            </h2>
+        {/* Cabeçalho Editorial */}
+        <div className="max-w-3xl mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
+            <span>04</span>
+            <span className="w-8 h-px bg-stone-300" />
+            <span>Habilidades & Repertório</span>
           </div>
-          <p className="font-mono text-xs text-[#8F877C] tracking-wider uppercase">
-            Tecnologias, frameworks e ferramentas
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
+            Backend no centro, <br />
+            <span className="font-display font-light text-stone-700 italic inline-block mt-1">
+              potencializado por inteligência artificial.
+            </span>
+          </h2>
+          <p className="mt-4 text-base text-stone-600 leading-relaxed font-normal max-w-2xl">
+            Minha atuação é concentrada no desenvolvimento de sistemas sólidos de backend, microsserviços e APIs, combinados à aplicação estratégica de modelos de IA generativa e análise de dados.
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {skillsCategories.map((group, idx) => {
-            const Icon = categoryIcons[group.category] || Code
+        {/* Cards de Categorias no Modelo 21st.dev (Logo Cloud 15 + BorderBeam + Marquee) */}
+        <div className="space-y-12 md:space-y-16">
+          {skillsCategories.map((cat) => {
+            const isBackend = cat.id === 'backend'
+            const Icon = isBackend ? Server : Brain
+            const beamColor = isBackend ? '#10B981' : '#8B5CF6'
+            const badgeBg = isBackend
+              ? 'bg-emerald-50 text-emerald-800 border-emerald-200/70'
+              : 'bg-purple-50 text-purple-800 border-purple-200/70'
 
             return (
               <div
-                key={idx}
-                className="p-6 rounded-sm border border-[#232E25] bg-[#111613] hover:border-[#3A5742] transition-all flex flex-col justify-between"
+                key={cat.id}
+                className="relative rounded-3xl border border-stone-200/90 bg-white/95 backdrop-blur-md p-8 sm:p-10 md:p-12 shadow-xl overflow-hidden group"
               >
-                <div>
-                  {/* Category Header */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded bg-[#17221A] border border-[#2B4231] text-[#84B18F]">
-                      <Icon className="w-4 h-4" />
+                {/* BorderBeam animado contornando o card (Modelo Logo Cloud 15) */}
+                <BorderBeam
+                  duration={isBackend ? 8 : 10}
+                  size={140}
+                  colorFrom="#1c1917"
+                  colorTo={beamColor}
+                  borderWidth={2}
+                />
+
+                {/* Cabeçalho do Card com Light-Sweep no Título */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-stone-100">
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
+                      isBackend ? 'bg-emerald-100/70 text-emerald-800' : 'bg-purple-100/70 text-purple-800'
+                    }`}>
+                      <Icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#FAF7F2]">
-                        {group.category}
-                      </h3>
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-xl sm:text-2xl font-display font-bold text-stone-900 tracking-tight">
+                          <span
+                            className="bg-clip-text text-transparent bg-gradient-to-r from-stone-900 via-stone-700 to-stone-900"
+                            style={{
+                              backgroundImage: isBackend
+                                ? 'linear-gradient(90deg, #1c1917 0%, #10B981 50%, #1c1917 100%)'
+                                : 'linear-gradient(90deg, #1c1917 0%, #8B5CF6 50%, #1c1917 100%)',
+                              backgroundSize: '200% auto',
+                            }}
+                          >
+                            {cat.category}
+                          </span>
+                        </h3>
+                      </div>
+                      <p className="text-xs sm:text-sm text-stone-500 font-medium mt-0.5">
+                        {cat.description}
+                      </p>
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#B8ADA0] mb-6 leading-relaxed">
-                    {group.description}
-                  </p>
+                  {/* Badge de Destaque de Foco */}
+                  <div className="self-start md:self-auto">
+                    <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold border ${badgeBg}`}>
+                      <span className={`w-2 h-2 rounded-full ${isBackend ? 'bg-emerald-500 animate-pulse' : 'bg-purple-500 animate-pulse'}`} />
+                      <span>{cat.focusBadge}</span>
+                    </span>
+                  </div>
+                </div>
 
-                  {/* Skills Pills (Estilo Azalim com Tag Dupla) */}
-                  <ul className="flex flex-wrap gap-2">
-                    {group.skills.map((skill, sIdx) => (
-                      <li key={sIdx}>
+                {/* Marquee Contínuo de Logos (Modelo Logo Cloud 15) */}
+                <div className="mb-8 py-3 bg-stone-50/70 rounded-2xl border border-stone-200/50 overflow-hidden">
+                  <Marquee duration={isBackend ? 22 : 26} pauseOnHover={true} gap="2.5rem">
+                    {cat.technologies.map((tech) => {
+                      const TechIconComp = techIconMap[tech.name] || Sparkles
+
+                      return (
                         <div
-                          title={`${skill.name} — ${skill.level}`}
-                          className="inline-flex items-center border border-[#232E25] rounded-sm text-xs font-mono transition-transform hover:scale-105 select-none overflow-hidden"
+                          key={tech.name}
+                          className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-stone-200/70 shadow-2xs text-stone-800 shrink-0 select-none hover:shadow-xs transition-shadow"
                         >
-                          <span className="bg-[#17221A] text-[#FAF7F2] px-2.5 py-1 font-medium border-r border-[#232E25]">
-                            {skill.name}
-                          </span>
-                          <span className="bg-[#111613] text-[#A7CCAF] px-2 py-1 text-[11px]">
-                            {skill.badge}
+                          <TechIconComp className="w-5 h-5 shrink-0" />
+                          <span className="text-xs font-bold font-mono tracking-tight text-stone-900">
+                            {tech.name}
                           </span>
                         </div>
-                      </li>
-                    ))}
-                  </ul>
+                      )
+                    })}
+                  </Marquee>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#1C261E] flex items-center justify-between text-[11px] font-mono text-[#8F877C]">
-                  <span>{group.skills.length} competências</span>
-                  <span className="text-[#84B18F]">● Atualizado</span>
+                {/* Grid Interno Detalhado das Tecnologias & Papéis */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                  {cat.technologies.map((tech) => {
+                    const TechIconComp = techIconMap[tech.name] || CheckCircle2
+
+                    return (
+                      <div
+                        key={tech.name}
+                        className="p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-stone-200/70 hover:border-stone-300 hover:bg-white hover:shadow-sm transition-all group/item flex items-center gap-3"
+                      >
+                        <div className="w-9 h-9 rounded-xl bg-stone-100 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                          <TechIconComp className="w-5 h-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs sm:text-sm font-bold text-stone-900 truncate">
+                            {tech.name}
+                          </p>
+                          <p className="text-[11px] text-stone-500 truncate">
+                            {tech.role}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
+
               </div>
             )
           })}

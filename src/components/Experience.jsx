@@ -1,150 +1,217 @@
-import { useState } from 'react'
-import { Calendar, MapPin, ArrowUpRight, ChevronDown, ChevronUp, Briefcase } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Calendar, MapPin, ArrowUpRight } from 'lucide-react'
 import { portfolioData } from '../data/portfolioData'
 
 export default function Experience() {
   const { experiences } = portfolioData
-  // Control which experience cards are expanded
-  const [expandedIds, setExpandedIds] = useState(experiences.map((e) => e.id))
+  const containerRef = useRef(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
-  const toggleExpand = (id) => {
-    setExpandedIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    )
-  }
+  // Acompanhamento suave do progresso do scroll na timeline (padrão timeline-01)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return
+      const rect = containerRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+      const totalHeight = rect.height
+
+      // Começa quando o topo do container atinge o meio da tela e finaliza na base
+      const current = windowHeight / 2 - rect.top
+      const progress = Math.min(Math.max(current / totalHeight, 0), 1)
+      setScrollProgress(progress)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <section
       id="experience"
-      className="py-20 lg:py-28 border-b border-[#232E25]/60 relative bg-[#0C0F0D]"
+      className="py-24 md:py-32 relative bg-[#F7F4EE] border-t border-b border-stone-200/60 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-dashed border-[#232E25]">
-          <div>
-            <div className="flex items-center gap-2 font-mono text-xs text-[#84B18F] tracking-widest uppercase mb-2">
-              <span>03</span>
-              <span className="w-6 h-px bg-[#3A5742]" />
-              <span>Carreira & Trajetória</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FAF7F2] flex items-center">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#84B18F] inline-block mr-3" />
-              Onde Já Atuei
-            </h2>
+        {/* Cabeçalho da Seção no Estilo Editorial */}
+        <div className="max-w-3xl mb-16 md:mb-24">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
+            <span>03</span>
+            <span className="w-8 h-px bg-stone-300" />
+            <span>Vivência & Trajetória</span>
           </div>
-          <p className="font-mono text-xs text-[#8F877C] tracking-wider uppercase">
-            Histórico profissional & contribuições
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
+            Trajetória & evolução, <br />
+            <span className="font-display font-light text-stone-700 italic inline-block mt-1">
+              vivência prática no Grupo GVS.
+            </span>
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-stone-600 leading-relaxed">
+            Da criação multimídia e liderança na reformulação completa do website corporativo à administração e monitoramento crítico de redes, telecomunicações e supervisórios SCADA no Centro de Operações Remotas.
           </p>
         </div>
 
-        {/* Timeline Container (Inspiração Azalim + Pedro Braga) */}
-        <div className="relative pl-6 sm:pl-10 lg:pl-12 border-l border-[#232E25]">
-          <ol className="space-y-12">
-            {experiences.map((exp) => {
-              const isExpanded = expandedIds.includes(exp.id)
+        {/* Container da Timeline (padrão shadcnspace/timeline-01) */}
+        <div ref={containerRef} className="relative">
+          
+          {/* Linha vertical base de fundo */}
+          <div
+            aria-hidden="true"
+            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2 bg-stone-200/90"
+          />
+
+          {/* Linha vertical animada de progresso por scroll */}
+          <div
+            aria-hidden="true"
+            style={{ height: `${scrollProgress * 100}%` }}
+            className="absolute left-6 md:left-1/2 top-0 w-[2px] md:-translate-x-1/2 bg-stone-900 origin-top transition-all duration-75"
+          />
+
+          {/* Marcador flutuante que desce junto do scroll */}
+          <div
+            aria-hidden="true"
+            style={{ top: `${scrollProgress * 100}%` }}
+            className="absolute left-6 md:left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 h-4 w-4 rounded-full border-4 border-[#F7F4EE] bg-stone-900 shadow-md md:block hidden transition-all duration-75"
+          />
+
+          {/* Lista de itens alternados */}
+          <div className="space-y-16 md:space-y-24">
+            {experiences.map((exp, index) => {
+              const isEven = index % 2 === 0
 
               return (
-                <li key={exp.id} className="relative group">
-                  {/* Timeline Glowing Node Marker */}
+                <div
+                  key={exp.id}
+                  className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-16 pl-14 md:pl-0"
+                >
+                  {/* Marcador circular fixo na linha para cada marco */}
                   <span
                     aria-hidden="true"
-                    className="absolute -left-[31px] sm:-left-[47px] lg:-left-[55px] top-1.5 size-3 rounded-full border-2 border-[#84B18F] bg-[#142017] ring-4 ring-[#84B18F]/20 group-hover:bg-[#84B18F] group-hover:scale-125 transition-all"
+                    className="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2 z-20 size-3.5 rounded-full bg-white border-2 border-stone-900 ring-4 ring-[#F7F4EE] shadow-xs"
                   />
 
-                  {/* Experience Card */}
-                  <div className="p-6 sm:p-8 rounded-sm border border-[#232E25] bg-[#111613] hover:border-[#3A5742] transition-colors">
-                    
-                    {/* Header: Cargo + Empresa + Metadados */}
-                    <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 pb-4 border-b border-[#1C261E]">
-                      <div>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-xl sm:text-2xl font-bold text-[#FAF7F2]">
-                            {exp.role}
-                          </h3>
-                          <span className="text-[#8F877C] hidden sm:inline">·</span>
-                          <a
-                            href={exp.companyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-lg font-semibold text-[#84B18F] hover:text-[#A7CCAF] transition-colors"
-                          >
-                            <span>{exp.company}</span>
-                            <ArrowUpRight className="w-4 h-4" />
-                          </a>
-                        </div>
-
-                        <p className="text-sm text-[#B8ADA0] mt-1">
-                          {exp.summary}
-                        </p>
-                      </div>
-
-                      {/* Badges de Período e Localização */}
-                      <div className="flex flex-wrap lg:flex-col items-start lg:items-end gap-2 text-xs font-mono text-[#8F877C] shrink-0">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#17221A] border border-[#2B4231] text-[#ECE5D8]">
-                          <Calendar className="w-3.5 h-3.5 text-[#84B18F]" />
+                  {/* Coluna de Texto & Conteúdo */}
+                  <div
+                    className={`flex flex-col justify-center z-10 ${
+                      isEven ? 'md:items-end md:text-right' : 'md:order-2 md:items-start md:text-left'
+                    }`}
+                  >
+                    <div className="flex flex-col gap-3 max-w-xl">
+                      
+                      {/* Metadados: Período e Localização */}
+                      <div
+                        className={`flex flex-wrap items-center gap-2 ${
+                          isEven ? 'md:justify-end' : 'md:justify-start'
+                        }`}
+                      >
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/70 text-xs font-semibold text-stone-800">
+                          <Calendar className="w-3.5 h-3.5 text-stone-500" />
                           {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#111613] border border-[#232E25] text-[#8F877C]">
-                          <MapPin className="w-3.5 h-3.5" />
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-stone-200/50 text-[11px] font-medium text-stone-600">
+                          <MapPin className="w-3 h-3 text-stone-400" />
                           {exp.location}
                         </span>
                       </div>
-                    </div>
 
-                    {/* Conteúdo Expandível: Bullet points de impacto */}
-                    <div className="mt-5 space-y-3">
-                      {isExpanded && (
-                        <ul className="space-y-2.5 text-sm text-[#B8ADA0] leading-relaxed">
-                          {exp.bullets.map((bullet, bIdx) => (
-                            <li key={bIdx} className="flex items-start gap-2.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#84B18F] mt-2 shrink-0" />
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {/* Botão de Toggle */}
-                      <button
-                        type="button"
-                        onClick={() => toggleExpand(exp.id)}
-                        className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[#8F877C] hover:text-[#84B18F] pt-2 transition-colors"
-                      >
-                        {isExpanded ? (
-                          <>
-                            <span>Recolher detalhes</span>
-                            <ChevronUp className="w-3.5 h-3.5" />
-                          </>
-                        ) : (
-                          <>
-                            <span>Ver realizações e impacto</span>
-                            <ChevronDown className="w-3.5 h-3.5" />
-                          </>
-                        )}
-                      </button>
-                    </div>
-
-                    {/* Tecnologias Utilizadas */}
-                    <div className="mt-6 pt-5 border-t border-[#1C261E] flex flex-wrap items-center gap-2">
-                      <span className="text-[11px] font-mono uppercase text-[#8F877C] mr-1">
-                        Stack:
-                      </span>
-                      {exp.technologies.map((tech, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2.5 py-1 text-xs font-mono rounded-sm bg-[#17221A] border border-[#2B4231] text-[#D8D1C3]"
+                      {/* Cargo e Empresa */}
+                      <div className="space-y-1 mt-1">
+                        <h3 className="text-2xl sm:text-3xl font-display font-bold text-stone-900 tracking-tight leading-snug">
+                          {exp.role}
+                        </h3>
+                        <a
+                          href={exp.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-1.5 text-sm font-semibold text-stone-700 hover:text-stone-950 transition-colors group/link ${
+                            isEven ? 'md:justify-end' : 'md:justify-start'
+                          }`}
                         >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                          <span className="underline decoration-stone-300 underline-offset-4 group-hover/link:decoration-stone-900 transition-colors">
+                            {exp.company}
+                          </span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-stone-400 group-hover/link:text-stone-900 transition-colors" />
+                        </a>
+                      </div>
 
+                      {/* Resumo da Atuação */}
+                      <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal mt-1">
+                        {exp.summary}
+                      </p>
+
+                      {/* Bullets de Impacto e Responsabilidades */}
+                      <ul
+                        className={`mt-2 space-y-2 text-xs sm:text-sm text-stone-600 leading-relaxed ${
+                          isEven ? 'md:text-right' : 'md:text-left'
+                        }`}
+                      >
+                        {exp.bullets.map((bullet, bIdx) => (
+                          <li
+                            key={bIdx}
+                            className={`flex items-start gap-2.5 ${
+                              isEven ? 'md:flex-row-reverse' : 'flex-row'
+                            }`}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 shrink-0" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Tags de Tecnologias & Competências */}
+                      <div
+                        className={`mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-stone-200/60 ${
+                          isEven ? 'md:justify-end' : 'md:justify-start'
+                        }`}
+                      >
+                        {exp.technologies.map((tech, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-white border border-stone-200/80 text-stone-700 shadow-2xs hover:border-stone-400 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                    </div>
                   </div>
-                </li>
+
+                  {/* Coluna de Imagem */}
+                  <div
+                    className={`flex items-center justify-center z-10 ${
+                      isEven ? 'md:order-2' : 'md:order-1'
+                    }`}
+                  >
+                    <div className="relative aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-100 group">
+                      <img
+                        src={exp.image}
+                        alt={exp.imageAlt}
+                        className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                          exp.objectPosition || 'object-center'
+                        }`}
+                        loading="lazy"
+                      />
+
+                      {/* Overlay sutil ao passar o cursor */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                      {/* Badge com legenda da imagem */}
+                      {exp.imageCaption && (
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                          <span className="px-3 py-1 rounded-full bg-stone-900/85 backdrop-blur-md text-[11px] font-medium text-stone-100 border border-white/10 shadow-sm">
+                            {exp.imageCaption}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                </div>
               )
             })}
-          </ol>
+          </div>
+
         </div>
 
       </div>
