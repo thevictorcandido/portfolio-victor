@@ -27,6 +27,7 @@ Voltar: [Portfolio Victor](README.md)
 > **o que ficou pronto**
 >
 > 113 chaves em cada idioma, nenhuma faltando em nenhum dos dois (comparação recursiva das chaves dos dois JSON).
+> Em 2026-10-20 subiu para **119** com as chaves do formulário (`contact.sendingBtn`, `successTitle`, `successText`, `errorText`, `copy`, `copied`) — paridade mantida.
 
 > [!CAUTION]
 > **defeito, com causa raiz**

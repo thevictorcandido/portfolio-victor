@@ -1,14 +1,17 @@
 import { useState } from 'react'
-import { Mail, Copy, Check, Send, ArrowUpRight, MessageSquare } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import { Mail, Copy, Check, Send, ArrowUpRight, MessageSquare, Loader2, AlertCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { GithubIcon, LinkedinIcon } from './Icons'
 import { portfolioData } from '../data/portfolioData'
+import EMAILJS_CONFIG, { isEmailjsConfigured } from '../config/emailjsConfig'
 
 export default function Contact() {
   const { t } = useTranslation()
   const { personal } = portfolioData
   const [copied, setCopied] = useState(false)
-  const [formSubmitted, setFormSubmitted] = useState(false)
+  // idle | sending | success | error
+  const [status, setStatus] = useState('idle')
 
   const handleCopyEmail = () => {
     if (personal.social?.email) {
@@ -18,10 +21,31 @@ export default function Contact() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setFormSubmitted(true)
-    setTimeout(() => setFormSubmitted(false), 5000)
+    const form = e.currentTarget
+
+    if (!isEmailjsConfigured) {
+      console.error('EmailJS não configurado: defina VITE_EMAILJS_* em .env.local')
+      setStatus('error')
+      return
+    }
+
+    setStatus('sending')
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        Object.fromEntries(new FormData(form)),
+        { publicKey: EMAILJS_CONFIG.PUBLIC_KEY },
+      )
+      form.reset()
+      setStatus('success')
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (err) {
+      console.error('Falha ao enviar mensagem pelo EmailJS:', err)
+      setStatus('error')
+    }
   }
 
   return (
@@ -83,12 +107,12 @@ export default function Contact() {
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span className="text-emerald-700">Copiado!</span>
+                    <span className="text-emerald-700">{t('contact.copied')}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5 text-stone-500" />
-                    <span>Copiar</span>
+                    <span>{t('contact.copy')}</span>
                   </>
                 )}
               </button>
@@ -144,14 +168,14 @@ export default function Contact() {
               {t('contact.subtitle')}
             </p>
 
-            {formSubmitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-center space-y-2 animate-in fade-in">
+            {status === 'success' ? (
+              <div role="status" className="p-8 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-center space-y-2 animate-in fade-in">
                 <Check className="w-8 h-8 text-emerald-600 mx-auto" />
                 <p className="text-sm font-bold text-emerald-950">
-                  Mensagem recebida com sucesso!
+                  {t('contact.successTitle')}
                 </p>
                 <p className="text-xs text-emerald-800">
-                  Obrigado pelo contato! Responderei em breve no seu e-mail.
+                  {t('contact.successText')}
                 </p>
               </div>
             ) : (
@@ -165,7 +189,9 @@ export default function Contact() {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
+                    autoComplete="name"
                     required
                     placeholder={t('contact.namePlaceholder')}
                     className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all"
@@ -181,7 +207,9 @@ export default function Contact() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     required
                     placeholder={t('contact.emailPlaceholder')}
                     className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all"
@@ -197,6 +225,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={4}
                     placeholder={t('contact.messagePlaceholder')}
@@ -204,12 +233,34 @@ export default function Contact() {
                   />
                 </div>
 
+                {status === 'error' && (
+                  <div role="alert" className="p-4 rounded-2xl bg-red-50 border border-red-200 flex gap-2.5 text-xs text-red-900">
+                    <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-px" />
+                    <p>
+                      {t('contact.errorText')}{' '}
+                      <a href={`mailto:${personal.social?.email}`} className="font-semibold underline underline-offset-2">
+                        {personal.social?.email}
+                      </a>
+                    </p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full font-semibold text-sm bg-stone-950 text-white hover:bg-black transition-all shadow-xs hover:shadow-md hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer mt-2"
+                  disabled={status === 'sending'}
+                  className="w-full py-3.5 rounded-full font-semibold text-sm bg-stone-950 text-white hover:bg-black transition-all shadow-xs hover:shadow-md hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-70 disabled:cursor-wait disabled:hover:scale-100"
                 >
-                  <span>{t('contact.sendBtn')}</span>
-                  <Send className="w-4 h-4" />
+                  {status === 'sending' ? (
+                    <>
+                      <span>{t('contact.sendingBtn')}</span>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      <span>{t('contact.sendBtn')}</span>
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}

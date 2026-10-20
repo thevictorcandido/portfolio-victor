@@ -159,6 +159,12 @@
     "messageLabel": "Mensagem",
     "messagePlaceholder": "Compartilhe sobre a oportunidade, ideia ou projeto...",
     "sendBtn": "Enviar Mensagem",
+    "sendingBtn": "Enviando...",
+    "successTitle": "Mensagem enviada com sucesso!",
+    "successText": "Obrigado pelo contato! Responderei em breve no seu e-mail.",
+    "errorText": "Não foi possível enviar sua mensagem agora. Tente de novo ou escreva direto para",
+    "copy": "Copiar",
+    "copied": "Copiado!",
     "directLinks": "Canais Diretos & Redes",
     "locationLabel": "Localização",
     "locationValue": "Belo Horizonte / Nova Lima, MG · Brasil"

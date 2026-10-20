@@ -13,6 +13,7 @@ Voltar: [Portfolio Victor](README.md)
 | Ícones | `lucide-react` + SVGs próprios em `TechIcons.jsx` / `Icons.jsx` | ^1.56.0 |
 | i18n | `i18next`, `react-i18next`, `i18next-browser-languagedetector` | ^26.4.4 / ^17.0.16 / ^8.2.1 |
 | Bandeiras | `country-flag-icons` | ^1.6.20 |
+| E-mail | `@emailjs/browser` (formulário de contato) | ^4.4.1 |
 | Lint | `oxlint` (plugins `react`, `oxc`) | ^1.81.0 |
 
 Sem TypeScript (JSX puro), sem roteador, sem backend. Alias `@` → `./src` em `vite.config.js`.
@@ -27,6 +28,7 @@ src/
   i18n/index.js            init do i18next + sincroniza <html lang> e <title>
   i18n/locales/{pt-BR,en}/translation.json
   config/i18nConfig.js     idiomas, fallback, chave do localStorage
+  config/emailjsConfig.js  IDs do EmailJS lidos de VITE_EMAILJS_* + isEmailjsConfigured
   data/portfolioData.js    dados estruturados (links, imagens, tags, skills)
   lib/utils.js             cn() — join simples de classes
   components/

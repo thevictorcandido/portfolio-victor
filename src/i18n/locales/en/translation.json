@@ -159,6 +159,12 @@
     "messageLabel": "Message",
     "messagePlaceholder": "Tell me about the opportunity, idea, or project...",
     "sendBtn": "Send Message",
+    "sendingBtn": "Sending...",
+    "successTitle": "Message sent successfully!",
+    "successText": "Thanks for reaching out! I'll reply to your email soon.",
+    "errorText": "Your message couldn't be sent right now. Please try again or write directly to",
+    "copy": "Copy",
+    "copied": "Copied!",
     "directLinks": "Direct Channels & Social",
     "locationLabel": "Location",
     "locationValue": "Belo Horizonte / Nova Lima, MG · Brazil"

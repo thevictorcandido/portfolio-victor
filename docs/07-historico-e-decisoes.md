@@ -9,7 +9,8 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-13 18:22 | `d30b8f0` | **Projeto base** — template Vite + React, oxlint, README com as referências e a paleta escura |
 | 2026-10-13 23:07 | `319f11f` | **Site completo sem tradução** — todas as seções, fotos, fontes locais, componentes 21st.dev, visual claro bege |
 | 2026-10-13 23:51 | `ae0f854` | **i18n pt-BR / en** — i18next, LanguageSwitcher, textos movidos para `translation.json` |
-| 2026-10-20 | — | Documentação criada (vault Obsidian + `docs/` no repo) |
+| 2026-10-20 | `cd4e1ec` | Documentação criada (vault Obsidian + `docs/` no repo) |
+| 2026-10-20 | — | Formulário de contato com envio real via EmailJS |
 
 ## Decisões
 
@@ -37,6 +38,11 @@ Voltar: [Portfolio Victor](README.md)
 > **lint com oxlint em vez de ESLint**
 >
 > Mais rápido e com zero configuração extra; regras ativas: `react/rules-of-hooks` (erro) e `react/only-export-components` (aviso).
+
+> [!IMPORTANT]
+> **EmailJS para o formulário de contato**
+>
+> Escolhido em 2026-10-20, entre Formspree, EmailJS e `mailto:`. Funciona 100% no front (sem backend), cabe num site estático e o template de e-mail é editável no painel. Credenciais ficam em `VITE_EMAILJS_*` (`.env.local`, já ignorado pelo `*.local` do `.gitignore`).
 
 > [!NOTE]
 > **contexto**

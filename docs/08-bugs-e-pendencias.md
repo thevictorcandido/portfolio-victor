@@ -6,11 +6,12 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 ## Bugs
 
-> [!CAUTION]
-> **formulário de contato finge que envia**
+> [!TIP]
+> **~~formulário de contato finge que envia~~ — corrigido em 2026-10-20**
 >
-> `Contact.jsx` → `handleSubmit` só faz `preventDefault()` e mostra a mensagem de sucesso por 5 s. **Nenhuma mensagem chega ao Victor.** Quem preencher acha que mandou.
-> **Correção:** integrar um serviço (Formspree, Web3Forms, EmailJS) ou trocar por `mailto:` com os campos preenchidos.
+> **Causa raiz:** `handleSubmit` só fazia `preventDefault()` e mostrava sucesso por 5 s; nenhuma mensagem saía do navegador.
+> **Correção:** envio real via EmailJS (`@emailjs/browser` 4.4.1), com estados `idle → sending → success | error`. No erro, mostra o e-mail do Victor como alternativa. Textos de sucesso/erro/copiar passaram para o i18n.
+> **Pendente do Victor:** criar service + template no painel do EmailJS e preencher `.env.local` — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md). Sem isso o formulário cai no estado de erro.
 
 > [!CAUTION]
 > **favicon 404**
@@ -47,7 +48,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 > [!WARNING]
 > **bundle acima de 500 kB**
 >
-> JS de 512,83 kB (gzip 159,87 kB). Candidatos: `country-flag-icons` (importa só BR e US, conferir tree-shaking), `motion`, `lucide-react`. Alternativa: `React.lazy` nas seções abaixo da dobra.
+> JS de 512,83 kB (gzip 159,87 kB) em `ae0f854`; 518,53 kB (gzip 162,16 kB) após o EmailJS (+5,7 kB). Candidatos: `country-flag-icons` (importa só BR e US, conferir tree-shaking), `motion`, `lucide-react`. Alternativa: `React.lazy` nas seções abaixo da dobra.
 
 > [!WARNING]
 > **sem `prefers-reduced-motion`**
@@ -66,7 +67,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 ## Backlog sugerido (ordem)
 
-1. [ ] Formulário de contato funcional
+1. [x] Formulário de contato funcional (2026-10-20, falta configurar credenciais)
 2. [ ] Favicon próprio
 3. [ ] Confirmar linguagem do Xulambis e corrigir
 4. [ ] Traduzir tags/chips/alt (mover para JSON)

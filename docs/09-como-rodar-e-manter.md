@@ -14,6 +14,30 @@ npm run preview    # serve o dist/ localmente
 
 `dist/` está no `.gitignore`.
 
+## Formulário de contato (EmailJS)
+
+1. Criar conta em https://dashboard.emailjs.com.
+2. **Email Services** → adicionar o Gmail `victorcandidoleite@gmail.com` → anotar o *Service ID*.
+3. **Email Templates** → criar template usando `{{name}}`, `{{email}}` e `{{message}}`; em *Reply To* colocar `{{email}}` → anotar o *Template ID*.
+4. **Account → General** → copiar a *Public Key*.
+5. `cp .env.example .env.local` e preencher `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`. Reiniciar o `npm run dev`.
+6. No deploy, cadastrar as mesmas três variáveis no painel da hospedagem.
+
+> [!WARNING]
+> **armadilha**
+>
+> Variáveis `VITE_*` são embutidas no bundle **na hora do build**. Mudou o `.env.local`, precisa reiniciar o dev server / refazer o build. A Public Key é pública por design; a proteção é restringir as origens permitidas em **Account → Security** no EmailJS.
+
+> [!TIP]
+> **atalho que vale lembrar**
+>
+> Sem as três variáveis, `isEmailjsConfigured` é `false`: o formulário mostra o estado de erro e loga `EmailJS não configurado` no console, em vez de fingir sucesso.
+
+> [!NOTE]
+> **contexto**
+>
+> Usamos a linha 4.x do SDK. A 5.x saiu entre 2026-10-05 e 2026-10-10, recente demais para adotar de cara.
+
 ## Onde editar o quê
 
 | Quero mudar… | Arquivo |
