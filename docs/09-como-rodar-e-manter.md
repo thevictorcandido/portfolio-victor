@@ -18,7 +18,12 @@ npm run preview    # serve o dist/ localmente
 
 1. Criar conta em https://dashboard.emailjs.com.
 2. **Email Services** → adicionar o Gmail `victorcandidoleite@gmail.com` → anotar o *Service ID*.
-3. **Email Templates** → criar template usando `{{name}}`, `{{email}}` e `{{message}}`; em *Reply To* colocar `{{email}}` → anotar o *Template ID*.
+3. **Email Templates** → criar template e anotar o *Template ID*:
+   - Subject: `Nova mensagem do portfólio — {{name}}`
+   - Content: `Nome: {{name}}` / `E-mail: {{email}}` / `Mensagem: {{message}}`
+   - To Email: `victorcandidoleite@gmail.com` · From Name: `Portfólio Victor` · From Email: *Use Default Email Address*
+   - **Reply To: `{{email}}`** — assim "Responder" no Gmail vai para quem escreveu.
+   - Testar com **Test It** antes de usar no site.
 4. **Account → General** → copiar a *Public Key*.
 5. `cp .env.example .env.local` e preencher `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`. Reiniciar o `npm run dev`.
 6. No deploy, cadastrar as mesmas três variáveis no painel da hospedagem.
@@ -26,7 +31,12 @@ npm run preview    # serve o dist/ localmente
 > [!WARNING]
 > **armadilha**
 >
-> Variáveis `VITE_*` são embutidas no bundle **na hora do build**. Mudou o `.env.local`, precisa reiniciar o dev server / refazer o build. A Public Key é pública por design; a proteção é restringir as origens permitidas em **Account → Security** no EmailJS.
+> Variáveis `VITE_*` são embutidas no bundle **na hora do build**. Mudou o `.env.local`, precisa reiniciar o dev server / refazer o build. A Public Key é pública por design. Restringir domínios (*domain whitelisting*) **só existe nos planos pagos**; no Free a única barreira é a cota de 200 envios/mês.
+
+> [!CAUTION]
+> **erro 402 ao criar o service (2026-10-20)**
+>
+> Ao clicar em *Create Service* com o Gmail, o painel do EmailJS devolveu HTTP 402 (Payment Required). Causa não documentada pelo EmailJS; o Victor conseguiu configurar em seguida. Se voltar a acontecer: conferir serviços já existentes, verificação do e-mail da conta e a permissão de envio na tela de OAuth do Google.
 
 > [!TIP]
 > **atalho que vale lembrar**

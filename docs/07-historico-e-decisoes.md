@@ -10,7 +10,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-13 23:07 | `319f11f` | **Site completo sem tradução** — todas as seções, fotos, fontes locais, componentes 21st.dev, visual claro bege |
 | 2026-10-13 23:51 | `ae0f854` | **i18n pt-BR / en** — i18next, LanguageSwitcher, textos movidos para `translation.json` |
 | 2026-10-20 | `cd4e1ec` | Documentação criada (vault Obsidian + `docs/` no repo) |
-| 2026-10-20 | — | Formulário de contato com envio real via EmailJS |
+| 2026-10-20 | `5b63243` | Formulário de contato com envio real via EmailJS |
 
 ## Decisões
 
