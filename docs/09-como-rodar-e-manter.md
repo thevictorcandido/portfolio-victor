@@ -38,6 +38,12 @@ npm run preview    # serve o dist/ localmente
 >
 > Ao clicar em *Create Service* com o Gmail, o painel do EmailJS devolveu HTTP 402 (Payment Required). Causa não documentada pelo EmailJS; o Victor conseguiu configurar em seguida. Se voltar a acontecer: conferir serviços já existentes, verificação do e-mail da conta e a permissão de envio na tela de OAuth do Google.
 
+> [!CAUTION]
+> **`412 Gmail_API: Request had insufficient authentication scopes` no Test It (2026-10-20)**
+>
+> **Causa raiz:** ao conectar o Gmail, a caixa *"Enviar e-mail em seu nome"* da tela de consentimento do Google ficou desmarcada. O service é criado, mas o token não tem o escopo de envio.
+> **Correção:** remover o EmailJS em https://myaccount.google.com/permissions → no EmailJS, *Disconnect* + *Connect Account* no service → **marcar a caixa de envio** → *Update Service*. O Service ID não muda.
+
 > [!TIP]
 > **atalho que vale lembrar**
 >
