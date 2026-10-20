@@ -2,6 +2,8 @@
 
 Portfólio moderno, veloz e responsivo desenvolvido com **React 19**, **Vite 8** e **Tailwind CSS v4**.
 
+> 📚 Documentação completa (arquitetura, design system, i18n, decisões e pendências) em **[`docs/`](docs/README.md)**.
+
 Inspirado em uma síntese conceitual dos portfólios de referência:
 - **[azal.im](https://azal.im/)**: Precisão técnica, indicadores de seção numerados (`01`, `02`...), badges de habilidades com tempo/categoria, cantoneiras técnicas (corner reticles) no avatar e status badge com radar pulsante.
 - **[pedrobragadev.com](https://pedrobragadev.com/)**: Tipografia fluida e editorial de alto impacto, narrativa envolvente na seção "Sobre", timeline fluida "Onde Já Atuei" e showcase de projetos.

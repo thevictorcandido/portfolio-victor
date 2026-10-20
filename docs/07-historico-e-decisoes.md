@@ -1,0 +1,44 @@
+# 07 - Histórico e Decisões
+
+Voltar: [Portfolio Victor](README.md)
+
+## Linha do tempo
+
+| Data | Commit | Marco |
+|---|---|---|
+| 2026-10-13 18:22 | `d30b8f0` | **Projeto base** — template Vite + React, oxlint, README com as referências e a paleta escura |
+| 2026-10-13 23:07 | `319f11f` | **Site completo sem tradução** — todas as seções, fotos, fontes locais, componentes 21st.dev, visual claro bege |
+| 2026-10-13 23:51 | `ae0f854` | **i18n pt-BR / en** — i18next, LanguageSwitcher, textos movidos para `translation.json` |
+| 2026-10-20 | — | Documentação criada (vault Obsidian + `docs/` no repo) |
+
+## Decisões
+
+> [!IMPORTANT]
+> **tema claro em vez de escuro**
+>
+> O projeto base (README) previa fundo quase preto e verde-musgo. No commit `319f11f` o visual virou **bege claro editorial** (`#FAF8F5`) com o verde-musgo só como acento (`#2B4636`). O motivo não está registrado; o resultado conversa com as referências editoriais (pedrobragadev) e com o tom "criativo" do texto. O README não foi atualizado.
+
+> [!IMPORTANT]
+> **i18n no padrão da disciplina**
+>
+> A estrutura de i18n copia a do repositório de DIAW do professor, para facilitar a avaliação e manter a mesma convenção (`config/i18nConfig.js`, `i18n/index.js`, `locales/<lng>/translation.json`, `LanguageSwitcher`).
+
+> [!IMPORTANT]
+> **conteúdo centralizado em dados**
+>
+> Desde o projeto base, textos e links ficam fora dos componentes (`portfolioData.js`). Com o i18n, o texto migrou para os JSON, mas os dados estruturais (links, imagens, tags) ficaram em `portfolioData.js` — ver [02 - Stack e Arquitetura](02-stack-e-arquitetura.md).
+
+> [!IMPORTANT]
+> **componentes 21st.dev copiados, não instalados**
+>
+> `blur-text`, `border-beam`, `floating-dock`, `marquee` foram trazidos como código para `src/components/ui/`, com um `cn()` próprio, sem adicionar `clsx`/`tailwind-merge`.
+
+> [!IMPORTANT]
+> **lint com oxlint em vez de ESLint**
+>
+> Mais rápido e com zero configuração extra; regras ativas: `react/rules-of-hooks` (erro) e `react/only-export-components` (aviso).
+
+> [!NOTE]
+> **contexto**
+>
+> `scrape_linkedin.py` está no `.gitignore`: houve um script local para puxar dados do LinkedIn (provavelmente para montar a trajetória). Ele não está versionado.
