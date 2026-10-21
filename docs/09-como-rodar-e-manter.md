@@ -30,7 +30,8 @@ npm run preview    # serve o dist/ localmente
 
 ## Deploy (Vercel)
 
-- Domínio: https://victorcandido.dev
+- Domínio: https://www.victorcandido.dev (o apex `victorcandido.dev` faz 308 para o `www` — usar `curl -L`)
+- Variáveis `VITE_EMAILJS_*` cadastradas como **Config** (Production + Preview) em 2026-10-21.
 - Publica sozinho a cada push na `main` (preset Vite: `npm run build`, saída `dist/`).
 - Variável de ambiente nova ou alterada só vale a partir do **próximo build** — sempre fazer Redeploy depois de mexer nelas.
 
@@ -49,6 +50,11 @@ npm run preview    # serve o dist/ localmente
 >
 > **Causa raiz:** ao conectar o Gmail, a caixa *"Enviar e-mail em seu nome"* da tela de consentimento do Google ficou desmarcada. O service é criado, mas o token não tem o escopo de envio.
 > **Correção:** remover o EmailJS em https://myaccount.google.com/permissions → no EmailJS, *Disconnect* + *Connect Account* no service → **marcar a caixa de envio** → *Update Service*. O Service ID não muda.
+
+> [!IMPORTANT]
+> **o que não pode ser esquecido**
+>
+> As 3 variáveis `VITE_*` **aparecem no JS público** — é inevitável num formulário que roda no navegador, e por isso o EmailJS chama a chave de *Public Key*. O `.env.local` serve só para não versionar valores nem misturar ambientes; está ignorado (`*.local`, linha 14 do `.gitignore`) e nunca entrou em commit (conferido em 2026-10-21). Quem pegar os valores só consegue mandar e-mail **para o Victor** (o "To" é fixo no template) e gastar a cota de 200/mês. A **Private Key** do EmailJS nunca pode ir para variável `VITE_*`.
 
 > [!TIP]
 > **atalho que vale lembrar**

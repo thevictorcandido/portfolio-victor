@@ -14,7 +14,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > - Formulário de contato com envio real via EmailJS, validado ponta a ponta em 2026-10-20.
 > - Favicon próprio (monograma "V" musgo/bege).
 > - Código no GitHub: `main` acompanha `origin/main` desde 2026-10-21 (push `ae0f854..90ae5c6`, 14 commits). `.env.local` não versionado.
-> - **Publicado na Vercel** em https://victorcandido.dev (o apex redireciona com 308). Deploy automático a cada push na `main` — confirmado em 2026-10-21: favicon, `theme-color` e description novos já estavam no ar.
+> - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado em 2026-10-21: favicon, `theme-color` e description novos já estavam no ar.
 > - `npm run build` passa (1,79 s). `oxlint` passa sem avisos (exit 0).
 > - Documentação espelhada em `docs/` dentro do repositório.
 
@@ -22,7 +22,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > **o que ainda falta**
 >
 > - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
-> - **Formulário não envia em produção:** faltam as 3 variáveis `VITE_EMAILJS_*` na Vercel — ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).
+> - Confirmar com um envio real que o formulário funciona em produção (variáveis já estão no build desde 2026-10-21).
 > - Sem tags Open Graph: preview de link (WhatsApp, LinkedIn) sai sem imagem e sempre em pt-BR.
 
 ## Índice
@@ -42,7 +42,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 ## Links
 
 - Repositório local: `C:\Users\Victor Leite\Documents\Faculdade\diaw\portfolio-victor`
-- Site publicado: https://victorcandido.dev (Vercel)
+- Site publicado: https://www.victorcandido.dev (Vercel; o apex redireciona)
 - Remoto: https://github.com/thevictorcandido/portfolio-victor
 - LinkedIn: https://www.linkedin.com/in/victorcandidoleite/
 - Site real que aparece como projeto: https://grupogvs.com.br

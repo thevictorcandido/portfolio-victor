@@ -6,8 +6,18 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 ## Bugs
 
-> [!CAUTION]
-> **formulário não envia em produção (victorcandido.dev) — aberto em 2026-10-21**
+> [!TIP]
+> **variáveis do EmailJS em produção — corrigido em 2026-10-21**
+>
+> As 3 variáveis foram cadastradas na Vercel (tipo **Config**, não Secret — são públicas por natureza); o push de `ebc6e6e` gerou o build `index-BdQc1odO.js`, com a configuração preenchida. Falta o teste de envio real pelo site publicado.
+
+> [!WARNING]
+> **armadilha**
+>
+> O apex `victorcandido.dev` responde **308** para `www.victorcandido.dev`. `curl` sem `-L` não segue e não vê o HTML — um laço de espera de deploy ficou 10 min em timeout por isso.
+
+> [!NOTE]
+> **histórico do defeito (aberto em 2026-10-21)**
 >
 > **Sintoma:** no site publicado, o envio cai no aviso de erro.
 > **Causa raiz:** as variáveis `VITE_EMAILJS_*` são embutidas no bundle no momento do build; elas existem só no `.env.local` (não versionado), e o projeto na Vercel não as tinha. O JS publicado (`index-C4uUlS0p.js`) traz `{SERVICE_ID:void 0,TEMPLATE_ID:void 0,PUBLIC_KEY:void 0}`.
@@ -96,4 +106,5 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 9. [ ] Reduzir bundle
 10. [x] Atualizar README (2026-10-20)
 11. [x] Deploy — Vercel, https://victorcandido.dev (já existia)
-11a. [ ] Variáveis do EmailJS na Vercel + Redeploy
+11a. [x] Variáveis do EmailJS na Vercel + novo build (2026-10-21)
+11b. [ ] Teste de envio real pelo formulário em produção
