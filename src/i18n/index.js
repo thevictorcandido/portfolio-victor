@@ -36,6 +36,9 @@ function syncDocument(lng) {
   document.documentElement.lang = i18n.resolvedLanguage ?? lng;
   if (i18n.isInitialized) {
     document.title = i18n.t("meta.title");
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", i18n.t("meta.description"));
   }
 }
 

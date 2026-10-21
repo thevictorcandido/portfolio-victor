@@ -95,6 +95,11 @@ A imagem `public/projects/xulambis-terminal.png` sai de `docs/mockups/xulambis-t
 >
 > `--virtual-time-budget=5000` dá tempo da Fira Code carregar; sem ele a captura sai em Consolas.
 
+> [!WARNING]
+> **armadilha**
+>
+> No Windows, encerrar a tarefa em segundo plano de `npx vite preview` mata o `npx` mas deixa o `node ... vite.js preview` vivo, segurando a porta 4173 (o próximo `--strictPort` falha). Conferir com `netstat -ano | grep :4173` e encerrar o PID com `Stop-Process -Id <pid>`.
+
 ## Convenção de commits
 
 - Mensagens em português, prefixo convencional: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `style:`.

@@ -51,7 +51,13 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Para auditar o idioma renderizado: `vite preview` + `msedge --headless --lang=en-US --user-data-dir=<pasta nova> --virtual-time-budget=4000 --dump-dom http://localhost:4173/`. A pasta nova de perfil garante que não há `i18nextLng` salvo no `localStorage`.
 
-> [!CAUTION]
-> **defeito, com causa raiz**
+> [!TIP]
+> **~~`<meta name="description">` não muda com o idioma~~ — corrigido em 2026-10-20**
 >
-> **`<meta name="description">` não muda com o idioma.** Causa: `syncDocument` só atualiza `title` e `lang`; a description está fixa em pt-BR no `index.html`, embora exista a chave `meta.description` nos dois JSON.
+> **Causa raiz:** `syncDocument` só atualizava `title` e `lang`; a chave `meta.description` existia nos JSON mas ninguém a lia.
+> **Correção:** `syncDocument` também atualiza a description. O texto fixo do `index.html` (que divergia) foi alinhado ao `meta.description` pt-BR. Verificado no DOM renderizado: `en` e `pt-BR` trazem `lang`, `<title>` e description do idioma certo.
+
+> [!WARNING]
+> **armadilha**
+>
+> A troca é feita por JavaScript. O Google executa JS e enxerga a versão traduzida; **previews de link** (WhatsApp, LinkedIn, Discord) não executam e sempre mostram o texto fixo do `index.html`, em pt-BR. O site também não tem tags Open Graph (`og:title`, `og:description`, `og:image`) — sem elas o preview fica pobre.

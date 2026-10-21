@@ -21,7 +21,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 >
 > - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
 > - Remoto `origin` aponta para `github.com/thevictorcandido/portfolio-victor`, mas `main` não tem upstream configurado; deploy não publicado.
-> - `<meta name="description">` não muda com o idioma.
+> - Sem tags Open Graph: preview de link (WhatsApp, LinkedIn) sai sem imagem e sempre em pt-BR.
 
 ## Índice
 

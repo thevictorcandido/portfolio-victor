@@ -34,10 +34,10 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > `public/projects/xulambis-terminal.png` era um mockup com `python3 main.py --env production`, contradizendo o card. **Causa raiz:** a imagem foi gerada quando o projeto ainda era descrito como Python. Não existe print real; o mockup foi recriado (mesma composição, 1200×850) com `java -cp bin Main` e o comentário "Sistema Orientado a Objetos em Java". Fonte em `docs/mockups/xulambis-terminal.html` — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
 
-> [!CAUTION]
-> **meta description fixa em pt-BR**
+> [!TIP]
+> **~~meta description fixa em pt-BR~~ — corrigido em 2026-10-20**
 >
-> `syncDocument` em `src/i18n/index.js` não atualiza `<meta name="description">`.
+> `syncDocument` em `src/i18n/index.js` agora atualiza a description. Ver [05 - Internacionalização (i18n)](05-internacionalizacao-i18n.md).
 
 > [!CAUTION]
 > **links apontando para o lugar errado**
@@ -78,7 +78,8 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 3. [x] Confirmar linguagem do Xulambis e corrigir a tag (2026-10-20: Java)
 3a. [x] Refazer o print do terminal do Xulambis com comando Java (2026-10-20)
 4. [x] Traduzir tags/chips/alt (mover para JSON) (2026-10-20)
-5. [ ] Meta description por idioma
+5. [x] Meta description por idioma (2026-10-20)
+5a. [ ] Tags Open Graph (`og:title`, `og:description`, `og:image`) para preview de link
 6. [ ] Corrigir `companyUrl` e `githubUrl`
 7. [ ] Limpar `portfolioData.js` e assets mortos
 8. [ ] `prefers-reduced-motion`
