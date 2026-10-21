@@ -4,7 +4,7 @@
 
 Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW** (Desenvolvimento e Integração de Aplicações Web) da PUC Minas. SPA de página única em React 19 + Vite 8 + Tailwind v4, bilíngue (pt-BR / en).
 
-## Estado em 2026-10-20
+## Estado em 2026-10-21
 
 > [!TIP]
 > **o que está pronto**
@@ -13,6 +13,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > - Internacionalização pt-BR / en com seletor de idioma — 153 chaves, paridade 100%; versão em inglês sem nenhum texto em português (verificado no DOM renderizado).
 > - Formulário de contato com envio real via EmailJS, validado ponta a ponta em 2026-10-20.
 > - Favicon próprio (monograma "V" musgo/bege).
+> - Código no GitHub: `main` acompanha `origin/main` desde 2026-10-21 (push `ae0f854..90ae5c6`, 14 commits). `.env.local` não versionado.
 > - `npm run build` passa (1,79 s). `oxlint` passa sem avisos (exit 0).
 > - Documentação espelhada em `docs/` dentro do repositório.
 
@@ -20,7 +21,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > **o que ainda falta**
 >
 > - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
-> - Remoto `origin` aponta para `github.com/thevictorcandido/portfolio-victor`, mas `main` não tem upstream configurado; deploy não publicado.
+> - Deploy não publicado (recomendação: Vercel, com as 3 variáveis `VITE_EMAILJS_*` no painel).
 > - Sem tags Open Graph: preview de link (WhatsApp, LinkedIn) sai sem imagem e sempre em pt-BR.
 
 ## Índice

@@ -19,6 +19,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `038a3df` | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
 | 2026-10-20 | `9dd5241` | Respeita `prefers-reduced-motion` |
 | 2026-10-20 | `18c6ce8` | README reescrito |
+| 2026-10-21 | `90ae5c6` | Primeiro push: `origin/main` vai de `ae0f854` a `90ae5c6` (14 commits) |
 
 ## Decisões
 

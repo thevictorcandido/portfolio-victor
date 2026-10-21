@@ -70,7 +70,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 - ~~~4,9 MB de assets não usados~~ — removidos em 2026-10-20, ver [06 - Assets e Mídia](06-assets-e-midia.md).
 - ~~Campos mortos em `portfolioData`~~ — removidos em 2026-10-20.
 - Botão/link de currículo não existe (o `resumeUrl: "#"` morto foi removido; se quiser um botão de CV, é feature nova).
-- `main` sem upstream; deploy (Vercel/Netlify/GitHub Pages) não feito.
+- ~~`main` sem upstream~~ — push feito em 2026-10-21 (`git push -u origin main`). Deploy ainda não feito.
 
 ## Backlog sugerido (ordem)
 
