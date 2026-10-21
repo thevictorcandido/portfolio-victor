@@ -18,7 +18,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `3ab3bb4` | Cargos apontam para grupogvs.com.br; Xulambis sem botão GitHub |
 | 2026-10-20 | `038a3df` | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
 | 2026-10-20 | `9dd5241` | Respeita `prefers-reduced-motion` |
-| 2026-10-20 | — | README reescrito |
+| 2026-10-20 | `18c6ce8` | README reescrito |
 
 ## Decisões
 
