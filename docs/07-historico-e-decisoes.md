@@ -11,7 +11,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-13 23:51 | `ae0f854` | **i18n pt-BR / en** — i18next, LanguageSwitcher, textos movidos para `translation.json` |
 | 2026-10-20 | `cd4e1ec` | Documentação criada (vault Obsidian + `docs/` no repo) |
 | 2026-10-20 | `5b63243` | Formulário de contato com envio real via EmailJS (validado com envio real no mesmo dia) |
-| 2026-10-20 | — | Favicon próprio: monograma "V" |
+| 2026-10-20 | `cc37d83` | Favicon próprio: monograma "V" |
 
 ## Decisões
 

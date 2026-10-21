@@ -29,7 +29,7 @@ A tese do site: mostrar alguém que une **rigor técnico** (Engenharia de Softwa
 ### Projetos exibidos
 
 1. **Site Institucional — Grupo GVS** — projeto real em produção (https://grupogvs.com.br).
-2. **Xulambis Pizza** — sistema CLI de pedidos de pizzaria, trabalho em grupo na PUC Minas. Linguagem divergente entre fontes — ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).
+2. **Xulambis Pizza** — sistema CLI de pedidos de pizzaria em **Java** (POO), trabalho em grupo na PUC Minas (confirmado em 2026-10-20).
 
 ## Referências visuais
 

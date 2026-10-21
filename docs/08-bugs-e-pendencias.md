@@ -24,10 +24,15 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > Tags, chips de tecnologia, `role` das skills e `alt` das imagens vêm de `portfolioData.js`, fora do i18next. Ver [05 - Internacionalização (i18n)](05-internacionalizacao-i18n.md).
 
-> [!CAUTION]
-> **linguagem do Xulambis contraditória**
+> [!TIP]
+> **~~linguagem do Xulambis contraditória~~ — tag corrigida em 2026-10-20**
 >
-> `portfolioData.js` → tag "Python / POO"; `translation.json` → "desenvolvido em **Java** (POO)". Os dois aparecem no mesmo card. **Confirmar com o Victor qual é a verdadeira.**
+> Confirmado: o Xulambis foi feito em **Java**. A tag em `portfolioData.js` era "Python / POO" e virou "Java / POO", batendo com a descrição traduzida.
+
+> [!CAUTION]
+> **print do Xulambis mostra Python**
+>
+> `public/projects/xulambis-terminal.png` é um mockup de terminal com o comando `python3 main.py --env production`. Contradiz o card ("desenvolvido em Java"). **Causa raiz:** a imagem foi gerada quando o projeto ainda era descrito como Python. Pendente refazer com um comando Java (ex.: `java -cp bin Main`).
 
 > [!CAUTION]
 > **meta description fixa em pt-BR**
@@ -70,7 +75,8 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 1. [x] Formulário de contato funcional (2026-10-20, validado com envio real)
 2. [x] Favicon próprio (2026-10-20)
-3. [ ] Confirmar linguagem do Xulambis e corrigir
+3. [x] Confirmar linguagem do Xulambis e corrigir a tag (2026-10-20: Java)
+3a. [ ] Refazer o print do terminal do Xulambis com comando Java
 4. [ ] Traduzir tags/chips/alt (mover para JSON)
 5. [ ] Meta description por idioma
 6. [ ] Corrigir `companyUrl` e `githubUrl`

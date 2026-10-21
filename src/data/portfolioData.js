@@ -165,7 +165,7 @@ export const portfolioData = {
       image: "/projects/xulambis-terminal.png",
       badge: "Trabalho em Equipe · PUC Minas",
       description: "Projeto acadêmico prático desenvolvido em conjunto na sala de aula do curso de Engenharia de Software da PUC Minas. O software gerencia todo o fluxo de pedidos de uma pizzaria, aplicando princípios rigorosos de Programação Orientada a Objetos, lógica de cálculo dinâmico de adicionais e interface interativa via terminal CLI.",
-      tags: ["Python / POO", "Engenharia de Software", "CLI / Terminal", "Trabalho em Grupo", "PUC Minas"],
+      tags: ["Java / POO", "Engenharia de Software", "CLI / Terminal", "Trabalho em Grupo", "PUC Minas"],
       githubUrl: "https://github.com/thevictorcandido",
       liveUrl: null,
       accentColor: "from-amber-50 to-stone-100",
