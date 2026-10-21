@@ -9,7 +9,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 > [!TIP]
 > **variáveis do EmailJS em produção — corrigido em 2026-10-21**
 >
-> As 3 variáveis foram cadastradas na Vercel (tipo **Config**, não Secret — são públicas por natureza); o push de `ebc6e6e` gerou o build `index-BdQc1odO.js`, com a configuração preenchida. Falta o teste de envio real pelo site publicado.
+> As 3 variáveis foram cadastradas na Vercel (tipo **Config**, não Secret — são públicas por natureza); o push de `ebc6e6e` gerou o build `index-BdQc1odO.js`, com a configuração preenchida. Envio real pelo site publicado confirmado em 2026-10-21.
 
 > [!WARNING]
 > **armadilha**
@@ -107,7 +107,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 10. [x] Atualizar README (2026-10-20)
 11. [x] Deploy — Vercel, https://victorcandido.dev (já existia)
 11a. [x] Variáveis do EmailJS na Vercel + novo build (2026-10-21)
-11b. [ ] Teste de envio real pelo formulário em produção
+11b. [x] Teste de envio real pelo formulário em produção (2026-10-21, já com reCAPTCHA)
 12. [x] reCAPTCHA v2 no formulário — código pronto e testado localmente (2026-10-21)
-12a. [ ] `VITE_RECAPTCHA_SITE_KEY` na Vercel + push
-12b. [ ] Depois do site novo no ar: ativar reCAPTCHA V2 no template do EmailJS com a Secret Key
+12a. [x] `VITE_RECAPTCHA_SITE_KEY` na Vercel + push (2026-10-21; build `index-LTq7jCEZ.js`, mesmo hash do build local)
+12b. [x] reCAPTCHA V2 ativado no template do EmailJS com a Secret Key; envio com a caixa marcada chegou (2026-10-21)

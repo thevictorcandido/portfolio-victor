@@ -22,6 +22,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-21 | `90ae5c6` | Primeiro push: `origin/main` vai de `ae0f854` a `90ae5c6` (14 commits) |
 | 2026-10-21 | `ebc6e6e` | Push que gerou o build de produção com as variáveis do EmailJS |
 | 2026-10-21 | `475d988` | reCAPTCHA v2 no formulário de contato |
+| 2026-10-21 | `93dc2c0` | Push com o reCAPTCHA; no ar em ~20 s como `index-LTq7jCEZ.js` |
 
 ## Decisões
 

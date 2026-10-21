@@ -11,7 +11,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 >
 > - Site completo com 7 seções: Hero, Sobre, Projetos, Trajetória, Habilidades, Formação, Contato (+ Navbar e Footer).
 > - Internacionalização pt-BR / en com seletor de idioma — 153 chaves, paridade 100%; versão em inglês sem nenhum texto em português (verificado no DOM renderizado).
-> - Formulário de contato com envio real via EmailJS, validado ponta a ponta em 2026-10-20.
+> - Formulário de contato com envio real via EmailJS e reCAPTCHA v2, validado em produção em 2026-10-21.
 > - Favicon próprio (monograma "V" musgo/bege).
 > - Código no GitHub: `main` acompanha `origin/main` desde 2026-10-21 (push `ae0f854..90ae5c6`, 14 commits). `.env.local` não versionado.
 > - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado em 2026-10-21: favicon, `theme-color` e description novos já estavam no ar.
@@ -22,7 +22,6 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > **o que ainda falta**
 >
 > - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
-> - Confirmar com um envio real que o formulário funciona em produção (variáveis já estão no build desde 2026-10-21).
 > - Sem tags Open Graph: preview de link (WhatsApp, LinkedIn) sai sem imagem e sempre em pt-BR.
 
 ## Índice
