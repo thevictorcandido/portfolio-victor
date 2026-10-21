@@ -22,7 +22,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > **o que ainda falta**
 >
 > - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
-> - Sem tags Open Graph: preview de link (WhatsApp, LinkedIn) sai sem imagem e sempre em pt-BR.
+> - Prévia de link sempre em pt-BR (robôs de prévia não executam JS) — limitação aceita.
 
 ## Índice
 

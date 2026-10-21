@@ -17,6 +17,24 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
+| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 97 KB (desde 2026-10-21) |
+
+## Prévia de link (Open Graph)
+
+`og-image.png` é uma captura do Hero real em 1200×630, feita no Edge headless com `--force-prefers-reduced-motion` (o BlurText já sai no estado final, sem desfoque no meio):
+
+```bash
+msedge --headless --disable-gpu --force-prefers-reduced-motion --lang=pt-BR --hide-scrollbars \
+  --force-device-scale-factor=1 --window-size=1200,630 --user-data-dir=<pasta nova> \
+  --virtual-time-budget=8000 --screenshot=og-image.png http://localhost:4173/
+```
+
+As tags ficam no `<head>` do `index.html`: `og:title`, `og:description`, `og:image` (URL **absoluta**), `og:image:width/height/alt`, `og:url`, `og:locale` + `twitter:card=summary_large_image` e `<link rel="canonical">`.
+
+> [!WARNING]
+> **armadilha**
+>
+> Se o Hero mudar (texto, foto, layout), a imagem de prévia **não** acompanha — refazer a captura. E WhatsApp/LinkedIn guardam a prévia em cache por URL: depois de trocar a imagem, forçar a atualização no **LinkedIn Post Inspector** (linkedin.com/post-inspector); no WhatsApp a prévia antiga pode persistir por dias.
 
 > [!TIP]
 > **limpeza feita em 2026-10-20**

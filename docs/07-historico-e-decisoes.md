@@ -23,6 +23,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-21 | `ebc6e6e` | Push que gerou o build de produção com as variáveis do EmailJS |
 | 2026-10-21 | `475d988` | reCAPTCHA v2 no formulário de contato |
 | 2026-10-21 | `93dc2c0` | Push com o reCAPTCHA; no ar em ~20 s como `index-LTq7jCEZ.js` |
+| 2026-10-21 | — | Prévia de link (Open Graph) com captura do Hero |
 
 ## Decisões
 
@@ -75,6 +76,11 @@ Voltar: [Portfolio Victor](README.md)
 > **reCAPTCHA v2 com componente próprio, sem dependência**
 >
 > Adicionado em 2026-10-21 para barrar robôs no formulário. v2 porque é a única versão que o EmailJS valida. Componente próprio (`ui/recaptcha.jsx`, ~70 linhas) em vez de `react-google-recaptcha`: carrega o script uma vez, escolhe `compact` em tela estreita e não adiciona pacote. O token vai pelo campo oculto que o próprio widget põe no `<form>` — nenhuma mudança na chamada ao EmailJS além de checar se ele existe.
+
+> [!IMPORTANT]
+> **imagem de prévia = captura do próprio Hero**
+>
+> Escolha de 2026-10-21 (em vez de uma arte separada): quem recebe o link vê exatamente a primeira tela do site. Gerada por captura automatizada, reproduzível — o comando está em [06 - Assets e Mídia](06-assets-e-midia.md).
 
 > [!NOTE]
 > **contexto**

@@ -99,7 +99,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 3a. [x] Refazer o print do terminal do Xulambis com comando Java (2026-10-20)
 4. [x] Traduzir tags/chips/alt (mover para JSON) (2026-10-20)
 5. [x] Meta description por idioma (2026-10-20)
-5a. [ ] Tags Open Graph (`og:title`, `og:description`, `og:image`) para preview de link
+5a. [x] Tags Open Graph + `og-image.png` (captura do Hero) (2026-10-21)
 6. [x] Corrigir `companyUrl` e `githubUrl` (2026-10-20)
 7. [x] Limpar `portfolioData.js` e assets mortos (2026-10-20)
 8. [x] `prefers-reduced-motion` (2026-10-20)

@@ -60,4 +60,4 @@ Voltar: [Portfolio Victor](README.md)
 > [!WARNING]
 > **armadilha**
 >
-> A troca é feita por JavaScript. O Google executa JS e enxerga a versão traduzida; **previews de link** (WhatsApp, LinkedIn, Discord) não executam e sempre mostram o texto fixo do `index.html`, em pt-BR. O site também não tem tags Open Graph (`og:title`, `og:description`, `og:image`) — sem elas o preview fica pobre.
+> A troca é feita por JavaScript. O Google executa JS e enxerga a versão traduzida; **previews de link** (WhatsApp, LinkedIn, Discord) não executam e sempre mostram o texto fixo do `index.html`, em pt-BR. Desde 2026-10-21 o `index.html` tem tags Open Graph (em pt-BR, pelo mesmo motivo) — ver [06 - Assets e Mídia](06-assets-e-midia.md).
