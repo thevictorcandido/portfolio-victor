@@ -79,6 +79,21 @@ npm run preview    # serve o dist/ localmente
 > node -e "const a=require('./src/i18n/locales/pt-BR/translation.json'),b=require('./src/i18n/locales/en/translation.json');const k=(o,p='')=>Object.entries(o).flatMap(([x,v])=>typeof v==='object'&&!Array.isArray(v)?k(v,p+x+'.'):[p+x]);const A=k(a),B=k(b);console.log(A.filter(x=>!B.includes(x)),B.filter(x=>!A.includes(x)))"
 > ```
 
+## Regerar o mockup do Xulambis
+
+A imagem `public/projects/xulambis-terminal.png` sai de `docs/mockups/xulambis-terminal.html` (1200×850, Fira Code do Google Fonts, logo ASCII do `figlet` fonte Standard). Editar o HTML e capturar com o Edge headless:
+
+```bash
+"/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=1 --window-size=1200,850 --virtual-time-budget=5000 \
+  --screenshot="C:\caminho\xulambis-terminal.png" "file:///C:/caminho/docs/mockups/xulambis-terminal.html"
+```
+
+> [!TIP]
+> **atalho que vale lembrar**
+>
+> `--virtual-time-budget=5000` dá tempo da Fira Code carregar; sem ele a captura sai em Consolas.
+
 ## Convenção de commits
 
 - Mensagens em português, prefixo convencional: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `style:`.

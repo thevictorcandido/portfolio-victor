@@ -14,7 +14,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `victor-meio.jpeg` | Cargo Comunicação & Web |
 | `victor-inicio.jpeg` | Cargo Assistente de Comunicação |
 | `projects/grupogvs-hero.png` | Card do projeto GVS |
-| `projects/xulambis-terminal.png` | Card do projeto Xulambis |
+| `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
 

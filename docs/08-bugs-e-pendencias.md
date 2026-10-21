@@ -29,10 +29,10 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > Confirmado: o Xulambis foi feito em **Java**. A tag em `portfolioData.js` era "Python / POO" e virou "Java / POO", batendo com a descrição traduzida.
 
-> [!CAUTION]
-> **print do Xulambis mostra Python**
+> [!TIP]
+> **~~print do Xulambis mostra Python~~ — refeito em 2026-10-20**
 >
-> `public/projects/xulambis-terminal.png` é um mockup de terminal com o comando `python3 main.py --env production`. Contradiz o card ("desenvolvido em Java"). **Causa raiz:** a imagem foi gerada quando o projeto ainda era descrito como Python. Pendente refazer com um comando Java (ex.: `java -cp bin Main`).
+> `public/projects/xulambis-terminal.png` era um mockup com `python3 main.py --env production`, contradizendo o card. **Causa raiz:** a imagem foi gerada quando o projeto ainda era descrito como Python. Não existe print real; o mockup foi recriado (mesma composição, 1200×850) com `java -cp bin Main` e o comentário "Sistema Orientado a Objetos em Java". Fonte em `docs/mockups/xulambis-terminal.html` — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
 
 > [!CAUTION]
 > **meta description fixa em pt-BR**
@@ -76,7 +76,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 1. [x] Formulário de contato funcional (2026-10-20, validado com envio real)
 2. [x] Favicon próprio (2026-10-20)
 3. [x] Confirmar linguagem do Xulambis e corrigir a tag (2026-10-20: Java)
-3a. [ ] Refazer o print do terminal do Xulambis com comando Java
+3a. [x] Refazer o print do terminal do Xulambis com comando Java (2026-10-20)
 4. [ ] Traduzir tags/chips/alt (mover para JSON)
 5. [ ] Meta description por idioma
 6. [ ] Corrigir `companyUrl` e `githubUrl`

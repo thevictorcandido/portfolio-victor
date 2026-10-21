@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 850px; background: #111113; }
+  body { display: flex; align-items: center; justify-content: center; font-family: 'Fira Code', Consolas, monospace; font-size: 14.5px; line-height: 22.5px; color: #d4d4d8; }
+  .win { width: 1000px; height: 754px; background: #18181b; border: 1px solid #2e2e33; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+  .bar { height: 46px; display: flex; align-items: center; padding: 0 20px; background: #1d1d21; border-bottom: 1px solid #2a2a2f; position: relative; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+  .title { position: absolute; left: 0; right: 0; text-align: center; font-size: 13.5px; color: #a1a1aa; font-weight: 600; }
+  .body { padding: 30px 36px; }
+  .p { color: #34d399; font-weight: 600; }
+  .cmd { color: #f4f4f5; }
+  pre.logo { font-family: inherit; font-size: 13px; line-height: 15px; margin: 18px 0 20px; font-weight: 600;
+    background: linear-gradient(90deg, #facc15, #fb923c 55%, #f97316); -webkit-background-clip: text; color: transparent; }
+  .c { color: #71717a; }
+  .menu { color: #38bdf8; margin-top: 20px; }
+  .opt { color: #8b8b94; }
+  .sel { color: #34d399; font-weight: 600; margin-top: 20px; }
+  .n { color: #facc15; }
+  .box { border: 1px dashed #3f3f46; border-radius: 6px; padding: 14px 20px; margin: 16px 0 22px; }
+  .k { color: #c084fc; }
+  .v { color: #f4f4f5; }
+  .m { color: #71717a; }
+  .ok { color: #4ade80; font-weight: 600; margin-top: 18px; }
+  .st { color: #38bdf8; }
+  .tot { color: #fb923c; }
+  .val { color: #4ade80; font-weight: 600; }
+  .cur { display: inline-block; width: 9px; height: 18px; background: #f4f4f5; vertical-align: -3px; }
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="bar">
+    <span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+    <div class="title">victor@pucminas: ~/projetos/xulambis-pizza</div>
+  </div>
+  <div class="body">
+    <div><span class="p">victor@pucminas:~/projetos/xulambis-pizza$</span> <span class="cmd">java -cp bin Main</span></div>
+<pre class="logo"> __  __     _                 _     _       ____  _
+ \ \/ /   _| | __ _ _ __ ___ | |__ (_)___  |  _ \(_)__________ _
+  \  / | | | |/ _` | '_ ` _ \| '_ \| / __| | |_) | |_  /_  / _` |
+  /  \ |_| | | (_| | | | | | | |_) | \__ \ |  __/| |/ / / / (_| |
+ /_/\_\__,_|_|\__,_|_| |_| |_|_.__/|_|___/ |_|   |_/___/___\__,_|</pre>
+    <div class="c">// PUC Minas · Engenharia de Software · Trabalho em Grupo de Sala de Aula</div>
+    <div class="c">// Sistema Orientado a Objetos em Java para Gestão e Montagem de Pedidos</div>
+    <div class="menu">[MENU PRINCIPAL]</div>
+    <div class="opt">[1] Montar Pedido Personalizado</div>
+    <div class="opt">[2] Consultar Cardápio de Sabores &amp; Bordas</div>
+    <div class="opt">[3] Relatório de Faturamento &amp; Cozinha</div>
+    <div class="opt">[0] Encerrar Sistema</div>
+    <div class="sel">&gt;&gt; Selecione uma opção: <span class="n">1</span></div>
+    <div class="box">
+      <div><span class="k">▶ CLIENTE:</span> <span class="v">Gabriel &amp; Victor (Grupo Acadêmico)</span> <span class="m">· Mesa 07</span></div>
+      <div><span class="k">▶ TAMANHO:</span> <span class="v">Grande (8 fatias · até 2 sabores)</span></div>
+      <div><span class="k">▶ SABORES:</span> <span class="v">1/2 Calabresa Artesanal + 1/2 Quatro Queijos Mineiro</span></div>
+      <div><span class="k">▶ BORDA:</span> <span class="v">Catupiry Recheada com Alho Crocante (+ R$ 8,50)</span></div>
+      <div><span class="k">▶ BEBIDA:</span> <span class="v">01x Guaraná Antarctica 2L (+ R$ 12,00)</span></div>
+      <div class="ok">✓ PEDIDO #2048 GERADO COM SUCESSO!</div>
+      <div class="st">● STATUS: Enviado para fila de preparo da cozinha (Forno #02)</div>
+      <div class="tot">● VALOR TOTAL: <span class="val">R$ 78,50</span> <span class="m">[Pagamento via Pix Confirmado]</span></div>
+    </div>
+    <div><span class="p">victor@pucminas:~/projetos/xulambis-pizza$</span> <span class="cur"></span></div>
+  </div>
+</div>
+</body>
+</html>
