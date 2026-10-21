@@ -15,6 +15,8 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `1a7037c` / `7bd9a6c` | Xulambis corrigido para Java (tag + mockup refeito) |
 | 2026-10-20 | `b2ad3d8` | Todo texto visível passa pelo i18n (tags, chips, alts, card de estudo contínuo) |
 | 2026-10-20 | `2fceddb` | Meta description acompanha o idioma |
+| 2026-10-20 | `3ab3bb4` | Cargos apontam para grupogvs.com.br; Xulambis sem botão GitHub |
+| 2026-10-20 | — | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
 
 ## Decisões
 

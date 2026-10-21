@@ -67,10 +67,15 @@ npm run preview    # serve o dist/ localmente
 | Cores, fontes, animações | `src/index.css` (`@theme`) |
 | Adicionar idioma | `config/i18nConfig.js` + nova pasta em `i18n/locales/` + import em `i18n/index.js` |
 
-> [!WARNING]
-> **armadilha**
+> [!IMPORTANT]
+> **o que não pode ser esquecido**
 >
-> Editar bio, bullets ou descrições em `portfolioData.js` **não muda o site** — esses textos vêm dos JSON. Ver [02 - Stack e Arquitetura](02-stack-e-arquitetura.md).
+> Texto visível **sempre** nos dois `translation.json`; `portfolioData.js` só tem links, imagens e ids. Ver [02 - Stack e Arquitetura](02-stack-e-arquitetura.md).
+
+> [!WARNING]
+> **armadilha (Git Bash no Windows)**
+>
+> Argumentos que começam com `/` passados a programas nativos (`node`, `curl.exe`) viram caminhos do Windows (`/foto.png` → `C:/Program Files/Git/foto.png`). Para testar URLs de assets, montar a URL inteira na variável (`"http://localhost:4173${p// /%20}"`) em vez de passar o caminho solto. E `while read` ignora a última linha se o arquivo não terminar em `\n`.
 
 > [!TIP]
 > **atalho que vale lembrar**

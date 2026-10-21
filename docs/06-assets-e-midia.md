@@ -18,7 +18,12 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
 
-## Peso morto (~4,9 MB)
+> [!TIP]
+> **limpeza feita em 2026-10-20**
+>
+> Os 12 arquivos abaixo (+ `src/App.css`, `src/assets/*`) foram removidos com `git rm` — recuperáveis pelo histórico. `public/` caiu para **2,9 MB**. Conferido: todas as imagens referenciadas no DOM renderizado respondem 200.
+
+## Peso morto removido (~5,3 MB contando `src/assets` e `App.css`)
 
 | Arquivo | Situação |
 |---|---|
@@ -31,7 +36,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `fonts/Relieve.woff2` | Não referenciada no CSS |
 | `icons.svg` | Resto do template Vite; não referenciado |
 
-`src/assets/` (`hero.png`, `react.svg`, `vite.svg`) também são restos do template.
+`src/assets/` (`hero.png`, `react.svg`, `vite.svg`) e `src/App.css` também eram restos do template, nunca importados.
 
 > [!WARNING]
 > **armadilha**

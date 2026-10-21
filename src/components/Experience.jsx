@@ -9,13 +9,6 @@ export default function Experience() {
   const containerRef = useRef(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
-  // Mapeamento das chaves de tradução para cada uma das 3 experiências
-  const roleKeys = {
-    'exp-1': 'cor',
-    'exp-2': 'web',
-    'exp-3': 'mkt',
-  }
-
   // Acompanhamento suave do progresso do scroll na timeline (padrão timeline-01)
   useEffect(() => {
     const handleScroll = () => {
@@ -86,15 +79,14 @@ export default function Experience() {
           <div className="space-y-16 md:space-y-24">
             {experiences.map((exp, index) => {
               const isEven = index % 2 === 0
-              const rKey = roleKeys[exp.id] || 'cor'
-              const roleData = t(`experience.roles.${rKey}`, { returnObjects: true }) || {}
+              const roleData = t(`experience.roles.${exp.id}`, { returnObjects: true }) || {}
 
-              const roleTitle = roleData.title || exp.role
-              const rolePeriod = roleData.period || exp.period
-              const roleLocation = roleData.location || exp.location
-              const roleSummary = roleData.summary || exp.summary
-              const roleCaption = roleData.caption || exp.imageCaption
-              const roleBullets = roleData.bullets || exp.bullets
+              const roleTitle = roleData.title
+              const rolePeriod = roleData.period
+              const roleLocation = roleData.location
+              const roleSummary = roleData.summary
+              const roleCaption = roleData.caption
+              const roleBullets = roleData.bullets
               const roleTechnologies = roleData.technologies || []
 
               return (

@@ -47,15 +47,15 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 ## Dívida técnica
 
-> [!WARNING]
-> **duas fontes de verdade para o texto**
+> [!TIP]
+> **~~duas fontes de verdade para o texto~~ — resolvido em 2026-10-20**
 >
-> `portfolioData.js` guarda bio, bullets e descrições antigas que não são renderizadas. Quem editar ali não vê mudança. Limpar e deixar só dados estruturais.
+> `portfolioData.js` reescrito só com links, imagens e ids; fallbacks `roleData.x || exp.x` e `|| personal.bio` removidos; mapa `roleKeys` eliminado (o id do cargo já é a chave). Texto renderizado em pt-BR idêntico antes/depois (378 itens comparados no DOM).
 
 > [!WARNING]
 > **bundle acima de 500 kB**
 >
-> JS de 512,83 kB (gzip 159,87 kB) em `ae0f854`; 518,53 kB (gzip 162,16 kB) após o EmailJS (+5,7 kB). Candidatos: `country-flag-icons` (importa só BR e US, conferir tree-shaking), `motion`, `lucide-react`. Alternativa: `React.lazy` nas seções abaixo da dobra.
+> JS de 512,83 kB (gzip 159,87 kB) em `ae0f854`; 518,53 kB (gzip 162,16 kB) após o EmailJS (+5,7 kB); 520,82 kB após o i18n completo; **514,35 kB (gzip 161,74 kB)** após a limpeza do `portfolioData`. Candidatos: `country-flag-icons` (importa só BR e US, conferir tree-shaking), `motion`, `lucide-react`. Alternativa: `React.lazy` nas seções abaixo da dobra.
 
 > [!WARNING]
 > **sem `prefers-reduced-motion`**
@@ -67,9 +67,9 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > Paleta escura, estrutura sem `i18n/`, `config/`, `ui/`, `LanguageSwitcher`.
 
-- ~4,9 MB de assets não usados — ver [06 - Assets e Mídia](06-assets-e-midia.md).
-- Campos mortos em `portfolioData`: `avatarUrl`, `resumeUrl` (`"#"`), `stats`.
-- Botão/link de currículo não existe (`resumeUrl: "#"`).
+- ~~~4,9 MB de assets não usados~~ — removidos em 2026-10-20, ver [06 - Assets e Mídia](06-assets-e-midia.md).
+- ~~Campos mortos em `portfolioData`~~ — removidos em 2026-10-20.
+- Botão/link de currículo não existe (o `resumeUrl: "#"` morto foi removido; se quiser um botão de CV, é feature nova).
 - `main` sem upstream; deploy (Vercel/Netlify/GitHub Pages) não feito.
 
 ## Backlog sugerido (ordem)
@@ -82,7 +82,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 5. [x] Meta description por idioma (2026-10-20)
 5a. [ ] Tags Open Graph (`og:title`, `og:description`, `og:image`) para preview de link
 6. [x] Corrigir `companyUrl` e `githubUrl` (2026-10-20)
-7. [ ] Limpar `portfolioData.js` e assets mortos
+7. [x] Limpar `portfolioData.js` e assets mortos (2026-10-20)
 8. [ ] `prefers-reduced-motion`
 9. [ ] Reduzir bundle
 10. [ ] Atualizar README

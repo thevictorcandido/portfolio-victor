@@ -49,19 +49,19 @@ src/
 > - `translation.json` → todo texto visível que foi traduzido (títulos, bios, bullets, cargos).
 > - `portfolioData.js` → links, imagens, `navItems` (ids das âncoras), ids dos cards, nome/cor/`key` de cada tecnologia. Desde 2026-10-20, tags, chips, alts e títulos **não** ficam mais aqui.
 >
-> Os componentes leem as duas. `portfolioData.js` ainda guarda versões antigas em pt-BR dos textos (bio, bullets, descrições) que hoje **não são renderizadas** — são só fallback ou peso morto. Editar texto ali não muda o site.
+> Desde 2026-10-20 `portfolioData.js` não tem **nenhum** texto visível: só links, caminhos de imagem e ids. Os ids ligam cada item às suas chaves de tradução (`experiences[].id` → `experience.roles.<id>`, `skillsCategories[].technologies[].key` → `skills.techRoles.<key>`, `education[].id` → `puc` / `continuous`).
 
 Padrão usado nos componentes:
 
 ```jsx
 const { t } = useTranslation()
 const { experiences } = portfolioData
-const roleData = t(`experience.roles.${rKey}`, { returnObjects: true }) || {}
+const roleData = t(`experience.roles.${exp.id}`, { returnObjects: true }) || {}
 ```
 
 Navbar detecta a seção ativa por scroll usando `portfolioData.navItems[].id` — os ids das `<section>` precisam bater com essa lista.
 
-Campos de `portfolioData` que **nenhum componente lê**: `personal.avatarUrl`, `personal.resumeUrl`, `stats`.
+Campos mortos (`avatarUrl`, `resumeUrl`, `stats`, bio, bullets, descrições, `category`, `accentColor`, `color` das tecnologias, `label` dos navItems) foram removidos em 2026-10-20.
 
 ## Build medido em 2026-10-20
 

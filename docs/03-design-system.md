@@ -37,7 +37,7 @@ Os componentes usam muito a escala `stone-*` do Tailwind direto, além dos token
 | Código | Fira Code 700/800 | Google Fonts |
 | — | Antic | Google Fonts (veio com componente 21st.dev) |
 
-`Relieve.woff2` está em `public/fonts` mas não é referenciada em lugar nenhum.
+`Relieve.woff2` estava em `public/fonts` sem uso e foi removida em 2026-10-20.
 
 ## Animações
 

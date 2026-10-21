@@ -42,7 +42,7 @@ export default function About() {
     },
   ]
 
-  const bioParagraphs = t('about.bioParagraphs', { returnObjects: true }) || personal.bio
+  const bioParagraphs = t('about.bioParagraphs', { returnObjects: true })
 
   return (
     <section
