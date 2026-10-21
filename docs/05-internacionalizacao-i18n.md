@@ -27,18 +27,29 @@ Voltar: [Portfolio Victor](README.md)
 > **o que ficou pronto**
 >
 > 113 chaves em cada idioma, nenhuma faltando em nenhum dos dois (comparação recursiva das chaves dos dois JSON).
-> Em 2026-10-20 subiu para **119** com as chaves do formulário (`contact.sendingBtn`, `successTitle`, `successText`, `errorText`, `copy`, `copied`) — paridade mantida.
+> Em 2026-10-20 subiu para **119** com as chaves do formulário (`contact.sendingBtn`, `successTitle`, `successText`, `errorText`, `copy`, `copied`) e depois para **153** ao trazer tags, tecnologias, alts e textos fixos para o i18n — paridade mantida.
 
-> [!CAUTION]
-> **defeito, com causa raiz**
+> [!TIP]
+> **~~no inglês aparecem textos em português~~ — corrigido em 2026-10-20**
 >
-> **No inglês aparecem textos em português.** Causa: estes campos são lidos de `portfolioData.js`, que não passa pelo i18next:
-> - `projects[].tags` (ex.: "Desenvolvimento Web", "Trabalho em Grupo")
-> - `experiences[].technologies` (ex.: "Infraestrutura de TI", "Gestão de Ativos")
-> - `experiences[].imageAlt` (texto alternativo das fotos)
-> - `skillsCategories[].technologies[].role` (ex.: "Automação & APIs")
+> **Causa raiz:** vários textos visíveis eram lidos de `portfolioData.js` ou estavam fixos no JSX, fora do i18next.
+> **O que foi movido para os JSON:**
+> | Antes | Agora |
+> |---|---|
+> | `projects[].title`, `projects[].tags` | `projects.{gvs,xulambis}Title`, `projects.{gvs,xulambis}Tags` |
+> | `experiences[].technologies`, `.imageAlt` | `experience.roles.{cor,web,mkt}.technologies`, `.imageAlt` |
+> | `skillsCategories[].technologies[].role` | `skills.techRoles.<key>` (cada tecnologia ganhou `key`) |
+> | `education[1]` inteiro + rodapé fixo do card | `education.continuous.{course,institution,period,desc,footer}` |
+> | "Navegação" fixo no menu do Hero | `nav.menuTitle` |
+> | `aria-label` fixo do FloatingDock | prop `toggleLabel` ← `about.dock.toggle` |
+> | "Engenharia de Software" fixo no Footer | `footer.course` |
 >
-> **Correção sugerida:** mover esses arrays para o `translation.json` (com `returnObjects`) ou trocar o valor por uma chave e chamar `t()` no componente.
+> **Verificação:** build servido com `vite preview`, DOM renderizado pelo Edge headless com `--lang=en-US`; varredura de texto visível + `alt`/`aria-label`/`title`/`placeholder` sem nenhum resto em português (sobram só nomes próprios: Grupo GVS, PUC Minas, Cândido).
+
+> [!TIP]
+> **atalho que vale lembrar**
+>
+> Para auditar o idioma renderizado: `vite preview` + `msedge --headless --lang=en-US --user-data-dir=<pasta nova> --virtual-time-budget=4000 --dump-dom http://localhost:4173/`. A pasta nova de perfil garante que não há `i18nextLng` salvo no `localStorage`.
 
 > [!CAUTION]
 > **defeito, com causa raiz**

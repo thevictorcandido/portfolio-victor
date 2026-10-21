@@ -47,7 +47,7 @@ src/
 >
 > Existem **duas fontes de texto**:
 > - `translation.json` → todo texto visível que foi traduzido (títulos, bios, bullets, cargos).
-> - `portfolioData.js` → links, imagens, `navItems` (ids das âncoras), `skillsCategories`, `experiences[].technologies`, `projects[].tags`.
+> - `portfolioData.js` → links, imagens, `navItems` (ids das âncoras), ids dos cards, nome/cor/`key` de cada tecnologia. Desde 2026-10-20, tags, chips, alts e títulos **não** ficam mais aqui.
 >
 > Os componentes leem as duas. `portfolioData.js` ainda guarda versões antigas em pt-BR dos textos (bio, bullets, descrições) que hoje **não são renderizadas** — são só fallback ou peso morto. Editar texto ali não muda o site.
 

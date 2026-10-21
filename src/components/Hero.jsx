@@ -79,7 +79,7 @@ export default function Hero() {
               className="absolute top-full left-0 mt-3 w-56 sm:w-64 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-stone-200/80 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
             >
               <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-2 px-2 flex items-center justify-between">
-                <span>Navegação</span>
+                <span>{t('nav.menuTitle')}</span>
                 <LanguageSwitcher className="scale-90" />
               </div>
               <nav className="flex flex-col gap-1">

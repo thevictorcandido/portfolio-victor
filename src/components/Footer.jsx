@@ -23,7 +23,7 @@ export default function Footer() {
           </span>
           <span className="text-stone-300 hidden sm:inline">|</span>
           <p className="text-xs text-stone-500 font-medium">
-            © {CURRENT_YEAR} · Engenharia de Software · PUC Minas
+            © {CURRENT_YEAR} · {t('footer.course')} · PUC Minas
           </p>
         </div>
 

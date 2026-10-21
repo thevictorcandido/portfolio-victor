@@ -30,16 +30,16 @@ export default function Education() {
 
         {/* Grid de Formação */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {education.map((item, idx) => {
-            const isPuc = idx === 0
-            const courseTitle = isPuc ? t('education.degree') : item.course
-            const institution = isPuc ? t('education.institution') : item.institution
-            const period = isPuc ? t('education.period') : item.period
-            const description = isPuc ? t('education.desc') : item.description
+          {education.map((item) => {
+            const isPuc = item.id === 'puc'
+            const courseTitle = isPuc ? t('education.degree') : t('education.continuous.course')
+            const institution = isPuc ? t('education.institution') : t('education.continuous.institution')
+            const period = isPuc ? t('education.period') : t('education.continuous.period')
+            const description = isPuc ? t('education.desc') : t('education.continuous.desc')
 
             return (
               <div
-                key={idx}
+                key={item.id}
                 className="p-8 sm:p-10 rounded-3xl bg-white/90 border border-stone-200/70 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
               >
                 <div>
@@ -68,7 +68,7 @@ export default function Education() {
                 <div className="mt-8 pt-5 border-t border-stone-100 flex items-center gap-2 text-xs text-stone-500 font-medium">
                   <BookOpen className="w-4 h-4 text-stone-400" />
                   <span>
-                    {isPuc ? t('education.coursesTitle') : 'Base sólida em Ciência e Engenharia de Computação'}
+                    {isPuc ? t('education.coursesTitle') : t('education.continuous.footer')}
                   </span>
                 </div>
               </div>

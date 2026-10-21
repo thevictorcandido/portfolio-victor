@@ -61,7 +61,8 @@ npm run preview    # serve o dist/ localmente
 | Qualquer texto visível | `src/i18n/locales/pt-BR/translation.json` **e** `src/i18n/locales/en/translation.json` |
 | Links sociais, e-mail | `src/data/portfolioData.js` → `personal.social` |
 | Foto de cargo / imagem de projeto | `public/` + campo `image` em `portfolioData.js` |
-| Tags, chips de tecnologia, skills | `src/data/portfolioData.js` (ainda sem tradução) |
+| Tags de projeto, chips de cargo, função das skills | Os dois `translation.json` (`projects.*Tags`, `experience.roles.*.technologies`, `skills.techRoles`) |
+| Adicionar uma tecnologia nas skills | `portfolioData.skillsCategories` (nome, `key`, cor) + `skills.techRoles.<key>` nos dois JSON + ícone em `TechIcons.jsx` |
 | Itens do menu / âncoras | `portfolioData.navItems` + `nav.*` nos JSON + `id` da `<section>` |
 | Cores, fontes, animações | `src/index.css` (`@theme`) |
 | Adicionar idioma | `config/i18nConfig.js` + nova pasta em `i18n/locales/` + import em `i18n/index.js` |

@@ -17,7 +17,8 @@
     "contact": "CONTACT",
     "contactBtn": "Contact",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "menuTitle": "Navigation"
   },
   "hero": {
     "headlinePart1": "Focused mind,",
@@ -50,7 +51,8 @@
       "gvs": "Grupo GVS · IT & COR Operations",
       "github": "GitHub · Code & Projects",
       "linkedin": "LinkedIn · Professional Network",
-      "email": "Email · Reach out to Victor"
+      "email": "Email · Reach out to Victor",
+      "toggle": "Open links menu"
     }
   },
   "projects": {
@@ -67,7 +69,23 @@
     "xulambisDesc": "An academic project developed collaboratively in class at PUC Minas, simulating the backend and operational logic of a pizzeria. Built with strict Object-Oriented Programming, inventory management, dynamic ingredient calculation, and an interactive terminal CLI interface.",
     "collaborationNote": "Collaborative classroom project · PUC Minas",
     "prev": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "gvsTitle": "Corporate Website — Grupo GVS",
+    "gvsTags": [
+      "Web Development",
+      "UI/UX",
+      "Digital Identity",
+      "Power Generation",
+      "Grupo GVS"
+    ],
+    "xulambisTitle": "Xulambis Pizza — CLI Management System",
+    "xulambisTags": [
+      "Java / OOP",
+      "Software Engineering",
+      "CLI / Terminal",
+      "Team Project",
+      "PUC Minas"
+    ]
   },
   "experience": {
     "tag": "03 · Experience & Journey",
@@ -87,6 +105,16 @@
           "Specialized technical support for automation supervisory systems (SCADA), CCTV, and real-time power plant monitoring platforms.",
           "Integration of field telemetry devices, diagnostics of communication failures, and continuous support to operations and maintenance teams.",
           "Technical documentation of network architecture, IT asset management, and deployment of infrastructure upgrades and new technologies."
+        ],
+        "imageAlt": "Grupo GVS Remote Operations Center — power plant monitoring, SCADA and telecommunications",
+        "technologies": [
+          "SCADA",
+          "IT Infrastructure",
+          "Networks & Telecom",
+          "CCTV",
+          "Remote Operations Monitoring",
+          "Fault Diagnosis",
+          "Asset Management"
         ]
       },
       "web": {
@@ -101,6 +129,15 @@
           "Social media management, graphic design, and executive-level corporate presentations for the board of directors.",
           "Filming and editing of high-impact audiovisual content highlighting sustainable clean energy generation and daily corporate operations.",
           "Strategic planning and execution of internal engagement campaigns and corporate communication initiatives."
+        ],
+        "imageAlt": "Victor Cândido at a Grupo GVS corporate event as Communications Analyst",
+        "technologies": [
+          "Web Development",
+          "UI/UX",
+          "Graphic Design",
+          "Video Production",
+          "Strategic Communication",
+          "Internal Marketing"
         ]
       },
       "mkt": {
@@ -114,6 +151,14 @@
           "Recording, editing, and publishing multimedia content across social media and corporate channels.",
           "Direct support for internal marketing initiatives and sales alignment within the renewable energy sector.",
           "Design and standardization of digital assets, acting as a key driver in brand outreach and corporate presence."
+        ],
+        "imageAlt": "Victor Cândido in the official GVS shirt at the start of the journey at Grupo GVS",
+        "technologies": [
+          "Multimedia Creation",
+          "Video Editing",
+          "Digital Marketing",
+          "Internal Marketing",
+          "Corporate Outreach"
         ]
       }
     }
@@ -128,7 +173,25 @@
     "backendDesc": "High-performance RESTful API engineering, resilient services, relational database design, and sustainable object-oriented system architectures.",
     "aiBadge": "Workflow & Acceleration",
     "aiCategory": "Applied Artificial Intelligence",
-    "aiDesc": "Advanced prompt engineering, LLM orchestration, coding agents, and generative AI automated workflows."
+    "aiDesc": "Advanced prompt engineering, LLM orchestration, coding agents, and generative AI automated workflows.",
+    "techRoles": {
+      "python": "Automation & APIs",
+      "java": "OOP & Architecture",
+      "nodejs": "APIs & Microservices",
+      "postgresql": "Relational Database",
+      "docker": "Containerization",
+      "redis": "Caching & Messaging",
+      "git": "Version Control",
+      "rest": "Integration & Protocols",
+      "openai": "Generative Models",
+      "langchain": "Agent Orchestration",
+      "pytorch": "Models & Tensors",
+      "huggingface": "Open-Source Model Hub",
+      "pandas": "Data Processing",
+      "ollama": "Local Inference",
+      "sklearn": "Classic Machine Learning",
+      "prompt": "Context Architecture"
+    }
   },
   "education": {
     "tag": "05 · Education & Learning",
@@ -145,7 +208,14 @@
       "Modular & Object-Oriented Programming (OOP)",
       "Process Modeling & Software Architecture",
       "Web Application Development and Integration (DIAW)"
-    ]
+    ],
+    "continuous": {
+      "course": "Modern Web Development & UI/UX",
+      "institution": "Continuous Learning & Applied AI",
+      "period": "Daily Practice",
+      "desc": "Daily deep dives into modern JavaScript, React, utility-first frameworks, accessibility, and applied artificial intelligence in design and development workflows.",
+      "footer": "Solid foundation in Computer Science and Engineering"
+    }
   },
   "contact": {
     "tag": "06 · Connect & Dialogue",
@@ -170,6 +240,7 @@
     "locationValue": "Belo Horizonte / Nova Lima, MG · Brazil"
   },
   "footer": {
+    "course": "Software Engineering",
     "rights": "All rights reserved.",
     "tagline": "Crafted with technical rigor, editorial design, and creative sensibility by Victor Cândido Leite."
   }

@@ -14,11 +14,12 @@ export const FloatingDock = ({
   items,
   desktopClassName,
   mobileClassName,
+  toggleLabel = "Abrir menu de links",
 }) => {
   return (
     <>
       <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockMobile items={items} className={mobileClassName} toggleLabel={toggleLabel} />
     </>
   );
 };
@@ -26,6 +27,7 @@ export const FloatingDock = ({
 const FloatingDockMobile = ({
   items,
   className,
+  toggleLabel,
 }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -73,7 +75,7 @@ const FloatingDockMobile = ({
       <button
         onClick={() => setOpen(!open)}
         className="flex h-10 w-10 items-center justify-center rounded-full bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-stone-900"
-        aria-label="Abrir menu de links"
+        aria-label={toggleLabel}
       >
         <LayoutGrid className="h-5 w-5" />
       </button>

@@ -19,10 +19,10 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 > **Causa raiz:** `index.html` apontava para `/vite.svg`, que não existe em `public/`; o `public/favicon.svg` era o raio roxo do template Vite e não era referenciado.
 > **Correção:** `public/favicon.svg` virou monograma "V" (bege `#FAF8F5` sobre musgo `#2B4636`, cantos 14/64, traço 7/64) e o `index.html` aponta para ele. Conferido renderizado a 16/32/64 px em aba clara e escura. Adicionado `<meta name="theme-color" content="#FAF8F5">`.
 
-> [!CAUTION]
-> **textos em português na versão em inglês**
+> [!TIP]
+> **~~textos em português na versão em inglês~~ — corrigido em 2026-10-20**
 >
-> Tags, chips de tecnologia, `role` das skills e `alt` das imagens vêm de `portfolioData.js`, fora do i18next. Ver [05 - Internacionalização (i18n)](05-internacionalizacao-i18n.md).
+> Tags, chips, funções das skills, alts, títulos dos projetos, card de estudo contínuo, "Navegação", `aria-label` do dock e rodapé foram para o i18n. Verificado no DOM renderizado em inglês. Ver [05 - Internacionalização (i18n)](05-internacionalizacao-i18n.md).
 
 > [!TIP]
 > **~~linguagem do Xulambis contraditória~~ — tag corrigida em 2026-10-20**
@@ -77,7 +77,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 2. [x] Favicon próprio (2026-10-20)
 3. [x] Confirmar linguagem do Xulambis e corrigir a tag (2026-10-20: Java)
 3a. [x] Refazer o print do terminal do Xulambis com comando Java (2026-10-20)
-4. [ ] Traduzir tags/chips/alt (mover para JSON)
+4. [x] Traduzir tags/chips/alt (mover para JSON) (2026-10-20)
 5. [ ] Meta description por idioma
 6. [ ] Corrigir `companyUrl` e `githubUrl`
 7. [ ] Limpar `portfolioData.js` e assets mortos

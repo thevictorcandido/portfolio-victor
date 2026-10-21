@@ -145,7 +145,7 @@ export default function Skills() {
                               {tech.name}
                             </p>
                             <p className="text-[11px] text-stone-500 font-medium">
-                              {tech.role}
+                              {t(`skills.techRoles.${tech.key}`)}
                             </p>
                           </div>
                         </div>
@@ -172,7 +172,7 @@ export default function Skills() {
                             {tech.name}
                           </p>
                           <p className="text-[10px] text-stone-500 line-clamp-1">
-                            {tech.role}
+                            {t(`skills.techRoles.${tech.key}`)}
                           </p>
                         </div>
                       </div>

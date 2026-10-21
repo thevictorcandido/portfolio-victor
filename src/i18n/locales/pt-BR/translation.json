@@ -17,7 +17,8 @@
     "contact": "CONTATO",
     "contactBtn": "Contato",
     "openMenu": "Abrir menu",
-    "closeMenu": "Fechar menu"
+    "closeMenu": "Fechar menu",
+    "menuTitle": "Navegação"
   },
   "hero": {
     "headlinePart1": "Mente focada,",
@@ -50,7 +51,8 @@
       "gvs": "Grupo GVS · Vivência em TI & COR",
       "github": "GitHub · Código & Projetos",
       "linkedin": "LinkedIn · Rede Profissional",
-      "email": "Email · Conversar com Victor"
+      "email": "Email · Conversar com Victor",
+      "toggle": "Abrir menu de links"
     }
   },
   "projects": {
@@ -67,7 +69,23 @@
     "xulambisDesc": "Projeto acadêmico desenvolvido em conjunto na sala de aula da PUC Minas, simulando o backend e lógica operacional completa de uma pizzaria. Desenvolvido com Programação Orientada a Objetos rigorosa, controle de estoque, cálculo dinâmico de ingredientes e interface via terminal interativo.",
     "collaborationNote": "Projeto colaborativo de sala de aula · PUC Minas",
     "prev": "Anterior",
-    "next": "Próximo"
+    "next": "Próximo",
+    "gvsTitle": "Site Institucional — Grupo GVS",
+    "gvsTags": [
+      "Desenvolvimento Web",
+      "UI/UX",
+      "Identidade Digital",
+      "Geração de Energia",
+      "Grupo GVS"
+    ],
+    "xulambisTitle": "Xulambis Pizza — Sistema de Gestão CLI",
+    "xulambisTags": [
+      "Java / POO",
+      "Engenharia de Software",
+      "CLI / Terminal",
+      "Trabalho em Grupo",
+      "PUC Minas"
+    ]
   },
   "experience": {
     "tag": "03 · Vivência & Trajetória",
@@ -87,6 +105,16 @@
           "Suporte técnico especializado a sistemas supervisórios de automação (SCADA), CFTV e plataformas de monitoramento em tempo real de usinas.",
           "Integração de equipamentos de telemetria, diagnóstico de falhas de comunicação e apoio técnico contínuo às equipes de operação e manutenção.",
           "Documentação técnica de arquitetura de rede, gestão de ativos de TI e implementação de melhorias e novas tecnologias de infraestrutura."
+        ],
+        "imageAlt": "Centro de Operações Remotas do Grupo GVS — Monitoramento de usinas, SCADA e telecomunicações",
+        "technologies": [
+          "SCADA",
+          "Infraestrutura de TI",
+          "Redes & Telecom",
+          "CFTV",
+          "Monitoramento COR",
+          "Diagnóstico de Falhas",
+          "Gestão de Ativos"
         ]
       },
       "web": {
@@ -101,6 +129,15 @@
           "Gerenciamento de redes sociais, criação de material gráfico e apresentações corporativas de alto impacto para a diretoria.",
           "Gravação e edição de conteúdo audiovisual de ponta focado no mercado de geração de energia por fontes sustentáveis e dia a dia das operações.",
           "Planejamento estratégico e condução de campanhas de engajamento interno e comunicação corporativa."
+        ],
+        "imageAlt": "Victor Cândido em evento institucional do Grupo GVS como Analista de Comunicação",
+        "technologies": [
+          "Desenvolvimento Web",
+          "UI/UX",
+          "Design Gráfico",
+          "Produção Audiovisual",
+          "Comunicação Estratégica",
+          "Endomarketing"
         ]
       },
       "mkt": {
@@ -114,6 +151,14 @@
           "Gravação, edição e publicação de conteúdo multimídia para redes sociais e canais corporativos da organização.",
           "Apoio direto a iniciativas de endomarketing e campanhas alinhadas à área de vendas no setor de energia limpa.",
           "Criação e padronização de peças digitais, atuando como elemento-chave na comunicação e divulgação das marcas do grupo."
+        ],
+        "imageAlt": "Victor Cândido com a camisa oficial da GVS no início da trajetória no Grupo GVS",
+        "technologies": [
+          "Criação Multimídia",
+          "Edição Audiovisual",
+          "Marketing Digital",
+          "Endomarketing",
+          "Divulgação Institucional"
         ]
       }
     }
@@ -128,7 +173,25 @@
     "backendDesc": "Construção de APIs RESTful de alta performance, serviços resilientes, modelagem de bancos relacionais e sistemas orientados a objetos sustentáveis.",
     "aiBadge": "Fluxo & Aceleração",
     "aiCategory": "Inteligência Artificial Aplicada",
-    "aiDesc": "Engenharia de prompt avançada, orquestração de modelos de linguagem, agentes de código e automações orientadas a inteligência artificial generativa."
+    "aiDesc": "Engenharia de prompt avançada, orquestração de modelos de linguagem, agentes de código e automações orientadas a inteligência artificial generativa.",
+    "techRoles": {
+      "python": "Automação & APIs",
+      "java": "POO & Arquitetura",
+      "nodejs": "APIs & Microsserviços",
+      "postgresql": "Banco Relacional",
+      "docker": "Conteinerização",
+      "redis": "Cache & Mensageria",
+      "git": "Versionamento",
+      "rest": "Integração & Protocolos",
+      "openai": "Modelos Generativos",
+      "langchain": "Orquestração de Agentes",
+      "pytorch": "Modelos & Tensores",
+      "huggingface": "Hub de Modelos Open Source",
+      "pandas": "Processamento de Dados",
+      "ollama": "Inferência Local",
+      "sklearn": "Machine Learning Clássico",
+      "prompt": "Arquitetura de Contexto"
+    }
   },
   "education": {
     "tag": "05 · Formação & Aprendizado",
@@ -145,7 +208,14 @@
       "Programação Modular & Orientada a Objetos",
       "Modelagem de Processos & Arquitetura de Software",
       "Desenvolvimento e Integração de Aplicações Web (DIAW)"
-    ]
+    ],
+    "continuous": {
+      "course": "Desenvolvimento Web Contemporâneo & UI/UX",
+      "institution": "Estudo Contínuo & IA Aplicada",
+      "period": "Prática Diária",
+      "desc": "Aprofundamento diário em JavaScript moderno, React, frameworks utilitários, acessibilidade e exploração de inteligência artificial aplicada ao fluxo de design e desenvolvimento.",
+      "footer": "Base sólida em Ciência e Engenharia de Computação"
+    }
   },
   "contact": {
     "tag": "06 · Conexão & Diálogo",
@@ -170,6 +240,7 @@
     "locationValue": "Belo Horizonte / Nova Lima, MG · Brasil"
   },
   "footer": {
+    "course": "Engenharia de Software",
     "rights": "Todos os direitos reservados.",
     "tagline": "Desenvolvido com rigor técnico, design editorial e sensibilidade criativa por Victor Cândido Leite."
   }

@@ -12,6 +12,8 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `cd4e1ec` | Documentação criada (vault Obsidian + `docs/` no repo) |
 | 2026-10-20 | `5b63243` | Formulário de contato com envio real via EmailJS (validado com envio real no mesmo dia) |
 | 2026-10-20 | `cc37d83` | Favicon próprio: monograma "V" |
+| 2026-10-20 | `1a7037c` / `7bd9a6c` | Xulambis corrigido para Java (tag + mockup refeito) |
+| 2026-10-20 | — | Todo texto visível passa pelo i18n (tags, chips, alts, card de estudo contínuo) |
 
 ## Decisões
 
@@ -49,6 +51,11 @@ Voltar: [Portfolio Victor](README.md)
 > **favicon em SVG com traço, sem fonte**
 >
 > O "V" é um `path` com `stroke`, não um `<text>`: favicons SVG não carregam as fontes do site, e o texto cairia numa fonte do sistema diferente em cada navegador. Só SVG, sem `.ico`/PNG: todos os navegadores atuais aceitam favicon SVG.
+
+> [!IMPORTANT]
+> **texto visível só no JSON; portfolioData só com estrutura**
+>
+> Ao mover um texto para o i18n, o campo correspondente sai do `portfolioData.js` no mesmo commit, para não haver duas fontes. Os textos antigos que já não eram lidos (bio, bullets, descrições) ficam para o item de limpeza do backlog. Tecnologias das skills usam `key` estável (`python`, `git`, `rest`…) em vez do nome, porque nomes como "Git & GitHub" não servem como chave.
 
 > [!NOTE]
 > **contexto**

@@ -149,7 +149,7 @@ export default function About() {
 
               {/* Floating Dock com os cards que restaram */}
               <div className="self-center sm:self-auto">
-                <FloatingDock items={dockItems} />
+                <FloatingDock items={dockItems} toggleLabel={t('about.dock.toggle')} />
               </div>
 
             </div>

@@ -21,15 +21,19 @@ export default function Projects() {
   const getProjectData = (proj) => {
     if (proj.id === 'proj-gvs') {
       return {
+        title: t('projects.gvsTitle'),
         badge: t('projects.gvsBadge'),
         tagline: t('projects.gvsTagline'),
         description: t('projects.gvsDesc'),
+        tags: t('projects.gvsTags', { returnObjects: true }),
       }
     }
     return {
+      title: t('projects.xulambisTitle'),
       badge: t('projects.xulambisBadge'),
       tagline: t('projects.xulambisTagline'),
       description: t('projects.xulambisDesc'),
+      tags: t('projects.xulambisTags', { returnObjects: true }),
     }
   }
 
@@ -70,7 +74,7 @@ export default function Projects() {
                       : 'text-stone-600 hover:text-stone-950 hover:bg-stone-100/70'
                   }`}
                 >
-                  {String(idx + 1).padStart(2, '0')} · {proj.title.split('—')[0].trim()}
+                  {String(idx + 1).padStart(2, '0')} · {getProjectData(proj).title.split('—')[0].trim()}
                 </button>
               ))}
             </div>
@@ -138,7 +142,7 @@ export default function Projects() {
 
                       {/* Título do Projeto */}
                       <h3 className="text-2xl sm:text-3xl font-display font-bold text-stone-900 tracking-tight leading-snug mb-2">
-                        {proj.title}
+                        {transData.title}
                       </h3>
 
                       {/* Tagline / Subtítulo */}
@@ -155,7 +159,7 @@ export default function Projects() {
                     {/* Tags de Tecnologias */}
                     <div>
                       <div className="flex flex-wrap gap-1.5 mb-6">
-                        {proj.tags.map((tag) => (
+                        {transData.tags.map((tag) => (
                           <span
                             key={tag}
                             className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-stone-100 text-stone-700"
@@ -221,7 +225,7 @@ export default function Projects() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-900">
                         <img
                           src={proj.image}
-                          alt={proj.title}
+                          alt={transData.title}
                           className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                           loading="lazy"
                         />

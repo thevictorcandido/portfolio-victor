@@ -95,6 +95,7 @@ export default function Experience() {
               const roleSummary = roleData.summary || exp.summary
               const roleCaption = roleData.caption || exp.imageCaption
               const roleBullets = roleData.bullets || exp.bullets
+              const roleTechnologies = roleData.technologies || []
 
               return (
                 <div
@@ -182,7 +183,7 @@ export default function Experience() {
                           isEven ? 'md:justify-end' : 'md:justify-start'
                         }`}
                       >
-                        {exp.technologies.map((tech, tIdx) => (
+                        {roleTechnologies.map((tech, tIdx) => (
                           <span
                             key={tIdx}
                             className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-white border border-stone-200/80 text-stone-700 shadow-2xs hover:border-stone-400 transition-colors"
@@ -204,7 +205,7 @@ export default function Experience() {
                     <div className="relative aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-100 group">
                       <img
                         src={exp.image}
-                        alt={exp.imageAlt}
+                        alt={roleData.imageAlt || roleTitle}
                         className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
                           exp.objectPosition || 'object-center'
                         }`}
