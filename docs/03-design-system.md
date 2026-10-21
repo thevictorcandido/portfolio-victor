@@ -45,10 +45,27 @@ Definidas em `index.css`: `spin-slow` (22 s), `float-gentle-1/2` (6–7 s), `bor
 
 Animações em JS via `motion/react` (no `floating-dock`).
 
+### Movimento reduzido (desde 2026-10-20)
+
+Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
+
+| Camada | Como | Efeito |
+|---|---|---|
+| Animações e transições CSS (inclui inline do BlurText e dos cards) | bloco `@media` no fim de `index.css`: `animation/transition-duration: 0.01ms !important`, `iteration-count: 1`, `transition-delay: 0s` | Tudo vai direto ao estado final |
+| Rolagem por âncora | mesmo bloco: `scroll-behavior: auto !important` | Salto direto |
+| "Voltar ao topo" (JS) | `Footer.jsx` consulta `matchMedia` antes do `scrollTo` | Salto direto |
+| BorderBeam | `motion-reduce:hidden` | Some (decorativo; parado viraria um traço solto) |
+| FloatingDock (motion/react) | `MotionConfig reducedMotion="user"` + `useReducedMotion()` no `IconContainer` | Tooltip/menu sem deslocamento; ícones sem ampliação, tamanho fixo |
+
+> [!TIP]
+> **atalho que vale lembrar**
+>
+> `msedge --force-prefers-reduced-motion` simula a preferência. Para ler estilos computados no headless: uma página temporária em `dist/` com `<iframe src="/">` da mesma origem, que grava `getComputedStyle` no próprio DOM; depois `--dump-dom`. Usar polling até `#projects` existir — o `onload` do iframe não é confiável com `--virtual-time-budget`.
+
 > [!WARNING]
 > **armadilha**
 >
-> Nenhuma animação respeita `prefers-reduced-motion` (zero ocorrências de `reduced`, `motion-safe` ou `useReducedMotion` em `src/`). Ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).
+> `.animate-spin-slow` e `.animate-float-1/2` estão definidas no `index.css` mas nenhum componente usa. O `Marquee` das Skills recebe `[--duration:28s]` por classe, mas o `style` inline do componente (`duration` padrão 25) vence — a duração real é 25 s.
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 

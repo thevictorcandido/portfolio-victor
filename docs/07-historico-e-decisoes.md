@@ -16,7 +16,8 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `b2ad3d8` | Todo texto visível passa pelo i18n (tags, chips, alts, card de estudo contínuo) |
 | 2026-10-20 | `2fceddb` | Meta description acompanha o idioma |
 | 2026-10-20 | `3ab3bb4` | Cargos apontam para grupogvs.com.br; Xulambis sem botão GitHub |
-| 2026-10-20 | — | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
+| 2026-10-20 | `038a3df` | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
+| 2026-10-20 | — | Respeita `prefers-reduced-motion` |
 
 ## Decisões
 
@@ -59,6 +60,11 @@ Voltar: [Portfolio Victor](README.md)
 > **texto visível só no JSON; portfolioData só com estrutura**
 >
 > Ao mover um texto para o i18n, o campo correspondente sai do `portfolioData.js` no mesmo commit, para não haver duas fontes. Os textos antigos que já não eram lidos (bio, bullets, descrições) ficam para o item de limpeza do backlog. Tecnologias das skills usam `key` estável (`python`, `git`, `rest`…) em vez do nome, porque nomes como "Git & GitHub" não servem como chave.
+
+> [!IMPORTANT]
+> **movimento reduzido por regra global, não classe a classe**
+>
+> Um bloco `@media (prefers-reduced-motion: reduce)` com `!important` cobre todas as animações e transições, inclusive as inline, sem precisar marcar cada componente com `motion-safe:`. Só o que o CSS não alcança (springs do motion, `scrollTo` em JS) e o que fica feio parado (BorderBeam) foi tratado à parte. Transições viram 0,01 ms em vez de `none` para que `transitionend`/`animationend` ainda disparem.
 
 > [!NOTE]
 > **contexto**

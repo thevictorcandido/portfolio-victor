@@ -57,10 +57,10 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > JS de 512,83 kB (gzip 159,87 kB) em `ae0f854`; 518,53 kB (gzip 162,16 kB) após o EmailJS (+5,7 kB); 520,82 kB após o i18n completo; **514,35 kB (gzip 161,74 kB)** após a limpeza do `portfolioData`. Candidatos: `country-flag-icons` (importa só BR e US, conferir tree-shaking), `motion`, `lucide-react`. Alternativa: `React.lazy` nas seções abaixo da dobra.
 
-> [!WARNING]
-> **sem `prefers-reduced-motion`**
+> [!TIP]
+> **~~sem `prefers-reduced-motion`~~ — resolvido em 2026-10-20**
 >
-> Animações infinitas (`spin-slow`, `float`, `marquee`, `border-beam`) rodam sempre. Acessibilidade.
+> CSS global + BorderBeam oculto + dock sem ampliação + "voltar ao topo" sem rolagem suave. Verificado no Edge com e sem `--force-prefers-reduced-motion`: marquee `25s ×infinite` → `0.01ms ×1`; transição dos cards `0.7s` → `0.01ms`; BlurText `0.55s` → `0.01ms`; beam `block` → `none`; scroll `smooth` → `auto`. A ampliação do dock não foi testada (depende de mouse). Detalhes em [03 - Design System](03-design-system.md).
 
 > [!WARNING]
 > **README desatualizado**
@@ -83,7 +83,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 5a. [ ] Tags Open Graph (`og:title`, `og:description`, `og:image`) para preview de link
 6. [x] Corrigir `companyUrl` e `githubUrl` (2026-10-20)
 7. [x] Limpar `portfolioData.js` e assets mortos (2026-10-20)
-8. [ ] `prefers-reduced-motion`
+8. [x] `prefers-reduced-motion` (2026-10-20)
 9. [ ] Reduzir bundle
 10. [ ] Atualizar README
 11. [ ] Deploy

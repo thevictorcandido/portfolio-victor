@@ -3,8 +3,10 @@ import { cn } from "@/lib/utils";
 import { LayoutGrid } from "lucide-react";
 import {
   AnimatePresence,
+  MotionConfig,
   motion,
   useMotionValue,
+  useReducedMotion,
   useSpring,
   useTransform,
 } from "motion/react";
@@ -16,11 +18,13 @@ export const FloatingDock = ({
   mobileClassName,
   toggleLabel = "Abrir menu de links",
 }) => {
+  // reducedMotion="user": com "reduzir movimento" ligado no sistema, o motion
+  // desliga as animações de transform (tooltip, menu mobile) e mantém só opacidade
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <FloatingDockDesktop items={items} className={desktopClassName} />
       <FloatingDockMobile items={items} className={mobileClassName} toggleLabel={toggleLabel} />
-    </>
+    </MotionConfig>
   );
 };
 
@@ -111,8 +115,11 @@ function IconContainer({
   href,
 }) {
   let ref = useRef(null);
+  // A ampliação segue o mouse via springs, fora do alcance do MotionConfig: sem movimento, tamanho fixo
+  const reduceMotion = useReducedMotion();
 
   let distance = useTransform(mouseX, (val) => {
+    if (reduceMotion) return Infinity;
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
 
     return val - bounds.x - bounds.width / 2;

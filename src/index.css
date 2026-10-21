@@ -199,3 +199,21 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Movimento reduzido: respeita a preferência do sistema operacional          */
+/* -------------------------------------------------------------------------- */
+
+/* Animações e transições terminam no estado final instantaneamente.
+   O !important vence também os estilos inline (BlurText, cards de Projetos). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
