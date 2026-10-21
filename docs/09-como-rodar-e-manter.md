@@ -99,6 +99,7 @@ A imagem `public/projects/xulambis-terminal.png` sai de `docs/mockups/xulambis-t
 > **armadilha**
 >
 > No Windows, encerrar a tarefa em segundo plano de `npx vite preview` mata o `npx` mas deixa o `node ... vite.js preview` vivo, segurando a porta 4173 (o próximo `--strictPort` falha). Conferir com `netstat -ano | grep :4173` e encerrar o PID com `Stop-Process -Id <pid>`.
+> **Como evitar:** subir com `node node_modules/vite/bin/vite.js preview --port 4173 --strictPort` (sem `npx`); aí encerrar a tarefa mata o servidor de fato (testado em 2026-10-20).
 
 ## Convenção de commits
 

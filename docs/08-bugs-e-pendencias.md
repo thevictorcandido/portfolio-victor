@@ -39,10 +39,11 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > `syncDocument` em `src/i18n/index.js` agora atualiza a description. Ver [05 - Internacionalização (i18n)](05-internacionalizacao-i18n.md).
 
-> [!CAUTION]
-> **links apontando para o lugar errado**
+> [!TIP]
+> **~~links apontando para o lugar errado~~ — corrigido em 2026-10-20**
 >
-> `companyUrl` dos cargos → LinkedIn do Victor (deveria ser o Grupo GVS). `githubUrl` do Xulambis → perfil, não o repositório.
+> `companyUrl` dos 3 cargos apontava para o LinkedIn do Victor; agora `https://grupogvs.com.br`. `githubUrl` do Xulambis apontava para o perfil; o repositório não é público, então virou `null` e o botão sumiu. Conferido no DOM renderizado.
+> **Consequência:** o card do Xulambis ficou sem nenhum botão de ação (também não tem `liveUrl`).
 
 ## Dívida técnica
 
@@ -80,7 +81,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 4. [x] Traduzir tags/chips/alt (mover para JSON) (2026-10-20)
 5. [x] Meta description por idioma (2026-10-20)
 5a. [ ] Tags Open Graph (`og:title`, `og:description`, `og:image`) para preview de link
-6. [ ] Corrigir `companyUrl` e `githubUrl`
+6. [x] Corrigir `companyUrl` e `githubUrl` (2026-10-20)
 7. [ ] Limpar `portfolioData.js` e assets mortos
 8. [ ] `prefers-reduced-motion`
 9. [ ] Reduzir bundle

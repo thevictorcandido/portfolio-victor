@@ -26,9 +26,10 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 >
 > Os rótulos de categoria divergem entre as fontes: `portfolioData` diz "Backend & Arquitetura de Sistemas", a tradução diz "Backend & Engenharia de Sistemas". O que aparece na tela é o da tradução.
 
-## Links que apontam para o lugar errado
+## Links externos
 
-- `experiences[].companyUrl` dos 3 cargos aponta para o **LinkedIn do Victor**, não para o Grupo GVS.
-- `projects[proj-xulambis].githubUrl` aponta para o **perfil** `github.com/thevictorcandido`, não para o repositório do projeto.
+- Cargos da Trajetória → `https://grupogvs.com.br` (desde 2026-10-20; antes apontavam para o LinkedIn do Victor).
+- Projeto GVS → botão "Visitar Website Oficial" (`liveUrl`).
+- Projeto Xulambis → **sem botões**: repositório não é público e não há demo. Se o repo for aberto, preencher `githubUrl` em `portfolioData.js` que o botão volta sozinho.
 
 Ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).
