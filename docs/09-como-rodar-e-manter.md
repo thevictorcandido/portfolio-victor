@@ -26,7 +26,13 @@ npm run preview    # serve o dist/ localmente
    - Testar com **Test It** antes de usar no site.
 4. **Account → General** → copiar a *Public Key*.
 5. `cp .env.example .env.local` e preencher `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`. Reiniciar o `npm run dev`.
-6. No deploy, cadastrar as mesmas três variáveis no painel da hospedagem.
+6. No deploy, cadastrar as mesmas três variáveis no painel da hospedagem — na Vercel: **Settings → Environment Variables** (Production + Preview) e depois **Deployments → ⋯ → Redeploy**.
+
+## Deploy (Vercel)
+
+- Domínio: https://victorcandido.dev
+- Publica sozinho a cada push na `main` (preset Vite: `npm run build`, saída `dist/`).
+- Variável de ambiente nova ou alterada só vale a partir do **próximo build** — sempre fazer Redeploy depois de mexer nelas.
 
 > [!WARNING]
 > **armadilha**

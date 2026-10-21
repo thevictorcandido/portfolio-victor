@@ -6,6 +6,14 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 ## Bugs
 
+> [!CAUTION]
+> **formulário não envia em produção (victorcandido.dev) — aberto em 2026-10-21**
+>
+> **Sintoma:** no site publicado, o envio cai no aviso de erro.
+> **Causa raiz:** as variáveis `VITE_EMAILJS_*` são embutidas no bundle no momento do build; elas existem só no `.env.local` (não versionado), e o projeto na Vercel não as tinha. O JS publicado (`index-C4uUlS0p.js`) traz `{SERVICE_ID:void 0,TEMPLATE_ID:void 0,PUBLIC_KEY:void 0}`.
+> **Correção:** cadastrar as 3 variáveis em Vercel → Settings → Environment Variables (Production + Preview) e fazer **Redeploy** — variável nova não afeta build antigo.
+> **Como conferir sem expor valores:** baixar o JS publicado e procurar o objeto `{SERVICE_ID:...}`; `void 0` = vazio.
+
 > [!TIP]
 > **~~formulário de contato finge que envia~~ — corrigido em 2026-10-20**
 >
@@ -70,7 +78,8 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 - ~~~4,9 MB de assets não usados~~ — removidos em 2026-10-20, ver [06 - Assets e Mídia](06-assets-e-midia.md).
 - ~~Campos mortos em `portfolioData`~~ — removidos em 2026-10-20.
 - Botão/link de currículo não existe (o `resumeUrl: "#"` morto foi removido; se quiser um botão de CV, é feature nova).
-- ~~`main` sem upstream~~ — push feito em 2026-10-21 (`git push -u origin main`). Deploy ainda não feito.
+- ~~`main` sem upstream~~ — push feito em 2026-10-21 (`git push -u origin main`).
+- ~~Deploy~~ — já existia: Vercel em https://victorcandido.dev, com deploy automático por push.
 
 ## Backlog sugerido (ordem)
 
@@ -86,4 +95,5 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 8. [x] `prefers-reduced-motion` (2026-10-20)
 9. [ ] Reduzir bundle
 10. [x] Atualizar README (2026-10-20)
-11. [ ] Deploy
+11. [x] Deploy — Vercel, https://victorcandido.dev (já existia)
+11a. [ ] Variáveis do EmailJS na Vercel + Redeploy
