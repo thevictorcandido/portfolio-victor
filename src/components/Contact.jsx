@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { Mail, Copy, Check, Send, ArrowUpRight, MessageSquare, Loader2, AlertCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { GithubIcon, LinkedinIcon } from './Icons'
+import { ReCaptcha } from './ui/recaptcha'
 import { portfolioData } from '../data/portfolioData'
 import EMAILJS_CONFIG, { isEmailjsConfigured } from '../config/emailjsConfig'
+import { RECAPTCHA_SITE_KEY } from '../config/recaptchaConfig'
 
 export default function Contact() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { personal } = portfolioData
   const [copied, setCopied] = useState(false)
-  // idle | sending | success | error
+  // idle | captcha (caixa não marcada) | sending | success | error
   const [status, setStatus] = useState('idle')
+  const captchaRef = useRef(null)
 
   const handleCopyEmail = () => {
     if (personal.social?.email) {
@@ -31,12 +34,19 @@ export default function Contact() {
       return
     }
 
+    // O widget do reCAPTCHA preenche o campo oculto g-recaptcha-response dentro do form
+    const params = Object.fromEntries(new FormData(form))
+    if (RECAPTCHA_SITE_KEY && !params['g-recaptcha-response']) {
+      setStatus('captcha')
+      return
+    }
+
     setStatus('sending')
     try {
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_ID,
-        Object.fromEntries(new FormData(form)),
+        params,
         { publicKey: EMAILJS_CONFIG.PUBLIC_KEY },
       )
       form.reset()
@@ -45,6 +55,9 @@ export default function Contact() {
     } catch (err) {
       console.error('Falha ao enviar mensagem pelo EmailJS:', err)
       setStatus('error')
+    } finally {
+      // Cada token do reCAPTCHA vale para um único envio
+      captchaRef.current?.reset()
     }
   }
 
@@ -232,6 +245,23 @@ export default function Contact() {
                     className="w-full px-4 py-3 rounded-2xl bg-stone-50/80 border border-stone-200 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 focus:bg-white transition-all resize-none"
                   />
                 </div>
+
+                {RECAPTCHA_SITE_KEY && (
+                  <div>
+                    <ReCaptcha
+                      ref={captchaRef}
+                      siteKey={RECAPTCHA_SITE_KEY}
+                      hl={i18n.resolvedLanguage}
+                      onVerify={() => setStatus((s) => (s === 'captcha' ? 'idle' : s))}
+                      onError={() => setStatus('error')}
+                    />
+                    {status === 'captcha' && (
+                      <p role="alert" className="mt-2 text-xs font-medium text-red-700">
+                        {t('contact.captchaRequired')}
+                      </p>
+                    )}
+                  </div>
+                )}
 
                 {status === 'error' && (
                   <div role="alert" className="p-4 rounded-2xl bg-red-50 border border-red-200 flex gap-2.5 text-xs text-red-900">

@@ -28,6 +28,34 @@ npm run preview    # serve o dist/ localmente
 5. `cp .env.example .env.local` e preencher `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`. Reiniciar o `npm run dev`.
 6. No deploy, cadastrar as mesmas três variáveis no painel da hospedagem — na Vercel: **Settings → Environment Variables** (Production + Preview) e depois **Deployments → ⋯ → Redeploy**.
 
+## reCAPTCHA no formulário
+
+> [!IMPORTANT]
+> **o que não pode ser esquecido**
+>
+> O EmailJS **só aceita reCAPTCHA v2** (caixa "Não sou um robô"). O Google oferece primeiro o **Enterprise** (`enterprise.js?render=<chave>`, invisível por pontuação) — essa chave **não funciona** com o EmailJS. Criar em https://www.google.com/recaptcha/admin/create → *reCAPTCHA v2* → *Caixa de seleção*.
+
+- Chave v2 criada em 2026-10-21. Domínios: `victorcandido.dev`, `www.victorcandido.dev`, `localhost`.
+- **Site Key** (pública) → `VITE_RECAPTCHA_SITE_KEY` no `.env.local` e na Vercel (Config).
+- **Secret Key** → **só** no EmailJS: template → *Settings* → *Enable reCAPTCHA V2 verification*. Nunca em código, chat ou variável `VITE_*`.
+- Sem `VITE_RECAPTCHA_SITE_KEY`, o formulário envia sem CAPTCHA (útil na transição).
+
+**Ordem de ativação (senão o formulário quebra):**
+1. Site Key na Vercel → push → site novo no ar com a caixa.
+2. Só então ativar o reCAPTCHA no template do EmailJS e colar a Secret Key. Antes disso, o EmailJS recusaria todo envio feito pelo site antigo, sem caixa.
+
+**Como funciona no código:** `src/components/ui/recaptcha.jsx` carrega `api.js?render=explicit&hl=<idioma>` uma única vez e renderiza o widget; ele cria o campo oculto `g-recaptcha-response` dentro do `<form>`, que o `FormData` já manda ao EmailJS. Sem token → aviso `contact.captchaRequired` e nenhuma chamada ao EmailJS. Depois de cada tentativa o widget é resetado (token vale um envio). Abaixo de 304 px de largura usa o tamanho `compact`.
+
+> [!WARNING]
+> **armadilha**
+>
+> O idioma do widget é fixado na primeira carga do script (`hl`). Trocar PT/EN depois não traduz a caixa — só recarregando a página.
+
+> [!TIP]
+> **atalho que vale lembrar**
+>
+> Verificado em 2026-10-21 com uma página de diagnóstico no `dist/` (iframe da mesma origem + `fetch` interceptado): widget com a Site Key, 304×78 em desktop e 164×144 num iframe de 340 px, aviso nos dois idiomas, 0 chamadas ao EmailJS sem a caixa marcada. O Edge headless no Windows **não abre janela com menos de ~496 px** de largura útil (`--window-size=390,…` dá `innerWidth` 496) — para testar celular, usar iframe com largura fixa.
+
 ## Deploy (Vercel)
 
 - Domínio: https://www.victorcandido.dev (o apex `victorcandido.dev` faz 308 para o `www` — usar `curl -L`)

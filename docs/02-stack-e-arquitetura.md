@@ -29,6 +29,7 @@ src/
   i18n/locales/{pt-BR,en}/translation.json
   config/i18nConfig.js     idiomas, fallback, chave do localStorage
   config/emailjsConfig.js  IDs do EmailJS lidos de VITE_EMAILJS_* + isEmailjsConfigured
+  config/recaptchaConfig.js  Site Key do reCAPTCHA v2 (VITE_RECAPTCHA_SITE_KEY)
   data/portfolioData.js    dados estruturados (links, imagens, tags, skills)
   lib/utils.js             cn() — join simples de classes
   components/
@@ -36,6 +37,7 @@ src/
     Icons.jsx, TechIcons.jsx
     LanguageSwitcher/LanguageSwitcher.jsx
     ui/ blur-text, border-beam, floating-dock, marquee   (adaptados do 21st.dev)
+    ui/ recaptcha                                        (widget v2, carga explícita)
 ```
 
 ~2.100 linhas de JSX em 15 componentes. Maiores: `Projects` (243), `Experience` (238), `Contact` (223), `Hero` (220).

@@ -108,3 +108,6 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 11. [x] Deploy — Vercel, https://victorcandido.dev (já existia)
 11a. [x] Variáveis do EmailJS na Vercel + novo build (2026-10-21)
 11b. [ ] Teste de envio real pelo formulário em produção
+12. [x] reCAPTCHA v2 no formulário — código pronto e testado localmente (2026-10-21)
+12a. [ ] `VITE_RECAPTCHA_SITE_KEY` na Vercel + push
+12b. [ ] Depois do site novo no ar: ativar reCAPTCHA V2 no template do EmailJS com a Secret Key

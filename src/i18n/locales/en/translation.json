@@ -233,6 +233,7 @@
     "successTitle": "Message sent successfully!",
     "successText": "Thanks for reaching out! I'll reply to your email soon.",
     "errorText": "Your message couldn't be sent right now. Please try again or write directly to",
+    "captchaRequired": "Please tick “I'm not a robot” before sending.",
     "copy": "Copy",
     "copied": "Copied!",
     "directLinks": "Direct Channels & Social",

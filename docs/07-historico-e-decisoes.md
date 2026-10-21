@@ -20,6 +20,8 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `9dd5241` | Respeita `prefers-reduced-motion` |
 | 2026-10-20 | `18c6ce8` | README reescrito |
 | 2026-10-21 | `90ae5c6` | Primeiro push: `origin/main` vai de `ae0f854` a `90ae5c6` (14 commits) |
+| 2026-10-21 | `ebc6e6e` | Push que gerou o build de produção com as variáveis do EmailJS |
+| 2026-10-21 | — | reCAPTCHA v2 no formulário de contato |
 
 ## Decisões
 
@@ -67,6 +69,11 @@ Voltar: [Portfolio Victor](README.md)
 > **movimento reduzido por regra global, não classe a classe**
 >
 > Um bloco `@media (prefers-reduced-motion: reduce)` com `!important` cobre todas as animações e transições, inclusive as inline, sem precisar marcar cada componente com `motion-safe:`. Só o que o CSS não alcança (springs do motion, `scrollTo` em JS) e o que fica feio parado (BorderBeam) foi tratado à parte. Transições viram 0,01 ms em vez de `none` para que `transitionend`/`animationend` ainda disparem.
+
+> [!IMPORTANT]
+> **reCAPTCHA v2 com componente próprio, sem dependência**
+>
+> Adicionado em 2026-10-21 para barrar robôs no formulário. v2 porque é a única versão que o EmailJS valida. Componente próprio (`ui/recaptcha.jsx`, ~70 linhas) em vez de `react-google-recaptcha`: carrega o script uma vez, escolhe `compact` em tela estreita e não adiciona pacote. O token vai pelo campo oculto que o próprio widget põe no `<form>` — nenhuma mudança na chamada ao EmailJS além de checar se ele existe.
 
 > [!NOTE]
 > **contexto**
