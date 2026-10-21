@@ -11,12 +11,13 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > **Causa raiz:** `handleSubmit` só fazia `preventDefault()` e mostrava sucesso por 5 s; nenhuma mensagem saía do navegador.
 > **Correção:** envio real via EmailJS (`@emailjs/browser` 4.4.1), com estados `idle → sending → success | error`. No erro, mostra o e-mail do Victor como alternativa. Textos de sucesso/erro/copiar passaram para o i18n.
-> **Pendente do Victor:** criar service + template no painel do EmailJS e preencher `.env.local` — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md). Sem isso o formulário cai no estado de erro.
+> **Validado em 2026-10-20:** service Gmail + template criados, `.env.local` preenchido, mensagem enviada pelo site chegou no Gmail. Configuração em [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
 
-> [!CAUTION]
-> **favicon 404**
+> [!TIP]
+> **~~favicon 404~~ — corrigido em 2026-10-20**
 >
-> `index.html` usa `href="/vite.svg"`, arquivo que não existe em `public/`. Ver [06 - Assets e Mídia](06-assets-e-midia.md).
+> **Causa raiz:** `index.html` apontava para `/vite.svg`, que não existe em `public/`; o `public/favicon.svg` era o raio roxo do template Vite e não era referenciado.
+> **Correção:** `public/favicon.svg` virou monograma "V" (bege `#FAF8F5` sobre musgo `#2B4636`, cantos 14/64, traço 7/64) e o `index.html` aponta para ele. Conferido renderizado a 16/32/64 px em aba clara e escura. Adicionado `<meta name="theme-color" content="#FAF8F5">`.
 
 > [!CAUTION]
 > **textos em português na versão em inglês**
@@ -67,8 +68,8 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 
 ## Backlog sugerido (ordem)
 
-1. [x] Formulário de contato funcional (2026-10-20, falta configurar credenciais)
-2. [ ] Favicon próprio
+1. [x] Formulário de contato funcional (2026-10-20, validado com envio real)
+2. [x] Favicon próprio (2026-10-20)
 3. [ ] Confirmar linguagem do Xulambis e corrigir
 4. [ ] Traduzir tags/chips/alt (mover para JSON)
 5. [ ] Meta description por idioma

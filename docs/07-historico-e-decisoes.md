@@ -10,7 +10,8 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-13 23:07 | `319f11f` | **Site completo sem tradução** — todas as seções, fotos, fontes locais, componentes 21st.dev, visual claro bege |
 | 2026-10-13 23:51 | `ae0f854` | **i18n pt-BR / en** — i18next, LanguageSwitcher, textos movidos para `translation.json` |
 | 2026-10-20 | `cd4e1ec` | Documentação criada (vault Obsidian + `docs/` no repo) |
-| 2026-10-20 | `5b63243` | Formulário de contato com envio real via EmailJS |
+| 2026-10-20 | `5b63243` | Formulário de contato com envio real via EmailJS (validado com envio real no mesmo dia) |
+| 2026-10-20 | — | Favicon próprio: monograma "V" |
 
 ## Decisões
 
@@ -43,6 +44,11 @@ Voltar: [Portfolio Victor](README.md)
 > **EmailJS para o formulário de contato**
 >
 > Escolhido em 2026-10-20, entre Formspree, EmailJS e `mailto:`. Funciona 100% no front (sem backend), cabe num site estático e o template de e-mail é editável no painel. Credenciais ficam em `VITE_EMAILJS_*` (`.env.local`, já ignorado pelo `*.local` do `.gitignore`).
+
+> [!IMPORTANT]
+> **favicon em SVG com traço, sem fonte**
+>
+> O "V" é um `path` com `stroke`, não um `<text>`: favicons SVG não carregam as fontes do site, e o texto cairia numa fonte do sistema diferente em cada navegador. Só SVG, sem `.ico`/PNG: todos os navegadores atuais aceitam favicon SVG.
 
 > [!NOTE]
 > **contexto**

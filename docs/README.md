@@ -11,14 +11,15 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 >
 > - Site completo com 7 seções: Hero, Sobre, Projetos, Trajetória, Habilidades, Formação, Contato (+ Navbar e Footer).
 > - Internacionalização pt-BR / en com seletor de idioma — 119 chaves, paridade 100% entre os dois arquivos.
-> - Formulário de contato com envio real via EmailJS (estados de envio, sucesso e erro).
+> - Formulário de contato com envio real via EmailJS, validado ponta a ponta em 2026-10-20.
+> - Favicon próprio (monograma "V" musgo/bege).
 > - `npm run build` passa (1,79 s). `oxlint` passa sem avisos (exit 0).
 > - Documentação espelhada em `docs/` dentro do repositório.
 
 > [!WARNING]
 > **o que ainda falta**
 >
-> - Formulário de contato já usa EmailJS, mas **falta preencher as credenciais** em `.env.local` — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
+> - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
 > - Remoto `origin` aponta para `github.com/thevictorcandido/portfolio-victor`, mas `main` não tem upstream configurado; deploy não publicado.
 > - Vários textos em chips/tags ainda só existem em português.
 

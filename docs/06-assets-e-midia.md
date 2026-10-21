@@ -16,6 +16,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `projects/grupogvs-hero.png` | Card do projeto GVS |
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
+| `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
 
 ## Peso morto (~4,9 MB)
 
@@ -28,7 +29,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `experience/exp-comunicacao-mkt.png` | Igual a `projects/grupogvs-full.png`; não referenciado |
 | `projects/grupogvs-full.png` | Não referenciado |
 | `fonts/Relieve.woff2` | Não referenciada no CSS |
-| `favicon.svg`, `icons.svg` | Restos do template Vite; não referenciados |
+| `icons.svg` | Resto do template Vite; não referenciado |
 
 `src/assets/` (`hero.png`, `react.svg`, `vite.svg`) também são restos do template.
 
@@ -37,7 +38,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 >
 > Nomes de arquivo com espaço (`victor curriculo.png`, `vitin ponto de onibus estilo.jpeg`) funcionam no Vite, mas exigem cuidado em links, scripts e deploys. Preferir `kebab-case` em arquivos novos.
 
-> [!CAUTION]
-> **defeito, com causa raiz**
+> [!TIP]
+> **favicon corrigido em 2026-10-20**
 >
-> **Favicon quebrado.** `index.html` aponta para `/vite.svg`, que não existe em `public/` (só existe `src/assets/vite.svg`, que não é servido na raiz). Resultado: 404 e aba sem ícone. Ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).
+> Antes, `index.html` apontava para `/vite.svg`, inexistente em `public/` (404, aba sem ícone). Ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).
