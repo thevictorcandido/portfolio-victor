@@ -22,10 +22,10 @@ Editorial claro, bege quente, com acento verde-musgo. Seções numeradas `01 ·`
 
 Os componentes usam muito a escala `stone-*` do Tailwind direto, além dos tokens. Seleção de texto: fundo `stone-900`, texto `stone-50`. Scrollbar customizada (7 px, thumb `#D8D2C6`).
 
-> [!WARNING]
-> **armadilha**
+> [!NOTE]
+> **contexto**
 >
-> A paleta escura (`#0C0F0D`, `#152218`…`#3A5742`) descrita no README **não existe mais no código**. Não usar o README como referência de cor.
+> A paleta escura (`#0C0F0D`, `#152218`…`#3A5742`) do projeto base não existe mais no código. O README foi corrigido em 2026-10-20.
 
 ## Tipografia
 

@@ -1,76 +1,91 @@
-# Portfólio Profissional — Victor Leite
+# Portfólio — Victor Cândido Leite
 
-Portfólio moderno, veloz e responsivo desenvolvido com **React 19**, **Vite 8** e **Tailwind CSS v4**.
+Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software na PUC Minas. Página única, bilíngue (português e inglês), feita com **React 19**, **Vite 8** e **Tailwind CSS v4** para a disciplina **DIAW** (Desenvolvimento e Integração de Aplicações Web).
 
-> 📚 Documentação completa (arquitetura, design system, i18n, decisões e pendências) em **[`docs/`](docs/README.md)**.
+> Documentação completa (arquitetura, design system, i18n, decisões e pendências) em **[`docs/`](docs/README.md)**.
 
-Inspirado em uma síntese conceitual dos portfólios de referência:
-- **[azal.im](https://azal.im/)**: Precisão técnica, indicadores de seção numerados (`01`, `02`...), badges de habilidades com tempo/categoria, cantoneiras técnicas (corner reticles) no avatar e status badge com radar pulsante.
-- **[pedrobragadev.com](https://pedrobragadev.com/)**: Tipografia fluida e editorial de alto impacto, narrativa envolvente na seção "Sobre", timeline fluida "Onde Já Atuei" e showcase de projetos.
-- **[FlaviOS](https://flaviojunior-portfolio.vercel.app/)**: Detalhes e acabamento visual inspirados em sistemas operacionais e dashboards de desenvolvedor (chips de status, janelas técnicas em cards).
+## Seções
 
----
+| # | Seção | Conteúdo |
+|---|---|---|
+| — | Início | Apresentação, foto e seletor de idioma |
+| 01 | Sobre | Bio, citação e atalhos para links |
+| 02 | Projetos | Site institucional do Grupo GVS e o sistema Xulambis Pizza (Java, PUC Minas) |
+| 03 | Trajetória | Linha do tempo dos três cargos no Grupo GVS |
+| 04 | Habilidades | Backend e Inteligência Artificial |
+| 05 | Formação | Engenharia de Software na PUC Minas e estudo contínuo |
+| 06 | Contato | Formulário com envio real por e-mail (EmailJS) e links diretos |
 
-## 🎨 Paleta de Cores
+## Stack
 
-- **Verde Musgo Escuro**: `#152218` a `#3A5742` (acentos e glows em `#84B18F` e `#A7CCAF`)
-- **Branco Bege**: `#FAF7F2` (títulos e contrastes) e `#ECE5D8` / `#B8ADA0` (leitura confortável e elegante)
-- **Quase Preto**: `#0C0F0D` (fundo principal orgânico profundo), `#111613` (superfície de cards) e `#232E25` (bordas sutis)
+- **React 19** + **Vite 8**, JavaScript (JSX)
+- **Tailwind CSS v4**, com tokens de tema em `src/index.css`
+- **i18next** + **react-i18next**: português (padrão) e inglês, com detecção pelo navegador e escolha salva no `localStorage`
+- **motion** (animações do dock) e **lucide-react** (ícones)
+- **@emailjs/browser** para o formulário de contato
+- **oxlint** para lint
 
----
+## Como rodar
 
-## 📁 Estrutura de Arquivos
+Requer **Node.js 20.19+ ou 22.12+**.
 
 ```bash
-portfolio-victor/
-├── src/
-│   ├── assets/              # Imagens e ícones estáticos
-│   ├── components/
-│   │   ├── Navbar.jsx       # Header fixo com detecção de scroll e menu mobile
-│   │   ├── Hero.jsx         # Apresentação principal, avatar técnico e botões de ação
-│   │   ├── About.jsx        # Seção Sobre com contadores de métricas e princípios
-│   │   ├── Projects.jsx     # Galeria com filtros de categoria e cards
-│   │   ├── Experience.jsx   # Linha do tempo com detalhes expansíveis e badges
-│   │   ├── Skills.jsx       # Habilidades categorizadas com badges duplos
-│   │   ├── Education.jsx    # Formação acadêmica e cursos
-│   │   ├── Contact.jsx      # Formulário e botão de copiar e-mail com feedback
-│   │   ├── Footer.jsx       # Rodapé com paleta de cores e botão para voltar ao topo
-│   │   └── Icons.jsx        # Ícones SVG dedicados (GitHub, LinkedIn, Instagram)
-│   ├── data/
-│   │   └── portfolioData.js # ⭐️ ARQUIVO PRINCIPAL DE DADOS (Edite aqui seus textos e links)
-│   ├── App.jsx              # Composição das seções
-│   ├── index.css            # Tema Tailwind v4 e variáveis de estilo
-│   └── main.jsx             # Ponto de entrada do React
-├── index.html               # Configuração de fontes do Google e metadados
-└── package.json
+npm install
+npm run dev       # servidor de desenvolvimento
+npm run lint      # oxlint
+npm run build     # gera dist/
+npm run preview   # serve o dist/ localmente
 ```
 
----
+### Formulário de contato
 
-## ⚡ Como Rodar o Projeto
+O envio usa o [EmailJS](https://www.emailjs.com/). Copie `.env.example` para `.env.local` e preencha:
 
-1. Instalar as dependências:
-   ```bash
-   npm install
-   ```
+```
+VITE_EMAILJS_SERVICE_ID=
+VITE_EMAILJS_TEMPLATE_ID=
+VITE_EMAILJS_PUBLIC_KEY=
+```
 
-2. Iniciar o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
+O template do EmailJS precisa usar `{{name}}`, `{{email}}` e `{{message}}`. Sem essas variáveis o site funciona, mas o formulário mostra um aviso de erro com o e-mail direto como alternativa. O passo a passo completo está em [`docs/09-como-rodar-e-manter.md`](docs/09-como-rodar-e-manter.md).
 
-3. Gerar a versão de produção:
-   ```bash
-   npm run build
-   ```
+## Como editar o conteúdo
 
----
+| Quero mudar… | Onde |
+|---|---|
+| Qualquer texto visível | `src/i18n/locales/pt-BR/translation.json` **e** `src/i18n/locales/en/translation.json` |
+| Links sociais e e-mail | `src/data/portfolioData.js` → `personal.social` |
+| Imagens de cargos e projetos | `public/` + campo `image` em `src/data/portfolioData.js` |
+| Tecnologias das Habilidades | `src/data/portfolioData.js` (nome e `key`) + `skills.techRoles.<key>` nos dois JSON |
+| Cores, fontes e animações | `src/index.css` |
 
-## ✏️ Como Personalizar
+`portfolioData.js` guarda só links, caminhos de imagem e identificadores. Todo texto fica nos arquivos de tradução, e toda chave nova precisa existir nos dois idiomas.
 
-Para alterar informações, você só precisa editar o arquivo **[`src/data/portfolioData.js`](src/data/portfolioData.js)**:
-- **Foto:** Salve sua foto em `public/foto.jpg` e defina `avatarUrl: '/foto.jpg'`.
-- **Textos e Biografia:** Modifique `bio`, `role`, `subtitle` e `availability`.
-- **Links Sociais:** Altere os URLs de GitHub, LinkedIn, E-mail e Instagram em `social`.
-- **Projetos:** Adicione ou edite os projetos em `projects`, incluindo tags e links de demonstração.
-- **Experiência e Formação:** Atualize suas empresas, cargos e estudos nas seções correspondentes.
+## Estrutura
+
+```
+src/
+├── main.jsx                 # carrega o i18n e monta o App
+├── App.jsx                  # ordem das seções
+├── index.css                # tema Tailwind, fontes locais, animações
+├── components/              # uma seção por arquivo + Navbar, Footer, ícones
+│   ├── LanguageSwitcher/    # seletor PT / EN
+│   └── ui/                  # blur-text, border-beam, floating-dock, marquee
+├── config/                  # idiomas (i18nConfig) e credenciais do EmailJS
+├── data/portfolioData.js    # links, imagens e ids
+├── i18n/                    # inicialização + locales/{pt-BR,en}/translation.json
+└── lib/utils.js             # cn() para juntar classes
+public/                      # fotos, imagens dos projetos, fontes, favicon
+docs/                        # documentação do projeto
+```
+
+## Design
+
+Visual editorial claro: fundo bege `#FAF8F5`, texto quase preto `#151515` e acento verde-musgo `#2B4636`. Tipografia com **Montserrat** (texto), **Hyperlegible Sans** (títulos) e **Smile Moon** (destaques). As animações respeitam a opção "reduzir movimento" do sistema.
+
+Referências visuais:
+- **[azal.im](https://azal.im/)**: seções numeradas (`01`, `02`…), badges de habilidades e acabamento técnico.
+- **[pedrobragadev.com](https://pedrobragadev.com/)**: tipografia editorial, narrativa na seção "Sobre" e linha do tempo de trajetória.
+- **[FlaviOS](https://flaviojunior-portfolio.vercel.app/)**: detalhes inspirados em sistemas operacionais, como as janelas técnicas nos cards.
+
+Detalhes em [`docs/03-design-system.md`](docs/03-design-system.md).

@@ -17,14 +17,15 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-20 | `2fceddb` | Meta description acompanha o idioma |
 | 2026-10-20 | `3ab3bb4` | Cargos apontam para grupogvs.com.br; Xulambis sem botão GitHub |
 | 2026-10-20 | `038a3df` | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
-| 2026-10-20 | — | Respeita `prefers-reduced-motion` |
+| 2026-10-20 | `9dd5241` | Respeita `prefers-reduced-motion` |
+| 2026-10-20 | — | README reescrito |
 
 ## Decisões
 
 > [!IMPORTANT]
 > **tema claro em vez de escuro**
 >
-> O projeto base (README) previa fundo quase preto e verde-musgo. No commit `319f11f` o visual virou **bege claro editorial** (`#FAF8F5`) com o verde-musgo só como acento (`#2B4636`). O motivo não está registrado; o resultado conversa com as referências editoriais (pedrobragadev) e com o tom "criativo" do texto. O README não foi atualizado.
+> O projeto base (README) previa fundo quase preto e verde-musgo. No commit `319f11f` o visual virou **bege claro editorial** (`#FAF8F5`) com o verde-musgo só como acento (`#2B4636`). O motivo não está registrado; o resultado conversa com as referências editoriais (pedrobragadev) e com o tom "criativo" do texto. O README só foi atualizado em 2026-10-20.
 
 > [!IMPORTANT]
 > **i18n no padrão da disciplina**

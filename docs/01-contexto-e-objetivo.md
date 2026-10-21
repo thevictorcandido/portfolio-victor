@@ -41,7 +41,7 @@ O README cita três portfólios como inspiração:
 
 Os comentários do código também citam um componente de hero do **21st.dev** e uma referência chamada **Mindly**. Ver [03 - Design System](03-design-system.md).
 
-> [!WARNING]
-> **armadilha**
+> [!NOTE]
+> **contexto**
 >
-> O README descreve uma paleta **escura verde-musgo** que não é mais a do site. O visual atual é claro, bege editorial. Ver [07 - Histórico e Decisões](07-historico-e-decisoes.md).
+> Até 2026-10-20 o README descrevia uma paleta escura que não era mais a do site; foi reescrito com o visual claro atual. Ver [07 - Histórico e Decisões](07-historico-e-decisoes.md).

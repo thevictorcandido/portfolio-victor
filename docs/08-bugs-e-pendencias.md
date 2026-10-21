@@ -62,10 +62,10 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 >
 > CSS global + BorderBeam oculto + dock sem ampliação + "voltar ao topo" sem rolagem suave. Verificado no Edge com e sem `--force-prefers-reduced-motion`: marquee `25s ×infinite` → `0.01ms ×1`; transição dos cards `0.7s` → `0.01ms`; BlurText `0.55s` → `0.01ms`; beam `block` → `none`; scroll `smooth` → `auto`. A ampliação do dock não foi testada (depende de mouse). Detalhes em [03 - Design System](03-design-system.md).
 
-> [!WARNING]
-> **README desatualizado**
+> [!TIP]
+> **~~README desatualizado~~ — reescrito em 2026-10-20**
 >
-> Paleta escura, estrutura sem `i18n/`, `config/`, `ui/`, `LanguageSwitcher`.
+> Antes descrevia paleta escura e uma estrutura sem `i18n/`, `config/`, `ui/`. Agora traz seções, stack, Node mínimo (20.19+ / 22.12+, do `engines` do Vite 8), setup do EmailJS, onde editar cada coisa, estrutura atual, design real e as referências. Links internos conferidos.
 
 - ~~~4,9 MB de assets não usados~~ — removidos em 2026-10-20, ver [06 - Assets e Mídia](06-assets-e-midia.md).
 - ~~Campos mortos em `portfolioData`~~ — removidos em 2026-10-20.
@@ -85,5 +85,5 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 7. [x] Limpar `portfolioData.js` e assets mortos (2026-10-20)
 8. [x] `prefers-reduced-motion` (2026-10-20)
 9. [ ] Reduzir bundle
-10. [ ] Atualizar README
+10. [x] Atualizar README (2026-10-20)
 11. [ ] Deploy
