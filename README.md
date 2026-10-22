@@ -12,7 +12,7 @@ Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software
 | 01 | Sobre | Bio, citação e atalhos para links |
 | 02 | Projetos | Site institucional do Grupo GVS e o sistema Xulambis Pizza (Java, PUC Minas) |
 | 03 | Trajetória | Linha do tempo dos três cargos no Grupo GVS |
-| 04 | Habilidades | Backend e Inteligência Artificial |
+| 04 | Habilidades | Globo 3D com 16 tecnologias; o clique mostra onde cada uma foi usada |
 | 05 | Formação | Engenharia de Software na PUC Minas e estudo contínuo |
 | 06 | Contato | Formulário com envio real por e-mail (EmailJS) e links diretos |
 
@@ -56,7 +56,7 @@ O template do EmailJS precisa usar `{{name}}`, `{{email}}` e `{{message}}`. Sem 
 | Qualquer texto visível | `src/i18n/locales/pt-BR/translation.json` **e** `src/i18n/locales/en/translation.json` |
 | Links sociais e e-mail | `src/data/portfolioData.js` → `personal.social` |
 | Imagens de cargos e projetos | `public/` + campo `image` em `src/data/portfolioData.js` |
-| Tecnologias das Habilidades | `src/data/portfolioData.js` (nome e `key`) + `skills.techRoles.<key>` nos dois JSON |
+| Tecnologias das Habilidades | `src/data/portfolioData.js` (`key`, categoria, link) + `skills.items.<key>` nos dois JSON + ícone em `TechIcons.jsx` |
 | Cores, fontes e animações | `src/index.css` |
 
 `portfolioData.js` guarda só links, caminhos de imagem e identificadores. Todo texto fica nos arquivos de tradução, e toda chave nova precisa existir nos dois idiomas.
@@ -70,7 +70,7 @@ src/
 ├── index.css                # tema Tailwind, fontes locais, animações
 ├── components/              # uma seção por arquivo + Navbar, Footer, ícones
 │   ├── LanguageSwitcher/    # seletor PT / EN
-│   └── ui/                  # blur-text, border-beam, floating-dock, marquee
+│   └── ui/                  # blur-text, floating-dock, recaptcha
 ├── config/                  # idiomas (i18nConfig) e credenciais do EmailJS
 ├── data/portfolioData.js    # links, imagens e ids
 ├── i18n/                    # inicialização + locales/{pt-BR,en}/translation.json
@@ -82,10 +82,5 @@ docs/                        # documentação do projeto
 ## Design
 
 Visual editorial claro: fundo bege `#FAF8F5`, texto quase preto `#151515` e acento verde-musgo `#2B4636`. Tipografia com **Montserrat** (texto), **Hyperlegible Sans** (títulos) e **Smile Moon** (destaques). As animações respeitam a opção "reduzir movimento" do sistema.
-
-Referências visuais:
-- **[azal.im](https://azal.im/)**: seções numeradas (`01`, `02`…), badges de habilidades e acabamento técnico.
-- **[pedrobragadev.com](https://pedrobragadev.com/)**: tipografia editorial, narrativa na seção "Sobre" e linha do tempo de trajetória.
-- **[FlaviOS](https://flaviojunior-portfolio.vercel.app/)**: detalhes inspirados em sistemas operacionais, como as janelas técnicas nos cards.
 
 Detalhes em [`docs/03-design-system.md`](docs/03-design-system.md).
