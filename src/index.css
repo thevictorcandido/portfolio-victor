@@ -169,35 +169,20 @@ body {
   background-size: 20px 20px;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Animações dos componentes 21st.dev (Border Beam & Marquee)                */
-/* -------------------------------------------------------------------------- */
-
-@keyframes border-beam {
-  to {
-    offset-distance: 100%;
-  }
-}
-
-.animate-border-beam {
-  animation: border-beam var(--duration) infinite linear;
-}
-
-@keyframes marquee {
+/* Painel do globo de habilidades: sobe 8px com fade, rápido e com saída suave */
+@keyframes skill-rise {
   from {
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateY(8px);
   }
   to {
-    transform: translateX(calc(-100% - var(--gap)));
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.animate-marquee {
-  animation: marquee var(--duration) linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
+.skill-rise {
+  animation: skill-rise 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 /* -------------------------------------------------------------------------- */

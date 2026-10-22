@@ -166,31 +166,119 @@
   "skills": {
     "tag": "04 · Habilidades & Repertório",
     "headline": "Repertório técnico,",
-    "headlineHighlight": "foco em backend e inteligência artificial.",
-    "subtitle": "Domínio técnico priorizado para arquitetura de software, lógica robusta e aceleração produtiva através de modelos avançados de IA.",
-    "backendBadge": "Foco Principal",
-    "backendCategory": "Backend & Engenharia de Sistemas",
-    "backendDesc": "Construção de APIs RESTful de alta performance, serviços resilientes, modelagem de bancos relacionais e sistemas orientados a objetos sustentáveis.",
-    "aiBadge": "Fluxo & Aceleração",
-    "aiCategory": "Inteligência Artificial Aplicada",
-    "aiDesc": "Engenharia de prompt avançada, orquestração de modelos de linguagem, agentes de código e automações orientadas a inteligência artificial generativa.",
-    "techRoles": {
-      "python": "Automação & APIs",
-      "java": "POO & Arquitetura",
-      "nodejs": "APIs & Microsserviços",
-      "postgresql": "Banco Relacional",
-      "docker": "Conteinerização",
-      "redis": "Cache & Mensageria",
-      "git": "Versionamento",
-      "rest": "Integração & Protocolos",
-      "openai": "Modelos Generativos",
-      "langchain": "Orquestração de Agentes",
-      "pytorch": "Modelos & Tensores",
-      "huggingface": "Hub de Modelos Open Source",
-      "pandas": "Processamento de Dados",
-      "ollama": "Inferência Local",
-      "sklearn": "Machine Learning Clássico",
-      "prompt": "Arquitetura de Contexto"
+    "headlineHighlight": "do backend à interface, com IA no fluxo.",
+    "subtitle": "Cada tecnologia aqui tem um projeto real por trás. Gire o globo e clique num ícone para ver onde eu usei.",
+    "hint": "Arraste para girar · clique numa tecnologia",
+    "globeLabel": "Globo de tecnologias. Use Tab para percorrer os ícones.",
+    "count": "{{count}} tecnologias",
+    "emptyTitle": "Escolha uma tecnologia",
+    "emptyBody": "O texto aparece aqui, com um exemplo de projeto em que eu usei.",
+    "inPractice": "Na prática",
+    "viewProject": "Ver projeto",
+    "close": "Fechar",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Front-end",
+      "infra": "Infra & Deploy",
+      "ai": "IA"
+    },
+    "items": {
+      "python": {
+        "name": "Python",
+        "about": "Linguagem de sintaxe enxuta, usada de automação a ciência de dados. Foi onde aprendi algoritmos no 1º semestre.",
+        "example": "Drift Invaders, projeto final de Introdução a Algoritmos feito em grupo de quatro: um arcade em Pygame com cinco ondas, modo cooperativo local e 74 testes em pytest.",
+        "project": "Drift Invaders · PUC Minas"
+      },
+      "java": {
+        "name": "Java",
+        "about": "Linguagem orientada a objetos, tipada e madura, base de boa parte dos sistemas corporativos.",
+        "example": "Xulambs Pizza, em Programação Modular: criei o PedidoLocal herdando de Pedido, com taxa de serviço de 10% somada ao cupom de venda.",
+        "project": "Xulambs Pizza · Programação Modular"
+      },
+      "spring": {
+        "name": "Spring Boot",
+        "about": "Framework Java que sobe uma aplicação web com injeção de dependência e quase nenhuma configuração.",
+        "example": "Na AV1 de DIAW, o serviço lê o CSV de candidaturas do TSE (1.832 registros de MG) ao iniciar e filtra por gênero, escolaridade e idade, com a tela em Thymeleaf.",
+        "project": "AV1 · Candidatos TSE"
+      },
+      "nodejs": {
+        "name": "Node.js",
+        "about": "Ambiente que executa JavaScript fora do navegador, comum em servidores e ferramentas de build.",
+        "example": "Usei no trabalho interdisciplinar do 1º semestre da PUC Minas.",
+        "project": "Trabalho Interdisciplinar · 1º semestre"
+      },
+      "junit": {
+        "name": "JUnit",
+        "about": "Framework de testes automatizados para Java.",
+        "example": "Nos laboratórios de Programação Modular escrevo testes no padrão Arrange-Act-Assert, como o que confere o valor total de uma venda em VendaDia.",
+        "project": "LAP1 · Venda do Dia"
+      },
+      "rest": {
+        "name": "APIs REST",
+        "about": "Contrato de comunicação entre sistemas pela web: recursos acessados por métodos HTTP.",
+        "example": "O formulário de contato deste portfólio envia a mensagem pela API do EmailJS, que só aceita o envio com o token do reCAPTCHA válido.",
+        "project": "Este portfólio · Contato"
+      },
+      "git": {
+        "name": "Git & GitHub",
+        "about": "Versionamento de código e colaboração em repositórios remotos.",
+        "example": "Cada atividade da PUC vive numa branch própria (Aula2309, Aula2110) e este portfólio segue commits no padrão feat:, fix:, docs:.",
+        "project": "github.com/thevictorcandido"
+      },
+      "html": {
+        "name": "HTML",
+        "about": "A linguagem de marcação que estrutura o conteúdo de toda página web.",
+        "example": "Em Receitas de Minas, a página do pão de queijo usa só HTML nativo: popover para a dica secreta do chefe e contenteditable para as notas pessoais.",
+        "project": "Receitas de Minas · DIW"
+      },
+      "css": {
+        "name": "CSS",
+        "about": "Linguagem de estilo que define layout, cor e tipografia das páginas.",
+        "example": "Na atividade DIW-09-04 organizei formas geométricas com Flexbox, a base do layout que uso hoje.",
+        "project": "DIW-09-04 · Flexbox"
+      },
+      "javascript": {
+        "name": "JavaScript",
+        "about": "A linguagem de programação do navegador, que dá comportamento às páginas.",
+        "example": "Nas atividades de DIW montei um catálogo de filmes com map, filter e reduce e uma vitrine de produtos com busca e filtro por categoria direto no DOM.",
+        "project": "Atividades DIW · Semanas 8 e 9"
+      },
+      "react": {
+        "name": "React",
+        "about": "Biblioteca para construir interfaces a partir de componentes reutilizáveis.",
+        "example": "Este portfólio: React 19 com Vite, uma seção por componente e todo o texto em português e inglês via i18next.",
+        "project": "Este portfólio"
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "about": "Framework de CSS utilitário: o estilo é composto por classes direto no markup.",
+        "example": "Todo o layout deste portfólio, inclusive este globo, é feito com Tailwind v4.",
+        "project": "Este portfólio"
+      },
+      "wordpress": {
+        "name": "WordPress",
+        "about": "CMS que move boa parte da web, com páginas montadas em editores visuais como o Elementor.",
+        "example": "O site institucional do Grupo GVS, no ar em grupogvs.com.br, foi reformulado por mim em WordPress com Elementor: usinas, vagas e projetos socioambientais.",
+        "project": "Site Grupo GVS"
+      },
+      "vercel": {
+        "name": "Vercel",
+        "about": "Plataforma de hospedagem para front-end com deploy automático a partir do Git.",
+        "example": "Hospeda este portfólio em victorcandido.dev: cada push na main vira um deploy novo, sem passo manual.",
+        "project": "victorcandido.dev"
+      },
+      "huggingface": {
+        "name": "Hugging Face",
+        "about": "Plataforma de modelos de IA abertos que também hospeda aplicações nos Spaces.",
+        "example": "Hospedou o site do trabalho interdisciplinar do 1º semestre.",
+        "project": "Trabalho Interdisciplinar · 1º semestre"
+      },
+      "prompt": {
+        "name": "Engenharia de Prompt",
+        "about": "Estruturar instruções e contexto para que modelos de linguagem respondam com precisão.",
+        "example": "Uso modelos de linguagem no dia a dia para prototipar, depurar e revisar código, sempre conferindo o resultado, e registro as decisões de cada projeto num vault do Obsidian.",
+        "project": "Fluxo de estudo e desenvolvimento"
+      }
     }
   },
   "education": {

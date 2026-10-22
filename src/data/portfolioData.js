@@ -22,34 +22,26 @@ export const portfolioData = {
     { id: "contact" },
   ],
 
-  // key → skills.techRoles.<key> nos arquivos de tradução; name → ícone em TechIcons.jsx
-  skillsCategories: [
-    {
-      id: "backend",
-      technologies: [
-        { name: "Python", key: "python" },
-        { name: "Java", key: "java" },
-        { name: "Node.js", key: "nodejs" },
-        { name: "PostgreSQL", key: "postgresql" },
-        { name: "Docker", key: "docker" },
-        { name: "Redis", key: "redis" },
-        { name: "Git & GitHub", key: "git" },
-        { name: "RESTful APIs", key: "rest" },
-      ],
-    },
-    {
-      id: "ai",
-      technologies: [
-        { name: "OpenAI API", key: "openai" },
-        { name: "LangChain", key: "langchain" },
-        { name: "PyTorch", key: "pytorch" },
-        { name: "Hugging Face", key: "huggingface" },
-        { name: "Pandas & NumPy", key: "pandas" },
-        { name: "Ollama / Local LLMs", key: "ollama" },
-        { name: "Scikit-Learn", key: "sklearn" },
-        { name: "Prompt Engineering", key: "prompt" },
-      ],
-    },
+  // Globo de habilidades. key → skills.items.<key> nos arquivos de tradução (nome, texto e exemplo);
+  // o ícone fica no mapa de Skills.jsx. A fonte dos exemplos são as notas
+  // "Tecnologias" e "Repositórios" do vault do Obsidian. projectUrl é opcional.
+  skills: [
+    { key: "python", category: "backend", projectUrl: "https://github.com/engsoftmarcelo/drift-invaders-pipeline-defense" },
+    { key: "java", category: "backend", projectUrl: "https://github.com/thevictorcandido/ProgMod_XulambsFoods26-2/tree/Aula0710" },
+    { key: "spring", category: "backend", projectUrl: "https://github.com/thevictorcandido/AV1" },
+    { key: "nodejs", category: "backend", projectUrl: null },
+    { key: "junit", category: "backend", projectUrl: "https://github.com/thevictorcandido/LAP1_PM_N2/tree/Aula2309" },
+    { key: "rest", category: "backend", projectUrl: "https://github.com/thevictorcandido/portfolio-victor" },
+    { key: "git", category: "backend", projectUrl: "https://github.com/thevictorcandido" },
+    { key: "html", category: "frontend", projectUrl: "https://github.com/thevictorcandido/receitas-de-minas" },
+    { key: "css", category: "frontend", projectUrl: "https://github.com/thevictorcandido/DIW-09-04" },
+    { key: "javascript", category: "frontend", projectUrl: "https://github.com/thevictorcandido/Atividade-DIW-Semana-9" },
+    { key: "react", category: "frontend", projectUrl: "https://github.com/thevictorcandido/portfolio-victor" },
+    { key: "tailwind", category: "frontend", projectUrl: "https://github.com/thevictorcandido/portfolio-victor" },
+    { key: "wordpress", category: "frontend", projectUrl: "https://grupogvs.com.br" },
+    { key: "vercel", category: "infra", projectUrl: null },
+    { key: "huggingface", category: "ai", projectUrl: null },
+    { key: "prompt", category: "ai", projectUrl: null },
   ],
 
   // id → experience.roles.<id> nos arquivos de tradução

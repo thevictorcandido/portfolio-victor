@@ -166,31 +166,119 @@
   "skills": {
     "tag": "04 · Skills & Repertoire",
     "headline": "Technical repertoire,",
-    "headlineHighlight": "focused on backend and artificial intelligence.",
-    "subtitle": "Technical mastery prioritized for software architecture, robust logic, and developer productivity accelerated by advanced AI models.",
-    "backendBadge": "Primary Focus",
-    "backendCategory": "Backend & Systems Engineering",
-    "backendDesc": "High-performance RESTful API engineering, resilient services, relational database design, and sustainable object-oriented system architectures.",
-    "aiBadge": "Workflow & Acceleration",
-    "aiCategory": "Applied Artificial Intelligence",
-    "aiDesc": "Advanced prompt engineering, LLM orchestration, coding agents, and generative AI automated workflows.",
-    "techRoles": {
-      "python": "Automation & APIs",
-      "java": "OOP & Architecture",
-      "nodejs": "APIs & Microservices",
-      "postgresql": "Relational Database",
-      "docker": "Containerization",
-      "redis": "Caching & Messaging",
-      "git": "Version Control",
-      "rest": "Integration & Protocols",
-      "openai": "Generative Models",
-      "langchain": "Agent Orchestration",
-      "pytorch": "Models & Tensors",
-      "huggingface": "Open-Source Model Hub",
-      "pandas": "Data Processing",
-      "ollama": "Local Inference",
-      "sklearn": "Classic Machine Learning",
-      "prompt": "Context Architecture"
+    "headlineHighlight": "from backend to interface, with AI in the loop.",
+    "subtitle": "Every technology here has a real project behind it. Spin the globe and click an icon to see where I used it.",
+    "hint": "Drag to spin · click a technology",
+    "globeLabel": "Technology globe. Use Tab to move through the icons.",
+    "count": "{{count}} technologies",
+    "emptyTitle": "Pick a technology",
+    "emptyBody": "The text shows up here, with an example of a project where I used it.",
+    "inPractice": "In practice",
+    "viewProject": "View project",
+    "close": "Close",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Front-end",
+      "infra": "Infra & Deploy",
+      "ai": "AI"
+    },
+    "items": {
+      "python": {
+        "name": "Python",
+        "about": "A language with lean syntax, used from automation to data science. It is where I learned algorithms in my first semester.",
+        "example": "Drift Invaders, the final project for Introduction to Algorithms, built by a team of four: a Pygame arcade with five waves, local co-op mode and 74 pytest tests.",
+        "project": "Drift Invaders · PUC Minas"
+      },
+      "java": {
+        "name": "Java",
+        "about": "A mature, typed, object-oriented language behind much of enterprise software.",
+        "example": "Xulambs Pizza, in Modular Programming: I wrote PedidoLocal inheriting from Pedido, adding a 10% service fee to the sales receipt.",
+        "project": "Xulambs Pizza · Modular Programming"
+      },
+      "spring": {
+        "name": "Spring Boot",
+        "about": "A Java framework that starts a web application with dependency injection and almost no configuration.",
+        "example": "In my DIAW AV1, the service loads the TSE candidates CSV (1,832 records from Minas Gerais) on startup and filters by gender, education and age, rendered with Thymeleaf.",
+        "project": "AV1 · TSE Candidates"
+      },
+      "nodejs": {
+        "name": "Node.js",
+        "about": "A runtime that executes JavaScript outside the browser, common in servers and build tools.",
+        "example": "I used it in the first-semester interdisciplinary project at PUC Minas.",
+        "project": "Interdisciplinary Project · 1st semester"
+      },
+      "junit": {
+        "name": "JUnit",
+        "about": "An automated testing framework for Java.",
+        "example": "In the Modular Programming labs I write tests in the Arrange-Act-Assert pattern, like the one that checks a sale's total in VendaDia.",
+        "project": "LAP1 · Daily Sales"
+      },
+      "rest": {
+        "name": "REST APIs",
+        "about": "A contract for systems to talk over the web: resources accessed through HTTP methods.",
+        "example": "This portfolio's contact form sends messages through the EmailJS API, which only accepts them with a valid reCAPTCHA token.",
+        "project": "This portfolio · Contact"
+      },
+      "git": {
+        "name": "Git & GitHub",
+        "about": "Code versioning and collaboration on remote repositories.",
+        "example": "Each PUC assignment lives in its own branch (Aula2309, Aula2110), and this portfolio follows feat:, fix:, docs: commits.",
+        "project": "github.com/thevictorcandido"
+      },
+      "html": {
+        "name": "HTML",
+        "about": "The markup language that structures the content of every web page.",
+        "example": "In Receitas de Minas, the cheese bread page uses only native HTML: a popover for the chef's secret tip and contenteditable for personal notes.",
+        "project": "Receitas de Minas · DIW"
+      },
+      "css": {
+        "name": "CSS",
+        "about": "The style language that defines a page's layout, color and typography.",
+        "example": "In the DIW-09-04 assignment I arranged geometric shapes with Flexbox, the basis of the layouts I build today.",
+        "project": "DIW-09-04 · Flexbox"
+      },
+      "javascript": {
+        "name": "JavaScript",
+        "about": "The browser's programming language, which gives pages their behavior.",
+        "example": "In the DIW assignments I built a movie catalog with map, filter and reduce, and a product showcase with search and category filters straight in the DOM.",
+        "project": "DIW assignments · Weeks 8 and 9"
+      },
+      "react": {
+        "name": "React",
+        "about": "A library for building interfaces out of reusable components.",
+        "example": "This portfolio: React 19 with Vite, one component per section and every string in Portuguese and English through i18next.",
+        "project": "This portfolio"
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "about": "A utility-first CSS framework: styles are composed from classes right in the markup.",
+        "example": "The whole layout of this portfolio, this globe included, is built with Tailwind v4.",
+        "project": "This portfolio"
+      },
+      "wordpress": {
+        "name": "WordPress",
+        "about": "The CMS behind much of the web, with pages assembled in visual editors such as Elementor.",
+        "example": "Grupo GVS's corporate website, live at grupogvs.com.br, was redesigned by me in WordPress with Elementor: power plants, careers and social-environmental projects.",
+        "project": "Grupo GVS website"
+      },
+      "vercel": {
+        "name": "Vercel",
+        "about": "A front-end hosting platform with automatic deploys from Git.",
+        "example": "It hosts this portfolio at victorcandido.dev: every push to main becomes a new deploy, with no manual step.",
+        "project": "victorcandido.dev"
+      },
+      "huggingface": {
+        "name": "Hugging Face",
+        "about": "A platform for open AI models that also hosts applications on Spaces.",
+        "example": "It hosted the website of my first-semester interdisciplinary project.",
+        "project": "Interdisciplinary Project · 1st semester"
+      },
+      "prompt": {
+        "name": "Prompt Engineering",
+        "about": "Structuring instructions and context so language models answer precisely.",
+        "example": "I use language models every day to prototype, debug and review code, always checking the output, and I record each project's decisions in an Obsidian vault.",
+        "project": "Study and development workflow"
+      }
     }
   },
   "education": {

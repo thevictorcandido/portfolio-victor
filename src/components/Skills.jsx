@@ -1,50 +1,96 @@
-import { Server, Brain, Sparkles, CheckCircle2 } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { ArrowUpRight, FolderGit2, MousePointerClick, Sparkles, Webhook, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { BorderBeam } from './ui/border-beam'
-import { Marquee } from './ui/marquee'
+import SkillsGlobe from './SkillsGlobe'
 import {
   PythonIcon,
   JavaIcon,
+  SpringIcon,
   NodeIcon,
-  PostgresIcon,
-  DockerIcon,
-  RedisIcon,
+  JUnitIcon,
   GitIcon,
-  OpenAiIcon,
-  PyTorchIcon,
+  HtmlIcon,
+  CssIcon,
+  JavaScriptIcon,
+  ReactIcon,
+  TailwindIcon,
+  WordPressIcon,
+  VercelIcon,
   HuggingFaceIcon,
-  LangChainIcon,
 } from './TechIcons'
 import { portfolioData } from '../data/portfolioData'
 
-// Mapeamento de ícones oficiais para cada tecnologia
+const RestIcon = ({ className }) => <Webhook className={`${className} text-stone-700`} strokeWidth={1.75} />
+const PromptIcon = ({ className }) => <Sparkles className={`${className} text-[#7C3AED]`} strokeWidth={1.75} />
+
+// key de portfolioData.skills → logo
 const techIconMap = {
-  Python: PythonIcon,
-  Java: JavaIcon,
-  'Node.js': NodeIcon,
-  PostgreSQL: PostgresIcon,
-  Docker: DockerIcon,
-  Redis: RedisIcon,
-  'Git & GitHub': GitIcon,
-  'OpenAI API': OpenAiIcon,
-  LangChain: LangChainIcon,
-  PyTorch: PyTorchIcon,
-  'Hugging Face': HuggingFaceIcon,
+  python: PythonIcon,
+  java: JavaIcon,
+  spring: SpringIcon,
+  nodejs: NodeIcon,
+  junit: JUnitIcon,
+  rest: RestIcon,
+  git: GitIcon,
+  html: HtmlIcon,
+  css: CssIcon,
+  javascript: JavaScriptIcon,
+  react: ReactIcon,
+  tailwind: TailwindIcon,
+  wordpress: WordPressIcon,
+  vercel: VercelIcon,
+  huggingface: HuggingFaceIcon,
+  prompt: PromptIcon,
+}
+
+const categoryStyles = {
+  backend: 'bg-emerald-50 text-emerald-800 border-emerald-200/70',
+  frontend: 'bg-sky-50 text-sky-800 border-sky-200/70',
+  infra: 'bg-stone-100 text-stone-700 border-stone-200',
+  ai: 'bg-purple-50 text-purple-800 border-purple-200/70',
 }
 
 export default function Skills() {
   const { t } = useTranslation()
-  const { skillsCategories } = portfolioData
+  const [selectedKey, setSelectedKey] = useState(null)
+  const panelRef = useRef(null)
+
+  const items = useMemo(
+    () =>
+      portfolioData.skills.map((skill) => ({
+        ...skill,
+        name: t(`skills.items.${skill.key}.name`),
+        Icon: techIconMap[skill.key],
+      })),
+    [t],
+  )
+  const selected = items.find((item) => item.key === selectedKey)
+
+  useEffect(() => {
+    if (!selectedKey) return
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedKey(null)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [selectedKey])
+
+  // Em tela estreita o painel fica abaixo do globo: rola só o necessário para mostrá-lo
+  useEffect(() => {
+    if (!selectedKey || !panelRef.current) return
+    const rect = panelRef.current.getBoundingClientRect()
+    if (rect.bottom > window.innerHeight || rect.top < 0) {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      panelRef.current.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' })
+    }
+  }, [selectedKey])
 
   return (
-    <section
-      id="skills"
-      className="py-24 md:py-32 relative bg-[#FAF8F5] overflow-hidden"
-    >
+    <section id="skills" className="py-24 md:py-32 relative bg-[#FAF8F5] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        
+
         {/* Cabeçalho Editorial */}
-        <div className="max-w-3xl mb-16 md:mb-20">
+        <div className="max-w-3xl mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
             <span>04</span>
             <span className="w-8 h-px bg-stone-300" />
@@ -61,131 +107,109 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Cards de Categoria inspirados no Logo Cloud 15 */}
-        <div className="space-y-12">
-          {skillsCategories.map((cat) => {
-            const isBackend = cat.id === 'backend'
-            const Icon = isBackend ? Server : Brain
-            const beamColor = isBackend ? '#10B981' : '#8B5CF6'
-            const badgeBg = isBackend
-              ? 'bg-emerald-50 text-emerald-800 border-emerald-200/70'
-              : 'bg-purple-50 text-purple-800 border-purple-200/70'
+        <div className="relative rounded-3xl border border-stone-200/90 bg-white/95 p-4 sm:p-8 md:p-10 shadow-xl">
+          <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 lg:gap-10 items-center">
 
-            const categoryTitle = isBackend ? t('skills.backendCategory') : t('skills.aiCategory')
-            const categoryDesc = isBackend ? t('skills.backendDesc') : t('skills.aiDesc')
-            const categoryBadge = isBackend ? t('skills.backendBadge') : t('skills.aiBadge')
-
-            return (
-              <div
-                key={cat.id}
-                className="relative rounded-3xl border border-stone-200/90 bg-white/95 backdrop-blur-md p-8 sm:p-10 md:p-12 shadow-xl overflow-hidden group"
-              >
-                {/* BorderBeam animado contornando o card (Modelo Logo Cloud 15) */}
-                <BorderBeam
-                  duration={isBackend ? 8 : 10}
-                  size={140}
-                  colorFrom="#1c1917"
-                  colorTo={beamColor}
-                  borderWidth={2}
-                />
-
-                {/* Cabeçalho do Card com Light-Sweep no Título */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-stone-100">
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
-                      isBackend ? 'bg-emerald-100/70 text-emerald-800' : 'bg-purple-100/70 text-purple-800'
-                    }`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-xl sm:text-2xl font-display font-bold text-stone-900 tracking-tight">
-                          <span
-                            className="bg-clip-text text-transparent bg-gradient-to-r from-stone-900 via-stone-700 to-stone-900"
-                            style={{
-                              backgroundImage: isBackend
-                                ? 'linear-gradient(90deg, #1c1917 0%, #10B981 50%, #1c1917 100%)'
-                                : 'linear-gradient(90deg, #1c1917 0%, #8B5CF6 50%, #1c1917 100%)',
-                              backgroundSize: '200% auto',
-                            }}
-                          >
-                            {categoryTitle}
-                          </span>
-                        </h3>
-                      </div>
-                      <p className="text-xs sm:text-sm text-stone-500 font-medium mt-0.5">
-                        {categoryDesc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Badge de Destaque */}
-                  <span className={`self-start md:self-auto px-3.5 py-1.5 rounded-full text-xs font-semibold border inline-flex items-center gap-1.5 ${badgeBg}`}>
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>{categoryBadge}</span>
-                  </span>
-                </div>
-
-                {/* Carrossel Infinito de Logos / Tecnologias (Marquee) */}
-                <div className="relative py-4 overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-                  <Marquee pauseOnHover className="[--duration:28s]">
-                    {cat.technologies.map((tech) => {
-                      const TechIcon = techIconMap[tech.name] || CheckCircle2
-
-                      return (
-                        <div
-                          key={tech.name}
-                          className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-stone-50/80 hover:bg-stone-100/90 border border-stone-200/70 transition-all duration-300 hover:scale-105 shadow-2xs group/tech cursor-default mx-2"
-                        >
-                          <div className="w-8 h-8 rounded-xl bg-white border border-stone-200/80 flex items-center justify-center p-1.5 shadow-2xs group-hover/tech:border-stone-400 transition-colors">
-                            <TechIcon className="w-full h-full" />
-                          </div>
-                          <div>
-                            <p className="text-sm font-bold font-display text-stone-900">
-                              {tech.name}
-                            </p>
-                            <p className="text-[11px] text-stone-500 font-medium">
-                              {t(`skills.techRoles.${tech.key}`)}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </Marquee>
-                </div>
-
-                {/* Grid Responsivo das Tecnologias da Categoria */}
-                <div className="mt-8 pt-6 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                  {cat.technologies.map((tech) => {
-                    const TechIcon = techIconMap[tech.name] || CheckCircle2
-
-                    return (
-                      <div
-                        key={tech.name}
-                        className="p-3.5 rounded-xl bg-stone-50/60 hover:bg-white border border-stone-200/60 transition-all duration-200 hover:shadow-2xs text-center flex flex-col items-center justify-center gap-2 group/card"
-                      >
-                        <div className="w-7 h-7 rounded-lg bg-white border border-stone-200 flex items-center justify-center p-1 group-hover/card:scale-110 transition-transform">
-                          <TechIcon className="w-full h-full" />
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold font-display text-stone-900">
-                            {tech.name}
-                          </p>
-                          <p className="text-[10px] text-stone-500 line-clamp-1">
-                            {t(`skills.techRoles.${tech.key}`)}
-                          </p>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-
+            {/* Globo */}
+            <div>
+              <SkillsGlobe
+                items={items}
+                selectedKey={selectedKey}
+                onSelect={setSelectedKey}
+                label={t('skills.globeLabel')}
+              />
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-stone-500">
+                <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                  <MousePointerClick className="w-3.5 h-3.5" aria-hidden="true" />
+                  {t('skills.hint')}
+                </span>
+                <span className="hidden sm:block w-1 h-1 rounded-full bg-stone-300" aria-hidden="true" />
+                <span className="whitespace-nowrap">{t('skills.count', { count: items.length })}</span>
               </div>
-            )
-          })}
+            </div>
+
+            {/* Painel: sobe com fade a cada tecnologia escolhida */}
+            <div ref={panelRef} aria-live="polite" className="min-h-[300px] flex scroll-mb-6">
+              {selected ? (
+                <SkillDetail key={selected.key} skill={selected} onClose={() => setSelectedKey(null)} />
+              ) : (
+                <div key="empty" className="skill-rise m-auto max-w-xs text-center py-10">
+                  <div className="mx-auto mb-4 w-12 h-12 rounded-2xl bg-[#EBF1ED] text-[#2B4636] flex items-center justify-center">
+                    <MousePointerClick className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  <p className="font-display font-bold text-stone-900 text-lg">{t('skills.emptyTitle')}</p>
+                  <p className="mt-2 text-sm text-stone-500 leading-relaxed">{t('skills.emptyBody')}</p>
+                </div>
+              )}
+            </div>
+
+          </div>
         </div>
 
       </div>
     </section>
+  )
+}
+
+function SkillDetail({ skill, onClose }) {
+  const { t } = useTranslation()
+  const Icon = skill.Icon
+
+  return (
+    <article className="skill-rise w-full rounded-2xl border border-stone-200/80 bg-[#FAF8F5] p-6 sm:p-7">
+      <header className="flex items-start gap-4">
+        <div className="w-12 h-12 shrink-0 rounded-xl bg-white border border-stone-200 flex items-center justify-center p-2.5 shadow-2xs">
+          <Icon className="w-full h-full" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-stone-900 tracking-tight leading-tight">
+            {skill.name}
+          </h3>
+          <span className={`mt-1.5 inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${categoryStyles[skill.category]}`}>
+            {t(`skills.categories.${skill.category}`)}
+          </span>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label={t('skills.close')}
+          className="-mr-2 -mt-2 w-10 h-10 shrink-0 rounded-full flex items-center justify-center text-stone-400 hover:text-stone-900 hover:bg-stone-200/60 transition-colors"
+        >
+          <X className="w-4 h-4" />
+        </button>
+      </header>
+
+      <p className="mt-5 text-sm text-stone-600 leading-relaxed">
+        {t(`skills.items.${skill.key}.about`)}
+      </p>
+
+      <div className="mt-5 pt-5 border-t border-stone-200/80">
+        <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-[#2B4636]">
+          <span className="w-5 h-px bg-[#2B4636]" aria-hidden="true" />
+          {t('skills.inPractice')}
+        </p>
+        <p className="mt-2.5 text-[15px] text-stone-800 leading-relaxed">
+          {t(`skills.items.${skill.key}.example`)}
+        </p>
+      </div>
+
+      <footer className="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-500">
+          <FolderGit2 className="w-3.5 h-3.5" aria-hidden="true" />
+          {t(`skills.items.${skill.key}.project`)}
+        </span>
+        {skill.projectUrl && (
+          <a
+            href={skill.projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-[#2B4636] hover:text-[#3A5C47] underline-offset-4 hover:underline"
+          >
+            {t('skills.viewProject')}
+            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </a>
+        )}
+      </footer>
+    </article>
   )
 }
