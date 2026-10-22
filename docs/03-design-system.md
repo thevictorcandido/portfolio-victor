@@ -74,8 +74,8 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 - 16 pontos na esfera pela espiral de Fibonacci; cada ícone é um `<button>` posicionado com `translate3d` + `scale` por projeção em perspectiva (câmera a 3,2 × o raio).
 - Malha: icosaedro subdividido 2 vezes (162 vértices, 480 arestas) num `<canvas>` 2D; as arestas vão em 4 faixas de profundidade, um `stroke` por faixa.
 - Opacidade e escala pela profundidade; o rótulo usa `--front` e some antes do ícone, para os do fundo não poluírem a frente. Atrás do globo, `pointer-events: none`.
-- Giro automático lento; para com o ponteiro em cima (facilita o clique) e quando há seleção. Arrasto com inércia; o clique só vira arrasto depois de 6 px, e só então o `setPointerCapture` — antes disso o clique ainda chega ao botão.
-- Selecionar (ou focar com Tab) gira o ícone para a frente. `touch-action: pan-y`: no celular o arrasto vertical rola a página.
+- Giro automático contínuo, uma volta a cada ~45 s; com o ponteiro em cima desacelera para 35% (facilita o clique) em vez de parar. Só para durante o arrasto e com movimento reduzido. Arrasto com inércia; o clique só vira arrasto depois de 6 px, e só então o `setPointerCapture` — antes disso o clique ainda chega ao botão.
+- Selecionar gira o ícone para a frente e o globo segue girando; focar com Tab segura o ícone na frente até sair do foco. `touch-action: pan-y`: no celular o arrasto vertical rola a página.
 - O laço `requestAnimationFrame` para quando o globo sai da tela (`IntersectionObserver`).
 - Painel: `.skill-rise` (fade + 8 px para cima, 220 ms, `cubic-bezier(0.23, 1, 0.32, 1)`), remontado por `key` a cada tecnologia. Esc fecha.
 

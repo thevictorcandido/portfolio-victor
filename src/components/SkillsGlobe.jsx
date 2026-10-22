@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef } from 'react'
 // os ícones são botões HTML posicionados por projeção 3D feita à mão e a malha
 // de fundo é desenhada num <canvas> 2D. O mesmo efeito por uma fração do peso.
 
-const AUTO_SPEED = 0.0028 // rad por quadro de 16 ms
+const AUTO_SPEED = 0.0022 // rad por quadro de 16 ms: uma volta a cada ~45 s
+const HOVER_FACTOR = 0.35 // com o ponteiro em cima, desacelera em vez de parar
 const DRAG_SPEED = 0.006 // rad por pixel arrastado
 const DRAG_THRESHOLD = 6 // px até um clique virar arrasto
 const MAX_PITCH = 1.2
@@ -120,11 +121,11 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, label }) {
     state.current.redraw()
   }, [points])
 
-  // Ao selecionar, o ícone desliza para a frente e o giro automático para
+  // Ao selecionar, o ícone desliza para a frente e o globo segue girando
   useEffect(() => {
     const s = state.current
     const index = items.findIndex((item) => item.key === selectedKey)
-    s.target = index >= 0 ? facingAngles(points[index]) : null
+    s.target = index >= 0 ? { ...facingAngles(points[index]), release: true } : null
     s.redraw()
   }, [selectedKey, items, points])
 
@@ -212,16 +213,21 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, label }) {
       last = now
       if (s.target && !s.drag) {
         const ease = s.reduced ? 1 : 1 - Math.pow(0.86, dt)
-        s.yaw += wrapAngle(s.target.yaw - s.yaw) * ease
-        s.pitch += (s.target.pitch - s.pitch) * ease
+        const dYaw = wrapAngle(s.target.yaw - s.yaw)
+        const dPitch = s.target.pitch - s.pitch
+        s.yaw += dYaw * ease
+        s.pitch += dPitch * ease
+        // Depois de trazer o ícone escolhido para a frente, volta a girar.
+        // O foco por teclado segura o ícone na frente até o blur.
+        if (s.target.release && Math.abs(dYaw) + Math.abs(dPitch) < 0.003) s.target = null
       } else if (!s.drag) {
         if (Math.abs(s.velYaw) + Math.abs(s.velPitch) > 0.0004 && !s.reduced) {
           s.yaw += s.velYaw * dt
           s.pitch = Math.max(-MAX_PITCH, Math.min(MAX_PITCH, s.pitch + s.velPitch * dt))
           s.velYaw *= Math.pow(0.93, dt)
           s.velPitch *= Math.pow(0.93, dt)
-        } else if (!s.hovering && !s.reduced) {
-          s.yaw += AUTO_SPEED * dt
+        } else if (!s.reduced) {
+          s.yaw += AUTO_SPEED * (s.hovering ? HOVER_FACTOR : 1) * dt
         }
       }
       draw()
@@ -325,8 +331,7 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, label }) {
   }
 
   const handleBlur = () => {
-    const s = state.current
-    if (!selectedKey) s.target = null
+    state.current.target = null
   }
 
   return (
