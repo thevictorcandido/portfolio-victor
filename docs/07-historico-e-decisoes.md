@@ -25,6 +25,9 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-21 | `93dc2c0` | Push com o reCAPTCHA; no ar em ~20 s como `index-LTq7jCEZ.js` |
 | 2026-10-21 | `acfcf91` | Prévia de link (Open Graph) com captura do Hero |
 | 2026-10-22 | `aa04295` | Habilidades viram um globo 3D com 16 tecnologias e exemplos reais |
+| 2026-10-22 | `328883e` | Globo gira sem parar, uma volta a cada ~45 s |
+| 2026-10-22 | `a879b48` | Painel só com tecnologia escolhida; sem seleção, globo centralizado e maior |
+| 2026-10-22 | `a879b48` | Push `93dc2c0..a879b48` (6 commits); no ar em ~20 s como `index-Dyv5IByl.js` |
 
 ## Decisões
 

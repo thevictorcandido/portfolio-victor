@@ -14,8 +14,8 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > - Formulário de contato com envio real via EmailJS e reCAPTCHA v2, validado em produção em 2026-10-21.
 > - Habilidades num globo 3D interativo (desde 2026-10-22): 16 tecnologias, cada uma com exemplo de projeto real (fonte: notas Tecnologias e Repositórios do vault do Obsidian).
 > - Favicon próprio (monograma "V" musgo/bege).
-> - Código no GitHub: último push em 2026-10-21 (`origin/main` em `93dc2c0`). `.env.local` não versionado.
-> - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado em 2026-10-21: favicon, `theme-color` e description novos já estavam no ar.
+> - Código no GitHub: último push em 2026-10-22 (`93dc2c0..a879b48`, 6 commits). `.env.local` não versionado.
+> - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado de novo em 2026-10-22: o globo de habilidades entrou no ar ~20 s depois do push (`index-Dyv5IByl.js`).
 > - `npm run build` passa (0,94 s em 2026-10-22). `oxlint` passa sem avisos (exit 0).
 > - Documentação espelhada em `docs/` dentro do repositório.
 
@@ -23,7 +23,6 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > **o que ainda falta**
 >
 > - Node.js e Hugging Face no globo com exemplo genérico, até completar o contexto do trabalho interdisciplinar do 1º semestre.
-> - `main` está 4 commits à frente de `origin/main` (desde `3c615c1`): falta o push para o Open Graph e o globo irem ao ar.
 > - Prévia de link sempre em pt-BR (robôs de prévia não executam JS) — limitação aceita.
 
 ## Índice
