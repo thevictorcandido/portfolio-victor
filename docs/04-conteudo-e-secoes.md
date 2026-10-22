@@ -11,20 +11,22 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 | 01 | `about` | `About.jsx` | Bio em 3 parágrafos, citação, foto "ponto de ônibus", floating dock (PUC, IA, GVS, GitHub, LinkedIn, e-mail) | `about.*` |
 | 02 | `projects` | `Projects.jsx` | Carrossel com 2 projetos (GVS e Xulambis), anterior/próximo | `projects.*` + `projects[].tags` |
 | 03 | `experience` | `Experience.jsx` | Timeline com 3 cargos no Grupo GVS, foto por cargo, chips de tecnologia | `experience.roles.{cor,web,mkt}` + `technologies` |
-| 04 | `skills` | `Skills.jsx` | 2 categorias (Backend, IA) × 8 tecnologias com ícone e cor de marca | `skills.*` + `skillsCategories` |
+| 04 | `skills` | `Skills.jsx` | Globo 3D com 16 tecnologias (backend, front, infra, IA); o clique abre um painel com texto e exemplo de projeto real | `skills.*` + `skills` |
 | 05 | `education` | `Education.jsx` | PUC Minas 2024–2028 + 4 disciplinas-chave (inclui DIAW) | `education.*` |
 | 06 | `contact` | `Contact.jsx` | Formulário (nome, e-mail, mensagem), copiar e-mail, links GitHub/LinkedIn, localização | `contact.*` |
 | — | rodapé | `Footer.jsx` | Copyright, tagline, voltar ao topo | `footer.*` |
 
 ## Skills listadas
 
-- **Backend (foco principal):** Python, Java, Node.js, PostgreSQL, Docker, Redis, Git & GitHub, RESTful APIs.
-- **IA (segundo foco):** OpenAI API, LangChain, PyTorch, Hugging Face, Pandas & NumPy, Ollama / LLMs locais, Scikit-Learn, Prompt Engineering.
+Globo único com 16 tecnologias, cada uma com texto curto e um exemplo de projeto real. A fonte dos exemplos é o grafo de notas **Tecnologias** ↔ **Repositórios** do vault do Obsidian (fora do repo).
+
+- **Backend:** Python, Java, Spring Boot, Node.js, JUnit, APIs REST, Git & GitHub.
+- **Front-end:** HTML, CSS, JavaScript, React, Tailwind CSS, WordPress.
+- **Infra:** Vercel. **IA:** Hugging Face, Engenharia de Prompt.
 
 > [!WARNING]
-> **armadilha**
->
-> Os rótulos de categoria divergem entre as fontes: `portfolioData` diz "Backend & Arquitetura de Sistemas", a tradução diz "Backend & Engenharia de Sistemas". O que aparece na tela é o da tradução.
+> **o que ainda falta**
+> Node.js e Hugging Face têm exemplo genérico ("trabalho interdisciplinar do 1º semestre"): contexto do projeto a completar.
 
 ## Links externos
 

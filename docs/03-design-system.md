@@ -41,7 +41,7 @@ Os componentes usam muito a escala `stone-*` do Tailwind direto, além dos token
 
 ## Animações
 
-Definidas em `index.css`: `spin-slow` (22 s), `float-gentle-1/2` (6–7 s), `border-beam`, `marquee` (pausa no hover). Utilitários de máscara: `.mask-fade-b` (fade inferior da foto) e `.mask-fade-all` (radial). Textura `.bg-warm-grain` (pontilhado 20 px).
+Definidas em `index.css`: `spin-slow` (22 s), `float-gentle-1/2` (6–7 s), `skill-rise` (painel do globo de habilidades, 220 ms). Utilitários de máscara: `.mask-fade-b` (fade inferior da foto) e `.mask-fade-all` (radial). Textura `.bg-warm-grain` (pontilhado 20 px).
 
 Animações em JS via `motion/react` (no `floating-dock`).
 
@@ -54,7 +54,7 @@ Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
 | Animações e transições CSS (inclui inline do BlurText e dos cards) | bloco `@media` no fim de `index.css`: `animation/transition-duration: 0.01ms !important`, `iteration-count: 1`, `transition-delay: 0s` | Tudo vai direto ao estado final |
 | Rolagem por âncora | mesmo bloco: `scroll-behavior: auto !important` | Salto direto |
 | "Voltar ao topo" (JS) | `Footer.jsx` consulta `matchMedia` antes do `scrollTo` | Salto direto |
-| BorderBeam | `motion-reduce:hidden` | Some (decorativo; parado viraria um traço solto) |
+| Globo de habilidades | `SkillsGlobe` consulta `matchMedia` | Sem giro automático nem inércia; o ícone escolhido salta direto para a frente. Arrastar continua funcionando |
 | FloatingDock (motion/react) | `MotionConfig reducedMotion="user"` + `useReducedMotion()` no `IconContainer` | Tooltip/menu sem deslocamento; ícones sem ampliação, tamanho fixo |
 
 > [!TIP]
@@ -65,14 +65,28 @@ Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
 > [!WARNING]
 > **armadilha**
 >
-> `.animate-spin-slow` e `.animate-float-1/2` estão definidas no `index.css` mas nenhum componente usa. O `Marquee` das Skills recebe `[--duration:28s]` por classe, mas o `style` inline do componente (`duration` padrão 25) vence — a duração real é 25 s.
+> `.animate-spin-slow` e `.animate-float-1/2` estão definidas no `index.css` mas nenhum componente usa.
+
+## Globo de habilidades (`SkillsGlobe.jsx`)
+
+Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-three-fiber, chunk de ~950 KB); aqui é feito à mão:
+
+- 16 pontos na esfera pela espiral de Fibonacci; cada ícone é um `<button>` posicionado com `translate3d` + `scale` por projeção em perspectiva (câmera a 3,2 × o raio).
+- Malha: icosaedro subdividido 2 vezes (162 vértices, 480 arestas) num `<canvas>` 2D; as arestas vão em 4 faixas de profundidade, um `stroke` por faixa.
+- Opacidade e escala pela profundidade; o rótulo usa `--front` e some antes do ícone, para os do fundo não poluírem a frente. Atrás do globo, `pointer-events: none`.
+- Giro automático lento; para com o ponteiro em cima (facilita o clique) e quando há seleção. Arrasto com inércia; o clique só vira arrasto depois de 6 px, e só então o `setPointerCapture` — antes disso o clique ainda chega ao botão.
+- Selecionar (ou focar com Tab) gira o ícone para a frente. `touch-action: pan-y`: no celular o arrasto vertical rola a página.
+- O laço `requestAnimationFrame` para quando o globo sai da tela (`IntersectionObserver`).
+- Painel: `.skill-rise` (fade + 8 px para cima, 220 ms, `cubic-bezier(0.23, 1, 0.32, 1)`), remontado por `key` a cada tecnologia. Esc fecha.
+
+> [!TIP]
+> **verificado em 2026-10-22**
+> Edge headless via CDP, em 1280, 375 e 320 px, pt-BR e en: clique abre o painel (opacidade 0,85 aos 90 ms), arrasto não troca a seleção, Esc fecha, Tab gira o ícone focado para a frente (opacidade 0,14 → 1) e Enter abre, sem rolagem horizontal e sem erro no console. Com `--force-prefers-reduced-motion` o painel aparece já em opacidade 1.
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
-- `border-beam.jsx` — feixe de luz percorrendo a borda (usa `offset-distance`).
 - `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre").
-- `marquee.jsx` — faixa rolando infinita.
 
 > [!TIP]
 > **atalho que vale lembrar**

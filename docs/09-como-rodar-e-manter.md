@@ -101,8 +101,8 @@ npm run preview    # serve o dist/ localmente
 | Qualquer texto visível | `src/i18n/locales/pt-BR/translation.json` **e** `src/i18n/locales/en/translation.json` |
 | Links sociais, e-mail | `src/data/portfolioData.js` → `personal.social` |
 | Foto de cargo / imagem de projeto | `public/` + campo `image` em `portfolioData.js` |
-| Tags de projeto, chips de cargo, função das skills | Os dois `translation.json` (`projects.*Tags`, `experience.roles.*.technologies`, `skills.techRoles`) |
-| Adicionar uma tecnologia nas skills | `portfolioData.skillsCategories` (nome, `key`, cor) + `skills.techRoles.<key>` nos dois JSON + ícone em `TechIcons.jsx` |
+| Tags de projeto, chips de cargo, textos do globo de habilidades | Os dois `translation.json` (`projects.*Tags`, `experience.roles.*.technologies`, `skills.items`) |
+| Adicionar uma tecnologia no globo | `portfolioData.skills` (`key`, `category`, `projectUrl`) + `skills.items.<key>` (`name`, `about`, `example`, `project`) nos dois JSON + ícone em `TechIcons.jsx` e no mapa de `Skills.jsx`. Registrar antes a nota em Tecnologias no vault |
 | Itens do menu / âncoras | `portfolioData.navItems` + `nav.*` nos JSON + `id` da `<section>` |
 | Cores, fontes, animações | `src/index.css` (`@theme`) |
 | Adicionar idioma | `config/i18nConfig.js` + nova pasta em `i18n/locales/` + import em `i18n/index.js` |

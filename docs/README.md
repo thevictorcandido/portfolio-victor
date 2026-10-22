@@ -4,7 +4,7 @@
 
 Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW** (Desenvolvimento e Integração de Aplicações Web) da PUC Minas. SPA de página única em React 19 + Vite 8 + Tailwind v4, bilíngue (pt-BR / en).
 
-## Estado em 2026-10-21
+## Estado em 2026-10-22
 
 > [!TIP]
 > **o que está pronto**
@@ -12,16 +12,18 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > - Site completo com 7 seções: Hero, Sobre, Projetos, Trajetória, Habilidades, Formação, Contato (+ Navbar e Footer).
 > - Internacionalização pt-BR / en com seletor de idioma — 153 chaves, paridade 100%; versão em inglês sem nenhum texto em português (verificado no DOM renderizado).
 > - Formulário de contato com envio real via EmailJS e reCAPTCHA v2, validado em produção em 2026-10-21.
+> - Habilidades num globo 3D interativo (desde 2026-10-22): 16 tecnologias, cada uma com exemplo de projeto real (fonte: notas Tecnologias e Repositórios do vault do Obsidian).
 > - Favicon próprio (monograma "V" musgo/bege).
-> - Código no GitHub: `main` acompanha `origin/main` desde 2026-10-21 (push `ae0f854..90ae5c6`, 14 commits). `.env.local` não versionado.
+> - Código no GitHub: último push em 2026-10-21 (`origin/main` em `93dc2c0`). `.env.local` não versionado.
 > - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado em 2026-10-21: favicon, `theme-color` e description novos já estavam no ar.
-> - `npm run build` passa (1,79 s). `oxlint` passa sem avisos (exit 0).
+> - `npm run build` passa (0,94 s em 2026-10-22). `oxlint` passa sem avisos (exit 0).
 > - Documentação espelhada em `docs/` dentro do repositório.
 
 > [!WARNING]
 > **o que ainda falta**
 >
-> - No deploy, cadastrar as 3 variáveis `VITE_EMAILJS_*` na hospedagem — ver [09 - Como Rodar e Manter](09-como-rodar-e-manter.md).
+> - Node.js e Hugging Face no globo com exemplo genérico, até completar o contexto do trabalho interdisciplinar do 1º semestre.
+> - `main` está 4 commits à frente de `origin/main` (desde `3c615c1`): falta o push para o Open Graph e o globo irem ao ar.
 > - Prévia de link sempre em pt-BR (robôs de prévia não executam JS) — limitação aceita.
 
 ## Índice

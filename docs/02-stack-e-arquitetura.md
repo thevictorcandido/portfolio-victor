@@ -34,9 +34,9 @@ src/
   lib/utils.js             cn() — join simples de classes
   components/
     Navbar, Hero, About, Projects, Experience, Skills, Education, Contact, Footer
-    Icons.jsx, TechIcons.jsx
+    Icons.jsx, TechIcons.jsx, SkillsGlobe.jsx
     LanguageSwitcher/LanguageSwitcher.jsx
-    ui/ blur-text, border-beam, floating-dock, marquee   (adaptados do 21st.dev)
+    ui/ blur-text, floating-dock   (adaptados do 21st.dev)
     ui/ recaptcha                                        (widget v2, carga explícita)
 ```
 
@@ -51,7 +51,7 @@ src/
 > - `translation.json` → todo texto visível que foi traduzido (títulos, bios, bullets, cargos).
 > - `portfolioData.js` → links, imagens, `navItems` (ids das âncoras), ids dos cards, nome/cor/`key` de cada tecnologia. Desde 2026-10-20, tags, chips, alts e títulos **não** ficam mais aqui.
 >
-> Desde 2026-10-20 `portfolioData.js` não tem **nenhum** texto visível: só links, caminhos de imagem e ids. Os ids ligam cada item às suas chaves de tradução (`experiences[].id` → `experience.roles.<id>`, `skillsCategories[].technologies[].key` → `skills.techRoles.<key>`, `education[].id` → `puc` / `continuous`).
+> Desde 2026-10-20 `portfolioData.js` não tem **nenhum** texto visível: só links, caminhos de imagem e ids. Os ids ligam cada item às suas chaves de tradução (`experiences[].id` → `experience.roles.<id>`, `skills[].key` → `skills.items.<key>`, `education[].id` → `puc` / `continuous`).
 
 Padrão usado nos componentes:
 

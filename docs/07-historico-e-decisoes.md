@@ -23,9 +23,18 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-21 | `ebc6e6e` | Push que gerou o build de produção com as variáveis do EmailJS |
 | 2026-10-21 | `475d988` | reCAPTCHA v2 no formulário de contato |
 | 2026-10-21 | `93dc2c0` | Push com o reCAPTCHA; no ar em ~20 s como `index-LTq7jCEZ.js` |
-| 2026-10-21 | — | Prévia de link (Open Graph) com captura do Hero |
+| 2026-10-21 | `acfcf91` | Prévia de link (Open Graph) com captura do Hero |
+| 2026-10-22 | `aa04295` | Habilidades viram um globo 3D com 16 tecnologias e exemplos reais |
 
 ## Decisões
+
+> [!IMPORTANT]
+> **globo de habilidades sem three.js**
+> Em 2026-10-22 os dois cards (Backend, IA) viraram um globo como o `skills --globo` de aramuni.dev; no clique aparece um texto com exemplo real em vez de um link para o site da tecnologia. O original usa react-three-fiber (~950 KB só no chunk do globo); aqui é projeção à mão + `<canvas>` 2D, e o JS total foi de 512,83 kB para 538,02 kB. Detalhes em [03 - Design System](03-design-system.md).
+
+> [!IMPORTANT]
+> **só entra tecnologia com projeto real**
+> Saíram PostgreSQL, Docker, Redis, LangChain, PyTorch, Pandas & NumPy, Ollama e Scikit-Learn e OpenAI API (sem projeto real). Entraram Spring Boot, React, Vercel, HTML, CSS, JavaScript, Tailwind, JUnit e WordPress, que têm projeto no grafo de repositórios do vault. Os exemplos vêm das notas de tecnologias do vault; ao mudar um, atualizar os dois `translation.json`.
 
 > [!IMPORTANT]
 > **tema claro em vez de escuro**
