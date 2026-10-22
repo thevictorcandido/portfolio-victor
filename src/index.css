@@ -185,6 +185,54 @@ body {
   animation: skill-rise 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
+/* Layout do globo: sem seleção, só o globo; com seleção, o painel abre ao lado
+   (abaixo, no celular). Ao abrir, a grade cresce e o painel sobe depois; ao
+   fechar, o painel some primeiro e a grade recolhe em seguida. */
+.skills-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 0fr);
+  transition: grid-template-rows 400ms cubic-bezier(0.32, 0.72, 0, 1) 80ms;
+}
+
+.skills-layout[data-open="true"] {
+  grid-template-rows: auto minmax(0, 1fr);
+  transition-delay: 0s;
+}
+
+.skills-panel {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 120ms ease-out, transform 120ms ease-out;
+}
+
+.skills-layout[data-open="true"] > .skills-panel {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 240ms ease-out 160ms, transform 320ms cubic-bezier(0.23, 1, 0.32, 1) 160ms;
+}
+
+@media (min-width: 1024px) {
+  .skills-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 0;
+    transition: grid-template-columns 420ms cubic-bezier(0.32, 0.72, 0, 1) 80ms,
+      column-gap 420ms cubic-bezier(0.32, 0.72, 0, 1) 80ms;
+  }
+
+  .skills-layout[data-open="true"] {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    grid-template-rows: auto;
+    column-gap: 2.5rem;
+    transition-delay: 0s;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* Movimento reduzido: respeita a preferência do sistema operacional          */
 /* -------------------------------------------------------------------------- */

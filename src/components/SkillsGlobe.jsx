@@ -93,7 +93,7 @@ const smoothstep = (a, b, v) => {
   return t * t * (3 - 2 * t)
 }
 
-export default function SkillsGlobe({ items, selectedKey, onSelect, label }) {
+export default function SkillsGlobe({ items, selectedKey, onSelect, expanded = false, label }) {
   const stageRef = useRef(null)
   const canvasRef = useRef(null)
   const itemRefs = useRef([])
@@ -334,12 +334,16 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, label }) {
     state.current.target = null
   }
 
+  // Sem seleção o globo fica maior; a altura anima junto com a coluna da grade
+  // e o ResizeObserver redesenha a cada quadro da transição
   return (
     <div
       ref={stageRef}
       role="group"
       aria-label={label}
-      className="relative w-full h-[clamp(300px,82vw,500px)] cursor-grab active:cursor-grabbing select-none touch-pan-y"
+      className={`relative w-full h-[clamp(300px,82vw,500px)] transition-[height] duration-[420ms] ease-[cubic-bezier(0.32,0.72,0,1)] cursor-grab active:cursor-grabbing select-none touch-pan-y ${
+        expanded ? 'lg:h-[600px]' : ''
+      }`}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={endDrag}

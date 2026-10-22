@@ -77,7 +77,8 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 - Giro automático contínuo, uma volta a cada ~45 s; com o ponteiro em cima desacelera para 35% (facilita o clique) em vez de parar. Só para durante o arrasto e com movimento reduzido. Arrasto com inércia; o clique só vira arrasto depois de 6 px, e só então o `setPointerCapture` — antes disso o clique ainda chega ao botão.
 - Selecionar gira o ícone para a frente e o globo segue girando; focar com Tab segura o ícone na frente até sair do foco. `touch-action: pan-y`: no celular o arrasto vertical rola a página.
 - O laço `requestAnimationFrame` para quando o globo sai da tela (`IntersectionObserver`).
-- Painel: `.skill-rise` (fade + 8 px para cima, 220 ms, `cubic-bezier(0.23, 1, 0.32, 1)`), remontado por `key` a cada tecnologia. Esc fecha.
+- Sem seleção não há painel: o globo fica sozinho, centralizado e maior (600 px de altura no desktop). Ao selecionar, a grade `.skills-layout` anima `grid-template-columns` de `minmax(0,1fr) minmax(0,0fr)` para `1.3fr 1fr` (420 ms): o globo encolhe para 500 px e desliza para a esquerda e o painel sobe com fade depois de 160 ms. Ao fechar, o painel some em 120 ms e só então a grade recolhe. No celular é a mesma ideia em `grid-template-rows`, com o painel abaixo.
+- Trocar de tecnologia com o painel aberto remonta o conteúdo por `key` e roda `.skill-rise` (fade + 8 px para cima, 220 ms). O painel fechado fica com `inert`, fora do Tab e do leitor de tela. Esc fecha.
 
 > [!TIP]
 > **verificado em 2026-10-22**

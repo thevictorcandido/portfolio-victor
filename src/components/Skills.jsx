@@ -53,7 +53,15 @@ const categoryStyles = {
 export default function Skills() {
   const { t } = useTranslation()
   const [selectedKey, setSelectedKey] = useState(null)
+  // Última tecnologia aberta: o painel continua mostrando-a enquanto se fecha
+  const [shownKey, setShownKey] = useState(null)
   const panelRef = useRef(null)
+  const open = Boolean(selectedKey)
+
+  const select = (key) => {
+    setSelectedKey(key)
+    if (key) setShownKey(key)
+  }
 
   const items = useMemo(
     () =>
@@ -64,7 +72,7 @@ export default function Skills() {
       })),
     [t],
   )
-  const selected = items.find((item) => item.key === selectedKey)
+  const shown = items.find((item) => item.key === shownKey)
 
   useEffect(() => {
     if (!selectedKey) return
@@ -75,14 +83,20 @@ export default function Skills() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [selectedKey])
 
-  // Em tela estreita o painel fica abaixo do globo: rola só o necessário para mostrá-lo
+  // Em tela estreita o painel abre abaixo do globo: quando termina de abrir,
+  // rola só o necessário para mostrá-lo
   useEffect(() => {
-    if (!selectedKey || !panelRef.current) return
-    const rect = panelRef.current.getBoundingClientRect()
-    if (rect.bottom > window.innerHeight || rect.top < 0) {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      panelRef.current.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' })
-    }
+    if (!selectedKey) return
+    const timer = setTimeout(() => {
+      const panel = panelRef.current
+      if (!panel) return
+      const rect = panel.getBoundingClientRect()
+      if (rect.bottom > window.innerHeight || rect.top < 0) {
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        panel.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' })
+      }
+    }, 480)
+    return () => clearTimeout(timer)
   }, [selectedKey])
 
   return (
@@ -108,14 +122,17 @@ export default function Skills() {
         </div>
 
         <div className="relative rounded-3xl border border-stone-200/90 bg-white/95 p-4 sm:p-8 md:p-10 shadow-xl">
-          <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 lg:gap-10 items-center">
+          {/* Sem seleção: só o globo, centralizado e maior. Com seleção: o globo
+              encolhe para a esquerda e o painel entra ao lado (abaixo, no celular). */}
+          <div className="skills-layout" data-open={open}>
 
             {/* Globo */}
-            <div>
+            <div className="min-w-0">
               <SkillsGlobe
                 items={items}
                 selectedKey={selectedKey}
-                onSelect={setSelectedKey}
+                onSelect={select}
+                expanded={!open}
                 label={t('skills.globeLabel')}
               />
               <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-stone-500">
@@ -128,19 +145,19 @@ export default function Skills() {
               </div>
             </div>
 
-            {/* Painel: sobe com fade a cada tecnologia escolhida */}
-            <div ref={panelRef} aria-live="polite" className="min-h-[300px] flex scroll-mb-6">
-              {selected ? (
-                <SkillDetail key={selected.key} skill={selected} onClose={() => setSelectedKey(null)} />
-              ) : (
-                <div key="empty" className="skill-rise m-auto max-w-xs text-center py-10">
-                  <div className="mx-auto mb-4 w-12 h-12 rounded-2xl bg-[#EBF1ED] text-[#2B4636] flex items-center justify-center">
-                    <MousePointerClick className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <p className="font-display font-bold text-stone-900 text-lg">{t('skills.emptyTitle')}</p>
-                  <p className="mt-2 text-sm text-stone-500 leading-relaxed">{t('skills.emptyBody')}</p>
-                </div>
-              )}
+            {/* Painel: só existe na tela com uma tecnologia escolhida */}
+            <div
+              ref={panelRef}
+              aria-live="polite"
+              aria-hidden={!open}
+              inert={!open}
+              className="skills-panel scroll-mb-6"
+            >
+              <div className="pt-6 lg:pt-0 lg:min-w-[340px]">
+                {shown && (
+                  <SkillDetail key={shown.key} skill={shown} onClose={() => select(null)} />
+                )}
+              </div>
             </div>
 
           </div>

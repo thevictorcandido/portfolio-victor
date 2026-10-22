@@ -171,8 +171,6 @@
     "hint": "Drag to spin · click a technology",
     "globeLabel": "Technology globe. Use Tab to move through the icons.",
     "count": "{{count}} technologies",
-    "emptyTitle": "Pick a technology",
-    "emptyBody": "The text shows up here, with an example of a project where I used it.",
     "inPractice": "In practice",
     "viewProject": "View project",
     "close": "Close",

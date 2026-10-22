@@ -171,8 +171,6 @@
     "hint": "Arraste para girar · clique numa tecnologia",
     "globeLabel": "Globo de tecnologias. Use Tab para percorrer os ícones.",
     "count": "{{count}} tecnologias",
-    "emptyTitle": "Escolha uma tecnologia",
-    "emptyBody": "O texto aparece aqui, com um exemplo de projeto em que eu usei.",
     "inPractice": "Na prática",
     "viewProject": "Ver projeto",
     "close": "Fechar",
