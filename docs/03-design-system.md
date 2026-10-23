@@ -120,6 +120,26 @@ As animações são classes `.illo-*` no `index.css` (piscar, fluxo por `stroke-
 > **verificado em 2026-10-22**
 > Quadros amostrados pela Web Animations API (`getAnimations()` + `currentTime`): aos 0,9 s a curva está desenhando e o site montando; aos 4,3 s o cursor clica com o pulso, o feed está cheio e a agulha andou. Com movimento reduzido, as 3 cenas aparecem completas. A 375 px o item aberto mostra resumo + ilustração, sem rolagem horizontal; no desktop o painel troca ao clicar nos 3 cargos.
 
+## Navbar (`Navbar.jsx`)
+
+Desde 2026-10-23 segue o navbar-02 do shadcnui-blocks (21st.dev; o registro do 21st.dev pede login, o código veio de `shadcnui-blocks.com/r/navbar-02.json`). Antes havia duas navegações: o cabeçalho do próprio Hero e uma barra flutuante transparente que só aparecia depois de rolar 30 px, com logo e ícones soltos sobre o conteúdo — sumiam conforme a cor de fundo da seção mudava.
+
+- Uma barra só, `sticky top-0`, 64 px, fundo sólido `ink` e borda inferior `cream/10`, visível desde o topo. O cabeçalho do Hero saiu (o menu, o idioma e o contato dele estão na barra) e o Hero passou a ter `min-h-[calc(100svh-4rem)]`, para a primeira tela continuar do tamanho da janela.
+- Esquerda: logo "Victor" em Smile Moon e os 7 links (`h-9`, `rounded-md`, `text-sm`; hover e ativo em `cream/8`–`cream/10`, como o `navigationMenuTriggerStyle`). O link ativo continua vindo da rolagem, agora com `aria-current="location"`.
+- Direita: seletor de idioma no formato do botão "outline" (`h-9`, `rounded-md`, borda `cream/15`) e o botão principal "Vamos conversar" em bege.
+- Breakpoints: links a partir de `lg` (1024 px); o botão "Vamos conversar" aparece entre `sm` e `lg` e de novo a partir de `xl` (em `lg` os 7 links não deixam espaço); abaixo de `lg`, botão de menu que abre o painel lateral.
+- Painel lateral (o Sheet do shadcn, sem Radix): entra pela direita em 500 ms sobre um véu `black/60`, sai em 300 ms; `role="dialog"` com `aria-modal`, foco vai para o botão de fechar, Tab fica preso no painel, Esc e clique no véu fecham, a rolagem da página trava enquanto está aberto e o foco volta ao botão de menu. Renderizado num portal no `<body>`.
+- `scroll-padding-top: 4rem` no `html`: âncoras param logo abaixo da barra.
+- Rótulos do menu passaram de MAIÚSCULAS para a forma normal ("Início", "Sobre"…), como no navbar-02. `nav.contactBtn` e `hero.contactBtn` saíram dos JSON (sem uso).
+
+> [!CAUTION]
+> **defeito, com causa raiz**
+> No celular a barra vazava 44 px para a direita. Causa: o botão principal tinha `inline-flex` na classe base e recebia `hidden` por fora; o `cn()` do projeto não resolve conflito e o `inline-flex` vencia. Correção: o `display` saiu da classe base e cada uso define o seu.
+
+> [!TIP]
+> **verificado em 2026-10-23**
+> 1440 e 1024 px: links e idioma na barra, sem sobrar nada. 768 px: idioma, "Vamos conversar" e menu. 375 px: sem rolagem horizontal; o painel abre com foco no fechar e a página travada, e o link "Habilidades" fecha o painel e para a seção a 64 px do topo (logo abaixo da barra), com o foco de volta no botão de menu.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.

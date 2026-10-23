@@ -110,6 +110,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-22 a timeline horizontal com GSAP deu lugar ao "Features with Panel" do ScrollX UI: lista dos cargos com resumo das funções e um painel com uma ilustração animada por cargo. As ilustrações são SVG desenhado em código, não vídeo: nítidas em qualquer tela, leves, na paleta do site e com movimento reduzido de graça. `ui/timeline.jsx` saiu com `git rm`.
 
+> [!IMPORTANT]
+> **navbar sólida única, no lugar de barra flutuante + cabeçalho do Hero**
+>
+> Em 2026-10-23 a navegação virou uma barra só, sólida e presa no topo desde o início, no estilo do navbar-02 do shadcnui-blocks. A barra flutuante transparente deixava logo e ícones sobre o conteúdo, e eles sumiam conforme a cor da seção; o cabeçalho próprio do Hero repetia menu, idioma e contato e saiu. As abas são as mesmas 7.
+
 > [!NOTE]
 > **contexto**
 >

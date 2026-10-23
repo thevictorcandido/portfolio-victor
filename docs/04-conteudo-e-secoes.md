@@ -6,8 +6,8 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 
 | # | Seção (`id`) | Componente | O que mostra | Fonte do texto |
 |---|---|---|---|---|
-| — | navegação | `Navbar.jsx` | Barra flutuante, link ativo por scroll, menu mobile, `LanguageSwitcher` | `nav.*` + `navItems` |
-| — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", nome alinhado à esquerda e a ilustração `pato.webp` com entrada elástica, status de disponibilidade | `hero.*` |
+| — | navegação | `Navbar.jsx` | Barra sólida presa no topo (estilo navbar-02): logo, 7 links com o ativo por rolagem, idioma, "Vamos conversar" e painel lateral abaixo de 1024 px | `nav.*` + `navItems` |
+| — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", sem cabeçalho próprio (a navegação é toda da Navbar), nome alinhado à esquerda e a ilustração `pato.webp` com entrada elástica, status de disponibilidade | `hero.*` |
 | 01 | `about` | `About.jsx` | Bio em 3 parágrafos, citação, foto "ponto de ônibus", floating dock (PUC, IA, GVS, GitHub, LinkedIn, e-mail) | `about.*` |
 | 02 | `projects` | `Projects.jsx` | Carrossel com 2 projetos (GVS e Xulambis), anterior/próximo | `projects.*` + `projects[].tags` |
 | 03 | `experience` | `Experience.jsx` | Lista dos 3 cargos no Grupo GVS (cargo, período, resumo das funções) com painel de ilustração animada por cargo | `experience.*` + `experiences` |
