@@ -75,6 +75,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* A navbar fica presa no topo (64 px): âncoras param logo abaixo dela */
+  scroll-padding-top: 4rem;
   color-scheme: dark;
 }
 

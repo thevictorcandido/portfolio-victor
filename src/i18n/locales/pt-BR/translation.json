@@ -8,14 +8,13 @@
     "changeTo": "Mudar para {{language}}"
   },
   "nav": {
-    "home": "INÍCIO",
-    "about": "SOBRE",
-    "projects": "PROJETOS",
-    "experience": "EXPERIÊNCIA",
-    "skills": "HABILIDADES",
-    "education": "FORMAÇÃO",
-    "contact": "CONTATO",
-    "contactBtn": "Contato",
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "education": "Formação",
+    "contact": "Contato",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
     "menuTitle": "Navegação"
@@ -26,7 +25,6 @@
     "subtitle": "Designing human experiences in code.",
     "roleAndCompany": "Engenharia de Software na PUC Minas · Operações & Web no Grupo GVS",
     "availability": "Disponível para projetos & oportunidades",
-    "contactBtn": "Contato",
     "scrollDown": "Rolar para explorar"
   },
   "about": {

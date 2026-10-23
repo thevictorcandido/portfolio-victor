@@ -1,18 +1,14 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { BlurText } from './ui/blur-text'
-import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher'
 
 // Inclinação final do pato, em graus (positivo = para a direita)
 const DUCK_TILT = 6
 
 export default function Hero() {
   const { t } = useTranslation()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const menuRef = useRef(null)
-  const buttonRef = useRef(null)
   const duckRef = useRef(null)
 
   // Entrada do pato: cresce do zero com sobressalto elástico enquanto gira
@@ -33,129 +29,16 @@ export default function Hero() {
     return () => ctx.revert()
   }, [])
 
-  // Fechar o menu ao clicar fora
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        menuOpen &&
-        menuRef.current &&
-        buttonRef.current &&
-        !menuRef.current.contains(e.target) &&
-        !buttonRef.current.contains(e.target)
-      ) {
-        setMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [menuOpen])
-
-  const navLinks = [
-    { label: t('nav.home'), href: '#hero', highlight: true },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.projects'), href: '#projects' },
-    { label: t('nav.experience'), href: '#experience' },
-    { label: t('nav.skills'), href: '#skills' },
-    { label: t('nav.education'), href: '#education' },
-    { label: t('nav.contact'), href: '#contact' },
-  ]
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between overflow-hidden text-cream select-none pt-4 pb-8"
+      className="relative min-h-[calc(100svh-4rem)] flex flex-col justify-between overflow-hidden text-cream select-none pt-6 pb-8"
     >
       {/* Halo de luz suave de fundo para aquecer a composição */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-moss/10 via-moss/5 to-transparent rounded-full blur-3xl -z-10"
       />
-
-      {/* Header superior inspirado no componente 21st.dev */}
-      <header className="w-full max-w-7xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between z-30">
-        
-        {/* Botão de Menu Hambúrguer com dropdown lateral */}
-        <div className="relative">
-          <button
-            ref={buttonRef}
-            type="button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 -ml-2 rounded-full text-cream/70 hover:text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-moss cursor-pointer flex items-center gap-2"
-            aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
-          >
-            {menuOpen ? (
-              <X className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
-            ) : (
-              <Menu className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
-            )}
-            <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-cream/55">
-              Menu
-            </span>
-          </button>
-
-          {/* Menu Dropdown Flutuante */}
-          {menuOpen && (
-            <div
-              ref={menuRef}
-              className="absolute top-full left-0 mt-3 w-56 sm:w-64 p-4 rounded-2xl bg-ink-raised/95 backdrop-blur-xl border border-cream/10 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
-            >
-              <div className="text-[11px] font-bold uppercase tracking-wider text-cream/45 mb-2 px-2 flex items-center justify-between">
-                <span>{t('nav.menuTitle')}</span>
-                <LanguageSwitcher className="scale-90" />
-              </div>
-              <nav className="flex flex-col gap-1">
-                {navLinks.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wider transition-colors ${
-                      item.highlight
-                        ? 'bg-moss text-ink font-bold'
-                        : 'text-cream/80 hover:text-cream hover:bg-cream/8'
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-
-              <div className="mt-4 pt-3 border-t border-cream/10 flex items-center justify-between px-2 text-xs text-cream/55">
-                <span>PUC Minas</span>
-                <span className="text-moss font-semibold flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-moss animate-pulse" />
-                  {t('hero.availability')}
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Monograma / Assinatura Central em Smile Moon */}
-        <div className="text-center">
-          <a
-            href="#hero"
-            className="font-special text-3xl sm:text-4xl text-cream hover:opacity-85 transition-opacity tracking-normal"
-            title="Victor Cândido Leite"
-          >
-            Victor
-          </a>
-        </div>
-
-        {/* Lado Direito: Seletor de Idioma (PT / EN) + Botão Rápido de Contato */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          <LanguageSwitcher />
-
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold bg-cream text-ink hover:bg-white transition-all shadow-xs hover:scale-[1.02]"
-          >
-            <span>{t('hero.contactBtn')}</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
-        </div>
-      </header>
 
       {/* Centro: Nome em duas linhas alinhado à esquerda e o pato à direita (abaixo, no celular) */}
       <div className="flex-1 flex items-center py-6 sm:py-10 my-auto">

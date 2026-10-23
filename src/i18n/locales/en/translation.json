@@ -8,14 +8,13 @@
     "changeTo": "Switch to {{language}}"
   },
   "nav": {
-    "home": "HOME",
-    "about": "ABOUT",
-    "projects": "PROJECTS",
-    "experience": "EXPERIENCE",
-    "skills": "SKILLS",
-    "education": "EDUCATION",
-    "contact": "CONTACT",
-    "contactBtn": "Contact",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "menuTitle": "Navigation"
@@ -26,7 +25,6 @@
     "subtitle": "Designing human experiences in code.",
     "roleAndCompany": "Software Engineering at PUC Minas · Operations & Web at Grupo GVS",
     "availability": "Available for projects & opportunities",
-    "contactBtn": "Contact",
     "scrollDown": "Scroll to explore"
   },
   "about": {
