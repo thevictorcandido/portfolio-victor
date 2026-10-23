@@ -9,7 +9,7 @@ Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software
 | # | Seção | Conteúdo |
 |---|---|---|
 | — | Início | Apresentação, foto e seletor de idioma |
-| 01 | Sobre | Bio, citação e atalhos para links |
+| 01 | Sobre | Bio e atalhos para links |
 | 02 | Projetos | Site institucional do Grupo GVS e o sistema Xulambis Pizza (Java, PUC Minas) |
 | 03 | Trajetória | Timeline horizontal com os três cargos no Grupo GVS, revelados conforme a rolagem |
 | 04 | Habilidades | Globo 3D com 16 tecnologias; o clique mostra onde cada uma foi usada |

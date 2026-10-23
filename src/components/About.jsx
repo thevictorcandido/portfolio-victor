@@ -96,21 +96,16 @@ export default function About() {
           {/* Coluna de Texto, Frase & Detalhes */}
           <div className="flex-1 flex flex-col justify-between py-2">
             
-            {/* Bloco Superior: Nome e Frase em Destaque */}
+            {/* Bloco Superior: Nome e Biografia */}
             <div>
               <p className="text-xs font-semibold tracking-[0.25em] text-cream/45 uppercase font-sans mb-3">
                 {t('about.roleCategory')}
               </p>
-              
+
               <h3 className="text-3xl sm:text-4xl lg:text-5xl leading-[1.1] font-display font-light tracking-tight text-cream">
                 {t('about.nameLight')} <br />
                 <span className="font-bold text-cream">{t('about.nameBold')}</span>
               </h3>
-
-              {/* Frase / Citação integrada no estilo do card */}
-              <blockquote className="mt-6 font-display font-medium text-base sm:text-lg md:text-xl text-cream leading-snug italic border-l-2 border-moss pl-4 py-1">
-                {t('about.quote')}
-              </blockquote>
 
               {/* Texto sobre mim (Biografia) */}
               <div className="mt-6 space-y-4 text-cream/70 text-sm sm:text-base leading-relaxed font-normal">
