@@ -20,8 +20,8 @@ import {
 } from './TechIcons'
 import { portfolioData } from '../data/portfolioData'
 
-const RestIcon = ({ className }) => <Webhook className={`${className} text-stone-700`} strokeWidth={1.75} />
-const PromptIcon = ({ className }) => <Sparkles className={`${className} text-[#7C3AED]`} strokeWidth={1.75} />
+const RestIcon = ({ className }) => <Webhook className={`${className} text-ink`} strokeWidth={1.75} />
+const PromptIcon = ({ className }) => <Sparkles className={`${className} text-[#1E7A46]`} strokeWidth={1.75} />
 
 // key de portfolioData.skills → logo
 const techIconMap = {
@@ -44,10 +44,10 @@ const techIconMap = {
 }
 
 const categoryStyles = {
-  backend: 'bg-emerald-50 text-emerald-800 border-emerald-200/70',
-  frontend: 'bg-sky-50 text-sky-800 border-sky-200/70',
-  infra: 'bg-stone-100 text-stone-700 border-stone-200',
-  ai: 'bg-purple-50 text-purple-800 border-purple-200/70',
+  backend: 'bg-moss/15 text-moss border-moss/40',
+  frontend: 'bg-cream/10 text-cream border-cream/25',
+  infra: 'bg-transparent text-cream/70 border-cream/15',
+  ai: 'bg-cream text-ink border-cream',
 }
 
 export default function Skills() {
@@ -100,28 +100,28 @@ export default function Skills() {
   }, [selectedKey])
 
   return (
-    <section id="skills" className="py-24 md:py-32 relative bg-[#FAF8F5] overflow-hidden">
+    <section id="skills" className="py-24 md:py-32 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
 
         {/* Cabeçalho Editorial */}
         <div className="max-w-3xl mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 mb-3">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cream/55 mb-3">
             <span>04</span>
-            <span className="w-8 h-px bg-stone-300" />
+            <span className="w-8 h-px bg-cream/25" />
             <span>{t('skills.tag')}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-stone-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-cream tracking-tight leading-tight">
             {t('skills.headline')} <br />
-            <span className="font-display font-light text-stone-700 italic inline-block mt-1">
+            <span className="font-display font-light text-moss italic inline-block mt-1">
               {t('skills.headlineHighlight')}
             </span>
           </h2>
-          <p className="mt-4 text-base text-stone-600 leading-relaxed font-normal max-w-2xl">
+          <p className="mt-4 text-base text-cream/70 leading-relaxed font-normal max-w-2xl">
             {t('skills.subtitle')}
           </p>
         </div>
 
-        <div className="relative rounded-3xl border border-stone-200/90 bg-white/95 p-4 sm:p-8 md:p-10 shadow-xl">
+        <div className="relative rounded-3xl border border-cream/10 bg-ink-raised/95 p-4 sm:p-8 md:p-10 shadow-xl">
           {/* Sem seleção: só o globo, centralizado e maior. Com seleção: o globo
               encolhe para a esquerda e o painel entra ao lado (abaixo, no celular). */}
           <div className="skills-layout" data-open={open}>
@@ -135,12 +135,12 @@ export default function Skills() {
                 expanded={!open}
                 label={t('skills.globeLabel')}
               />
-              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-stone-500">
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-cream/55">
                 <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
                   <MousePointerClick className="w-3.5 h-3.5" aria-hidden="true" />
                   {t('skills.hint')}
                 </span>
-                <span className="hidden sm:block w-1 h-1 rounded-full bg-stone-300" aria-hidden="true" />
+                <span className="hidden sm:block w-1 h-1 rounded-full bg-cream/25" aria-hidden="true" />
                 <span className="whitespace-nowrap">{t('skills.count', { count: items.length })}</span>
               </div>
             </div>
@@ -173,13 +173,13 @@ function SkillDetail({ skill, onClose }) {
   const Icon = skill.Icon
 
   return (
-    <article className="skill-rise w-full rounded-2xl border border-stone-200/80 bg-[#FAF8F5] p-6 sm:p-7">
+    <article className="skill-rise w-full rounded-2xl border border-cream/10 bg-ink p-6 sm:p-7">
       <header className="flex items-start gap-4">
-        <div className="w-12 h-12 shrink-0 rounded-xl bg-white border border-stone-200 flex items-center justify-center p-2.5 shadow-2xs">
+        <div className="w-12 h-12 shrink-0 rounded-xl bg-cream border border-cream flex items-center justify-center p-2.5 shadow-2xs">
           <Icon className="w-full h-full" />
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="text-xl sm:text-2xl font-display font-bold text-stone-900 tracking-tight leading-tight">
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-cream tracking-tight leading-tight">
             {skill.name}
           </h3>
           <span className={`mt-1.5 inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${categoryStyles[skill.category]}`}>
@@ -190,28 +190,28 @@ function SkillDetail({ skill, onClose }) {
           type="button"
           onClick={onClose}
           aria-label={t('skills.close')}
-          className="-mr-2 -mt-2 w-10 h-10 shrink-0 rounded-full flex items-center justify-center text-stone-400 hover:text-stone-900 hover:bg-stone-200/60 transition-colors"
+          className="-mr-2 -mt-2 w-10 h-10 shrink-0 rounded-full flex items-center justify-center text-cream/45 hover:text-cream hover:bg-cream/12 transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
       </header>
 
-      <p className="mt-5 text-sm text-stone-600 leading-relaxed">
+      <p className="mt-5 text-sm text-cream/70 leading-relaxed">
         {t(`skills.items.${skill.key}.about`)}
       </p>
 
-      <div className="mt-5 pt-5 border-t border-stone-200/80">
-        <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-[#2B4636]">
-          <span className="w-5 h-px bg-[#2B4636]" aria-hidden="true" />
+      <div className="mt-5 pt-5 border-t border-cream/10">
+        <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-moss">
+          <span className="w-5 h-px bg-moss" aria-hidden="true" />
           {t('skills.inPractice')}
         </p>
-        <p className="mt-2.5 text-[15px] text-stone-800 leading-relaxed">
+        <p className="mt-2.5 text-[15px] text-cream leading-relaxed">
           {t(`skills.items.${skill.key}.example`)}
         </p>
       </div>
 
       <footer className="mt-5 flex flex-wrap items-center justify-between gap-3">
-        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-500">
+        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-cream/55">
           <FolderGit2 className="w-3.5 h-3.5" aria-hidden="true" />
           {t(`skills.items.${skill.key}.project`)}
         </span>
@@ -220,7 +220,7 @@ function SkillDetail({ skill, onClose }) {
             href={skill.projectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-[#2B4636] hover:text-[#3A5C47] underline-offset-4 hover:underline"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-moss hover:text-moss-hover underline-offset-4 hover:underline"
           >
             {t('skills.viewProject')}
             <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />

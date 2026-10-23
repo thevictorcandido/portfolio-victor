@@ -9,7 +9,8 @@ const HOVER_FACTOR = 0.35 // com o ponteiro em cima, desacelera em vez de parar
 const DRAG_SPEED = 0.006 // rad por pixel arrastado
 const DRAG_THRESHOLD = 6 // px até um clique virar arrasto
 const MAX_PITCH = 1.2
-const MOSS = '43, 70, 54'
+const MOSS = '37, 155, 85'
+const CREAM = '244, 239, 234'
 
 // Pontos bem espalhados na esfera unitária (espiral de Fibonacci)
 function fibonacciSphere(count) {
@@ -160,8 +161,8 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, expanded = f
       ctx.clearRect(0, 0, w, h)
       const shell = radius * 0.86
       const glow = ctx.createRadialGradient(cx - shell * 0.3, cy - shell * 0.35, shell * 0.1, cx, cy, shell)
-      glow.addColorStop(0, 'rgba(255, 255, 255, 0.95)')
-      glow.addColorStop(1, `rgba(${MOSS}, 0.045)`)
+      glow.addColorStop(0, `rgba(${CREAM}, 0.07)`)
+      glow.addColorStop(1, `rgba(${MOSS}, 0.04)`)
       ctx.fillStyle = glow
       ctx.beginPath()
       ctx.arc(cx, cy, shell, 0, Math.PI * 2)
@@ -179,7 +180,7 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, expanded = f
       }
       ctx.lineWidth = 1
       bands.forEach((band, i) => {
-        ctx.strokeStyle = `rgba(${MOSS}, ${[0.05, 0.08, 0.15, 0.24][i]})`
+        ctx.strokeStyle = `rgba(${MOSS}, ${[0.08, 0.13, 0.24, 0.4][i]})`
         ctx.beginPath()
         for (let j = 0; j < band.length; j += 2) {
           const p = projected[band[j]]
@@ -376,8 +377,8 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, expanded = f
                 className="group/item absolute left-0 top-0 flex flex-col items-center gap-1.5 p-1 opacity-0 rounded-2xl outline-none will-change-transform cursor-pointer"
               >
                 <span
-                  className={`w-11 h-11 rounded-xl bg-white border flex items-center justify-center p-2 shadow-sm transition-[transform,border-color,box-shadow] duration-200 ease-out group-hover/item:scale-110 group-focus-visible/item:ring-2 group-focus-visible/item:ring-[#2B4636]/40 ${
-                    selected ? 'border-[#2B4636] ring-2 ring-[#2B4636]/25 scale-110' : 'border-stone-200'
+                  className={`w-11 h-11 rounded-xl bg-cream border flex items-center justify-center p-2 shadow-sm transition-[transform,border-color,box-shadow] duration-200 ease-out group-hover/item:scale-110 group-focus-visible/item:ring-2 group-focus-visible/item:ring-moss/60 ${
+                    selected ? 'border-moss ring-2 ring-moss/50 scale-110' : 'border-cream/40'
                   }`}
                 >
                   <Icon className="w-full h-full" />
@@ -385,7 +386,7 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, expanded = f
                 <span
                   style={{ opacity: 'var(--front, 1)' }}
                   className={`text-[13px] font-display font-bold leading-none whitespace-nowrap transition-colors duration-200 ${
-                    selected ? 'text-[#2B4636]' : 'text-stone-600 group-hover/item:text-stone-900'
+                    selected ? 'text-moss' : 'text-cream/70 group-hover/item:text-cream'
                   }`}
                 >
                   {item.name}

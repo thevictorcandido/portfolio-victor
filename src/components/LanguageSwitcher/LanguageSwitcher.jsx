@@ -12,7 +12,7 @@ export default function LanguageSwitcher({ showLabels = true, className = "" }) 
 
   return (
     <div
-      className={`inline-flex items-center p-1 rounded-full bg-white/90 border border-stone-200/80 shadow-2xs backdrop-blur-md ${className}`}
+      className={`inline-flex items-center p-1 rounded-full bg-ink-raised/90 border border-cream/10 shadow-2xs backdrop-blur-md ${className}`}
       role="group"
       aria-label={t("switcher.label")}
     >
@@ -32,8 +32,8 @@ export default function LanguageSwitcher({ showLabels = true, className = "" }) 
             onClick={() => i18n.changeLanguage(code)}
             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
               active
-                ? "bg-stone-900 text-white shadow-xs"
-                : "text-stone-600 hover:text-stone-950 hover:bg-stone-100/80"
+                ? "bg-moss text-ink shadow-xs"
+                : "text-cream/70 hover:text-cream hover:bg-cream/8"
             }`}
           >
             <Flag className="w-3.5 h-auto rounded-2xs shrink-0 shadow-2xs" aria-hidden="true" />

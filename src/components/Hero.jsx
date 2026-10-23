@@ -1,15 +1,37 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap'
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { BlurText } from './ui/blur-text'
 import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher'
-import { portfolioData } from '../data/portfolioData'
+
+// Inclinação final do pato, em graus (positivo = para a direita)
+const DUCK_TILT = 6
 
 export default function Hero() {
   const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef(null)
   const buttonRef = useRef(null)
+  const duckRef = useRef(null)
+
+  // Entrada do pato: cresce do zero com sobressalto elástico enquanto gira
+  // para a direita; o giro usa um elástico mais amortecido que o zoom, então
+  // balança menos. Começa depois que as letras do nome já estão caindo.
+  useLayoutEffect(() => {
+    const duck = duckRef.current
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set(duck, { rotation: DUCK_TILT })
+      return () => gsap.set(duck, { clearProps: 'transform' })
+    }
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({ delay: 0.45 })
+        .fromTo(duck, { scale: 0 }, { scale: 1, duration: 1.6, ease: 'elastic.out(1, 0.4)' }, 0)
+        .fromTo(duck, { rotation: -10 }, { rotation: DUCK_TILT, duration: 1.9, ease: 'elastic.out(1, 0.6)' }, 0)
+    })
+    return () => ctx.revert()
+  }, [])
 
   // Fechar o menu ao clicar fora
   useEffect(() => {
@@ -42,12 +64,12 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#FAF8F5] text-stone-900 select-none pt-4 pb-8"
+      className="relative min-h-screen flex flex-col justify-between overflow-hidden text-cream select-none pt-4 pb-8"
     >
       {/* Halo de luz suave de fundo para aquecer a composição */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-amber-100/35 via-stone-200/20 to-transparent rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-moss/10 via-moss/5 to-transparent rounded-full blur-3xl -z-10"
       />
 
       {/* Header superior inspirado no componente 21st.dev */}
@@ -59,7 +81,7 @@ export default function Hero() {
             ref={buttonRef}
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 -ml-2 rounded-full text-stone-600 hover:text-stone-950 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-400 cursor-pointer flex items-center gap-2"
+            className="p-2 -ml-2 rounded-full text-cream/70 hover:text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-moss cursor-pointer flex items-center gap-2"
             aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
           >
             {menuOpen ? (
@@ -67,7 +89,7 @@ export default function Hero() {
             ) : (
               <Menu className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
             )}
-            <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-stone-500">
+            <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-cream/55">
               Menu
             </span>
           </button>
@@ -76,9 +98,9 @@ export default function Hero() {
           {menuOpen && (
             <div
               ref={menuRef}
-              className="absolute top-full left-0 mt-3 w-56 sm:w-64 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-stone-200/80 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+              className="absolute top-full left-0 mt-3 w-56 sm:w-64 p-4 rounded-2xl bg-ink-raised/95 backdrop-blur-xl border border-cream/10 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
             >
-              <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-2 px-2 flex items-center justify-between">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-cream/45 mb-2 px-2 flex items-center justify-between">
                 <span>{t('nav.menuTitle')}</span>
                 <LanguageSwitcher className="scale-90" />
               </div>
@@ -90,8 +112,8 @@ export default function Hero() {
                     onClick={() => setMenuOpen(false)}
                     className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wider transition-colors ${
                       item.highlight
-                        ? 'bg-stone-950 text-white font-bold'
-                        : 'text-stone-700 hover:text-stone-950 hover:bg-stone-100/80'
+                        ? 'bg-moss text-ink font-bold'
+                        : 'text-cream/80 hover:text-cream hover:bg-cream/8'
                     }`}
                   >
                     {item.label}
@@ -99,10 +121,10 @@ export default function Hero() {
                 ))}
               </nav>
 
-              <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between px-2 text-xs text-stone-500">
+              <div className="mt-4 pt-3 border-t border-cream/10 flex items-center justify-between px-2 text-xs text-cream/55">
                 <span>PUC Minas</span>
-                <span className="text-emerald-600 font-semibold flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-moss font-semibold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-moss animate-pulse" />
                   {t('hero.availability')}
                 </span>
               </div>
@@ -114,7 +136,7 @@ export default function Hero() {
         <div className="text-center">
           <a
             href="#hero"
-            className="font-special text-3xl sm:text-4xl text-stone-950 hover:opacity-85 transition-opacity tracking-normal"
+            className="font-special text-3xl sm:text-4xl text-cream hover:opacity-85 transition-opacity tracking-normal"
             title="Victor Cândido Leite"
           >
             Victor
@@ -127,7 +149,7 @@ export default function Hero() {
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-white hover:bg-black transition-all shadow-xs hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold bg-cream text-ink hover:bg-white transition-all shadow-xs hover:scale-[1.02]"
           >
             <span>{t('hero.contactBtn')}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -135,53 +157,49 @@ export default function Hero() {
         </div>
       </header>
 
-      {/* Centro: Nome Gigante com BlurText e Foto Centralizada com Fundo Transparente */}
-      <div className="flex-1 flex items-center justify-center py-6 sm:py-10 my-auto">
-        <div className="relative text-center w-full max-w-6xl mx-auto px-4">
-          
-          {/* Linha 1: VICTOR com BlurText por letras */}
-          <div className="overflow-visible flex justify-center">
-            <BlurText
-              text="VICTOR"
-              delay={85}
-              animateBy="letters"
-              direction="top"
-              className="font-bold text-[82px] xs:text-[105px] sm:text-[140px] md:text-[180px] lg:text-[215px] xl:text-[235px] leading-[0.78] tracking-tighter uppercase justify-center whitespace-nowrap text-stone-900 hover:text-black transition-colors"
-              style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
-            />
-          </div>
+      {/* Centro: Nome em duas linhas alinhado à esquerda e o pato à direita (abaixo, no celular) */}
+      <div className="flex-1 flex items-center py-6 sm:py-10 my-auto">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+          <div className="min-w-0">
+            {/* Linha 1: VICTOR com BlurText por letras */}
+            <div className="overflow-visible flex justify-start">
+              <BlurText
+                text="VICTOR"
+                delay={85}
+                animateBy="letters"
+                direction="top"
+                className="font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-cream hover:text-white transition-colors"
+                style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
+              />
+            </div>
 
-          {/* Linha 2: CÂNDIDO com BlurText por letras */}
-          <div className="overflow-visible flex justify-center mt-1 sm:mt-2">
-            <BlurText
-              text="CÂNDIDO"
-              delay={85}
-              animateBy="letters"
-              direction="top"
-              className="font-bold text-[82px] xs:text-[105px] sm:text-[140px] md:text-[180px] lg:text-[215px] xl:text-[235px] leading-[0.78] tracking-tighter uppercase justify-center whitespace-nowrap text-stone-900 hover:text-black transition-colors"
-              style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
-            />
-          </div>
-
-          {/* Foto de Perfil Centralizada: Cápsula Oval com Victor Recortado Sem Fundo */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto">
-            <div
-              className="w-[68px] h-[115px] sm:w-[92px] sm:h-[156px] md:w-[114px] md:h-[192px] lg:w-[134px] lg:h-[224px] rounded-full overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer ring-4 ring-white/90 bg-gradient-to-b from-[#EFE9DF] via-[#E2DACB] to-[#CFC4B2] relative group"
-              title="Victor Cândido Leite"
-            >
-              {/* Brilho interior sutil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/20 pointer-events-none z-10" />
-
-              {/* Foto real com fundo transparente */}
-              <img
-                src="/victor-sem-fundo.png"
-                alt={portfolioData.personal.name}
-                className="w-full h-full object-cover object-top filter contrast-[1.03] select-none transition-transform duration-500 group-hover:scale-105"
-                loading="eager"
+            {/* Linha 2: CÂNDIDO com BlurText por letras */}
+            {/* mt em em: o circunflexo do Â fica logo abaixo do I e encostava nele */}
+            <div className="overflow-visible flex justify-start">
+              <BlurText
+                text="CÂNDIDO"
+                delay={85}
+                animateBy="letters"
+                direction="top"
+                className="mt-[0.24em] font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-cream hover:text-white transition-colors"
+                style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
               />
             </div>
           </div>
 
+          {/* Pato: entra com zoom elástico e um giro curto para a direita */}
+          <div className="self-end lg:self-auto shrink-0">
+            <img
+              ref={duckRef}
+              src="/pato.png"
+              alt=""
+              width={341}
+              height={417}
+              className="w-[180px] sm:w-[230px] lg:w-[260px] xl:w-[320px] h-auto rounded-[28px] ring-1 ring-cream/20 shadow-2xl shadow-black/60 select-none will-change-transform"
+              loading="eager"
+              draggable={false}
+            />
+          </div>
         </div>
       </div>
 
@@ -195,20 +213,20 @@ export default function Hero() {
             delay={130}
             animateBy="words"
             direction="top"
-            className="text-[16px] sm:text-[19px] md:text-[21px] lg:text-[23px] text-center text-stone-600 hover:text-stone-900 transition-colors duration-300 justify-center font-medium"
+            className="text-[16px] sm:text-[19px] md:text-[21px] lg:text-[23px] text-center text-cream/70 hover:text-cream transition-colors duration-300 justify-center font-medium"
             style={{ fontFamily: "'Antic', 'Montserrat', sans-serif" }}
           />
         </div>
 
         {/* Assinatura de identidade de Victor */}
-        <p className="text-xs sm:text-sm text-stone-500 font-normal mb-4 sm:mb-6">
+        <p className="text-xs sm:text-sm text-cream/55 font-normal mb-4 sm:mb-6">
           {t('hero.roleAndCompany')}
         </p>
 
         {/* Botão de Scroll Down com Chevron */}
         <a
           href="#about"
-          className="inline-flex items-center justify-center p-2 rounded-full text-stone-500 hover:text-stone-950 transition-colors animate-bounce cursor-pointer"
+          className="inline-flex items-center justify-center p-2 rounded-full text-cream/55 hover:text-cream transition-colors animate-bounce cursor-pointer"
           aria-label={t('hero.scrollDown')}
         >
           <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={2} />

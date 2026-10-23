@@ -54,6 +54,7 @@ export function ReCaptcha({ siteKey, hl, onVerify, onExpire, onError, ref }) {
         if (cancelled || !el) return
         widgetId.current = grecaptcha.render(el, {
           sitekey: siteKey,
+          theme: 'dark',
           size: el.offsetWidth < NORMAL_WIDTH ? 'compact' : 'normal',
           callback: (token) => latest.current.onVerify?.(token),
           'expired-callback': () => latest.current.onExpire?.(),

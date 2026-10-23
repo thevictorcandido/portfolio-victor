@@ -56,15 +56,15 @@ export default function Navbar() {
           {/* Logo / Marca estilo editorial */}
           <a
             href="#hero"
-            className="group flex items-center gap-2 text-stone-900 transition-colors"
+            className="group flex items-center gap-2 text-cream transition-colors"
           >
             <span className="font-display text-2xl tracking-tight font-bold group-hover:opacity-80 transition-opacity">
-              Victor<span className="text-stone-400 font-sans text-xs ml-0.5 tracking-normal">°</span>
+              Victor<span className="text-cream/45 font-sans text-xs ml-0.5 tracking-normal">°</span>
             </span>
           </a>
 
           {/* Desktop Navigation: Floating Pill (inspirado na referência Mindly) */}
-          <nav className="hidden md:flex items-center bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-stone-200/70 shadow-sm shadow-stone-900/5">
+          <nav className="hidden md:flex items-center bg-ink/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-cream/10 shadow-sm shadow-black/30">
             <ol className="flex items-center gap-1">
               {portfolioData.navItems.map((item) => {
                 const isActive = activeSection === item.id
@@ -75,8 +75,8 @@ export default function Navbar() {
                       href={`#${item.id}`}
                       className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 ${
                         isActive
-                          ? 'bg-stone-100 text-stone-950 font-semibold shadow-xs'
-                          : 'text-stone-600 hover:text-stone-950 hover:bg-stone-50/70'
+                          ? 'bg-moss text-ink font-semibold shadow-xs'
+                          : 'text-cream/70 hover:text-cream hover:bg-cream/5'
                       }`}
                     >
                       {label}
@@ -92,10 +92,10 @@ export default function Navbar() {
             <LanguageSwitcher className="scale-90" />
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide bg-stone-900 text-stone-50 hover:bg-black transition-all shadow-xs hover:shadow-md hover:scale-[1.02]"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide bg-cream text-ink hover:bg-white transition-all shadow-xs hover:shadow-md hover:scale-[1.02]"
             >
               <span>{t('about.ctaTalk')}</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-stone-300" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-ink/60" />
             </a>
           </div>
 
@@ -106,7 +106,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-white/90 border border-stone-200 text-stone-800 shadow-xs"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-ink-raised/90 border border-cream/10 text-cream shadow-xs"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -115,7 +115,7 @@ export default function Navbar() {
 
         {/* Menu Mobile Flutuante */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-3 p-4 rounded-3xl bg-white/95 backdrop-blur-xl border border-stone-200/80 shadow-xl shadow-stone-900/5 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden mt-3 p-4 rounded-3xl bg-ink-raised/95 backdrop-blur-xl border border-cream/10 shadow-xl shadow-black/30 animate-in fade-in slide-in-from-top-2 duration-200">
             <ol className="flex flex-col gap-1">
               {portfolioData.navItems.map((item) => {
                 const label = t(navKeyMap[item.id] || 'nav.home')
@@ -124,24 +124,24 @@ export default function Navbar() {
                     <a
                       href={`#${item.id}`}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-medium text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-colors"
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-medium text-cream/80 hover:text-cream hover:bg-cream/8 transition-colors"
                     >
                       <span>{label}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-stone-400" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-cream/45" />
                     </a>
                   </li>
                 )
               })}
             </ol>
-            <div className="mt-3 pt-3 border-t border-stone-100 flex items-center justify-between">
-              <span className="text-xs text-stone-500 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="mt-3 pt-3 border-t border-cream/10 flex items-center justify-between">
+              <span className="text-xs text-cream/55 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-moss animate-pulse" />
                 {t('hero.availability')}
               </span>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-xs font-bold text-stone-900 underline"
+                className="text-xs font-bold text-cream underline"
               >
                 {t('about.ctaTalk')}
               </a>
