@@ -10,14 +10,15 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 |---|---|
 | `victor-sem-fundo.png` | Foto recortada do Hero |
 | `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
-| `victor-agora.jpeg` | Cargo atual (Analista de TI — COR) |
-| `victor-meio.jpeg` | Cargo Comunicação & Web |
-| `victor-inicio.jpeg` | Cargo Assistente de Comunicação |
 | `projects/grupogvs-hero.png` | Card do projeto GVS |
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
 | `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 97 KB (desde 2026-10-21) |
+
+> [!TIP]
+> **removidas em 2026-10-22**
+> `victor-agora.jpeg`, `victor-meio.jpeg` e `victor-inicio.jpeg` (uma foto por cargo na Trajetória) saíram com `git rm` quando a seção trocou de componente.
 
 ## Prévia de link (Open Graph)
 

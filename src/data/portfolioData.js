@@ -44,29 +44,11 @@ export const portfolioData = {
     { key: "prompt", category: "ai", projectUrl: null },
   ],
 
-  // id → experience.roles.<id> nos arquivos de tradução
+  // id → experience.roles.<id> nos arquivos de tradução; year agrupa a timeline
   experiences: [
-    {
-      id: "cor",
-      company: "Grupo GVS",
-      companyUrl: "https://grupogvs.com.br",
-      image: "/victor-agora.jpeg",
-      objectPosition: "object-bottom",
-    },
-    {
-      id: "web",
-      company: "Grupo GVS",
-      companyUrl: "https://grupogvs.com.br",
-      image: "/victor-meio.jpeg",
-      objectPosition: "object-[center_15%]",
-    },
-    {
-      id: "mkt",
-      company: "Grupo GVS",
-      companyUrl: "https://grupogvs.com.br",
-      image: "/victor-inicio.jpeg",
-      objectPosition: "object-[center_15%]",
-    },
+    { id: "cor", year: "2026", initials: "GVS", company: "Grupo GVS", companyUrl: "https://grupogvs.com.br" },
+    { id: "web", year: "2025", initials: "GVS", company: "Grupo GVS", companyUrl: "https://grupogvs.com.br" },
+    { id: "mkt", year: "2025", initials: "GVS", company: "Grupo GVS", companyUrl: "https://grupogvs.com.br" },
   ],
 
   projects: [

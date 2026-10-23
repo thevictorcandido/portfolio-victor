@@ -32,6 +32,10 @@ Voltar: [Portfolio Victor](README.md)
 ## Decisões
 
 > [!IMPORTANT]
+> **Trajetória sem título, em verde-musgo e sem fotos**
+> Em 2026-10-22 a Trajetória perdeu o cabeçalho ("03 · Vivência & Trajetória") e as fotos: a seção se explica pelo conteúdo e se separa das vizinhas pelo fundo `#2B4636`, o acento da paleta, com texto `#F4EFEA`. O componente segue o `timeline-3` do 21st.dev (olewandowski1, MIT-0), copiado e adaptado em JSX sem shadcn: Avatar, Badge, Marker e IconPlaceholder viraram marcação simples, sem instalar `@radix-ui/react-avatar` nem `class-variance-authority`. Os bullets e os chips de tecnologia de cada cargo saíram junto (recuperáveis pelo histórico); ficaram título, período, local e resumo.
+
+> [!IMPORTANT]
 > **globo de habilidades sem three.js**
 > Em 2026-10-22 os dois cards (Backend, IA) viraram um globo como o `skills --globo` de aramuni.dev; no clique aparece um texto com exemplo real em vez de um link para o site da tecnologia. O original usa react-three-fiber (~950 KB só no chunk do globo); aqui é projeção à mão + `<canvas>` 2D, e o JS total foi de 512,83 kB para 538,02 kB. Detalhes em [03 - Design System](03-design-system.md).
 

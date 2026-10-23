@@ -88,78 +88,26 @@
     ]
   },
   "experience": {
-    "tag": "03 · Vivência & Trajetória",
-    "headline": "Trajetória & evolução,",
-    "headlineHighlight": "vivência prática no Grupo GVS.",
-    "subtitle": "Da criação multimídia e liderança na reformulação completa do website corporativo à administração e monitoramento crítico de redes, telecomunicações e supervisórios SCADA no Centro de Operações Remotas.",
+    "srTitle": "Trajetória profissional",
+    "at": "no",
     "roles": {
       "cor": {
         "title": "Analista de TI — Centro de Operações Remotas",
-        "company": "Grupo GVS",
-        "period": "Ago. de 2026 — Presente",
+        "period": "Ago. 2026 — atual",
         "location": "Belo Horizonte / Nova Lima, MG · Presencial",
-        "summary": "Administração, monitoramento e suporte da infraestrutura crítica de TI e telecomunicações do Centro de Operações Remotas (COR) e das usinas de geração de energia.",
-        "caption": "Centro de Operações Remotas · SCADA & Monitoramento",
-        "bullets": [
-          "Monitoramento e sustentação de redes, telecomunicações e serviços, garantindo a alta disponibilidade de sistemas, servidores e equipamentos de campo.",
-          "Suporte técnico especializado a sistemas supervisórios de automação (SCADA), CFTV e plataformas de monitoramento em tempo real de usinas.",
-          "Integração de equipamentos de telemetria, diagnóstico de falhas de comunicação e apoio técnico contínuo às equipes de operação e manutenção.",
-          "Documentação técnica de arquitetura de rede, gestão de ativos de TI e implementação de melhorias e novas tecnologias de infraestrutura."
-        ],
-        "imageAlt": "Centro de Operações Remotas do Grupo GVS — Monitoramento de usinas, SCADA e telecomunicações",
-        "technologies": [
-          "SCADA",
-          "Infraestrutura de TI",
-          "Redes & Telecom",
-          "CFTV",
-          "Monitoramento COR",
-          "Diagnóstico de Falhas",
-          "Gestão de Ativos"
-        ]
+        "summary": "Administração, monitoramento e suporte da infraestrutura crítica de TI e telecomunicações do Centro de Operações Remotas (COR) e das usinas de geração de energia."
       },
       "web": {
         "title": "Analista de Comunicação Interna & Web",
-        "company": "Grupo GVS",
-        "period": "Ago. de 2025 — Ago. de 2026 · 1 ano 1 mês",
+        "period": "Ago. 2025 — Ago. 2026",
         "location": "Belo Horizonte, MG · Presencial",
-        "summary": "Atuação estratégica conectando comunicação corporativa, mídia digital e desenvolvimento web, liderando a reformulação integral do site oficial do grupo.",
-        "caption": "Comunicação Interna & Institucional · Grupo GVS",
-        "bullets": [
-          "Desenvolvimento e reformulação completa do website oficial do Grupo GVS, redesenhando a imagem digital da marca para 2026 com áreas institucionais, usinas, portal de vagas e projetos socioambientais.",
-          "Gerenciamento de redes sociais, criação de material gráfico e apresentações corporativas de alto impacto para a diretoria.",
-          "Gravação e edição de conteúdo audiovisual de ponta focado no mercado de geração de energia por fontes sustentáveis e dia a dia das operações.",
-          "Planejamento estratégico e condução de campanhas de engajamento interno e comunicação corporativa."
-        ],
-        "imageAlt": "Victor Cândido em evento institucional do Grupo GVS como Analista de Comunicação",
-        "technologies": [
-          "Desenvolvimento Web",
-          "UI/UX",
-          "Design Gráfico",
-          "Produção Audiovisual",
-          "Comunicação Estratégica",
-          "Endomarketing"
-        ]
+        "summary": "Atuação estratégica conectando comunicação corporativa, mídia digital e desenvolvimento web, liderando a reformulação integral do site oficial do grupo."
       },
       "mkt": {
         "title": "Assistente de Comunicação e Marketing",
-        "company": "Grupo GVS",
-        "period": "Mar. de 2025 — Jul. de 2025 · 5 meses",
+        "period": "Mar. 2025 — Jul. 2025",
         "location": "Belo Horizonte, MG · Presencial",
-        "summary": "Atuação na linha de frente operacional de divulgação multimídia, produção de conteúdo e suporte a estratégias de endomarketing e marketing de vendas.",
-        "caption": "Início no Grupo GVS · Time de Comunicação",
-        "bullets": [
-          "Gravação, edição e publicação de conteúdo multimídia para redes sociais e canais corporativos da organização.",
-          "Apoio direto a iniciativas de endomarketing e campanhas alinhadas à área de vendas no setor de energia limpa.",
-          "Criação e padronização de peças digitais, atuando como elemento-chave na comunicação e divulgação das marcas do grupo."
-        ],
-        "imageAlt": "Victor Cândido com a camisa oficial da GVS no início da trajetória no Grupo GVS",
-        "technologies": [
-          "Criação Multimídia",
-          "Edição Audiovisual",
-          "Marketing Digital",
-          "Endomarketing",
-          "Divulgação Institucional"
-        ]
+        "summary": "Atuação na linha de frente operacional de divulgação multimídia, produção de conteúdo e suporte a estratégias de endomarketing e marketing de vendas."
       }
     }
   },

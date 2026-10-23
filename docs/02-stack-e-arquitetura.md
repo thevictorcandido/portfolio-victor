@@ -36,7 +36,7 @@ src/
     Navbar, Hero, About, Projects, Experience, Skills, Education, Contact, Footer
     Icons.jsx, TechIcons.jsx, SkillsGlobe.jsx
     LanguageSwitcher/LanguageSwitcher.jsx
-    ui/ blur-text, floating-dock   (adaptados do 21st.dev)
+    ui/ blur-text, floating-dock, timeline-3   (adaptados do 21st.dev)
     ui/ recaptcha                                        (widget v2, carga explícita)
 ```
 
@@ -57,8 +57,7 @@ Padrão usado nos componentes:
 
 ```jsx
 const { t } = useTranslation()
-const { experiences } = portfolioData
-const roleData = t(`experience.roles.${exp.id}`, { returnObjects: true }) || {}
+const title = t(`experience.roles.${exp.id}.title`)
 ```
 
 Navbar detecta a seção ativa por scroll usando `portfolioData.navItems[].id` — os ids das `<section>` precisam bater com essa lista.

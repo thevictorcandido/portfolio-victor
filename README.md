@@ -11,7 +11,7 @@ Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software
 | — | Início | Apresentação, foto e seletor de idioma |
 | 01 | Sobre | Bio, citação e atalhos para links |
 | 02 | Projetos | Site institucional do Grupo GVS e o sistema Xulambis Pizza (Java, PUC Minas) |
-| 03 | Trajetória | Linha do tempo dos três cargos no Grupo GVS |
+| 03 | Trajetória | Os três cargos no Grupo GVS numa timeline por ano, em fundo verde-musgo |
 | 04 | Habilidades | Globo 3D com 16 tecnologias; o clique mostra onde cada uma foi usada |
 | 05 | Formação | Engenharia de Software na PUC Minas e estudo contínuo |
 | 06 | Contato | Formulário com envio real por e-mail (EmailJS) e links diretos |
@@ -55,7 +55,7 @@ O template do EmailJS precisa usar `{{name}}`, `{{email}}` e `{{message}}`. Sem 
 |---|---|
 | Qualquer texto visível | `src/i18n/locales/pt-BR/translation.json` **e** `src/i18n/locales/en/translation.json` |
 | Links sociais e e-mail | `src/data/portfolioData.js` → `personal.social` |
-| Imagens de cargos e projetos | `public/` + campo `image` em `src/data/portfolioData.js` |
+| Imagens dos projetos | `public/` + campo `image` de `projects` em `src/data/portfolioData.js` |
 | Tecnologias das Habilidades | `src/data/portfolioData.js` (`key`, categoria, link) + `skills.items.<key>` nos dois JSON + ícone em `TechIcons.jsx` |
 | Cores, fontes e animações | `src/index.css` |
 
@@ -70,7 +70,7 @@ src/
 ├── index.css                # tema Tailwind, fontes locais, animações
 ├── components/              # uma seção por arquivo + Navbar, Footer, ícones
 │   ├── LanguageSwitcher/    # seletor PT / EN
-│   └── ui/                  # blur-text, floating-dock, recaptcha
+│   └── ui/                  # blur-text, floating-dock, recaptcha, timeline-3
 ├── config/                  # idiomas (i18nConfig) e credenciais do EmailJS
 ├── data/portfolioData.js    # links, imagens e ids
 ├── i18n/                    # inicialização + locales/{pt-BR,en}/translation.json

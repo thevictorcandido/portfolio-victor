@@ -84,10 +84,22 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 > **verificado em 2026-10-22**
 > Edge headless via CDP, em 1280, 375 e 320 px, pt-BR e en: clique abre o painel (opacidade 0,85 aos 90 ms), arrasto não troca a seleção, Esc fecha, Tab gira o ícone focado para a frente (opacidade 0,14 → 1) e Enter abre, sem rolagem horizontal e sem erro no console. Com `--force-prefers-reduced-motion` o painel aparece já em opacidade 1.
 
+## Trajetória (`ui/timeline-3.jsx`)
+
+- Fundo `#2B4636` (o verde-musgo do acento): a única seção escura do site. Texto `#F4EFEA` em opacidades de 70% a 100%.
+- Grupos pelo ano de início (`experiences[].year`): separador com o ano e uma linha. Em cada cargo, monograma "GVS" com selo do ícone (`MonitorDot`, `Globe`, `Megaphone`), "cargo no Grupo GVS", resumo, local e período à direita (acima, no celular).
+- O trilho liga só os itens do mesmo grupo, de um avatar ao próximo; grupo de um item fica sem trilho.
+- Sem título visível: um `h2` só para leitor de tela ("Trajetória profissional") mantém a seção nomeada.
+
+> [!TIP]
+> **verificado em 2026-10-22**
+> Contraste medido nos pixels sobre `#2B4636`: menor razão 5,36:1 (local do cargo, 12 px), acima do 4,5:1 do WCAG AA. Antes do ajuste, três tons ficavam abaixo (3,19 a 4,38). Sem rolagem horizontal em 1280 e 375 px.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
 - `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre").
+- `timeline-3.jsx` — timeline por grupos com trilho e avatar com selo (Trajetória).
 
 > [!TIP]
 > **atalho que vale lembrar**
