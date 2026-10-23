@@ -26,7 +26,7 @@ Exceções que ficaram de propósito: logos das tecnologias com as cores das mar
 
 ### Hero
 
-Nome em duas linhas (Fira Code bold, `BlurText` por letra) alinhado à esquerda; a foto em cápsula saiu e entrou `public/pato.png`, à direita no desktop e abaixo, à direita, no celular. A segunda linha tem `mt-[0.24em]`: com o nome alinhado à esquerda, o circunflexo do Â fica logo abaixo do I de VICTOR e encostava nele.
+Nome em duas linhas (Fira Code bold, `BlurText` por letra) alinhado à esquerda; a foto em cápsula saiu e entrou o pato recortado (`public/pato.webp`, sem fundo), à direita no desktop e abaixo, à direita, no celular. O pato fica num `div` com os mesmos tamanhos de fonte do nome e tem `height: 2.1em`: as duas linhas do nome somam 1,8em, então o pato fica um pouco mais alto que elas (≈ 1,17×) em toda largura de tela — 378 px contra 324 px no desktop largo, 151 px contra 129 px no celular. A segunda linha tem `mt-[0.24em]`: com o nome alinhado à esquerda, o circunflexo do Â fica logo abaixo do I de VICTOR e encostava nele.
 
 Entrada do pato com GSAP, 0,45 s depois de carregar: zoom `scale 0 → 1` em 1,6 s com `elastic.out(1, 0.4)` e, ao mesmo tempo, giro `-10° → 6°` (para a direita) em 1,9 s com `elastic.out(1, 0.6)`, mais amortecido, para o giro balançar menos que o zoom. Medido avançando a linha do tempo do GSAP: a escala passa de 1,27 e volta a 0,96 antes de assentar; o giro passa de 8,4° e assenta em 6°.
 

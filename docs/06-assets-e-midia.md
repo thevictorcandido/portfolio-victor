@@ -8,7 +8,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 
 | Arquivo | Onde |
 |---|---|
-| `pato.png` | Ilustração do Hero (341 × 417), desde 2026-10-22 |
+| `pato.webp` | Pato do Hero, recortado do fundo, 664 × 788, 30 KB (desde 2026-10-22) |
 | `background-site.png` | Referência da grade de fundo; não é carregada, a grade é refeita em CSS (ver [03 - Design System](03-design-system.md)) |
 | `victor-sem-fundo.png` | **Sem uso** desde 2026-10-22, quando o Hero trocou a foto pelo pato |
 | `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
@@ -16,11 +16,22 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
-| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 94 KB em 128 cores (desde 2026-10-21; refeita em 2026-10-22 com o tema escuro) |
+| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 84 KB em 128 cores (desde 2026-10-21; refeita em 2026-10-22 com o tema escuro e o pato recortado) |
 
 > [!TIP]
 > **removidas em 2026-10-22**
 > `victor-agora.jpeg`, `victor-meio.jpeg` e `victor-inicio.jpeg` (uma foto por cargo na Trajetória) saíram com `git rm` quando a seção trocou de componente.
+
+## Recorte do pato (`pato.webp`)
+
+A ilustração original (341 × 417, `pato.png`, no histórico do git) vinha num papel bege quadriculado, com um "?", uma seta e uma curva soltos em volta. O recorte foi automatizado em Python/Pillow:
+
+1. Fundo = tudo que se alcança a partir da borda passando só por cores próximas do papel `(235, 233, 220)` ou das linhas da grade `(220, 220, 208)` (distância RGB < 28). O contorno escuro do pato segura a inundação.
+2. Do que sobra, fica só o maior pedaço conexo, o pato; o "?", a seta e a curva saem.
+3. O vão de papel entre as pernas fica preso dentro do contorno e é tirado à parte. Só ali: as faces brancas do pato têm quase a cor do papel e sumiriam junto.
+4. Ampliado 2× (LANCZOS + leve nitidez) para telas de alta densidade; a máscara é suavizada e encolhida 1 px para não deixar franja bege na borda.
+
+Exportado em WebP (qualidade 92, alfa sem perda): 30 KB. Em PNG eram 380 KB, e reduzir a paleta para 256 cores manchava as faces.
 
 ## Prévia de link (Open Graph)
 
