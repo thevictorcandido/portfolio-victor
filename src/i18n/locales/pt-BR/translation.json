@@ -88,20 +88,27 @@
     ]
   },
   "experience": {
-    "srTitle": "Trajetória profissional",
-    "periodLabel": "2025 — hoje",
+    "tag": "03 · Vivência & Trajetória",
+    "headline": "Trajetória & evolução,",
+    "headlineHighlight": "vivência prática no Grupo GVS.",
     "roles": {
       "cor": {
         "title": "Analista de TI — Centro de Operações Remotas",
-        "period": "Ago. 2026 — atual"
+        "period": "Ago. 2026 — atual",
+        "summary": "Monitoramento e suporte da infraestrutura crítica de TI e telecomunicações do Centro de Operações Remotas e das usinas: redes, sistemas supervisórios SCADA, CFTV e telemetria de campo.",
+        "mediaAlt": "Ilustração animada de um painel de monitoramento: usinas solares ligadas ao centro de operações, gráfico de geração ao vivo e indicadores de rede, telemetria, câmeras e servidores"
       },
       "web": {
         "title": "Analista de Comunicação Interna & Web",
-        "period": "Ago. 2025 — Ago. 2026"
+        "period": "Ago. 2025 — Ago. 2026",
+        "summary": "Reformulação completa do site oficial do Grupo GVS, junto com redes sociais, peças gráficas, apresentações para a diretoria e campanhas de comunicação interna.",
+        "mediaAlt": "Ilustração animada do site do Grupo GVS sendo montado no navegador, com um cursor clicando no botão e um post em vídeo ao lado"
       },
       "mkt": {
         "title": "Assistente de Comunicação e Marketing",
-        "period": "Mar. 2025 — Jul. 2025"
+        "period": "Mar. 2025 — Jul. 2025",
+        "summary": "Gravação, edição e publicação de conteúdo multimídia para as redes e os canais do grupo, com apoio ao endomarketing e às campanhas de vendas.",
+        "mediaAlt": "Ilustração animada de um celular gravando vídeo de uma usina solar, curtidas subindo, um feed de posts se preenchendo e a linha do tempo da edição"
       }
     }
   },

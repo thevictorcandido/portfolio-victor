@@ -243,6 +243,215 @@ body::before {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Ilustrações da Trajetória (ExperienceIllustrations.jsx)                    */
+/* -------------------------------------------------------------------------- */
+
+/* O estilo base de cada classe é a cena parada e completa: é o que fica com
+   movimento reduzido, quando a regra global encerra as animações. */
+
+.illo-blink {
+  animation: illo-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes illo-blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Dados correndo pelo cabo, no sentido usina → COR */
+.illo-flow {
+  stroke-dasharray: 3 9;
+  animation: illo-flow 1s linear infinite;
+}
+
+@keyframes illo-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.illo-pulse {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: illo-pulse 2s ease-out infinite;
+}
+
+@keyframes illo-pulse {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+/* Curva com pathLength="1": desenha e segura antes de recomeçar */
+.illo-draw {
+  stroke-dasharray: 1;
+  animation: illo-draw 5s ease-in-out infinite;
+}
+
+@keyframes illo-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  55%,
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.illo-scan {
+  transform: translateX(68px);
+  animation: illo-scan 5s linear infinite;
+}
+
+@keyframes illo-scan {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(136px);
+  }
+}
+
+.illo-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: illo-bar 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes illo-bar {
+  from {
+    transform: scaleY(0.4);
+  }
+}
+
+/* Peças que entram em sequência (atraso inline), ficam e saem para recomeçar */
+.illo-build {
+  animation: illo-build 6s cubic-bezier(0.23, 1, 0.32, 1) infinite backwards;
+}
+
+@keyframes illo-build {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  8%,
+  88% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  96%,
+  to {
+    opacity: 0;
+  }
+}
+
+/* Cursor e clique: começam depois que o botão do site aparece */
+.illo-cursor {
+  animation: illo-cursor 6s cubic-bezier(0.65, 0, 0.35, 1) 1.4s infinite backwards;
+}
+
+@keyframes illo-cursor {
+  from {
+    opacity: 0;
+    transform: translate(170px, 70px);
+  }
+  12% {
+    opacity: 1;
+  }
+  45%,
+  80% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+
+.illo-ripple {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: illo-ripple 6s ease-out 1.4s infinite;
+}
+
+@keyframes illo-ripple {
+  from,
+  46% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+  70%,
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.illo-float {
+  animation: illo-float 3s ease-in-out infinite alternate;
+}
+
+@keyframes illo-float {
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+.illo-heart {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: illo-heart 2.7s ease-out infinite backwards;
+}
+
+@keyframes illo-heart {
+  from {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.6);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(2px, -14px) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(10px, -90px) scale(1);
+  }
+}
+
+.illo-playhead {
+  transform: translateX(70px);
+  animation: illo-playhead 5s linear infinite;
+}
+
+@keyframes illo-playhead {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(158px);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /* Movimento reduzido: respeita a preferência do sistema operacional          */
 /* -------------------------------------------------------------------------- */
 
@@ -253,6 +462,7 @@ body::before {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;

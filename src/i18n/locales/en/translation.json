@@ -88,20 +88,27 @@
     ]
   },
   "experience": {
-    "srTitle": "Professional experience",
-    "periodLabel": "2025 — today",
+    "tag": "03 · Experience & Journey",
+    "headline": "Trajectory & growth,",
+    "headlineHighlight": "hands-on experience at Grupo GVS.",
     "roles": {
       "cor": {
         "title": "IT Analyst — Remote Operations Center",
-        "period": "Aug 2026 — present"
+        "period": "Aug 2026 — present",
+        "summary": "Monitoring and support of the critical IT and telecom infrastructure of the Remote Operations Center and the power plants: networks, SCADA supervisory systems, CCTV and field telemetry.",
+        "mediaAlt": "Animated illustration of a monitoring dashboard: solar plants linked to the operations center, a live generation chart and status lights for network, telemetry, cameras and servers"
       },
       "web": {
         "title": "Internal Communications & Web Analyst",
-        "period": "Aug 2025 — Aug 2026"
+        "period": "Aug 2025 — Aug 2026",
+        "summary": "Full redesign of the official Grupo GVS website, along with social media, graphic design, board presentations and internal communication campaigns.",
+        "mediaAlt": "Animated illustration of the Grupo GVS website being built in a browser, with a cursor clicking the button and a video post beside it"
       },
       "mkt": {
         "title": "Communications & Marketing Assistant",
-        "period": "Mar 2025 — Jul 2025"
+        "period": "Mar 2025 — Jul 2025",
+        "summary": "Filming, editing and publishing multimedia content for the group's social media and channels, supporting internal marketing and sales campaigns.",
+        "mediaAlt": "Animated illustration of a phone filming a solar plant, likes floating up, a post feed filling in and an editing timeline"
       }
     }
   },
