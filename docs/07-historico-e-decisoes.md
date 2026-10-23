@@ -9,25 +9,25 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-13 18:22 | `d30b8f0` | **Projeto base** — template Vite + React, oxlint, README com as referências e a paleta escura |
 | 2026-10-13 23:07 | `319f11f` | **Site completo sem tradução** — todas as seções, fotos, fontes locais, componentes 21st.dev, visual claro bege |
 | 2026-10-13 23:51 | `ae0f854` | **i18n pt-BR / en** — i18next, LanguageSwitcher, textos movidos para `translation.json` |
-| 2026-10-20 | `cd4e1ec` | Documentação criada (vault Obsidian + `docs/` no repo) |
-| 2026-10-20 | `5b63243` | Formulário de contato com envio real via EmailJS (validado com envio real no mesmo dia) |
-| 2026-10-20 | `cc37d83` | Favicon próprio: monograma "V" |
-| 2026-10-20 | `1a7037c` / `7bd9a6c` | Xulambis corrigido para Java (tag + mockup refeito) |
-| 2026-10-20 | `b2ad3d8` | Todo texto visível passa pelo i18n (tags, chips, alts, card de estudo contínuo) |
-| 2026-10-20 | `2fceddb` | Meta description acompanha o idioma |
-| 2026-10-20 | `3ab3bb4` | Cargos apontam para grupogvs.com.br; Xulambis sem botão GitHub |
-| 2026-10-20 | `038a3df` | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
-| 2026-10-20 | `9dd5241` | Respeita `prefers-reduced-motion` |
-| 2026-10-20 | `18c6ce8` | README reescrito |
-| 2026-10-21 | `90ae5c6` | Primeiro push: `origin/main` vai de `ae0f854` a `90ae5c6` (14 commits) |
-| 2026-10-21 | `ebc6e6e` | Push que gerou o build de produção com as variáveis do EmailJS |
-| 2026-10-21 | `475d988` | reCAPTCHA v2 no formulário de contato |
-| 2026-10-21 | `93dc2c0` | Push com o reCAPTCHA; no ar em ~20 s como `index-LTq7jCEZ.js` |
-| 2026-10-21 | `acfcf91` | Prévia de link (Open Graph) com captura do Hero |
-| 2026-10-22 | `aa04295` | Habilidades viram um globo 3D com 16 tecnologias e exemplos reais |
-| 2026-10-22 | `328883e` | Globo gira sem parar, uma volta a cada ~45 s |
-| 2026-10-22 | `a879b48` | Painel só com tecnologia escolhida; sem seleção, globo centralizado e maior |
-| 2026-10-22 | `a879b48` | Push `93dc2c0..a879b48` (6 commits); no ar em ~20 s como `index-Dyv5IByl.js` |
+| 2026-10-20 | `315d191` | Documentação criada (vault Obsidian + `docs/` no repo) |
+| 2026-10-20 | `92fe65d` | Formulário de contato com envio real via EmailJS (validado com envio real no mesmo dia) |
+| 2026-10-20 | `e0f734a` | Favicon próprio: monograma "V" |
+| 2026-10-20 | `83ce283` / `b726079` | Xulambis corrigido para Java (tag + mockup refeito) |
+| 2026-10-20 | `d2cd10d` | Todo texto visível passa pelo i18n (tags, chips, alts, card de estudo contínuo) |
+| 2026-10-20 | `fbca446` | Meta description acompanha o idioma |
+| 2026-10-20 | `5115006` | Cargos apontam para grupogvs.com.br; Xulambis sem botão GitHub |
+| 2026-10-20 | `5e29a93` | Limpeza: `portfolioData.js` só com estrutura; 12 arquivos sem uso removidos |
+| 2026-10-20 | `607aba0` | Respeita `prefers-reduced-motion` |
+| 2026-10-20 | `4b4f036` | README reescrito |
+| 2026-10-21 | `a6d50b8` | Primeiro push: `origin/main` vai de `ae0f854` a `a6d50b8` (14 commits) |
+| 2026-10-21 | `d5b7d5c` | Push que gerou o build de produção com as variáveis do EmailJS |
+| 2026-10-21 | `7d9038f` | reCAPTCHA v2 no formulário de contato |
+| 2026-10-21 | `4718272` | Push com o reCAPTCHA; no ar em ~20 s como `index-LTq7jCEZ.js` |
+| 2026-10-21 | `30c9830` | Prévia de link (Open Graph) com captura do Hero |
+| 2026-10-22 | `a425e0a` | Habilidades viram um globo 3D com 16 tecnologias e exemplos reais |
+| 2026-10-22 | `58c3e8f` | Globo gira sem parar, uma volta a cada ~45 s |
+| 2026-10-22 | `7ec8c0b` | Painel só com tecnologia escolhida; sem seleção, globo centralizado e maior |
+| 2026-10-22 | `7ec8c0b` | Push `4718272..7ec8c0b` (6 commits); no ar em ~20 s como `index-Dyv5IByl.js` |
 
 ## Decisões
 

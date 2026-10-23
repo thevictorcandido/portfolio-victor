@@ -9,7 +9,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 > [!TIP]
 > **variáveis do EmailJS em produção — corrigido em 2026-10-21**
 >
-> As 3 variáveis foram cadastradas na Vercel (tipo **Config**, não Secret — são públicas por natureza); o push de `ebc6e6e` gerou o build `index-BdQc1odO.js`, com a configuração preenchida. Envio real pelo site publicado confirmado em 2026-10-21.
+> As 3 variáveis foram cadastradas na Vercel (tipo **Config**, não Secret — são públicas por natureza); o push de `d5b7d5c` gerou o build `index-BdQc1odO.js`, com a configuração preenchida. Envio real pelo site publicado confirmado em 2026-10-21.
 
 > [!WARNING]
 > **armadilha**

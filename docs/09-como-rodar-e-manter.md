@@ -150,7 +150,7 @@ A imagem `public/projects/xulambis-terminal.png` sai de `docs/mockups/xulambis-t
 
 - Mensagens em português, prefixo convencional: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `style:`.
 - Um commit por unidade de trabalho coerente; `npm run lint` e `npm run build` antes.
-- `git add <caminhos>` explícitos — nunca `git add -A` (pega mudanças alheias, como aconteceu com o `.gitignore` em `038a3df`).
+- `git add <caminhos>` explícitos — nunca `git add -A` (pega mudanças alheias, como aconteceu com o `.gitignore` em `5e29a93`).
 - Sem push automático.
 
 ## Documentação
