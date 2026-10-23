@@ -13,7 +13,7 @@ Escuro desde 2026-10-22: preto da grade de `public/background-site.png`, branco 
 | `--color-ink` | `#161616` | Fundo da página, o preto de `background-site.png` (também em `index.html` e no `theme-color`) |
 | `--color-ink-raised` | `#1C1C1C` | Cards, sólidos para o texto não ficar sobre a grade |
 | `--color-cream` | `#F4EFEA` | Texto e botão principal (texto `ink` sobre ele) |
-| `--color-moss` | `#259B55` | Acento: item ativo do menu, idioma, destaques dos títulos, timeline, globo. 5,1:1 sobre o `ink`, serve para texto; sobre ele, texto em `ink` |
+| `--color-moss` | `#259B55` | Acento: item ativo do menu, idioma, destaques dos títulos, cargo ativo da Trajetória, globo. 5,1:1 sobre o `ink`, serve para texto; sobre ele, texto em `ink` |
 | `--color-moss-hover` | `#2EAD60` | Hover de links verdes |
 
 Tons intermediários saem por opacidade dos tokens: texto `cream/70` (corrido), `cream/55` (secundário, ainda 5,7:1), `cream/45` só em ícones; bordas `cream/10`; superfícies leves `cream/8`. A escala `stone-*` do Tailwind não é mais usada. Seleção de texto: fundo `moss`, texto `ink`. Scrollbar 7 px, thumb `#3A3A3A`.
@@ -65,6 +65,8 @@ Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
 | Globo de habilidades | `SkillsGlobe` consulta `matchMedia` | Sem giro automático nem inércia; o ícone escolhido salta direto para a frente. Arrastar continua funcionando |
 | FloatingDock (motion/react) | `MotionConfig reducedMotion="user"` + `useReducedMotion()` no `IconContainer` | Tooltip/menu sem deslocamento; ícones sem ampliação, tamanho fixo |
 | Pato do Hero (GSAP) | `Hero.jsx` consulta `matchMedia` | Aparece direto no tamanho final, já inclinado 6° |
+| Ilustrações da Trajetória | regra global (com `animation-delay: 0s`) | Cada cena aparece parada e completa |
+| Painel da Trajetória (motion/react) | `MotionConfig reducedMotion="user"` | Troca de ilustração e abertura do item só com opacidade |
 
 > [!TIP]
 > **atalho que vale lembrar**
@@ -93,31 +95,36 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 > **verificado em 2026-10-22**
 > Edge headless via CDP, em 1280, 375 e 320 px, pt-BR e en: clique abre o painel (opacidade 0,85 aos 90 ms), arrasto não troca a seleção, Esc fecha, Tab gira o ícone focado para a frente (opacidade 0,14 → 1) e Enter abre, sem rolagem horizontal e sem erro no console. Com `--force-prefers-reduced-motion` o painel aparece já em opacidade 1.
 
-## Trajetória (`ui/timeline.jsx`)
+## Trajetória (`ui/features-with-panel.jsx`)
 
-Adaptada da timeline horizontal da Hyperiux Vault (21st.dev). A seção fica presa na tela (`position: sticky`) enquanto se rola, o trilho anda para o lado e cada cargo desenha a haste e o ponto e revela o texto linha a linha.
+Desde 2026-10-22 é o "Features with Panel" do ScrollX UI (21st.dev). O registro do 21st.dev pede login para o `npx shadcn add`, então o código veio da fonte publicada pelo próprio ScrollX UI (`public/registry/features/features-with-panel.json` no repositório `Adityakishore0/ScrollX-UI`) e foi portado à mão para JSX.
 
-- Sem fundo próprio, sobre a grade escura. Texto `#F4EFEA` (secundário a 70%) e acento verde `#259B55` na linha, nas hastes, nos pontos e no nome da empresa; as cores entram por props em `Experience.jsx` (até 2026-10-22: fundo bege, acento laranja `#FF5F00`).
-- Abertura com "Grupo GVS" acima da linha e "2025 — hoje" abaixo. Os 3 cargos, do mais antigo para o mais recente, alternam acima e abaixo: período em destaque e "cargo · Grupo GVS".
-- Uma só timeline do GSAP com `scrub`, de `top top` a `bottom bottom` da seção: o trilho anda `scrollWidth − largura da janela`, a linha cresce com `scaleX` e cada cargo aparece quando a linha chega até ele (`offsetLeft` do cargo ÷ largura da linha).
-- A altura da seção é calculada em JS (altura da janela + 1,4 × o deslocamento) e refeita no `refreshInit` do ScrollTrigger.
-- SplitText com `mask: "lines"` só depois de `document.fonts.ready`, senão as linhas saem medidas com a fonte errada. Trocar de idioma remonta a timeline (`key={i18n.language}`), porque o SplitText reescreve o texto no DOM.
-- Movimento reduzido: o trilho continua acompanhando a rolagem, mas linha, hastes e textos já aparecem prontos.
-- Sem título visível: um `h2` só para leitor de tela ("Trajetória profissional").
+- Cabeçalho no padrão das outras seções (`03 · Vivência & Trajetória`) e uma lista numerada com os 3 cargos, do atual para o mais antigo; o atual já abre selecionado. Cada item mostra cargo e "período · Grupo GVS"; o escolhido abre um resumo das funções (`experience.roles.<id>.summary`).
+- À direita, no desktop, um painel 4:3 preso na tela (`sticky top-28`) troca a ilustração com fade + 12 px (`AnimatePresence mode="wait"`, 350 ms). No celular o painel some e a ilustração abre dentro do próprio item, abaixo do resumo.
+- Mudanças em relação ao original: itens por props (`id`, `title`, `meta`, `description`, `media`, `alt`); cada item é um `<button>` com `aria-expanded` (o original era um `<li>` clicável, fora do Tab); `<div>` no lugar do `Card` do shadcn, que o projeto não usa; `MotionConfig reducedMotion="user"`.
+- O `FeatureMedia` do original continua aceitando URL de vídeo (`.mp4`/`.webm`), de imagem ou um nó React. Hoje são nós React: as ilustrações abaixo, com `role="img"` e descrição traduzida (`experience.roles.<id>.mediaAlt`).
 
-> [!CAUTION]
-> **defeito, com causa raiz**
-> Linhas do texto já apareciam antes da hora. Causa: `fromTo` com `stagger` adicionado no meio de uma timeline com `scrub` só aplicava o estado inicial ao primeiro elemento. Correção: `gsap.set` explícito do estado inicial e animação com `.to`.
+### Ilustrações dos cargos (`ExperienceIllustrations.jsx`)
+
+Animações em SVG desenhadas em código, em vez de vídeos: ficam nítidas em qualquer tela, pesam alguns KB, usam a paleta do site e param com "reduzir movimento". Mesma proporção do painel (viewBox 400 × 300).
+
+| Cargo | Cena |
+|---|---|
+| Analista de TI — COR | Tela "SCADA · LIVE": 4 usinas solares ligadas ao centro de operações com dados correndo pelos cabos, gráfico de geração (MW) desenhando a curva solar com linha de leitura, e indicadores de disponibilidade (99.9%), telemetria, câmera (CFTV) e servidores |
+| Comunicação Interna & Web | Navegador em `grupogvs.com.br` montando o site peça por peça, cursor clicando no botão, post em vídeo flutuando ao lado e selo `</>` |
+| Comunicação e Marketing | Celular gravando (REC) uma usina solar, curtidas subindo, feed de 9 posts preenchendo um a um e linha do tempo de edição com a agulha correndo |
+
+As animações são classes `.illo-*` no `index.css` (piscar, fluxo por `stroke-dashoffset`, curva com `pathLength="1"`, montagem em sequência com atraso inline e `fill-mode: backwards`). O estilo base de cada classe é a cena parada e completa: é o que sobra quando a regra global de movimento reduzido encerra as animações. Para isso a regra global passou a zerar também o `animation-delay`; sem isso as peças com atraso ficavam escondidas até o atraso passar.
 
 > [!TIP]
 > **verificado em 2026-10-22**
-> Edge headless via CDP, 1280 e 375 px: a seção fica presa durante todo o trecho, o trilho anda 461 px (desktop) e 690 px (celular), a linha vai de 0 a 100% e os 3 pontos aparecem em ordem. No fim, o último cargo fica inteiro na tela (x = 11 px no celular). Troca de idioma no meio da seção: texto em inglês e animação no ponto certo. Sem rolagem horizontal e sem erro no console.
+> Quadros amostrados pela Web Animations API (`getAnimations()` + `currentTime`): aos 0,9 s a curva está desenhando e o site montando; aos 4,3 s o cursor clica com o pulso, o feed está cheio e a agulha andou. Com movimento reduzido, as 3 cenas aparecem completas. A 375 px o item aberto mostra resumo + ilustração, sem rolagem horizontal; no desktop o painel troca ao clicar nos 3 cargos.
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
 - `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre").
-- `timeline.jsx` — timeline horizontal presa na tela, com GSAP (Trajetória).
+- `features-with-panel.jsx` — lista numerada com painel de mídia preso na tela (Trajetória), do ScrollX UI.
 
 > [!TIP]
 > **atalho que vale lembrar**

@@ -105,6 +105,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Desde 2026-10-22 o site usa o preto de `background-site.png` (`#161616`), o branco bege `#F4EFEA` e o verde `#259B55`, em vez do editorial claro. Os tons intermediários saem por opacidade dos tokens, não por uma escala nova. A grade é refeita em CSS em vez de usar a imagem, que é pequena demais para ampliar e não emenda ao repetir. Só a aparência mudou: nenhum componente perdeu função.
 
+> [!IMPORTANT]
+> **Trajetória em lista com painel, ilustrada em código**
+>
+> Em 2026-10-22 a timeline horizontal com GSAP deu lugar ao "Features with Panel" do ScrollX UI: lista dos cargos com resumo das funções e um painel com uma ilustração animada por cargo. As ilustrações são SVG desenhado em código, não vídeo: nítidas em qualquer tela, leves, na paleta do site e com movimento reduzido de graça. `ui/timeline.jsx` saiu com `git rm`.
+
 > [!NOTE]
 > **contexto**
 >

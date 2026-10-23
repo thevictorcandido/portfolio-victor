@@ -9,7 +9,7 @@ Voltar: [Portfolio Victor](README.md)
 | UI | `react`, `react-dom` | ^19.2.8 |
 | Build | `vite` + `@vitejs/plugin-react` | ^8.3.0 / ^6.1.1 |
 | CSS | `tailwindcss` + `@tailwindcss/vite` | ^4.3.3 |
-| Animação | `motion` (ex-Framer Motion) no dock; `gsap` (ScrollTrigger, SplitText) na Trajetória | ^14.2.0 / ^3.15.0 |
+| Animação | `motion` (ex-Framer Motion) no dock e na Trajetória; `gsap` na entrada do pato do Hero | ^14.2.0 / ^3.15.0 |
 | Ícones | `lucide-react` + SVGs próprios em `TechIcons.jsx` / `Icons.jsx` | ^1.56.0 |
 | i18n | `i18next`, `react-i18next`, `i18next-browser-languagedetector` | ^26.4.4 / ^17.0.16 / ^8.2.1 |
 | Bandeiras | `country-flag-icons` | ^1.6.20 |
@@ -36,7 +36,7 @@ src/
     Navbar, Hero, About, Projects, Experience, Skills, Education, Contact, Footer
     Icons.jsx, TechIcons.jsx, SkillsGlobe.jsx
     LanguageSwitcher/LanguageSwitcher.jsx
-    ui/ blur-text, floating-dock, timeline   (adaptados do 21st.dev)
+    ui/ blur-text, floating-dock, features-with-panel   (adaptados do 21st.dev)
     ui/ recaptcha                                        (widget v2, carga explícita)
 ```
 
