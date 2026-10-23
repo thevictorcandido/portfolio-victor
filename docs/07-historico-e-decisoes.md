@@ -120,6 +120,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-23 o site passou para Carbon Black `#191A1D`, Ivory `#FDFFF3`, Electric Green `#3FEE3F` e Baby Blue Ice `#89BBFE`. Papéis: carbono e marfim são a base (fundo, cards, texto); o verde neon, que grita, fica só em ações e estados ativos; o azul, mais calmo, é a segunda cor para destaques de título, links e informação. Os tokens mudaram de nome para os da paleta (`ink`→`carbon`, `cream`→`ivory`, `moss`→`electric`, novo `ice`). O pato do Hero não mudou.
 
+> [!CAUTION]
+> **modo claro azul, testado e descartado**
+>
+> Em 2026-10-23 foi testado, numa branch separada, um modo claro alternável com fundo Baby Blue Ice `#89BBFE`, texto carbono e azul e verde escurecidos para contraste. Não agradou e a branch foi apagada; o site segue só no escuro. Se a ideia voltar: o fundo no meio da escala de luminância derruba o contraste dos textos com opacidade (`ivory/55` daria 3,1:1) e obriga a reforçar cada tom secundário.
+
 > [!NOTE]
 > **contexto**
 >
