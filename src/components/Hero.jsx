@@ -32,12 +32,12 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100svh-4rem)] flex flex-col justify-between overflow-hidden text-cream select-none pt-6 pb-8"
+      className="relative min-h-[calc(100svh-4rem)] flex flex-col justify-between overflow-hidden text-ivory select-none pt-6 pb-8"
     >
       {/* Halo de luz suave de fundo para aquecer a composição */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-moss/10 via-moss/5 to-transparent rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-ice/10 via-electric/[0.04] to-transparent rounded-full blur-3xl -z-10"
       />
 
       {/* Centro: Nome em duas linhas alinhado à esquerda e o pato à direita (abaixo, no celular) */}
@@ -51,7 +51,7 @@ export default function Hero() {
                 delay={85}
                 animateBy="letters"
                 direction="top"
-                className="font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-cream hover:text-white transition-colors"
+                className="font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-ivory hover:text-white transition-colors"
                 style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
               />
             </div>
@@ -64,7 +64,7 @@ export default function Hero() {
                 delay={85}
                 animateBy="letters"
                 direction="top"
-                className="mt-[0.24em] font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-cream hover:text-white transition-colors"
+                className="mt-[0.24em] font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-ivory hover:text-white transition-colors"
                 style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
               />
             </div>
@@ -98,20 +98,20 @@ export default function Hero() {
             delay={130}
             animateBy="words"
             direction="top"
-            className="text-[16px] sm:text-[19px] md:text-[21px] lg:text-[23px] text-center text-cream/70 hover:text-cream transition-colors duration-300 justify-center font-medium"
+            className="text-[16px] sm:text-[19px] md:text-[21px] lg:text-[23px] text-center text-ivory/70 hover:text-ivory transition-colors duration-300 justify-center font-medium"
             style={{ fontFamily: "'Antic', 'Montserrat', sans-serif" }}
           />
         </div>
 
         {/* Assinatura de identidade de Victor */}
-        <p className="text-xs sm:text-sm text-cream/55 font-normal mb-4 sm:mb-6">
+        <p className="text-xs sm:text-sm text-ivory/55 font-normal mb-4 sm:mb-6">
           {t('hero.roleAndCompany')}
         </p>
 
         {/* Botão de Scroll Down com Chevron */}
         <a
           href="#about"
-          className="inline-flex items-center justify-center p-2 rounded-full text-cream/55 hover:text-cream transition-colors animate-bounce cursor-pointer"
+          className="inline-flex items-center justify-center p-2 rounded-full text-ivory/55 hover:text-ivory transition-colors animate-bounce cursor-pointer"
           aria-label={t('hero.scrollDown')}
         >
           <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={2} />

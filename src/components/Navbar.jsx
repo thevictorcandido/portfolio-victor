@@ -25,17 +25,17 @@ const navKeyMap = {
 // navigationMenuTriggerStyle do shadcn, na paleta do site
 const linkClass = (active) =>
   cn(
-    'inline-flex h-9 items-center rounded-md px-3 text-sm font-medium transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-moss/50',
-    active ? 'bg-cream/10 text-cream' : 'text-cream/70 hover:bg-cream/8 hover:text-cream'
+    'inline-flex h-9 items-center rounded-md px-3 text-sm font-medium transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50',
+    active ? 'bg-ivory/10 text-ivory' : 'text-ivory/70 hover:bg-ivory/8 hover:text-ivory'
   )
 
 // Variantes "outline" e padrão do Button do shadcn. O display fica de fora do
 // primaryButton: o cn() do projeto não resolve conflito entre classes, e um
 // inline-flex fixo venceria o hidden de quem usa
 const outlineButton =
-  'inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-cream/15 bg-ink text-cream shadow-xs transition-colors hover:bg-cream/8 outline-none focus-visible:ring-[3px] focus-visible:ring-moss/50 cursor-pointer'
+  'inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-ivory/15 bg-carbon text-ivory shadow-xs transition-colors hover:bg-ivory/8 outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50 cursor-pointer'
 const primaryButton =
-  'h-9 items-center gap-1.5 rounded-md bg-cream px-4 text-sm font-medium text-ink shadow-xs transition-colors hover:bg-cream/90 outline-none focus-visible:ring-[3px] focus-visible:ring-moss/50'
+  'h-9 items-center gap-1.5 rounded-md bg-electric px-4 text-sm font-medium text-carbon shadow-xs transition-colors hover:bg-electric-hover outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50'
 
 function Logo({ onClick }) {
   return (
@@ -43,7 +43,7 @@ function Logo({ onClick }) {
       href="#hero"
       onClick={onClick}
       title="Victor Cândido Leite"
-      className="font-special text-3xl leading-none text-cream hover:opacity-85 transition-opacity rounded-md outline-none focus-visible:ring-[3px] focus-visible:ring-moss/50"
+      className="font-special text-3xl leading-none text-ivory hover:opacity-85 transition-opacity rounded-md outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50"
     >
       Victor
     </a>
@@ -132,7 +132,7 @@ function NavigationSheet({ open, onClose, active, returnFocusRef }) {
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="fixed inset-y-0 right-0 z-[60] flex h-full w-3/4 max-w-sm flex-col border-l border-cream/10 bg-ink px-6 py-4 shadow-2xl shadow-black/50"
+            className="fixed inset-y-0 right-0 z-[60] flex h-full w-3/4 max-w-sm flex-col border-l border-ivory/10 bg-carbon px-6 py-4 shadow-2xl shadow-black/50"
             initial={{ x: '100%' }}
             animate={{ x: 0, transition: { duration: 0.5, ease: [0.32, 0.72, 0, 1] } }}
             exit={{ x: '100%', transition: { duration: 0.3, ease: [0.4, 0, 1, 1] } }}
@@ -148,7 +148,7 @@ function NavigationSheet({ open, onClose, active, returnFocusRef }) {
               type="button"
               onClick={onClose}
               aria-label={t('nav.closeMenu')}
-              className="absolute top-4 right-4 inline-flex size-9 items-center justify-center rounded-md text-cream/70 transition-colors hover:bg-cream/8 hover:text-cream outline-none focus-visible:ring-[3px] focus-visible:ring-moss/50 cursor-pointer"
+              className="absolute top-4 right-4 inline-flex size-9 items-center justify-center rounded-md text-ivory/70 transition-colors hover:bg-ivory/8 hover:text-ivory outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50 cursor-pointer"
             >
               <X className="size-5" />
             </button>
@@ -157,13 +157,13 @@ function NavigationSheet({ open, onClose, active, returnFocusRef }) {
               <NavLinks active={active} vertical onNavigate={onClose} />
             </nav>
 
-            <div className="mt-auto flex flex-col gap-4 border-t border-cream/10 pt-4">
+            <div className="mt-auto flex flex-col gap-4 border-t border-ivory/10 pt-4">
               <a href="#contact" onClick={onClose} className={cn(primaryButton, 'flex justify-center')}>
                 <span>{t('about.ctaTalk')}</span>
                 <ArrowUpRight className="size-4" />
               </a>
-              <span className="flex items-center gap-1.5 text-xs text-cream/55">
-                <span className="size-2 rounded-full bg-moss animate-pulse" />
+              <span className="flex items-center gap-1.5 text-xs text-ivory/55">
+                <span className="size-2 rounded-full bg-electric animate-pulse" />
                 {t('hero.availability')}
               </span>
             </div>
@@ -205,7 +205,7 @@ export default function Navbar() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <header className="sticky top-0 z-50 h-16 border-b border-cream/10 bg-ink">
+      <header className="sticky top-0 z-50 h-16 border-b border-ivory/10 bg-carbon">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8 xl:gap-12">
             <Logo />

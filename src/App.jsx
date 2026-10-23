@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen text-cream selection:bg-moss selection:text-ink">
+    <div className="min-h-screen text-ivory selection:bg-electric selection:text-carbon">
       {/* Barra de Navegação Flutuante no Estilo da Referência */}
       <Navbar />
 

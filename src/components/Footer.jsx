@@ -14,22 +14,22 @@ export default function Footer() {
   }
 
   return (
-    <footer className="py-14 border-t border-cream/10 text-cream/55">
+    <footer className="py-14 border-t border-ivory/10 text-ivory/55">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Assinatura Editorial & Copyright */}
         <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-          <span className="font-display text-lg font-bold text-cream">
+          <span className="font-display text-lg font-bold text-ivory">
             {personal.name}
           </span>
-          <span className="text-cream/30 hidden sm:inline">|</span>
-          <p className="text-xs text-cream/55 font-medium">
+          <span className="text-ivory/30 hidden sm:inline">|</span>
+          <p className="text-xs text-ivory/55 font-medium">
             © {CURRENT_YEAR} · {t('footer.course')} · PUC Minas
           </p>
         </div>
 
         {/* Detalhe de Estilo */}
-        <div className="flex items-center gap-2 text-xs text-cream/45">
+        <div className="flex items-center gap-2 text-xs text-ivory/45">
           <span>{t('footer.rights')}</span>
           <span>✦</span>
           <span>React & Tailwind CSS</span>
@@ -39,10 +39,10 @@ export default function Footer() {
         <button
           type="button"
           onClick={scrollToTop}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ink-raised hover:bg-cream/5 border border-cream/10 text-xs font-semibold text-cream transition-all shadow-2xs hover:shadow-xs cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-carbon-raised hover:bg-ivory/5 border border-ivory/10 text-xs font-semibold text-ivory transition-all shadow-2xs hover:shadow-xs cursor-pointer"
         >
           <span>{t('hero.scrollDown')}</span>
-          <ArrowUp className="w-3.5 h-3.5 text-cream/55" />
+          <ArrowUp className="w-3.5 h-3.5 text-ivory/55" />
         </button>
 
       </div>

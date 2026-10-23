@@ -66,7 +66,7 @@ const FloatingDockMobile = ({
                     href={safeHref}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-ink-raised border border-cream/10 shadow-xs text-cream/80 hover:text-cream"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-carbon-raised border border-ivory/10 shadow-xs text-ivory/80 hover:text-ivory"
                   >
                     <div className="h-4 w-4 flex items-center justify-center">{item.icon}</div>
                   </a>
@@ -78,7 +78,7 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-ink-raised border border-cream/10 shadow-xs text-cream/70 hover:text-cream"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-carbon-raised border border-ivory/10 shadow-xs text-ivory/70 hover:text-ivory"
         aria-label={toggleLabel}
       >
         <LayoutGrid className="h-5 w-5" />
@@ -97,7 +97,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-3 rounded-2xl bg-ink-raised/90 border border-cream/10 px-4 pb-3 md:flex shadow-xs backdrop-blur-md",
+        "mx-auto hidden h-16 items-end gap-3 rounded-2xl bg-carbon-raised/90 border border-ivory/10 px-4 pb-3 md:flex shadow-xs backdrop-blur-md",
         className
       )}
     >
@@ -172,7 +172,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-cream/8 hover:bg-cream/15 border border-cream/10 shadow-2xs transition-colors"
+        className="relative flex aspect-square items-center justify-center rounded-full bg-ivory/8 hover:bg-ivory/15 border border-ivory/10 shadow-2xs transition-colors"
       >
         <AnimatePresence>
           {hovered && (
@@ -180,7 +180,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-9 left-1/2 w-fit rounded-md border border-cream bg-cream px-2.5 py-1 text-xs whitespace-pre text-ink shadow-md font-medium"
+              className="absolute -top-9 left-1/2 w-fit rounded-md border border-ivory bg-ivory px-2.5 py-1 text-xs whitespace-pre text-carbon shadow-md font-medium"
             >
               {title}
             </motion.div>
@@ -188,7 +188,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-cream/80"
+          className="flex items-center justify-center text-ivory/80"
         >
           {icon}
         </motion.div>

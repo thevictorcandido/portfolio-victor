@@ -38,7 +38,7 @@ function FeatureMedia({ content, alt }) {
   return <img src={content} alt={alt} className="w-full h-full object-cover" />
 }
 
-const panelClass = 'relative w-full aspect-4/3 overflow-hidden rounded-2xl border border-cream/10 bg-ink-raised shadow-xl shadow-black/40'
+const panelClass = 'relative w-full aspect-4/3 overflow-hidden rounded-2xl border border-ivory/10 bg-carbon-raised shadow-xl shadow-black/40'
 
 export function FeaturesWithPanel({ items, header }) {
   const [active, setActive] = useState(0)
@@ -63,7 +63,7 @@ export function FeaturesWithPanel({ items, header }) {
                   transition={{ duration: 0.35, delay: index * 0.07, ease: 'easeOut' }}
                   className={cn(
                     'rounded-xl ring-1 transition-colors duration-200',
-                    isActive ? 'ring-cream/25 bg-ink-raised/80' : 'ring-transparent hover:bg-cream/5'
+                    isActive ? 'ring-ivory/25 bg-carbon-raised/80' : 'ring-transparent hover:bg-ivory/5'
                   )}
                 >
                   <button
@@ -71,12 +71,12 @@ export function FeaturesWithPanel({ items, header }) {
                     onClick={() => setActive(index)}
                     aria-expanded={isActive}
                     aria-controls={detailId}
-                    className="flex w-full items-start gap-4 px-4 py-3.5 text-left rounded-xl cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-moss"
+                    className="flex w-full items-start gap-4 px-4 py-3.5 text-left rounded-xl cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-electric"
                   >
                     <span
                       className={cn(
                         'mt-0.5 size-7 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 transition-colors duration-200',
-                        isActive ? 'bg-moss text-ink' : 'bg-cream/8 text-cream/55'
+                        isActive ? 'bg-electric text-carbon' : 'bg-ivory/8 text-ivory/55'
                       )}
                     >
                       {index + 1}
@@ -85,13 +85,13 @@ export function FeaturesWithPanel({ items, header }) {
                       <span
                         className={cn(
                           'block text-base sm:text-lg font-display font-bold leading-snug transition-colors duration-200',
-                          isActive ? 'text-cream' : 'text-cream/70'
+                          isActive ? 'text-ivory' : 'text-ivory/70'
                         )}
                       >
                         {item.title}
                       </span>
                       {item.meta && (
-                        <span className="mt-0.5 block text-xs font-medium text-cream/55">{item.meta}</span>
+                        <span className="mt-0.5 block text-xs font-medium text-ivory/55">{item.meta}</span>
                       )}
                     </span>
                   </button>
@@ -108,7 +108,7 @@ export function FeaturesWithPanel({ items, header }) {
                       >
                         <div className="px-4 pb-4 sm:pl-15">
                           {item.description && (
-                            <p className="text-sm text-cream/70 leading-relaxed">{item.description}</p>
+                            <p className="text-sm text-ivory/70 leading-relaxed">{item.description}</p>
                           )}
                           <div className={cn(panelClass, 'mt-4 lg:hidden')}>
                             <FeatureMedia content={item.media} alt={item.alt} />

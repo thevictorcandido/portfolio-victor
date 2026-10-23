@@ -49,15 +49,19 @@
   --font-display: 'Hyperlegible Sans', system-ui, -apple-system, sans-serif;
   --font-special: 'Smile Moon', cursive, sans-serif;
 
-  /* Paleta escura: o preto da grade de background-site.png, o branco bege
-     do site e um verde vivo. Tons intermediários saem por opacidade
-     (text-cream/70, border-cream/10...). */
-  --color-ink: #161616;
-  --color-ink-raised: #1C1C1C;
-  --color-cream: #F4EFEA;
-  /* Contraste 5,1:1 sobre o ink: serve para texto; sobre ele, texto em ink */
-  --color-moss: #259B55;
-  --color-moss-hover: #2EAD60;
+  /* Paleta: Carbon Black, Ivory, Electric Green e Baby Blue Ice.
+     Tons intermediários saem por opacidade (text-ivory/70, border-ivory/10...).
+     - carbon: fundo e base neutra; carbon-raised para cards e painéis
+     - ivory: texto (17:1 sobre o carbon; /55 ainda dá 6:1)
+     - electric: só ações e estados ativos (botão principal, item ativo,
+       "disponível"); 11:1 sobre o carbon, e sobre ele o texto é carbon
+     - ice: segunda cor, para links, destaques dos títulos e informação (8,8:1) */
+  --color-carbon: #191A1D;
+  --color-carbon-raised: #222327;
+  --color-ivory: #FDFFF3;
+  --color-electric: #3FEE3F;
+  --color-electric-hover: #6CF46C;
+  --color-ice: #89BBFE;
 }
 
 /* Classes Utilitárias de Tipografia */
@@ -82,8 +86,8 @@ html {
 
 body {
   font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-  background-color: var(--color-ink);
-  color: var(--color-cream);
+  background-color: var(--color-carbon);
+  color: var(--color-ivory);
   overflow-x: hidden;
 }
 
@@ -98,8 +102,8 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgb(244 239 234 / 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(244 239 234 / 0.12) 1px, transparent 1px);
+    linear-gradient(to right, rgb(253 255 243 / 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(253 255 243 / 0.09) 1px, transparent 1px);
   background-size: 52px 52px;
   transform: rotate(7deg);
 }
@@ -110,16 +114,16 @@ body::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-ink);
+  background: var(--color-carbon);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3A3A3A;
+  background: #3A3B40;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: #56575D;
 }
 
 /* Máscara de fusão orgânica inferior da foto */

@@ -45,16 +45,16 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Cabeçalho da Seção com Toque Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 pb-8 border-b border-cream/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 pb-8 border-b border-ivory/10">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cream/55 mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ivory/55 mb-3">
               <span>02</span>
-              <span className="w-8 h-px bg-cream/25" />
+              <span className="w-8 h-px bg-ivory/25" />
               <span>{t('projects.tag')}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-cream tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-ivory tracking-tight leading-tight">
               {t('projects.headline')} <br />
-              <span className="font-display font-light text-moss italic inline-block mt-1">
+              <span className="font-display font-light text-ice italic inline-block mt-1">
                 {t('projects.headlineHighlight')}
               </span>
             </h2>
@@ -62,7 +62,7 @@ export default function Projects() {
 
           {/* Navegação por Pílulas e Controles de Pilha 3D */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center bg-ink-raised/90 border border-cream/10 rounded-full p-1 shadow-2xs">
+            <div className="flex items-center bg-carbon-raised/90 border border-ivory/10 rounded-full p-1 shadow-2xs">
               {projects.map((proj, idx) => (
                 <button
                   key={proj.id}
@@ -70,8 +70,8 @@ export default function Projects() {
                   onClick={() => setActiveIndex(idx)}
                   className={`px-4 py-2 text-xs font-semibold rounded-full transition-all duration-300 cursor-pointer ${
                     activeIndex === idx
-                      ? 'bg-moss text-ink shadow-xs'
-                      : 'text-cream/70 hover:text-cream hover:bg-cream/8'
+                      ? 'bg-electric text-carbon shadow-xs'
+                      : 'text-ivory/70 hover:text-ivory hover:bg-ivory/8'
                   }`}
                 >
                   {String(idx + 1).padStart(2, '0')} · {getProjectData(proj).title.split('—')[0].trim()}
@@ -85,7 +85,7 @@ export default function Projects() {
                 type="button"
                 onClick={handlePrev}
                 aria-label={t('projects.prev')}
-                className="p-2 rounded-full bg-ink-raised border border-cream/10 text-cream/80 hover:text-cream hover:bg-cream/8 transition-colors shadow-2xs cursor-pointer"
+                className="p-2 rounded-full bg-carbon-raised border border-ivory/10 text-ivory/80 hover:text-ivory hover:bg-ivory/8 transition-colors shadow-2xs cursor-pointer"
               >
                 <ChevronUp className="w-4 h-4" />
               </button>
@@ -93,7 +93,7 @@ export default function Projects() {
                 type="button"
                 onClick={handleNext}
                 aria-label={t('projects.next')}
-                className="p-2 rounded-full bg-ink-raised border border-cream/10 text-cream/80 hover:text-cream hover:bg-cream/8 transition-colors shadow-2xs cursor-pointer"
+                className="p-2 rounded-full bg-carbon-raised border border-ivory/10 text-ivory/80 hover:text-ivory hover:bg-ivory/8 transition-colors shadow-2xs cursor-pointer"
               >
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -121,7 +121,7 @@ export default function Projects() {
                   opacity: isCurrent ? 1 : isBehind ? 0.65 : 0,
                   pointerEvents: isCurrent ? 'auto' : 'none',
                 }}
-                className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] rounded-3xl bg-ink-raised border border-cream/10 shadow-xl overflow-hidden p-6 sm:p-10"
+                className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xl overflow-hidden p-6 sm:p-10"
               >
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full">
                   
@@ -130,28 +130,28 @@ export default function Projects() {
                     <div>
                       {/* Badge e Categoria */}
                       <div className="flex flex-wrap items-center gap-2 mb-3">
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cream/8 text-cream border border-cream/10 inline-flex items-center gap-1.5">
+                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-ivory/8 text-ivory border border-ivory/10 inline-flex items-center gap-1.5">
                           {proj.id === 'proj-gvs' ? (
-                            <span className="w-1.5 h-1.5 rounded-full bg-moss animate-pulse" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
                           ) : (
-                            <Users className="w-3.5 h-3.5 text-moss" />
+                            <Users className="w-3.5 h-3.5 text-electric" />
                           )}
                           <span>{transData.badge}</span>
                         </span>
                       </div>
 
                       {/* Título do Projeto */}
-                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-cream tracking-tight leading-snug mb-2">
+                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-ivory tracking-tight leading-snug mb-2">
                         {transData.title}
                       </h3>
 
                       {/* Tagline / Subtítulo */}
-                      <p className="text-xs sm:text-sm font-medium text-cream/55 mb-4">
+                      <p className="text-xs sm:text-sm font-medium text-ivory/55 mb-4">
                         {transData.tagline}
                       </p>
 
                       {/* Descrição Detalhada */}
-                      <p className="text-sm sm:text-base text-cream/70 leading-relaxed font-normal">
+                      <p className="text-sm sm:text-base text-ivory/70 leading-relaxed font-normal">
                         {transData.description}
                       </p>
                     </div>
@@ -162,7 +162,7 @@ export default function Projects() {
                         {transData.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-cream/8 text-cream/80"
+                            className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-ivory/8 text-ivory/80"
                           >
                             {tag}
                           </span>
@@ -176,10 +176,10 @@ export default function Projects() {
                             href={proj.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-cream text-ink hover:bg-white transition-all shadow-xs hover:scale-[1.02] cursor-pointer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-electric text-carbon hover:bg-electric-hover transition-all shadow-xs hover:scale-[1.02] cursor-pointer"
                           >
                             <span>{t('projects.viewProject')}</span>
-                            <ArrowUpRight className="w-4 h-4 text-ink/60" />
+                            <ArrowUpRight className="w-4 h-4 text-carbon/60" />
                           </a>
                         )}
 
@@ -188,7 +188,7 @@ export default function Projects() {
                             href={proj.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-cream/8 hover:bg-cream/12 text-cream transition-colors border border-cream/10 cursor-pointer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-ivory/8 hover:bg-ivory/12 text-ivory transition-colors border border-ivory/10 cursor-pointer"
                           >
                             <GithubIcon className="w-4 h-4" />
                             <span>GitHub</span>
@@ -200,19 +200,19 @@ export default function Projects() {
 
                   {/* Coluna Direita: Imagem Real com Moldura e Efeito Visual */}
                   <div className="lg:col-span-7">
-                    <div className="relative rounded-2xl overflow-hidden border border-cream/10 shadow-lg bg-ink group">
+                    <div className="relative rounded-2xl overflow-hidden border border-ivory/10 shadow-lg bg-carbon group">
                       
                       {/* Barra superior de janela estilo navegador ou terminal */}
-                      <div className="bg-[#0F0F0F] px-4 py-2.5 flex items-center justify-between border-b border-white/10 text-xs text-cream/45">
+                      <div className="bg-[#131417] px-4 py-2.5 flex items-center justify-between border-b border-white/10 text-xs text-ivory/45">
                         <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-full bg-cream/25" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-cream/25" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-moss" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-ivory/25" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-ivory/25" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-electric" />
                         </div>
-                        <span className="font-mono text-[11px] text-cream/45 truncate max-w-[240px]">
+                        <span className="font-mono text-[11px] text-ivory/45 truncate max-w-[240px]">
                           {proj.id === 'proj-gvs' ? 'https://grupogvs.com.br' : 'terminal: ~/pucminas/xulambis-pizza'}
                         </span>
-                        <div className="flex items-center gap-1.5 text-cream/45">
+                        <div className="flex items-center gap-1.5 text-ivory/45">
                           {proj.id === 'proj-gvs' ? (
                             <Globe className="w-3.5 h-3.5" />
                           ) : (
@@ -222,7 +222,7 @@ export default function Projects() {
                       </div>
 
                       {/* Imagem Real do Projeto */}
-                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-ink">
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-carbon">
                         <img
                           src={proj.image}
                           alt={transData.title}

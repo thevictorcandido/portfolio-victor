@@ -70,14 +70,14 @@ export default function Contact() {
         
         {/* Cabeçalho Editorial */}
         <div className="max-w-2xl mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cream/55 mb-3">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ivory/55 mb-3">
             <span>06</span>
-            <span className="w-8 h-px bg-cream/25" />
+            <span className="w-8 h-px bg-ivory/25" />
             <span>{t('contact.tag')}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-cream tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-ivory tracking-tight leading-tight">
             {t('contact.headline')} <br />
-            <span className="font-display font-light text-moss italic inline-block mt-1">
+            <span className="font-display font-light text-ice italic inline-block mt-1">
               {t('contact.headlineHighlight')}
             </span>
           </h2>
@@ -88,25 +88,25 @@ export default function Contact() {
           {/* Coluna Esquerda: Texto Convidativo & Ações Rápidas */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-cream mb-4">
+              <h3 className="text-2xl sm:text-3xl font-display font-bold text-ivory mb-4">
                 {t('contact.headline')} {t('contact.headlineHighlight')}
               </h3>
-              <p className="text-base text-cream/70 leading-relaxed font-normal">
+              <p className="text-base text-ivory/70 leading-relaxed font-normal">
                 {t('contact.subtitle')}
               </p>
             </div>
 
             {/* Card de Email Direto com Cópia Rápida */}
-            <div className="p-6 rounded-3xl bg-ink-raised border border-cream/10 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-6 rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-cream/8 flex items-center justify-center text-cream shrink-0">
+                <div className="w-11 h-11 rounded-2xl bg-ivory/8 flex items-center justify-center text-ivory shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-cream/45 uppercase tracking-wider">
+                  <p className="text-xs font-semibold text-ivory/45 uppercase tracking-wider">
                     Email
                   </p>
-                  <p className="text-sm sm:text-base font-bold font-display text-cream break-all">
+                  <p className="text-sm sm:text-base font-bold font-display text-ivory break-all">
                     {personal.social?.email}
                   </p>
                 </div>
@@ -115,16 +115,16 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-cream/8 hover:bg-cream/12 text-cream transition-colors cursor-pointer shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-ivory/8 hover:bg-ivory/12 text-ivory transition-colors cursor-pointer shrink-0"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-moss" />
-                    <span className="text-moss">{t('contact.copied')}</span>
+                    <Check className="w-3.5 h-3.5 text-electric" />
+                    <span className="text-electric">{t('contact.copied')}</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-cream/55" />
+                    <Copy className="w-3.5 h-3.5 text-ivory/55" />
                     <span>{t('contact.copy')}</span>
                   </>
                 )}
@@ -138,13 +138,13 @@ export default function Contact() {
                   href={personal.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl bg-ink-raised border border-cream/10 hover:border-cream/20 hover:shadow-xs transition-all flex items-center justify-between group"
+                  className="p-4 rounded-2xl bg-carbon-raised border border-ivory/10 hover:border-ivory/20 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <GithubIcon className="w-4 h-4 text-cream" />
-                    <span className="text-xs font-semibold text-cream">GitHub</span>
+                    <GithubIcon className="w-4 h-4 text-ivory" />
+                    <span className="text-xs font-semibold text-ivory">GitHub</span>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-cream/45 group-hover:text-cream transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-ivory/45 group-hover:text-ivory transition-colors" />
                 </a>
               )}
 
@@ -153,41 +153,41 @@ export default function Contact() {
                   href={personal.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl bg-ink-raised border border-cream/10 hover:border-cream/20 hover:shadow-xs transition-all flex items-center justify-between group"
+                  className="p-4 rounded-2xl bg-carbon-raised border border-ivory/10 hover:border-ivory/20 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <LinkedinIcon className="w-4 h-4 text-cream" />
-                    <span className="text-xs font-semibold text-cream">LinkedIn</span>
+                    <LinkedinIcon className="w-4 h-4 text-ivory" />
+                    <span className="text-xs font-semibold text-ivory">LinkedIn</span>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-cream/45 group-hover:text-cream transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-ivory/45 group-hover:text-ivory transition-colors" />
                 </a>
               )}
             </div>
 
             {/* Disponibilidade */}
-            <div className="flex items-center gap-2 text-xs text-cream/55 font-medium">
-              <span className="w-2 h-2 rounded-full bg-moss" />
+            <div className="flex items-center gap-2 text-xs text-ivory/55 font-medium">
+              <span className="w-2 h-2 rounded-full bg-electric" />
               <span>{t('contact.locationValue')}</span>
             </div>
           </div>
 
           {/* Coluna Direita: Formulário de Mensagem */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-ink-raised border border-cream/10 shadow-md shadow-black/30">
-            <h4 className="text-xl font-display font-bold text-cream mb-1 flex items-center gap-2">
-              <MessageSquare className="w-5 h-5 text-cream/80" />
+          <div className="p-8 sm:p-10 rounded-3xl bg-carbon-raised border border-ivory/10 shadow-md shadow-black/30">
+            <h4 className="text-xl font-display font-bold text-ivory mb-1 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-ivory/80" />
               {t('contact.headline')}
             </h4>
-            <p className="text-xs text-cream/55 mb-6 font-normal">
+            <p className="text-xs text-ivory/55 mb-6 font-normal">
               {t('contact.subtitle')}
             </p>
 
             {status === 'success' ? (
-              <div role="status" className="p-8 rounded-2xl bg-moss/10 border border-moss/40 text-center space-y-2 animate-in fade-in">
-                <Check className="w-8 h-8 text-moss mx-auto" />
-                <p className="text-sm font-bold text-cream">
+              <div role="status" className="p-8 rounded-2xl bg-electric/10 border border-electric/40 text-center space-y-2 animate-in fade-in">
+                <Check className="w-8 h-8 text-electric mx-auto" />
+                <p className="text-sm font-bold text-ivory">
                   {t('contact.successTitle')}
                 </p>
-                <p className="text-xs text-cream/75">
+                <p className="text-xs text-ivory/75">
                   {t('contact.successText')}
                 </p>
               </div>
@@ -196,7 +196,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-semibold text-cream/80 mb-1.5"
+                    className="block text-xs font-semibold text-ivory/80 mb-1.5"
                   >
                     {t('contact.nameLabel')}
                   </label>
@@ -207,14 +207,14 @@ export default function Contact() {
                     autoComplete="name"
                     required
                     placeholder={t('contact.namePlaceholder')}
-                    className="w-full px-4 py-3 rounded-2xl bg-ink border border-cream/15 text-sm text-cream placeholder-cream/40 focus:outline-none focus:border-moss transition-all"
+                    className="w-full px-4 py-3 rounded-2xl bg-carbon border border-ivory/15 text-sm text-ivory placeholder-ivory/40 focus:outline-none focus:border-electric transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-semibold text-cream/80 mb-1.5"
+                    className="block text-xs font-semibold text-ivory/80 mb-1.5"
                   >
                     {t('contact.emailLabel')}
                   </label>
@@ -225,14 +225,14 @@ export default function Contact() {
                     autoComplete="email"
                     required
                     placeholder={t('contact.emailPlaceholder')}
-                    className="w-full px-4 py-3 rounded-2xl bg-ink border border-cream/15 text-sm text-cream placeholder-cream/40 focus:outline-none focus:border-moss transition-all"
+                    className="w-full px-4 py-3 rounded-2xl bg-carbon border border-ivory/15 text-sm text-ivory placeholder-ivory/40 focus:outline-none focus:border-electric transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-semibold text-cream/80 mb-1.5"
+                    className="block text-xs font-semibold text-ivory/80 mb-1.5"
                   >
                     {t('contact.messageLabel')}
                   </label>
@@ -242,7 +242,7 @@ export default function Contact() {
                     required
                     rows={4}
                     placeholder={t('contact.messagePlaceholder')}
-                    className="w-full px-4 py-3 rounded-2xl bg-ink border border-cream/15 text-sm text-cream placeholder-cream/40 focus:outline-none focus:border-moss transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-2xl bg-carbon border border-ivory/15 text-sm text-ivory placeholder-ivory/40 focus:outline-none focus:border-electric transition-all resize-none"
                   />
                 </div>
 
@@ -278,7 +278,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full py-3.5 rounded-full font-semibold text-sm bg-cream text-ink hover:bg-white transition-all shadow-xs hover:shadow-md hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-70 disabled:cursor-wait disabled:hover:scale-100"
+                  className="w-full py-3.5 rounded-full font-semibold text-sm bg-electric text-carbon hover:bg-electric-hover transition-all shadow-xs hover:shadow-md hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-70 disabled:cursor-wait disabled:hover:scale-100"
                 >
                   {status === 'sending' ? (
                     <>

@@ -12,7 +12,7 @@ export default function LanguageSwitcher({ showLabels = true, className = "" }) 
 
   return (
     <div
-      className={`inline-flex h-9 items-center gap-0.5 p-0.5 rounded-md bg-ink border border-cream/15 shadow-xs ${className}`}
+      className={`inline-flex h-9 items-center gap-0.5 p-0.5 rounded-md bg-carbon border border-ivory/15 shadow-xs ${className}`}
       role="group"
       aria-label={t("switcher.label")}
     >
@@ -30,10 +30,10 @@ export default function LanguageSwitcher({ showLabels = true, className = "" }) 
             aria-pressed={active}
             title={active ? name : t("switcher.changeTo", { language: name })}
             onClick={() => i18n.changeLanguage(code)}
-            className={`inline-flex h-full items-center gap-1.5 px-2.5 rounded-[5px] text-xs font-semibold tracking-wider transition-colors duration-200 cursor-pointer outline-none focus-visible:ring-[3px] focus-visible:ring-moss/50 ${
+            className={`inline-flex h-full items-center gap-1.5 px-2.5 rounded-[5px] text-xs font-semibold tracking-wider transition-colors duration-200 cursor-pointer outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50 ${
               active
-                ? "bg-moss text-ink shadow-xs"
-                : "text-cream/70 hover:text-cream hover:bg-cream/8"
+                ? "bg-electric text-carbon shadow-xs"
+                : "text-ivory/70 hover:text-ivory hover:bg-ivory/8"
             }`}
           >
             <Flag className="w-3.5 h-auto rounded-2xs shrink-0 shadow-2xs" aria-hidden="true" />
