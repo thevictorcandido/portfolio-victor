@@ -28,6 +28,7 @@ Voltar: [Portfolio Victor](README.md)
 | 2026-10-22 | `58c3e8f` | Globo gira sem parar, uma volta a cada ~45 s |
 | 2026-10-22 | `7ec8c0b` | Painel só com tecnologia escolhida; sem seleção, globo centralizado e maior |
 | 2026-10-22 | `7ec8c0b` | Push `4718272..7ec8c0b` (6 commits); no ar em ~20 s como `index-Dyv5IByl.js` |
+| 2026-10-22 | `595bac5` | Trajetória vira timeline por ano em fundo verde-musgo, sem título e sem fotos |
 
 ## Decisões
 
