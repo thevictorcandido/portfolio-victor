@@ -1,50 +1,31 @@
-import { Globe, Megaphone, MonitorDot } from 'lucide-react'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Timeline3 } from './ui/timeline-3'
+import Timeline from './ui/timeline'
 import { portfolioData } from '../data/portfolioData'
 
-// id do cargo → ícone do selo no avatar
-const roleIcons = {
-  cor: MonitorDot,
-  web: Globe,
-  mkt: Megaphone,
-}
-
 export default function Experience() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
-  // Agrupa os cargos pelo ano de início, do mais recente para o mais antigo
-  const groups = []
-  for (const exp of portfolioData.experiences) {
-    const event = {
-      id: exp.id,
-      initials: exp.initials,
-      icon: roleIcons[exp.id],
-      actor: t(`experience.roles.${exp.id}.title`),
-      action: t('experience.at'),
-      target: exp.company,
-      targetUrl: exp.companyUrl,
-      description: t(`experience.roles.${exp.id}.summary`),
-      meta: t(`experience.roles.${exp.id}.location`),
-      time: t(`experience.roles.${exp.id}.period`),
-    }
-    const group = groups.find((g) => g.label === exp.year)
-    if (group) group.events.push(event)
-    else groups.push({ label: exp.year, events: [event] })
-  }
+  // Do cargo mais antigo para o mais recente, como se lê a linha do tempo
+  const items = useMemo(
+    () =>
+      [...portfolioData.experiences].reverse().map((exp) => ({
+        id: exp.id,
+        title: t(`experience.roles.${exp.id}.period`),
+        text: t(`experience.roles.${exp.id}.title`),
+        highlight: exp.company,
+        highlightColor: '#C2410C',
+      })),
+    [t],
+  )
 
   return (
-    <section
-      id="experience"
-      aria-labelledby="experience-title"
-      className="py-24 md:py-32 relative bg-[#2B4636] text-[#F4EFEA]"
-    >
+    <section id="experience" aria-labelledby="experience-title" className="relative bg-[#F7F4EE]">
       <h2 id="experience-title" className="sr-only">
         {t('experience.srTitle')}
       </h2>
-      <div className="max-w-3xl mx-auto px-6 sm:px-8">
-        <Timeline3 groups={groups} />
-      </div>
+      {/* key: o SplitText reescreve o texto no DOM; trocar de idioma remonta a timeline */}
+      <Timeline key={i18n.language} title="Grupo GVS" periodLabel={t('experience.periodLabel')} items={items} />
     </section>
   )
 }

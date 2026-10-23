@@ -44,11 +44,11 @@ export const portfolioData = {
     { key: "prompt", category: "ai", projectUrl: null },
   ],
 
-  // id → experience.roles.<id> nos arquivos de tradução; year agrupa a timeline
+  // id → experience.roles.<id> nos arquivos de tradução (do cargo atual para o mais antigo)
   experiences: [
-    { id: "cor", year: "2026", initials: "GVS", company: "Grupo GVS", companyUrl: "https://grupogvs.com.br" },
-    { id: "web", year: "2025", initials: "GVS", company: "Grupo GVS", companyUrl: "https://grupogvs.com.br" },
-    { id: "mkt", year: "2025", initials: "GVS", company: "Grupo GVS", companyUrl: "https://grupogvs.com.br" },
+    { id: "cor", company: "Grupo GVS" },
+    { id: "web", company: "Grupo GVS" },
+    { id: "mkt", company: "Grupo GVS" },
   ],
 
   projects: [

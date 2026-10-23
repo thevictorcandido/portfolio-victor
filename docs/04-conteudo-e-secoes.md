@@ -10,7 +10,7 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 | — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", foto recortada `victor-sem-fundo.png`, status de disponibilidade | `hero.*` |
 | 01 | `about` | `About.jsx` | Bio em 3 parágrafos, citação, foto "ponto de ônibus", floating dock (PUC, IA, GVS, GitHub, LinkedIn, e-mail) | `about.*` |
 | 02 | `projects` | `Projects.jsx` | Carrossel com 2 projetos (GVS e Xulambis), anterior/próximo | `projects.*` + `projects[].tags` |
-| 03 | `experience` | `Experience.jsx` | Timeline por ano (2026, 2025) com os 3 cargos no Grupo GVS: monograma com ícone do cargo, título, empresa, período, resumo e local. Fundo verde-musgo, sem título visível | `experience.*` + `experiences` |
+| 03 | `experience` | `Experience.jsx` | Timeline horizontal presa na tela: os 3 cargos no Grupo GVS (período, cargo, empresa) aparecem conforme a rolagem. Sem título visível | `experience.*` + `experiences` |
 | 04 | `skills` | `Skills.jsx` | Globo 3D com 16 tecnologias (backend, front, infra, IA), centralizado; o clique encolhe o globo e abre ao lado um painel com texto e exemplo de projeto real | `skills.*` + `skills` |
 | 05 | `education` | `Education.jsx` | PUC Minas 2024–2028 + 4 disciplinas-chave (inclui DIAW) | `education.*` |
 | 06 | `contact` | `Contact.jsx` | Formulário (nome, e-mail, mensagem), copiar e-mail, links GitHub/LinkedIn, localização | `contact.*` |

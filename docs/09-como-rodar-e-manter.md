@@ -101,7 +101,7 @@ npm run preview    # serve o dist/ localmente
 | Qualquer texto visível | `src/i18n/locales/pt-BR/translation.json` **e** `src/i18n/locales/en/translation.json` |
 | Links sociais, e-mail | `src/data/portfolioData.js` → `personal.social` |
 | Imagem de projeto | `public/` + campo `image` de `projects` em `portfolioData.js` |
-| Cargos da Trajetória | `portfolioData.experiences` (`year`, empresa, link) + `experience.roles.<id>` (título, período, local, resumo) nos dois JSON + ícone em `Experience.jsx` |
+| Cargos da Trajetória | `portfolioData.experiences` (`id`, empresa; do atual para o mais antigo) + `experience.roles.<id>` (título, período) nos dois JSON |
 | Tags de projeto, textos do globo de habilidades | Os dois `translation.json` (`projects.*Tags`, `skills.items`) |
 | Adicionar uma tecnologia no globo | `portfolioData.skills` (`key`, `category`, `projectUrl`) + `skills.items.<key>` (`name`, `about`, `example`, `project`) nos dois JSON + ícone em `TechIcons.jsx` e no mapa de `Skills.jsx`. Registrar antes a nota em Tecnologias no vault |
 | Itens do menu / âncoras | `portfolioData.navItems` + `nav.*` nos JSON + `id` da `<section>` |

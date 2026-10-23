@@ -84,22 +84,31 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 > **verificado em 2026-10-22**
 > Edge headless via CDP, em 1280, 375 e 320 px, pt-BR e en: clique abre o painel (opacidade 0,85 aos 90 ms), arrasto não troca a seleção, Esc fecha, Tab gira o ícone focado para a frente (opacidade 0,14 → 1) e Enter abre, sem rolagem horizontal e sem erro no console. Com `--force-prefers-reduced-motion` o painel aparece já em opacidade 1.
 
-## Trajetória (`ui/timeline-3.jsx`)
+## Trajetória (`ui/timeline.jsx`)
 
-- Fundo `#2B4636` (o verde-musgo do acento): a única seção escura do site. Texto `#F4EFEA` em opacidades de 70% a 100%.
-- Grupos pelo ano de início (`experiences[].year`): separador com o ano e uma linha. Em cada cargo, monograma "GVS" com selo do ícone (`MonitorDot`, `Globe`, `Megaphone`), "cargo no Grupo GVS", resumo, local e período à direita (acima, no celular).
-- O trilho liga só os itens do mesmo grupo, de um avatar ao próximo; grupo de um item fica sem trilho.
-- Sem título visível: um `h2` só para leitor de tela ("Trajetória profissional") mantém a seção nomeada.
+Adaptada da timeline horizontal da Hyperiux Vault (21st.dev). A seção fica presa na tela (`position: sticky`) enquanto se rola, o trilho anda para o lado e cada cargo desenha a haste e o ponto e revela o texto linha a linha.
+
+- Fundo bege `#F7F4EE`, o mesmo das seções vizinhas. Acento laranja vivo `#FF5F00` na linha, nas hastes e nos pontos; o nome da empresa em `#C2410C`, que passa no contraste de texto sobre o bege.
+- Abertura com "Grupo GVS" acima da linha e "2025 — hoje" abaixo. Os 3 cargos, do mais antigo para o mais recente, alternam acima e abaixo: período em destaque e "cargo · Grupo GVS".
+- Uma só timeline do GSAP com `scrub`, de `top top` a `bottom bottom` da seção: o trilho anda `scrollWidth − largura da janela`, a linha cresce com `scaleX` e cada cargo aparece quando a linha chega até ele (`offsetLeft` do cargo ÷ largura da linha).
+- A altura da seção é calculada em JS (altura da janela + 1,4 × o deslocamento) e refeita no `refreshInit` do ScrollTrigger.
+- SplitText com `mask: "lines"` só depois de `document.fonts.ready`, senão as linhas saem medidas com a fonte errada. Trocar de idioma remonta a timeline (`key={i18n.language}`), porque o SplitText reescreve o texto no DOM.
+- Movimento reduzido: o trilho continua acompanhando a rolagem, mas linha, hastes e textos já aparecem prontos.
+- Sem título visível: um `h2` só para leitor de tela ("Trajetória profissional").
+
+> [!CAUTION]
+> **defeito, com causa raiz**
+> Linhas do texto já apareciam antes da hora. Causa: `fromTo` com `stagger` adicionado no meio de uma timeline com `scrub` só aplicava o estado inicial ao primeiro elemento. Correção: `gsap.set` explícito do estado inicial e animação com `.to`.
 
 > [!TIP]
 > **verificado em 2026-10-22**
-> Contraste medido nos pixels sobre `#2B4636`: menor razão 5,36:1 (local do cargo, 12 px), acima do 4,5:1 do WCAG AA. Antes do ajuste, três tons ficavam abaixo (3,19 a 4,38). Sem rolagem horizontal em 1280 e 375 px.
+> Edge headless via CDP, 1280 e 375 px: a seção fica presa durante todo o trecho, o trilho anda 461 px (desktop) e 690 px (celular), a linha vai de 0 a 100% e os 3 pontos aparecem em ordem. No fim, o último cargo fica inteiro na tela (x = 11 px no celular). Troca de idioma no meio da seção: texto em inglês e animação no ponto certo. Sem rolagem horizontal e sem erro no console.
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
 - `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre").
-- `timeline-3.jsx` — timeline por grupos com trilho e avatar com selo (Trajetória).
+- `timeline.jsx` — timeline horizontal presa na tela, com GSAP (Trajetória).
 
 > [!TIP]
 > **atalho que vale lembrar**

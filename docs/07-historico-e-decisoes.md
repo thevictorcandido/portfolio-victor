@@ -33,8 +33,8 @@ Voltar: [Portfolio Victor](README.md)
 ## Decisões
 
 > [!IMPORTANT]
-> **Trajetória sem título, em verde-musgo e sem fotos**
-> Em 2026-10-22 a Trajetória perdeu o cabeçalho ("03 · Vivência & Trajetória") e as fotos: a seção se explica pelo conteúdo e se separa das vizinhas pelo fundo `#2B4636`, o acento da paleta, com texto `#F4EFEA`. O componente segue o `timeline-3` do 21st.dev (olewandowski1, MIT-0), copiado e adaptado em JSX sem shadcn: Avatar, Badge, Marker e IconPlaceholder viraram marcação simples, sem instalar `@radix-ui/react-avatar` nem `class-variance-authority`. Os bullets e os chips de tecnologia de cada cargo saíram junto (recuperáveis pelo histórico); ficaram título, período, local e resumo.
+> **Trajetória sem título e sem fotos, em timeline horizontal**
+> Em 2026-10-22 a Trajetória perdeu o cabeçalho ("03 · Vivência & Trajetória") e as fotos: a seção se explica pelo conteúdo. A primeira versão, no mesmo dia, foi o `timeline-3` em fundo verde-musgo; foi descartada (cor e componente) em favor da timeline horizontal da Hyperiux Vault, no fundo bege das outras seções e com acento laranja vivo `#FF5F00`. Dependência nova: `gsap` 3.15 (ScrollTrigger e SplitText vêm no pacote); o JS foi de 538 kB para 651 kB (gzip +45 kB). Resumo, local, bullets e chips de cada cargo saíram (recuperáveis pelo histórico): ficaram período, cargo e empresa.
 
 > [!IMPORTANT]
 > **globo de habilidades sem three.js**

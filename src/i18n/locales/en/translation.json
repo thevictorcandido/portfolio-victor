@@ -89,25 +89,19 @@
   },
   "experience": {
     "srTitle": "Professional experience",
-    "at": "at",
+    "periodLabel": "2025 — today",
     "roles": {
       "cor": {
         "title": "IT Analyst — Remote Operations Center",
-        "period": "Aug 2026 — present",
-        "location": "Belo Horizonte / Nova Lima, MG · On-site",
-        "summary": "Administration, monitoring, and support of critical IT and telecommunications infrastructure at the Remote Operations Center (COR) and clean energy power plants."
+        "period": "Aug 2026 — present"
       },
       "web": {
         "title": "Internal Communications & Web Analyst",
-        "period": "Aug 2025 — Aug 2026",
-        "location": "Belo Horizonte, MG · On-site",
-        "summary": "Strategic role connecting corporate communications, digital media, and web development, leading the full overhaul of the group's official website."
+        "period": "Aug 2025 — Aug 2026"
       },
       "mkt": {
         "title": "Communications & Marketing Assistant",
-        "period": "Mar 2025 — Jul 2025",
-        "location": "Belo Horizonte, MG · On-site",
-        "summary": "Front-line operational role producing multimedia content and supporting internal marketing and sales enablement strategies."
+        "period": "Mar 2025 — Jul 2025"
       }
     }
   },

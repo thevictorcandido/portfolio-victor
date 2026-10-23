@@ -11,7 +11,7 @@ Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software
 | — | Início | Apresentação, foto e seletor de idioma |
 | 01 | Sobre | Bio, citação e atalhos para links |
 | 02 | Projetos | Site institucional do Grupo GVS e o sistema Xulambis Pizza (Java, PUC Minas) |
-| 03 | Trajetória | Os três cargos no Grupo GVS numa timeline por ano, em fundo verde-musgo |
+| 03 | Trajetória | Timeline horizontal com os três cargos no Grupo GVS, revelados conforme a rolagem |
 | 04 | Habilidades | Globo 3D com 16 tecnologias; o clique mostra onde cada uma foi usada |
 | 05 | Formação | Engenharia de Software na PUC Minas e estudo contínuo |
 | 06 | Contato | Formulário com envio real por e-mail (EmailJS) e links diretos |
@@ -21,7 +21,7 @@ Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software
 - **React 19** + **Vite 8**, JavaScript (JSX)
 - **Tailwind CSS v4**, com tokens de tema em `src/index.css`
 - **i18next** + **react-i18next**: português (padrão) e inglês, com detecção pelo navegador e escolha salva no `localStorage`
-- **motion** (animações do dock) e **lucide-react** (ícones)
+- **motion** (animações do dock), **GSAP** com ScrollTrigger e SplitText (Trajetória) e **lucide-react** (ícones)
 - **@emailjs/browser** para o formulário de contato
 - **oxlint** para lint
 
@@ -70,7 +70,7 @@ src/
 ├── index.css                # tema Tailwind, fontes locais, animações
 ├── components/              # uma seção por arquivo + Navbar, Footer, ícones
 │   ├── LanguageSwitcher/    # seletor PT / EN
-│   └── ui/                  # blur-text, floating-dock, recaptcha, timeline-3
+│   └── ui/                  # blur-text, floating-dock, recaptcha, timeline
 ├── config/                  # idiomas (i18nConfig) e credenciais do EmailJS
 ├── data/portfolioData.js    # links, imagens e ids
 ├── i18n/                    # inicialização + locales/{pt-BR,en}/translation.json
