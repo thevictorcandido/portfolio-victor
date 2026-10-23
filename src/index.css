@@ -255,6 +255,11 @@ body::before {
 /* O estilo base de cada classe é a cena parada e completa: é o que fica com
    movimento reduzido, quando a regra global encerra as animações. */
 
+/* Fora da tela, a ilustração congela no quadro em que estava (features-with-panel.jsx) */
+.media-anim[data-paused="true"] * {
+  animation-play-state: paused;
+}
+
 .illo-blink {
   animation: illo-blink 1.4s ease-in-out infinite;
 }

@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { AnimatePresence, MotionConfig, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
@@ -11,14 +11,30 @@ import { cn } from '@/lib/utils'
 
 const EASE = [0.4, 0, 0.2, 1]
 
+// Nó React animado (as ilustrações da Trajetória): fora da tela as animações
+// CSS ficam pausadas. Rodando, as do SVG recalculam estilo e repintam a cada
+// quadro mesmo sem aparecer, e isso travava a rolagem do resto da página.
+function AnimatedMedia({ alt, children }) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting))
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} role="img" aria-label={alt} data-paused={!visible} className="media-anim w-full h-full">
+      {children}
+    </div>
+  )
+}
+
 // string com extensão de vídeo → <video>; de imagem → <img>; nó React → como veio
 function FeatureMedia({ content, alt }) {
   if (typeof content !== 'string') {
-    return (
-      <div role="img" aria-label={alt} className="w-full h-full">
-        {content}
-      </div>
-    )
+    return <AnimatedMedia alt={alt}>{content}</AnimatedMedia>
   }
 
   if (/\.(mp4|webm|ogg)$/i.test(content)) {
