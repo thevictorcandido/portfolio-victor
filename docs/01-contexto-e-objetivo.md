@@ -13,7 +13,7 @@ A tese do site: mostrar alguém que une **rigor técnico** (Engenharia de Softwa
 
 ## Quem é o Victor (dados que o site exibe)
 
-- **Formação:** Bacharelado em Engenharia de Software, PUC Minas, 2024 — 2028 (em andamento).
+- **Formação:** Bacharelado em Engenharia de Software, PUC Minas, 2024 — 2029 (em andamento).
 - **Local:** Nova Lima / Belo Horizonte, MG.
 - **Foco declarado:** Backend & Arquitetura (principal) e IA aplicada (segundo foco).
 - **Contato:** victorcandidoleite@gmail.com · GitHub `thevictorcandido` · LinkedIn `victorcandidoleite`.
