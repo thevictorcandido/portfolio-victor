@@ -4,23 +4,31 @@ Voltar: [Portfolio Victor](README.md)
 
 ## Direção
 
-Editorial claro, bege quente, com acento verde-musgo. Seções numeradas `01 ·` a `06 ·` no estilo azal.im. Tokens definidos no bloco `@theme` de `src/index.css`.
+Escuro desde 2026-10-22: preto da grade de `public/background-site.png`, branco bege e um verde vivo como acento (antes era editorial claro, bege quente, com verde-musgo `#2B4636`). Seções numeradas `01 ·` a `06 ·` no estilo azal.im. Tokens definidos no bloco `@theme` de `src/index.css`.
 
 ## Paleta (tokens reais em uso)
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--color-warm-bg` | `#FAF8F5` | Fundo da página (também hardcoded em `index.html` e em várias seções) |
-| `--color-warm-surface` / `-card` | `#FFFFFF` | Cards |
-| `--color-warm-card-subtle` | `#F4EFEA` | Card secundário |
-| `--color-warm-border` | `rgba(0,0,0,.06)` | Bordas (hover `.14`) |
-| `--color-warm-dark` | `#151515` | Texto principal |
-| `--color-warm-charcoal` | `#2A2A2A` | |
-| `--color-warm-body` | `#4C4842` | Texto corrido |
-| `--color-warm-muted` | `#7E7870` | Texto secundário |
-| `--color-moss-accent` | `#2B4636` | Acento (hover `#3A5C47`, fundo suave `#EBF1ED`) |
+| `--color-ink` | `#161616` | Fundo da página, o preto de `background-site.png` (também em `index.html` e no `theme-color`) |
+| `--color-ink-raised` | `#1C1C1C` | Cards, sólidos para o texto não ficar sobre a grade |
+| `--color-cream` | `#F4EFEA` | Texto e botão principal (texto `ink` sobre ele) |
+| `--color-moss` | `#259B55` | Acento: item ativo do menu, idioma, destaques dos títulos, timeline, globo. 5,1:1 sobre o `ink`, serve para texto; sobre ele, texto em `ink` |
+| `--color-moss-hover` | `#2EAD60` | Hover de links verdes |
 
-Os componentes usam muito a escala `stone-*` do Tailwind direto, além dos tokens. Seleção de texto: fundo `stone-900`, texto `stone-50`. Scrollbar customizada (7 px, thumb `#D8D2C6`).
+Tons intermediários saem por opacidade dos tokens: texto `cream/70` (corrido), `cream/55` (secundário, ainda 5,7:1), `cream/45` só em ícones; bordas `cream/10`; superfícies leves `cream/8`. A escala `stone-*` do Tailwind não é mais usada. Seleção de texto: fundo `moss`, texto `ink`. Scrollbar 7 px, thumb `#3A3A3A`.
+
+Exceções que ficaram de propósito: logos das tecnologias com as cores das marcas (sobre fichas bege, para o logo preto da Vercel continuar visível), o texto sobre a foto do Sobre (claro sobre o degradê da própria foto) e o vermelho das mensagens de erro do formulário (`red-200`/`red-400` sobre `red-500/10`), que precisa continuar lendo como erro. O reCAPTCHA usa `theme: 'dark'`.
+
+### Grade de fundo
+
+`background-site.png` tem só 390 × 360: ampliada, as linhas de 1 px borram; repetida, a grade inclinada não emenda. Por isso ela foi medida e refeita em CSS no `body::before`: linhas de 1 px a cada 52 px em `rgb(244 239 234 / .12)`, giradas 7°, `position: fixed` atrás da página (o `inset: -50%` sobra para a rotação não deixar cantos vazios). As seções não têm mais fundo próprio; a separação entre elas é a borda `cream/10`.
+
+### Hero
+
+Nome em duas linhas (Fira Code bold, `BlurText` por letra) alinhado à esquerda; a foto em cápsula saiu e entrou `public/pato.png`, à direita no desktop e abaixo, à direita, no celular. A segunda linha tem `mt-[0.24em]`: com o nome alinhado à esquerda, o circunflexo do Â fica logo abaixo do I de VICTOR e encostava nele.
+
+Entrada do pato com GSAP, 0,45 s depois de carregar: zoom `scale 0 → 1` em 1,6 s com `elastic.out(1, 0.4)` e, ao mesmo tempo, giro `-10° → 6°` (para a direita) em 1,9 s com `elastic.out(1, 0.6)`, mais amortecido, para o giro balançar menos que o zoom. Medido avançando a linha do tempo do GSAP: a escala passa de 1,27 e volta a 0,96 antes de assentar; o giro passa de 8,4° e assenta em 6°.
 
 > [!NOTE]
 > **contexto**
@@ -56,6 +64,7 @@ Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
 | "Voltar ao topo" (JS) | `Footer.jsx` consulta `matchMedia` antes do `scrollTo` | Salto direto |
 | Globo de habilidades | `SkillsGlobe` consulta `matchMedia` | Sem giro automático nem inércia; o ícone escolhido salta direto para a frente. Arrastar continua funcionando |
 | FloatingDock (motion/react) | `MotionConfig reducedMotion="user"` + `useReducedMotion()` no `IconContainer` | Tooltip/menu sem deslocamento; ícones sem ampliação, tamanho fixo |
+| Pato do Hero (GSAP) | `Hero.jsx` consulta `matchMedia` | Aparece direto no tamanho final, já inclinado 6° |
 
 > [!TIP]
 > **atalho que vale lembrar**
@@ -88,7 +97,7 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 
 Adaptada da timeline horizontal da Hyperiux Vault (21st.dev). A seção fica presa na tela (`position: sticky`) enquanto se rola, o trilho anda para o lado e cada cargo desenha a haste e o ponto e revela o texto linha a linha.
 
-- Fundo bege `#F7F4EE`, o mesmo das seções vizinhas. Acento laranja vivo `#FF5F00` na linha, nas hastes e nos pontos; o nome da empresa em `#C2410C`, que passa no contraste de texto sobre o bege.
+- Sem fundo próprio, sobre a grade escura. Texto `#F4EFEA` (secundário a 70%) e acento verde `#259B55` na linha, nas hastes, nos pontos e no nome da empresa; as cores entram por props em `Experience.jsx` (até 2026-10-22: fundo bege, acento laranja `#FF5F00`).
 - Abertura com "Grupo GVS" acima da linha e "2025 — hoje" abaixo. Os 3 cargos, do mais antigo para o mais recente, alternam acima e abaixo: período em destaque e "cargo · Grupo GVS".
 - Uma só timeline do GSAP com `scrub`, de `top top` a `bottom bottom` da seção: o trilho anda `scrollWidth − largura da janela`, a linha cresce com `scaleX` e cada cargo aparece quando a linha chega até ele (`offsetLeft` do cargo ÷ largura da linha).
 - A altura da seção é calculada em JS (altura da janela + 1,4 × o deslocamento) e refeita no `refreshInit` do ScrollTrigger.

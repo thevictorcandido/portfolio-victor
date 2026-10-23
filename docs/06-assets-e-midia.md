@@ -8,13 +8,15 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 
 | Arquivo | Onde |
 |---|---|
-| `victor-sem-fundo.png` | Foto recortada do Hero |
+| `pato.png` | Ilustração do Hero (341 × 417), desde 2026-10-22 |
+| `background-site.png` | Referência da grade de fundo; não é carregada, a grade é refeita em CSS (ver [03 - Design System](03-design-system.md)) |
+| `victor-sem-fundo.png` | **Sem uso** desde 2026-10-22, quando o Hero trocou a foto pelo pato |
 | `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
 | `projects/grupogvs-hero.png` | Card do projeto GVS |
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
-| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 97 KB (desde 2026-10-21) |
+| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 94 KB em 128 cores (desde 2026-10-21; refeita em 2026-10-22 com o tema escuro) |
 
 > [!TIP]
 > **removidas em 2026-10-22**

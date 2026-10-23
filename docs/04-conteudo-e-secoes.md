@@ -7,7 +7,7 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 | # | Seção (`id`) | Componente | O que mostra | Fonte do texto |
 |---|---|---|---|---|
 | — | navegação | `Navbar.jsx` | Barra flutuante, link ativo por scroll, menu mobile, `LanguageSwitcher` | `nav.*` + `navItems` |
-| — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", foto recortada `victor-sem-fundo.png`, status de disponibilidade | `hero.*` |
+| — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", nome alinhado à esquerda e a ilustração `pato.png` com entrada elástica, status de disponibilidade | `hero.*` |
 | 01 | `about` | `About.jsx` | Bio em 3 parágrafos, citação, foto "ponto de ônibus", floating dock (PUC, IA, GVS, GitHub, LinkedIn, e-mail) | `about.*` |
 | 02 | `projects` | `Projects.jsx` | Carrossel com 2 projetos (GVS e Xulambis), anterior/próximo | `projects.*` + `projects[].tags` |
 | 03 | `experience` | `Experience.jsx` | Timeline horizontal presa na tela: os 3 cargos no Grupo GVS (período, cargo, empresa) aparecem conforme a rolagem. Sem título visível | `experience.*` + `experiences` |

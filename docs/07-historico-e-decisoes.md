@@ -100,6 +100,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Escolha de 2026-10-21 (em vez de uma arte separada): quem recebe o link vê exatamente a primeira tela do site. Gerada por captura automatizada, reproduzível — o comando está em [06 - Assets e Mídia](06-assets-e-midia.md).
 
+> [!IMPORTANT]
+> **tema escuro sobre a grade, com três cores**
+>
+> Desde 2026-10-22 o site usa o preto de `background-site.png` (`#161616`), o branco bege `#F4EFEA` e o verde `#259B55`, em vez do editorial claro. Os tons intermediários saem por opacidade dos tokens, não por uma escala nova. A grade é refeita em CSS em vez de usar a imagem, que é pequena demais para ampliar e não emenda ao repetir. Só a aparência mudou: nenhum componente perdeu função.
+
 > [!NOTE]
 > **contexto**
 >
