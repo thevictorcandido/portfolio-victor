@@ -16,7 +16,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
-| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 84 KB em 128 cores (desde 2026-10-21; refeita em 2026-10-22 com o tema escuro e o pato recortado) |
+| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 78 KB em 128 cores (desde 2026-10-21; refeita em 2026-10-23 com a navbar nova) |
 
 > [!TIP]
 > **removidas em 2026-10-22**
