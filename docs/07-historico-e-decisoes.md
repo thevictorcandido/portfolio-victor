@@ -115,6 +115,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-23 a navegação virou uma barra só, sólida e presa no topo desde o início, no estilo do navbar-02 do shadcnui-blocks. A barra flutuante transparente deixava logo e ícones sobre o conteúdo, e eles sumiam conforme a cor da seção; o cabeçalho próprio do Hero repetia menu, idioma e contato e saiu. As abas são as mesmas 7.
 
+> [!IMPORTANT]
+> **paleta Carbon / Ivory / Electric Green / Baby Blue Ice**
+>
+> Em 2026-10-23 o site passou para Carbon Black `#191A1D`, Ivory `#FDFFF3`, Electric Green `#3FEE3F` e Baby Blue Ice `#89BBFE`. Papéis: carbono e marfim são a base (fundo, cards, texto); o verde neon, que grita, fica só em ações e estados ativos; o azul, mais calmo, é a segunda cor para destaques de título, links e informação. Os tokens mudaram de nome para os da paleta (`ink`→`carbon`, `cream`→`ivory`, `moss`→`electric`, novo `ice`). O pato do Hero não mudou.
+
 > [!NOTE]
 > **contexto**
 >

@@ -13,7 +13,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > - Internacionalização pt-BR / en com seletor de idioma — 153 chaves, paridade 100%; versão em inglês sem nenhum texto em português (verificado no DOM renderizado).
 > - Formulário de contato com envio real via EmailJS e reCAPTCHA v2, validado em produção em 2026-10-21.
 > - Habilidades num globo 3D interativo (desde 2026-10-22): 16 tecnologias, cada uma com exemplo de projeto real (fonte: notas Tecnologias e Repositórios do vault do Obsidian).
-> - Favicon próprio (monograma "V" musgo/bege).
+> - Favicon próprio (monograma "V" verde/carbono).
 > - Código no GitHub: último push em 2026-10-22 (`4718272..7ec8c0b`, 6 commits). `.env.local` não versionado.
 > - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado de novo em 2026-10-22: o globo de habilidades entrou no ar ~20 s depois do push (`index-Dyv5IByl.js`).
 > - `npm run build` passa (0,94 s em 2026-10-22). `oxlint` passa sem avisos (exit 0).

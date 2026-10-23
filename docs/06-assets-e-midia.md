@@ -15,8 +15,8 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `projects/grupogvs-hero.png` | Card do projeto GVS |
 | `projects/xulambis-terminal.png` | Card do projeto Xulambis — **mockup**, não print real; recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
-| `favicon.svg` | Favicon — monograma "V" musgo/bege (desde 2026-10-20) |
-| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 78 KB em 128 cores (desde 2026-10-21; refeita em 2026-10-23 com a navbar nova) |
+| `favicon.svg` | Favicon — monograma "V" verde elétrico `#3FEE3F` sobre carbono `#191A1D` (desde 2026-10-20; cores desde 2026-10-23) |
+| `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 197 KB sem redução de cores (desde 2026-10-21; refeita em 2026-10-23 com a paleta nova) |
 
 > [!TIP]
 > **removidas em 2026-10-22**
@@ -42,6 +42,11 @@ msedge --headless --disable-gpu --force-prefers-reduced-motion --lang=pt-BR --hi
   --force-device-scale-factor=1 --window-size=1200,630 --user-data-dir=<pasta nova> \
   --virtual-time-budget=8000 --screenshot=og-image.png http://localhost:4173/
 ```
+
+> [!WARNING]
+> **armadilha**
+>
+> Não reduzir as cores da `og-image.png`: com 128 cores (corte mediano) o verde elétrico do botão de idioma virou cinza-esverdeado, e com 256 (cobertura máxima) o halo do Hero ganhou faixas. Salva sem perda, fica em ~200 KB, abaixo do limite de 300 KB das prévias.
 
 As tags ficam no `<head>` do `index.html`: `og:title`, `og:description`, `og:image` (URL **absoluta**), `og:image:width/height/alt`, `og:url`, `og:locale` + `twitter:card=summary_large_image` e `<link rel="canonical">`.
 

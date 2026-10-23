@@ -4,25 +4,26 @@ Voltar: [Portfolio Victor](README.md)
 
 ## Direção
 
-Escuro desde 2026-10-22: preto da grade de `public/background-site.png`, branco bege e um verde vivo como acento (antes era editorial claro, bege quente, com verde-musgo `#2B4636`). Seções numeradas `01 ·` a `06 ·` no estilo azal.im. Tokens definidos no bloco `@theme` de `src/index.css`.
+Escuro, sobre a grade inclinada de `public/background-site.png`. Desde 2026-10-23 na paleta Carbon Black, Ivory, Electric Green e Baby Blue Ice, montada pelo método neutro + acento: o carbono e o marfim fazem quase todo o trabalho, o verde elétrico fica só nas ações e o azul gelo é a segunda cor (de 2026-10-22 a 2026-10-23 foi preto `#161616`, bege `#F4EFEA` e verde `#259B55`; antes disso, editorial claro com verde-musgo `#2B4636`). Seções numeradas `01 ·` a `06 ·` no estilo azal.im. Tokens definidos no bloco `@theme` de `src/index.css`.
 
 ## Paleta (tokens reais em uso)
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--color-ink` | `#161616` | Fundo da página, o preto de `background-site.png` (também em `index.html` e no `theme-color`) |
-| `--color-ink-raised` | `#1C1C1C` | Cards, sólidos para o texto não ficar sobre a grade |
-| `--color-cream` | `#F4EFEA` | Texto e botão principal (texto `ink` sobre ele) |
-| `--color-moss` | `#259B55` | Acento: item ativo do menu, idioma, destaques dos títulos, cargo ativo da Trajetória, globo. 5,1:1 sobre o `ink`, serve para texto; sobre ele, texto em `ink` |
-| `--color-moss-hover` | `#2EAD60` | Hover de links verdes |
+| `--color-carbon` | `#191A1D` (Carbon Black) | Fundo da página e base neutra (também em `index.html`, `theme-color` e favicon) |
+| `--color-carbon-raised` | `#222327` | Cards e painéis, sólidos para o texto não ficar sobre a grade |
+| `--color-ivory` | `#FDFFF3` (Ivory) | Texto (17,2:1 sobre o carbon), fichas dos logos de tecnologia, tooltip |
+| `--color-electric` | `#3FEE3F` (Electric Green) | Só ação e estado ativo: botões principais ("Vamos conversar", "Visitar Website", "Enviar"), idioma e projeto ativos, cargo ativo, tecnologia selecionada, "disponível", seleção de texto, anel de foco. 11,2:1 sobre o carbon; sobre ele, texto `carbon` |
+| `--color-electric-hover` | `#6CF46C` | Hover dos botões principais |
+| `--color-ice` | `#89BBFE` (Baby Blue Ice) | Segunda cor: destaques em itálico dos títulos, links ("Ver projeto"), rótulo "Na prática", categoria Frontend, gráficos e céu das ilustrações. 8,8:1 sobre o carbon |
 
-Tons intermediários saem por opacidade dos tokens: texto `cream/70` (corrido), `cream/55` (secundário, ainda 5,7:1), `cream/45` só em ícones; bordas `cream/10`; superfícies leves `cream/8`. A escala `stone-*` do Tailwind não é mais usada. Seleção de texto: fundo `moss`, texto `ink`. Scrollbar 7 px, thumb `#3A3A3A`.
+Tons intermediários saem por opacidade dos tokens: texto `ivory/80` e `ivory/70` (corrido, 8,9:1), `ivory/55` (secundário, 6:1), `ivory/45` só em ícones (4,4:1); bordas `ivory/10`–`ivory/15`; superfícies leves `ivory/8`. Verde nunca é decoração: com ele em tudo, deixaria de apontar o que é clicável. Scrollbar 7 px, thumb `#3A3B40`. O ícone "Engenharia de Prompt" do globo usa `#178217` (verde escuro, 4,9:1 sobre a ficha marfim).
 
-Exceções que ficaram de propósito: logos das tecnologias com as cores das marcas (sobre fichas bege, para o logo preto da Vercel continuar visível), o texto sobre a foto do Sobre (claro sobre o degradê da própria foto) e o vermelho das mensagens de erro do formulário (`red-200`/`red-400` sobre `red-500/10`), que precisa continuar lendo como erro. O reCAPTCHA usa `theme: 'dark'`.
+Exceções que ficaram de propósito: logos das tecnologias com as cores das marcas (sobre fichas marfim, para o logo preto da Vercel continuar visível), o texto sobre a foto do Sobre (claro sobre o degradê da própria foto) e o vermelho das mensagens de erro do formulário (`red-200`/`red-400` sobre `red-500/10`), que precisa continuar lendo como erro. O reCAPTCHA usa `theme: 'dark'`.
 
 ### Grade de fundo
 
-`background-site.png` tem só 390 × 360: ampliada, as linhas de 1 px borram; repetida, a grade inclinada não emenda. Por isso ela foi medida e refeita em CSS no `body::before`: linhas de 1 px a cada 52 px em `rgb(244 239 234 / .12)`, giradas 7°, `position: fixed` atrás da página (o `inset: -50%` sobra para a rotação não deixar cantos vazios). As seções não têm mais fundo próprio; a separação entre elas é a borda `cream/10`.
+`background-site.png` tem só 390 × 360: ampliada, as linhas de 1 px borram; repetida, a grade inclinada não emenda. Por isso ela foi medida e refeita em CSS no `body::before`: linhas de 1 px a cada 52 px em marfim a 9% (`rgb(253 255 243 / .09)`), giradas 7°, `position: fixed` atrás da página (o `inset: -50%` sobra para a rotação não deixar cantos vazios). As seções não têm mais fundo próprio; a separação entre elas é a borda `ivory/10`.
 
 ### Hero
 
@@ -124,9 +125,9 @@ As animações são classes `.illo-*` no `index.css` (piscar, fluxo por `stroke-
 
 Desde 2026-10-23 segue o navbar-02 do shadcnui-blocks (21st.dev; o registro do 21st.dev pede login, o código veio de `shadcnui-blocks.com/r/navbar-02.json`). Antes havia duas navegações: o cabeçalho do próprio Hero e uma barra flutuante transparente que só aparecia depois de rolar 30 px, com logo e ícones soltos sobre o conteúdo — sumiam conforme a cor de fundo da seção mudava.
 
-- Uma barra só, `sticky top-0`, 64 px, fundo sólido `ink` e borda inferior `cream/10`, visível desde o topo. O cabeçalho do Hero saiu (o menu, o idioma e o contato dele estão na barra) e o Hero passou a ter `min-h-[calc(100svh-4rem)]`, para a primeira tela continuar do tamanho da janela.
-- Esquerda: logo "Victor" em Smile Moon e os 7 links (`h-9`, `rounded-md`, `text-sm`; hover e ativo em `cream/8`–`cream/10`, como o `navigationMenuTriggerStyle`). O link ativo continua vindo da rolagem, agora com `aria-current="location"`.
-- Direita: seletor de idioma no formato do botão "outline" (`h-9`, `rounded-md`, borda `cream/15`) e o botão principal "Vamos conversar" em bege.
+- Uma barra só, `sticky top-0`, 64 px, fundo sólido `carbon` e borda inferior `ivory/10`, visível desde o topo. O cabeçalho do Hero saiu (o menu, o idioma e o contato dele estão na barra) e o Hero passou a ter `min-h-[calc(100svh-4rem)]`, para a primeira tela continuar do tamanho da janela.
+- Esquerda: logo "Victor" em Smile Moon e os 7 links (`h-9`, `rounded-md`, `text-sm`; hover e ativo em `ivory/8`–`ivory/10`, como o `navigationMenuTriggerStyle`). O link ativo continua vindo da rolagem, agora com `aria-current="location"`.
+- Direita: seletor de idioma no formato do botão "outline" (`h-9`, `rounded-md`, borda `ivory/15`, idioma ativo em verde elétrico) e o botão principal "Vamos conversar" em verde elétrico.
 - Breakpoints: links a partir de `lg` (1024 px); o botão "Vamos conversar" aparece entre `sm` e `lg` e de novo a partir de `xl` (em `lg` os 7 links não deixam espaço); abaixo de `lg`, botão de menu que abre o painel lateral.
 - Painel lateral (o Sheet do shadcn, sem Radix): entra pela direita em 500 ms sobre um véu `black/60`, sai em 300 ms; `role="dialog"` com `aria-modal`, foco vai para o botão de fechar, Tab fica preso no painel, Esc e clique no véu fecham, a rolagem da página trava enquanto está aberto e o foco volta ao botão de menu. Renderizado num portal no `<body>`.
 - `scroll-padding-top: 4rem` no `html`: âncoras param logo abaixo da barra.
