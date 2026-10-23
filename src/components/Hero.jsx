@@ -187,15 +187,17 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Pato: entra com zoom elástico e um giro curto para a direita */}
-          <div className="self-end lg:self-auto shrink-0">
+          {/* Pato: entra com zoom elástico e um giro curto para a direita.
+              Mesmo tamanho de fonte do nome: com altura em em, o pato fica um
+              pouco mais alto que as duas linhas (1,8em) em toda largura de tela */}
+          <div className="self-end lg:self-auto shrink-0 text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-none">
             <img
               ref={duckRef}
-              src="/pato.png"
+              src="/pato.webp"
               alt=""
-              width={341}
-              height={417}
-              className="w-[180px] sm:w-[230px] lg:w-[260px] xl:w-[320px] h-auto rounded-[28px] ring-1 ring-cream/20 shadow-2xl shadow-black/60 select-none will-change-transform"
+              width={664}
+              height={788}
+              className="h-[2.1em] w-auto drop-shadow-[0_24px_32px_rgb(0_0_0/0.45)] select-none will-change-transform"
               loading="eager"
               draggable={false}
             />
