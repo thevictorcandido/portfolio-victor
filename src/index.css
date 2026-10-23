@@ -69,11 +69,11 @@
   font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
 }
 
-.font-display, .font-heading, .font-title {
+.font-display {
   font-family: 'Hyperlegible Sans', system-ui, -apple-system, sans-serif;
 }
 
-.font-special, .font-smile-moon, .font-script {
+.font-special {
   font-family: 'Smile Moon', cursive, sans-serif;
 }
 
@@ -124,64 +124,6 @@ body::before {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #56575D;
-}
-
-/* Máscara de fusão orgânica inferior da foto */
-.mask-fade-b {
-  mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
-  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
-}
-
-.mask-fade-all {
-  mask-image: radial-gradient(circle at 50% 45%, black 60%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at 50% 45%, black 60%, transparent 100%);
-}
-
-/* Animações suaves de rotação e flutuação */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 22s linear infinite;
-}
-
-@keyframes float-gentle-1 {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(0.5deg);
-  }
-}
-
-@keyframes float-gentle-2 {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(-0.5deg);
-  }
-}
-
-.animate-float-1 {
-  animation: float-gentle-1 6s ease-in-out infinite;
-}
-
-.animate-float-2 {
-  animation: float-gentle-2 7s ease-in-out 1s infinite;
-}
-
-/* Padrão orgânico muito suave para dar textura sem parecer tech */
-.bg-warm-grain {
-  background-color: #FAF8F5;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
-  background-size: 20px 20px;
 }
 
 /* Painel do globo de habilidades: sobe 8px com fade, rápido e com saída suave */

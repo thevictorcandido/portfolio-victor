@@ -128,7 +128,7 @@ npm run preview    # serve o dist/ localmente
 
 ## Regerar o mockup do Xulambis
 
-A imagem `public/projects/xulambis-terminal.png` sai de `docs/mockups/xulambis-terminal.html` (1200×850, Fira Code do Google Fonts, logo ASCII do `figlet` fonte Standard). Editar o HTML e capturar com o Edge headless:
+A imagem do card do Xulambis sai de `docs/mockups/xulambis-terminal.html` (1200×850, Fira Code do Google Fonts, logo ASCII do `figlet` fonte Standard). Editar o HTML e capturar com o Edge headless:
 
 ```bash
 "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless --disable-gpu --hide-scrollbars \
@@ -140,6 +140,12 @@ A imagem `public/projects/xulambis-terminal.png` sai de `docs/mockups/xulambis-t
 > **atalho que vale lembrar**
 >
 > `--virtual-time-budget=5000` dá tempo da Fira Code carregar; sem ele a captura sai em Consolas.
+
+O site usa a versão WebP. Depois da captura, converter (o ffmpeg do winget já traz o libwebp):
+
+```bash
+ffmpeg -i xulambis-terminal.png -c:v libwebp -quality 90 -compression_level 6 public/projects/xulambis-terminal.webp
+```
 
 > [!WARNING]
 > **armadilha**

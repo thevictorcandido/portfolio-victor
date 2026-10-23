@@ -7,6 +7,15 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **rolagem travando desde o topo — corrigido em 2026-10-23**
+>
+> **Sintoma:** a página engasgava ao rolar, já saindo do Hero.
+> **Causa raiz:** as animações CSS infinitas das ilustrações SVG da Trajetória (`.illo-*`) rodavam o tempo todo, mesmo com a seção fora da tela. Animação em elemento SVG não vai para o compositor: cada quadro recalcula estilo e repinta, disputando o quadro com a rolagem.
+> **Como foi achado:** trace do Chrome rolando do topo até Projetos, desligando um suspeito por vez. Só desligar as animações do SVG mudou o resultado: quadros perdidos 32 → 16, recálculo de estilo ~190 ms → ~70 ms. Grade de fundo, halo do Hero, sombra do pato e `backdrop-blur` não mudaram nada mensurável.
+> **Correção:** `features-with-panel.jsx` observa a mídia com IntersectionObserver e marca `data-paused`; o CSS aplica `animation-play-state: paused`. Medido depois: ~17 quadros perdidos no mesmo trecho.
+> **Junto:** imagens dos projetos em WebP (o PNG do GVS tinha 1,4 MB) e CSS/arquivo sem uso removidos.
+
+> [!TIP]
 > **variáveis do EmailJS em produção — corrigido em 2026-10-21**
 >
 > As 3 variáveis foram cadastradas na Vercel (tipo **Config**, não Secret — são públicas por natureza); o push de `d5b7d5c` gerou o build `index-BdQc1odO.js`, com a configuração preenchida. Envio real pelo site publicado confirmado em 2026-10-21.

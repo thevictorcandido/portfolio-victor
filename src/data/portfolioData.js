@@ -54,13 +54,13 @@ export const portfolioData = {
   projects: [
     {
       id: "proj-gvs",
-      image: "/projects/grupogvs-hero.png",
+      image: "/projects/grupogvs-hero.webp",
       githubUrl: null,
       liveUrl: "https://grupogvs.com.br",
     },
     {
       id: "proj-xulambis",
-      image: "/projects/xulambis-terminal.png",
+      image: "/projects/xulambis-terminal.webp",
       githubUrl: null,
       liveUrl: null,
     },

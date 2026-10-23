@@ -50,7 +50,7 @@ Entrada do pato com GSAP, 0,45 s depois de carregar: zoom `scale 0 → 1` em 1,6
 
 ## Animações
 
-Definidas em `index.css`: `spin-slow` (22 s), `float-gentle-1/2` (6–7 s), `skill-rise` (painel do globo de habilidades, 220 ms). Utilitários de máscara: `.mask-fade-b` (fade inferior da foto) e `.mask-fade-all` (radial). Textura `.bg-warm-grain` (pontilhado 20 px).
+Definidas em `index.css`: `skill-rise` (painel do globo de habilidades, 220 ms) e as `.illo-*` das ilustrações da Trajetória. Fora da tela, as `.illo-*` ficam pausadas (`.media-anim[data-paused="true"]`, marcado por um IntersectionObserver em `features-with-panel.jsx`). `spin-slow`, `float-gentle-1/2`, `.mask-fade-b/-all` e `.bg-warm-grain` saíram em 2026-10-23 (nenhum componente usava).
 
 Animações em JS via `motion/react` (no `floating-dock`).
 
@@ -73,11 +73,6 @@ Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
 > **atalho que vale lembrar**
 >
 > `msedge --force-prefers-reduced-motion` simula a preferência. Para ler estilos computados no headless: uma página temporária em `dist/` com `<iframe src="/">` da mesma origem, que grava `getComputedStyle` no próprio DOM; depois `--dump-dom`. Usar polling até `#projects` existir — o `onload` do iframe não é confiável com `--virtual-time-budget`.
-
-> [!WARNING]
-> **armadilha**
->
-> `.animate-spin-slow` e `.animate-float-1/2` estão definidas no `index.css` mas nenhum componente usa.
 
 ## Globo de habilidades (`SkillsGlobe.jsx`)
 
