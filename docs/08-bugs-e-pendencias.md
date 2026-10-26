@@ -7,6 +7,14 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **rolagem travando na animação inicial — corrigido em 2026-10-26**
+>
+> **Sintoma:** mesmo depois da correção de 2026-10-23, a rolagem do topo até Projetos ainda engasgava, principalmente durante a animação de entrada.
+> **Causa raiz:** o script do reCAPTCHA (`recaptcha__*.js`, do formulário de Contato) carregava junto com a página e executava tarefas longas de JS (~50 ms cada) bem durante a intro e a primeira rolagem.
+> **Como foi achado:** trace do Chrome com GPU real (1920 × 1080, escala 1,5), rolando do topo até Projetos logo após carregar, desligando um suspeito por vez. Bloquear o reCAPTCHA levou o p95 do intervalo entre quadros de 33 ms para 17 ms; grade de fundo, halo, sombra do pato, `backdrop-blur` e o desfoque das letras do nome não mudaram nada mensurável. Com o cache de shaders frio (primeira visita) há travadas de GPU de até ~190 ms que aparecem com qualquer combinação de efeitos: custo único de compilação, não corrigível pelo site.
+> **Correção:** `ui/recaptcha.jsx` só carrega o script quando o widget fica a 800 px da tela (IntersectionObserver). Medido depois: nenhuma função do reCAPTCHA no trecho, script e iframe ausentes no topo e presentes ao chegar em Contato.
+
+> [!TIP]
 > **rolagem travando desde o topo — corrigido em 2026-10-23**
 >
 > **Sintoma:** a página engasgava ao rolar, já saindo do Hero.

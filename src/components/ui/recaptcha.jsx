@@ -3,6 +3,11 @@ import { useEffect, useImperativeHandle, useRef } from 'react'
 // Largura do widget no tamanho "normal"; abaixo disso usamos o "compact"
 const NORMAL_WIDTH = 304
 
+// Distância da tela em que o script começa a carregar. Carregado junto com a
+// página, ele rodava tarefas longas de JS durante a animação de entrada e
+// travava a rolagem do topo até os projetos.
+const LOAD_MARGIN = '800px 0px'
+
 let loader = null
 
 // Carrega o script do Google uma única vez. O idioma (hl) fica fixo a partir da primeira carga.
@@ -47,25 +52,40 @@ export function ReCaptcha({ siteKey, hl, onVerify, onExpire, onError, ref }) {
 
   useEffect(() => {
     let cancelled = false
-    // hl entra só na primeira carga do script; trocar de idioma não recria o widget
-    loadRecaptcha(latest.current.hl)
-      .then((grecaptcha) => {
-        const el = containerRef.current
-        if (cancelled || !el) return
-        widgetId.current = grecaptcha.render(el, {
-          sitekey: siteKey,
-          theme: 'dark',
-          size: el.offsetWidth < NORMAL_WIDTH ? 'compact' : 'normal',
-          callback: (token) => latest.current.onVerify?.(token),
-          'expired-callback': () => latest.current.onExpire?.(),
-          'error-callback': () => latest.current.onError?.(),
+    const load = () => {
+      // hl entra só na primeira carga do script; trocar de idioma não recria o widget
+      loadRecaptcha(latest.current.hl)
+        .then((grecaptcha) => {
+          const el = containerRef.current
+          if (cancelled || !el) return
+          widgetId.current = grecaptcha.render(el, {
+            sitekey: siteKey,
+            theme: 'dark',
+            size: el.offsetWidth < NORMAL_WIDTH ? 'compact' : 'normal',
+            callback: (token) => latest.current.onVerify?.(token),
+            'expired-callback': () => latest.current.onExpire?.(),
+            'error-callback': () => latest.current.onError?.(),
+          })
         })
-      })
-      .catch(() => {
-        if (!cancelled) latest.current.onError?.()
-      })
+        .catch(() => {
+          if (!cancelled) latest.current.onError?.()
+        })
+    }
+
+    // Só carrega quando o formulário chega perto da tela
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        observer.disconnect()
+        load()
+      },
+      { rootMargin: LOAD_MARGIN }
+    )
+    observer.observe(containerRef.current)
+
     return () => {
       cancelled = true
+      observer.disconnect()
       widgetId.current = null
     }
   }, [siteKey])
