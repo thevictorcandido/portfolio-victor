@@ -58,12 +58,6 @@ export const portfolioData = {
       githubUrl: null,
       liveUrl: "https://grupogvs.com.br",
     },
-    {
-      id: "proj-xulambis",
-      image: "/projects/xulambis-terminal.webp",
-      githubUrl: null,
-      liveUrl: null,
-    },
   ],
 
   // Textos de cada card em education.* (puc) e education.continuous.* nos arquivos de tradução

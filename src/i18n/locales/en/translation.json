@@ -61,10 +61,6 @@
     "gvsBadge": "Live in Production",
     "gvsTagline": "Complete overhaul of the company digital presence and corporate portal",
     "gvsDesc": "A real professional project conceived and developed entirely by me for Grupo GVS, redesigning the brand's digital image for the clean energy generation market. Features power plant architecture, careers portal, and socio-environmental initiatives.",
-    "xulambisBadge": "Collaborative Academic Project (CLI)",
-    "xulambisTagline": "Pizzeria ordering and management system developed in Java (OOP)",
-    "xulambisDesc": "An academic project developed collaboratively in class at PUC Minas, simulating the backend and operational logic of a pizzeria. Built with strict Object-Oriented Programming, inventory management, dynamic ingredient calculation, and an interactive terminal CLI interface.",
-    "collaborationNote": "Collaborative classroom project · PUC Minas",
     "prev": "Previous",
     "next": "Next",
     "gvsTitle": "Corporate Website — Grupo GVS",
@@ -74,14 +70,6 @@
       "Digital Identity",
       "Power Generation",
       "Grupo GVS"
-    ],
-    "xulambisTitle": "Xulambis Pizza — CLI Management System",
-    "xulambisTags": [
-      "Java / OOP",
-      "Software Engineering",
-      "CLI / Terminal",
-      "Team Project",
-      "PUC Minas"
     ]
   },
   "experience": {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, ChevronUp, ChevronDown, Terminal, Globe, Users } from 'lucide-react'
+import { ArrowUpRight, ChevronUp, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { GithubIcon } from './Icons'
 import { portfolioData } from '../data/portfolioData'
@@ -17,25 +17,20 @@ export default function Projects() {
     setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length)
   }
 
-  // Obter dados dinâmicos traduzidos para cada projeto
+  // Textos traduzidos do projeto: id "proj-gvs" → chaves projects.gvsTitle, gvsBadge...
   const getProjectData = (proj) => {
-    if (proj.id === 'proj-gvs') {
-      return {
-        title: t('projects.gvsTitle'),
-        badge: t('projects.gvsBadge'),
-        tagline: t('projects.gvsTagline'),
-        description: t('projects.gvsDesc'),
-        tags: t('projects.gvsTags', { returnObjects: true }),
-      }
-    }
+    const key = proj.id.replace('proj-', '')
     return {
-      title: t('projects.xulambisTitle'),
-      badge: t('projects.xulambisBadge'),
-      tagline: t('projects.xulambisTagline'),
-      description: t('projects.xulambisDesc'),
-      tags: t('projects.xulambisTags', { returnObjects: true }),
+      title: t(`projects.${key}Title`),
+      badge: t(`projects.${key}Badge`),
+      tagline: t(`projects.${key}Tagline`),
+      description: t(`projects.${key}Desc`),
+      tags: t(`projects.${key}Tags`, { returnObjects: true }),
     }
   }
+
+  // Pílulas e setas só fazem sentido com mais de um projeto
+  const hasNavigation = projects.length > 1
 
   return (
     <section
@@ -61,44 +56,46 @@ export default function Projects() {
           </div>
 
           {/* Navegação por Pílulas e Controles de Pilha 3D */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center bg-carbon-raised/90 border border-ivory/10 rounded-full p-1 shadow-2xs">
-              {projects.map((proj, idx) => (
-                <button
-                  key={proj.id}
-                  type="button"
-                  onClick={() => setActiveIndex(idx)}
-                  className={`px-4 py-2 text-xs font-semibold rounded-full transition-all duration-300 cursor-pointer ${
-                    activeIndex === idx
-                      ? 'bg-electric text-carbon shadow-xs'
-                      : 'text-ivory/70 hover:text-ivory hover:bg-ivory/8'
-                  }`}
-                >
-                  {String(idx + 1).padStart(2, '0')} · {getProjectData(proj).title.split('—')[0].trim()}
-                </button>
-              ))}
-            </div>
+          {hasNavigation && (
+            <div className="flex items-center gap-3">
+              <div className="flex items-center bg-carbon-raised/90 border border-ivory/10 rounded-full p-1 shadow-2xs">
+                {projects.map((proj, idx) => (
+                  <button
+                    key={proj.id}
+                    type="button"
+                    onClick={() => setActiveIndex(idx)}
+                    className={`px-4 py-2 text-xs font-semibold rounded-full transition-all duration-300 cursor-pointer ${
+                      activeIndex === idx
+                        ? 'bg-electric text-carbon shadow-xs'
+                        : 'text-ivory/70 hover:text-ivory hover:bg-ivory/8'
+                    }`}
+                  >
+                    {String(idx + 1).padStart(2, '0')} · {getProjectData(proj).title.split('—')[0].trim()}
+                  </button>
+                ))}
+              </div>
 
-            {/* Setas Verticais de Navegação */}
-            <div className="hidden sm:flex items-center gap-1">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label={t('projects.prev')}
-                className="p-2 rounded-full bg-carbon-raised border border-ivory/10 text-ivory/80 hover:text-ivory hover:bg-ivory/8 transition-colors shadow-2xs cursor-pointer"
-              >
-                <ChevronUp className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label={t('projects.next')}
-                className="p-2 rounded-full bg-carbon-raised border border-ivory/10 text-ivory/80 hover:text-ivory hover:bg-ivory/8 transition-colors shadow-2xs cursor-pointer"
-              >
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              {/* Setas Verticais de Navegação */}
+              <div className="hidden sm:flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label={t('projects.prev')}
+                  className="p-2 rounded-full bg-carbon-raised border border-ivory/10 text-ivory/80 hover:text-ivory hover:bg-ivory/8 transition-colors shadow-2xs cursor-pointer"
+                >
+                  <ChevronUp className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label={t('projects.next')}
+                  className="p-2 rounded-full bg-carbon-raised border border-ivory/10 text-ivory/80 hover:text-ivory hover:bg-ivory/8 transition-colors shadow-2xs cursor-pointer"
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Pilha Vertical de Cards com Efeito de Profundidade */}
@@ -131,11 +128,7 @@ export default function Projects() {
                       {/* Badge e Categoria */}
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="px-3 py-1 rounded-full text-xs font-semibold bg-ivory/8 text-ivory border border-ivory/10 inline-flex items-center gap-1.5">
-                          {proj.id === 'proj-gvs' ? (
-                            <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-                          ) : (
-                            <Users className="w-3.5 h-3.5 text-electric" />
-                          )}
+                          <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
                           <span>{transData.badge}</span>
                         </span>
                       </div>
@@ -210,14 +203,10 @@ export default function Projects() {
                           <span className="w-2.5 h-2.5 rounded-full bg-electric" />
                         </div>
                         <span className="font-mono text-[11px] text-ivory/45 truncate max-w-[240px]">
-                          {proj.id === 'proj-gvs' ? 'https://grupogvs.com.br' : 'terminal: ~/pucminas/xulambis-pizza'}
+                          {proj.liveUrl}
                         </span>
                         <div className="flex items-center gap-1.5 text-ivory/45">
-                          {proj.id === 'proj-gvs' ? (
-                            <Globe className="w-3.5 h-3.5" />
-                          ) : (
-                            <Terminal className="w-3.5 h-3.5" />
-                          )}
+                          <Globe className="w-3.5 h-3.5" />
                         </div>
                       </div>
 
