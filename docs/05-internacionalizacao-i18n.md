@@ -16,6 +16,7 @@ Voltar: [Portfolio Victor](README.md)
 - `src/main.jsx` importa `./i18n` **antes** do `App`, para o init acontecer antes do primeiro render.
 - No evento `languageChanged`, `syncDocument` atualiza `<html lang>` e `document.title` (chave `meta.title`).
 - Textos em lista (bio, bullets, disciplinas) usam `t(chave, { returnObjects: true })`.
+- Estudos de caso ficam em `caseStudies.<chave>` (hoje só `degraueduca`): textos, listas de objetos (números, personas, telas, módulos) e o título da aba (`docTitle`). Os trechos de código da página não são traduzidos.
 
 ## LanguageSwitcher
 

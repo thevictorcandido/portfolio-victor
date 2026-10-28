@@ -136,6 +136,24 @@ Desde 2026-10-23 segue o navbar-02 do shadcnui-blocks (21st.dev; o registro do 2
 > **verificado em 2026-10-23**
 > 1440 e 1024 px: links e idioma na barra, sem sobrar nada. 768 px: idioma, "Vamos conversar" e menu. 375 px: sem rolagem horizontal; o painel abre com foco no fechar e a página travada, e o link "Habilidades" fecha o painel e para a seção a 64 px do topo (logo abaixo da barra), com o foco de volta no botão de menu.
 
+## Estudo de caso (`pages/CaseStudyDegrauEduca.jsx`)
+
+Página `/projetos/degrau-educa`, no formato de https://engsoftmarcelo.dev/pt/projetos/clickseguro: cabeçalho com contexto, equipe, papel e status, faixa de números e seções numeradas (`// 01 o problema` … `// 08 olhando de novo`) com fechamento.
+
+- Mesma paleta e tipografia do site; os blocos (`SectionHeader`, `Section`, `Figure`, `CodeBlock`) ficam no próprio arquivo e podem virar compartilhados quando houver um segundo estudo de caso.
+- Números da faixa em `ice` (informação); verde elétrico só no status e no botão "Vamos conversar".
+- `Figure`: imagem com borda, legenda e clique que abre o arquivo inteiro em outra aba; `frame` desenha a barra de navegador falsa; `aspect` fixa o recorte (do topo), usado nos quatro prints do painel para os títulos alinharem.
+- Seção 04 reaproveita o `FeaturesWithPanel` da Trajetória com prints no lugar das ilustrações; o componente ganhou a prop `mediaAspect` (`aspect-[16/10]` aqui, `aspect-4/3` na Trajetória) e imagens com `loading="lazy"` e `object-top`.
+- Os trechos de código são cópias literais do repositório do projeto (`admin.js` e `login.html`), sem tradução; o resto do texto vem de `caseStudies.degraueduca` nos dois JSON.
+- `document.title` vira "Degrau Educa, estudo de caso | Victor Cândido Leite" e volta ao título do site ao sair.
+
+O card na seção Projetos ganhou `caseStudy` (botão "Ler estudo de caso" e a imagem viram links para a página) e `address` (texto da barra de navegador quando não há `liveUrl`). A pilha de cards passou a usar uma grade com todos na mesma célula (`[grid-area:1/1]`): a altura segue o card mais alto. Antes era `min-h` fixo com cards `absolute`, e a 1024 px o texto do Degrau Educa vazava 74 px e escondia os botões (o do GVS já vazava 7 px).
+
+> [!TIP]
+> **verificado em 2026-10-28**
+>
+> Edge headless a 1440 px (página inteira) e navegador embutido a 1024 e 375 px: card → estudo de caso sem recarregar, título da aba e "Projetos" ativo na barra; 375 px sem rolagem horizontal; inglês sem chave faltando; "Todos os projetos" e os links da barra voltam para a inicial com a seção a 64 px do topo.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.

@@ -130,6 +130,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-28 o Xulambis Pizza (CLI de pizzaria em Java, trabalho em grupo na PUC Minas) saiu dos Projetos: dados, textos nos dois idiomas, imagem e o HTML do mockup que a gerava (`docs/mockups/`), tudo recuperável pelo histórico. O componente passou a ler os textos pelo `id` do projeto (`proj-gvs` → `projects.gvs*`) e a mostrar pílulas e setas só com mais de um projeto, para receber os próximos sem mudar código.
 
+> [!IMPORTANT]
+> **Degrau Educa com estudo de caso em página própria**
+>
+> Em 2026-10-28 entrou o Degrau Educa (Trabalho Interdisciplinar 1, PUC Minas, equipe de 5) como primeiro projeto, com um estudo de caso em página própria no formato do engsoftmarcelo.dev. O conteúdo saiu de uma varredura do repositório da disciplina: README e docs, banco do JSON Server e o código; as telas foram capturadas com o app rodando localmente. Para a página nova, um roteador de ~30 linhas pela History API em vez de react-router: são só duas rotas. O "Meu papel" segue o que foi confirmado: Design Thinking/UX, o painel administrativo com 4 CRUDs e parte do cadastro e login. O Space no Hugging Face e o repositório no GitHub estão privados (401 e 404), então o card não tem "Ver demo" nem "GitHub" por enquanto.
+
 > [!NOTE]
 > **contexto**
 >

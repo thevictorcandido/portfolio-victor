@@ -9,7 +9,8 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 | — | navegação | `Navbar.jsx` | Barra sólida presa no topo (estilo navbar-02): logo, 7 links com o ativo por rolagem, idioma, "Vamos conversar" e painel lateral abaixo de 1024 px | `nav.*` + `navItems` |
 | — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", sem cabeçalho próprio (a navegação é toda da Navbar), nome alinhado à esquerda e a ilustração `pato.webp` com entrada elástica, status de disponibilidade | `hero.*` |
 | 01 | `about` | `About.jsx` | Bio em 3 parágrafos, foto "ponto de ônibus", floating dock (PUC, IA, GVS, GitHub, LinkedIn, e-mail) | `about.*` |
-| 02 | `projects` | `Projects.jsx` | Pilha de cards de projetos (hoje só o GVS); pílulas e setas anterior/próximo aparecem só com mais de um projeto | `projects.*` + `projects[].tags` |
+| 02 | `projects` | `Projects.jsx` | Pilha de cards: 01 Degrau Educa (botão "Ler estudo de caso") e 02 Site Institucional do Grupo GVS; pílulas e setas anterior/próximo, que só aparecem com mais de um projeto | `projects.*` |
+| — | `/projetos/degrau-educa` | `pages/CaseStudyDegrauEduca.jsx` | Estudo de caso do Degrau Educa: problema, pesquisa, personas, wireframes, galeria das telas, painel admin com código, dados, ferramentas e o que faria diferente | `caseStudies.degraueduca.*` |
 | 03 | `experience` | `Experience.jsx` | Lista dos 3 cargos no Grupo GVS (cargo, período, resumo das funções) com painel de ilustração animada por cargo | `experience.*` + `experiences` |
 | 04 | `skills` | `Skills.jsx` | Globo 3D com 16 tecnologias (backend, front, infra, IA), centralizado; o clique encolhe o globo e abre ao lado um painel com texto e exemplo de projeto real | `skills.*` + `skills` |
 | 05 | `education` | `Education.jsx` | PUC Minas 2024–2029 + 4 disciplinas-chave (inclui DIAW) | `education.*` |

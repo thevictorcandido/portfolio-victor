@@ -23,7 +23,7 @@ Sem TypeScript (JSX puro), sem roteador, sem backend. Alias `@` → `./src` em `
 ```
 src/
   main.jsx                 importa ./i18n ANTES do App
-  App.jsx                  só compõe as seções, na ordem
+  App.jsx                  rota: página inicial (as seções, na ordem) ou estudo de caso
   index.css                @theme do Tailwind v4, @font-face, keyframes
   i18n/index.js            init do i18next + sincroniza <html lang> e <title>
   i18n/locales/{pt-BR,en}/translation.json
@@ -32,6 +32,8 @@ src/
   config/recaptchaConfig.js  Site Key do reCAPTCHA v2 (VITE_RECAPTCHA_SITE_KEY)
   data/portfolioData.js    dados estruturados (links, imagens, tags, skills)
   lib/utils.js             cn() — join simples de classes
+  lib/router.js            rotas pela History API: usePathname, navigate, <Link>
+  pages/CaseStudyDegrauEduca.jsx   estudo de caso /projetos/degrau-educa (lazy)
   components/
     Navbar, Hero, About, Projects, Experience, Skills, Education, Contact, Footer
     Icons.jsx, TechIcons.jsx, SkillsGlobe.jsx
@@ -63,6 +65,16 @@ const title = t(`experience.roles.${exp.id}.title`)
 Navbar detecta a seção ativa por scroll usando `portfolioData.navItems[].id` — os ids das `<section>` precisam bater com essa lista.
 
 Campos mortos (`avatarUrl`, `resumeUrl`, `stats`, bio, bullets, descrições, `category`, `accentColor`, `color` das tecnologias, `label` dos navItems) foram removidos em 2026-10-20.
+
+## Rotas (desde 2026-10-28)
+
+Sem biblioteca de rotas: `src/lib/router.js` (~30 linhas) lê `location.pathname` com `useSyncExternalStore` e escuta o `popstate`; `navigate()` faz `pushState`, e `<Link>` troca de página sem recarregar (Ctrl/Cmd+clique continua abrindo em outra aba).
+
+- `/` → página inicial (as seções de sempre).
+- `/projetos/<slug>` → estudo de caso. O mapa `caseStudies` em `App.jsx` liga o slug à página; cada uma é um `lazy()` e vira um chunk à parte (o do Degrau Educa tem 15,6 kB), baixado só quando a página abre. Slug desconhecido cai na página inicial.
+- Ao trocar de página, `App.jsx` vai até a âncora da URL (`/#projects`) ou volta ao topo.
+- Fora da página inicial a Navbar recebe `onHome={false}`: os links viram `/#secao` (voltam para a inicial já na seção) e "Projetos" fica marcado.
+- `vercel.json` reescreve qualquer caminho para `/index.html`; sem ele, abrir `/projetos/degrau-educa` direto daria 404 na Vercel. O `vite` e o `vite preview` já fazem isso sozinhos.
 
 ## Build medido em 2026-10-20
 

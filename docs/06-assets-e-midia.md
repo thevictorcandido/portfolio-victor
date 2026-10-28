@@ -12,6 +12,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `background-site.png` | Referência da grade de fundo; não é carregada, a grade é refeita em CSS (ver [03 - Design System](03-design-system.md)) |
 | `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
 | `projects/grupogvs-hero.webp` | Card do projeto GVS — 1440 × 900, WebP qualidade 85, 179 KB (o PNG tinha 1,4 MB; trocado em 2026-10-23) |
+| `projects/degrau-educa/*.webp` | Estudo de caso do Degrau Educa (19 imagens, 817 KB); `home.webp` também é a imagem do card (desde 2026-10-28) |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" verde elétrico `#3FEE3F` sobre carbono `#191A1D` (desde 2026-10-20; cores desde 2026-10-23) |
 | `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 197 KB sem redução de cores (desde 2026-10-21; refeita em 2026-10-23 com a paleta nova) |
@@ -19,6 +20,22 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 > [!TIP]
 > **removidas em 2026-10-22**
 > `victor-agora.jpeg`, `victor-meio.jpeg` e `victor-inicio.jpeg` (uma foto por cargo na Trajetória) saíram com `git rm` quando a seção trocou de componente.
+
+## Prints do Degrau Educa (`projects/degrau-educa/`)
+
+19 imagens em WebP qualidade 80, 817 KB no total, carregadas só no estudo de caso (`loading="lazy"`): 13 telas do app a 1440 px de largura e 6 artefatos de Design Thinking do repositório do projeto (Matriz CSD, mapa de stakeholders, user flow, histórias de usuário e dois wireframes).
+
+Como as telas foram feitas, em 2026-10-28:
+
+1. Repositório da disciplina (zip) extraído no scratchpad; o app rodou com `npx json-server@0.17.4 --watch db.json --static codigo/public --port 3401`, sobre uma cópia do banco.
+2. O app guarda o usuário logado em `localStorage.usuarioLogado`. Uma página auxiliar, criada só na cópia extraída, busca `/usuarios/<id>` (usuário 1 = aluno, 2 = admin, do próprio banco de exemplo), grava a sessão e redireciona; as capturas seguintes usam o mesmo perfil do Edge.
+3. Os módulos do painel admin trocam pela função global `abrirModulo()`. Outra página auxiliar abre o `admin.html` num iframe e chama `abrirModulo`, `editarCurso` ou `editarJornada` antes da captura.
+4. Edge headless em 1440 × 900 (1440 × 1000 para os formulários do admin), um processo por tela com tempo-limite de 35 s.
+
+> [!WARNING]
+> **armadilha**
+>
+> `Start-Process -ArgumentList @(...)` não põe aspas: um caminho com espaço ("Victor Leite") quebra o `--screenshot` e o Edge sai sem gerar nada. Usar o caminho curto (`C:\Users\VICTOR~1\...`). E telas de celular saem cortadas no headless, que não encolhe a janela abaixo de ~500 px.
 
 ## Recorte do pato (`pato.webp`)
 
