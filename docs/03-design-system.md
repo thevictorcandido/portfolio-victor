@@ -170,7 +170,7 @@ Página `/projetos/sentinela-gvs`, desde 2026-10-28: sistema corporativo de vigi
 
 - Abertura com "Empresa / Escala / Meu papel" (em vez de "Equipe") e uma nota sobre os dados de demonstração logo abaixo da imagem; faixa de 8 números com o período dos resultados.
 - `// 02` traz o fluxo da ocorrência (usina → central → alerta, painel, relatórios, TVs) em caixas HTML, feito a partir do diagrama Mermaid do pacote.
-- `// 03` galeria de 11 telas (16:9) e o vídeo da demonstração (`<video controls muted preload="none">`, com pôster: só baixa quando alguém dá play).
+- `// 03` galeria de 11 telas (16:9) com `layout="stacked"` e o vídeo da demonstração (`<video controls muted preload="none">`, com pôster: só baixa quando alguém dá play), os dois na largura toda. Desde 2026-10-28 o `FeaturesWithPanel` tem esse modo empilhado: tópicos numa grade no alto (até 4 colunas), o texto do escolhido e uma mídia só, grande, embaixo. No modo lado a lado, os prints ficavam na metade da largura e pequenos demais para ler a interface. A Trajetória e os outros estudos continuam lado a lado.
 - `// 04` desafio com a tabela antes/depois da otimização e o caso dos cães (8 → 2 em 17); `// 05` a tabela de resultados; `// 06` próximos passos; `// 07` aprendizados; `// 08` tecnologia e autoria.
 - O relatório em PDF do pacote ficou de fora: mesmo sendo de demonstração, cada página leva "Confidencial — Uso Interno". A tela "Dados para relatório" mostra o mesmo conteúdo.
 
