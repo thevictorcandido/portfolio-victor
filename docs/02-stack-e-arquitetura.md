@@ -35,6 +35,7 @@ src/
   lib/router.js            rotas pela History API: usePathname, navigate, <Link>
   pages/CaseStudyDegrauEduca.jsx   estudo de caso /projetos/degrau-educa (lazy)
   pages/CaseStudyDriftInvaders.jsx estudo de caso /projetos/drift-invaders (lazy)
+  pages/CaseStudySentinelaGvs.jsx  estudo de caso /projetos/sentinela-gvs (lazy)
   components/case-study/   blocos e hook useCaseStudy das páginas de estudo de caso
   components/
     Navbar, Hero, About, Projects, Experience, Skills, Education, Contact, Footer

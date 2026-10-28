@@ -140,6 +140,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-28 entrou o Drift Invaders (Introdução a Algoritmos, PUC Minas, equipe de 4) como segundo projeto, com estudo de caso em página própria. Base: o zip do repositório (README, proposta, guia de MLOps, código e testes) e a página do mesmo projeto no site do Marcelo Gomes, colega de grupo, usada só como referência. O "Meu papel" segue o que foi confirmado: as regras em funções puras e os testes. Sem botão "GitHub", por escolha: o repositório público é o do colega. Os quadros vêm do jogo rodando sem janela, com um jogador automático. Com dois estudos de caso, os blocos das páginas viraram componentes compartilhados.
 
+> [!IMPORTANT]
+> **Sentinela GVS como primeiro projeto, pendente de compliance**
+>
+> Em 2026-10-28 entrou o Sentinela GVS, sistema de vigilância com IA em produção no Grupo GVS (projeto individual), como primeiro projeto da pilha: é o que mais claramente mostra tecnologia virando resultado para a empresa. Sem repositório nem demo pública, o estudo de caso usa só o pacote preparado para portfólio, com dados de demonstração; o PDF marcado como confidencial ficou de fora. A publicação depende da aprovação de compliance da empresa.
+
 > [!NOTE]
 > **contexto**
 >

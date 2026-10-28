@@ -164,6 +164,21 @@ Página `/projetos/drift-invaders`, desde 2026-10-28. Mesma abertura, números e
 
 Com o segundo estudo de caso, os blocos saíram da página do Degrau Educa para `components/case-study/blocks.jsx` (`SectionHeader`, `Section`, `Figure`, `CodeBlock`, `CaseHero`, `StatStrip`, `NextSteps`, `StackAndTeam`, `CaseClosing`) e o hook `useCaseStudy(chave)` foi para `useCaseStudy.js` (devolve `c()` e `list()` e cuida do título da aba). `Figure` passou a receber em `frame` o texto da barra de janela. O Degrau Educa ficou idêntico, conferido por captura.
 
+## Estudo de caso do Sentinela GVS (`pages/CaseStudySentinelaGvs.jsx`)
+
+Página `/projetos/sentinela-gvs`, desde 2026-10-28: sistema corporativo de vigilância com IA do Grupo GVS (projeto individual, em produção), sem demo pública nem código aberto. O conteúdo veio de um pacote preparado para portfólio (estudo de caso em PT/EN, 12 telas, vídeo de 60 s, relatório PDF e créditos), todo gravado numa instância de demonstração com usinas, câmeras, usuário e ocorrências fictícios e pessoas de vídeos do Pexels.
+
+- Abertura com "Empresa / Escala / Meu papel" (em vez de "Equipe") e uma nota sobre os dados de demonstração logo abaixo da imagem; faixa de 8 números com o período dos resultados.
+- `// 02` traz o fluxo da ocorrência (usina → central → alerta, painel, relatórios, TVs) em caixas HTML, feito a partir do diagrama Mermaid do pacote.
+- `// 03` galeria de 11 telas (16:9) e o vídeo da demonstração (`<video controls muted preload="none">`, com pôster: só baixa quando alguém dá play).
+- `// 04` desafio com a tabela antes/depois da otimização e o caso dos cães (8 → 2 em 17); `// 05` a tabela de resultados; `// 06` próximos passos; `// 07` aprendizados; `// 08` tecnologia e autoria.
+- O relatório em PDF do pacote ficou de fora: mesmo sendo de demonstração, cada página leva "Confidencial — Uso Interno". A tela "Dados para relatório" mostra o mesmo conteúdo.
+
+> [!WARNING]
+> **armadilha**
+>
+> O estudo de caso que veio com o material diz "publicar só depois da aprovação de compliance". O código e as imagens estão commitados, mas o push para a `main` publica na Vercel: só fazer depois dessa aprovação.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
