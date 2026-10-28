@@ -93,6 +93,17 @@
       "pytest",
       "Testes automatizados",
       "MLOps"
+    ],
+    "sentinelagvsTitle": "Sentinela GVS — Vigilância com IA",
+    "sentinelagvsBadge": "Em produção no Grupo GVS",
+    "sentinelagvsTagline": "IA que vigia as usinas solares 24 h e avisa a equipe em 2 segundos",
+    "sentinelagvsDesc": "Sistema que idealizei, desenvolvi e opero no Grupo GVS. Assiste 36 câmeras em 2 usinas ao mesmo tempo, detecta pessoas na área e no horário armados e manda foto e vídeo para o celular da equipe. Em menos de três semanas: 2.813 ocorrências entregues, 95,6% confirmadas como pessoa real, sem custo de licença ou nuvem.",
+    "sentinelagvsTags": [
+      "Python",
+      "YOLO11",
+      "TensorRT",
+      "Flask",
+      "Visão computacional"
     ]
   },
   "experience": {
@@ -1095,6 +1106,354 @@
       "closing": {
         "title": "Testar regra é mais rápido que jogar de novo.",
         "text": "Separar as regras da janela foi o que fez os 74 testes possíveis, e foram eles que deram segurança para mexer nas ondas, no cooperativo e no chefe até a última semana.",
+        "back": "Voltar aos projetos",
+        "contact": "Vamos conversar"
+      }
+    },
+    "sentinelagvs": {
+      "docTitle": "Sentinela GVS, estudo de caso | Victor Cândido Leite",
+      "back": "Todos os projetos",
+      "kicker": "segurança patrimonial com ia · sistema em produção · 2026",
+      "title": "Sentinela GVS",
+      "tagline": "IA que vigia as usinas 24 horas e avisa a equipe em 2 segundos.",
+      "intro": "Um sistema próprio que assiste todas as câmeras das usinas solares do Grupo GVS ao mesmo tempo e só chama a equipe quando há uma pessoa onde não deveria haver, com foto e vídeo no celular em segundos.",
+      "status": "Em produção no Grupo GVS · desde outubro de 2026",
+      "meta": [
+        {
+          "label": "Empresa",
+          "value": "Grupo GVS · geração de energia solar · outubro de 2026, em evolução"
+        },
+        {
+          "label": "Escala",
+          "value": "36 câmeras em 2 usinas, monitoradas 24 horas"
+        },
+        {
+          "label": "Meu papel",
+          "value": "Idealização, desenvolvimento e operação da solução, de ponta a ponta"
+        }
+      ],
+      "coverAlt": "Painel do Sentinela GVS com a lista de usinas e câmeras e uma câmera ao vivo marcando \"pessoa 89%\" dentro da área vigiada",
+      "demoNote": "Todas as telas e o vídeo vêm de uma instância de demonstração isolada: usinas, câmeras, usuário e ocorrências são fictícios, e as pessoas são de vídeos com licença livre do Pexels. Nenhuma imagem real das usinas aparece aqui.",
+      "stats": [
+        {
+          "value": "2.813",
+          "label": "ocorrências registradas e entregues à equipe"
+        },
+        {
+          "value": "95,6%",
+          "label": "confirmadas como pessoa de verdade"
+        },
+        {
+          "value": "2 s",
+          "label": "da detecção ao alerta no celular (mediana; 90% em até 4 s)"
+        },
+        {
+          "value": "4.500+",
+          "label": "alertas no Telegram, sem falha de envio"
+        },
+        {
+          "value": "36",
+          "label": "câmeras em 2 usinas, vigiadas 24 h"
+        },
+        {
+          "value": "~90",
+          "label": "câmeras de capacidade no mesmo computador (2,5×)"
+        },
+        {
+          "value": "43 ms",
+          "label": "para analisar 16 imagens (eram 160 ms)"
+        },
+        {
+          "value": "R$ 0",
+          "label": "de licença ou nuvem: roda num computador da empresa"
+        }
+      ],
+      "statsNote": "Resultados de 09/10 a 28/10/2026.",
+      "problem": {
+        "eyebrow": "o problema",
+        "title": "Câmera gravando não é segurança se ninguém está olhando.",
+        "body": "As usinas solares ficam em áreas rurais extensas, longe de qualquer equipe. Furto de cabos e de equipamentos é um risco real: interrompe a geração, gera custo de reposição e afeta a receita. As câmeras já gravavam, mas ninguém consegue assistir dezenas de telas a noite inteira; na prática, a gravação só servia para descobrir o que tinha acontecido depois do prejuízo.",
+        "constraintsTitle": "O que precisava ser verdade",
+        "constraints": [
+          "Saber na hora, não no dia seguinte.",
+          "Sem contratar monitoramento terceirizado.",
+          "Sem pagar serviço em nuvem por câmera.",
+          "Usando a internet limitada que as usinas já têm."
+        ]
+      },
+      "solution": {
+        "eyebrow": "a solução",
+        "title": "Assistir todas as câmeras e só chamar quando importa.",
+        "body": "Uma IA de detecção de pessoas roda localmente sobre o vídeo de todas as câmeras. Cada ocorrência vira um registro com foto e vídeo, que chega ao celular da equipe e entra num painel de atendimento.",
+        "features": [
+          {
+            "title": "Vigia por regra de negócio",
+            "text": "Cada câmera tem a área que importa (cerca, portão, inversores) e os horários em que o alarme fica armado. Fora disso, não incomoda ninguém."
+          },
+          {
+            "title": "Alerta no celular em segundos",
+            "text": "Foto e vídeo da ocorrência chegam à equipe no Telegram, começando 5 segundos antes da entrada da pessoa."
+          },
+          {
+            "title": "Atendimento organizado",
+            "text": "O operador classifica cada ocorrência (pessoa autorizada, alarme falso ou intrusão real) e acompanha a intrusão até a solução."
+          },
+          {
+            "title": "Prova pronta para a polícia",
+            "text": "O vídeo original em alta resolução é baixado do gravador com um clique, para o boletim de ocorrência."
+          },
+          {
+            "title": "Gestão com dados",
+            "text": "Relatórios semanais e mensais automáticos em PDF, painel de indicadores e uma tela para as TVs da sala de operação."
+          },
+          {
+            "title": "Privacidade desde o início (LGPD)",
+            "text": "Imagens de alarmes falsos são apagadas em 24 horas; acesso só pela rede interna, com login por perfil."
+          }
+        ],
+        "flowTitle": "Como uma ocorrência anda",
+        "flowPlant": "Usina",
+        "flowCentral": "Central Sentinela GVS",
+        "flow": {
+          "cameras": "Câmeras",
+          "ai": "IA detecta pessoa na área e no horário armado",
+          "event": "Ocorrência com foto e vídeo",
+          "recorder": "Gravador com o vídeo em HD",
+          "recorderNote": "vídeo original para o boletim de ocorrência",
+          "outputs": [
+            "Alerta no celular em ~2 s",
+            "Painel de operação: classificação e atendimento",
+            "Relatórios em PDF e indicadores",
+            "TVs da sala de operação"
+          ]
+        }
+      },
+      "screens": {
+        "eyebrow": "as telas",
+        "title": "Do alerta ao relatório, num painel só.",
+        "body": "Instância de demonstração com quatro câmeras simuladas em duas usinas fictícias. Escolha uma tela:",
+        "items": [
+          {
+            "id": "cameras",
+            "title": "Câmeras ao vivo",
+            "meta": "Detecção na área",
+            "description": "Usinas e câmeras à esquerda, a câmera escolhida ao vivo com a caixa da pessoa dentro da área azul e os números do momento.",
+            "alt": "Câmera CAM01 ao vivo com uma pessoa marcada \"pessoa 89%\" dentro da área azul e o painel Agora ao lado"
+          },
+          {
+            "id": "camera-noturna",
+            "title": "Câmera noturna",
+            "meta": "Pouca luz",
+            "description": "A mesma detecção à noite, com a silhueta marcada dentro da área.",
+            "alt": "Câmera noturna detectando a silhueta de uma pessoa numa rua iluminada por postes"
+          },
+          {
+            "id": "area-configuracao",
+            "title": "Área e configuração",
+            "meta": "Regras por câmera",
+            "description": "A área vigiada é desenhada sobre a imagem; sensibilidade, tempos, o que detectar e a grade de horários ficam ao lado.",
+            "alt": "Tela de configuração com a área desenhada sobre a câmera e os campos de sensibilidade, tempo de espera e duração do vídeo"
+          },
+          {
+            "id": "grade-alarme",
+            "title": "Grade de alarme",
+            "meta": "Horários armados",
+            "description": "Pinta-se na grade semanal quando o alarme fica ligado; dá para aplicar a mesma grade às outras câmeras da usina.",
+            "alt": "Grade semanal de acionamento do alarme, de segunda a domingo, das 0 às 24 horas"
+          },
+          {
+            "id": "ocorrencias",
+            "title": "Ocorrências pendentes",
+            "meta": "Fila de atendimento",
+            "description": "Cada ocorrência com miniatura, câmera, usina, confiança e duração, esperando classificação.",
+            "alt": "Lista de eventos pendentes com miniaturas de cinco ocorrências de intrusão de perímetro"
+          },
+          {
+            "id": "visualizador",
+            "title": "Visualizador da ocorrência",
+            "meta": "Vídeo e classificação",
+            "description": "O vídeo da ocorrência ao lado dos dados e das três classificações: conhecido, alarme falso ou intrusão real.",
+            "alt": "Janela da ocorrência com o vídeo de uma pessoa no vinhedo e as opções Conhecido, Alarme falso e Intrusão real"
+          },
+          {
+            "id": "confirmar-intrusao",
+            "title": "Confirmar intrusão real",
+            "meta": "Duas etapas",
+            "description": "Marcar como intrusão real pede confirmação e guarda imagem e vídeo até o caso ser resolvido.",
+            "alt": "Caixa de confirmação \"Confirmar intrusão real?\" sobre a ocorrência da câmera noturna"
+          },
+          {
+            "id": "alerta-intrusao",
+            "title": "Alerta de intrusão",
+            "meta": "Situação urgente",
+            "description": "A tela fica vermelha e mostra o contato de emergência da usina, com o registro do acionamento.",
+            "alt": "Alerta vermelho \"Intrusão real - situação urgente\" com o contato de emergência 190"
+          },
+          {
+            "id": "dados-relatorio",
+            "title": "Dados para relatório",
+            "meta": "Semana e PDF",
+            "description": "Todos os eventos da semana em tabela, com exportação em CSV e o relatório em PDF gerado na hora.",
+            "alt": "Tabela de eventos da semana com usina, câmera, classificação e os botões Exportar CSV e Gerar relatório PDF"
+          },
+          {
+            "id": "dashboard",
+            "title": "Dashboard de eventos",
+            "meta": "Sala de operação",
+            "description": "Cards das ocorrências recentes com confiança da IA e situação, pensados para as TVs.",
+            "alt": "Dashboard com cinco cards de ocorrências pendentes, cada um com miniatura e barra de confiança da IA"
+          },
+          {
+            "id": "consumo-servidor",
+            "title": "Consumo do servidor",
+            "meta": "Rede, disco, CPU e GPU",
+            "description": "Quanto vídeo chega das câmeras, quanto fica gravado e quanto a IA está usando do computador, ao vivo.",
+            "alt": "Tela de consumo com rede, disco, processador, memória, GPU e download do servidor"
+          }
+        ],
+        "videoTitle": "Vídeo da demonstração",
+        "videoText": "Uma pessoa entra na área, a ocorrência aparece, o operador classifica e o relatório reflete. 60 segundos, sem som.",
+        "videoLabel": "Vídeo de 60 segundos mostrando a detecção ao vivo, a fila de ocorrências, a classificação e o dashboard"
+      },
+      "challenge": {
+        "eyebrow": "o desafio",
+        "title": "Muitas câmeras, internet fraca e um único computador.",
+        "body": "A internet das usinas comportava a detecção em só 4 ou 5 câmeras por vez; as outras ficavam cegas. Reorganizei como o vídeo trafega: cada usina ganhou uma cota de banda, e a gravação em alta qualidade continua no gravador local. Todas as câmeras passaram a ser vigiadas. Depois, otimizei a IA para o mesmo computador dar conta de muito mais.",
+        "tableTitle": "Otimização da IA no mesmo computador",
+        "headers": [
+          "Indicador",
+          "Antes",
+          "Depois"
+        ],
+        "rows": [
+          [
+            "Uso da placa de vídeo",
+            "54%",
+            "26%"
+          ],
+          [
+            "Uso do processador",
+            "5,6 núcleos",
+            "0,9 núcleo"
+          ],
+          [
+            "Tempo para analisar 16 imagens",
+            "160 ms",
+            "43 ms"
+          ],
+          [
+            "Capacidade estimada",
+            "—",
+            "~90 câmeras (2,5× as atuais)"
+          ]
+        ],
+        "dogsTitle": "Cães não são pessoas",
+        "dogs": "Cães estavam sendo confundidos com pessoas. Usei os próprios alarmes falsos da operação para testar modelos e escolher o melhor: os cães confundidos caíram de 8 para 2 em 17 casos, e a detecção de pessoas reais melhorou."
+      },
+      "results": {
+        "eyebrow": "resultados",
+        "title": "Em menos de três semanas de operação.",
+        "body": "De 09/10 a 28/10/2026, com as 36 câmeras das duas usinas.",
+        "headers": [
+          "Resultado",
+          "Número"
+        ],
+        "rows": [
+          [
+            "Ocorrências registradas e entregues à equipe",
+            "2.813"
+          ],
+          [
+            "Confirmadas como pessoa de verdade",
+            "95,6%"
+          ],
+          [
+            "Alarmes falsos",
+            "4,4% (124)"
+          ],
+          [
+            "Tempo da detecção ao alerta no celular",
+            "2 s de mediana; 90% em até 4 s"
+          ],
+          [
+            "Alertas entregues no Telegram",
+            "4.500+, sem falha de envio"
+          ],
+          [
+            "Vídeo que a equipe precisa olhar",
+            "33 h de ocorrências, em vez de semanas de gravação contínua"
+          ],
+          [
+            "Custo de licença ou nuvem",
+            "zero"
+          ]
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "próximos passos",
+        "title": "Um computador em cada usina e uma central.",
+        "body": "Cada usina passa a analisar as próprias câmeras e enviar só as ocorrências, o que tira o peso da internet e permite crescer para novas usinas sem trocar a central. As atualizações são publicadas de forma centralizada e desfeitas sozinhas se algo der errado. Um piloto já roda numa usina em paralelo à operação atual.",
+        "pilot": "Do piloto: sem placa de vídeo dedicada, a usina detectou só 65% das ocorrências com pessoa. Por isso cada usina nova recebe uma."
+      },
+      "next": {
+        "eyebrow": "aprendizados",
+        "title": "O que este projeto me ensinou.",
+        "items": [
+          {
+            "title": "Medir antes de mudar",
+            "text": "O maior ganho não veio de trocar a IA: a internet e a leitura do vídeo pesavam mais que a inteligência artificial."
+          },
+          {
+            "title": "Validar com dados reais",
+            "text": "Os próprios alarmes falsos da operação viraram o teste para escolher o modelo, em vez de um conjunto de dados genérico."
+          },
+          {
+            "title": "Privacidade é requisito",
+            "text": "Tratar LGPD desde o primeiro dia (retenção curta, rede interna, login por perfil) foi o que fez a operação aceitar o sistema."
+          }
+        ]
+      },
+      "stack": {
+        "eyebrow": "tecnologia",
+        "title": "IA local, sem nuvem.",
+        "process": "Tudo roda num computador da empresa com placa de vídeo NVIDIA: a detecção, o painel web na rede interna, os alertas e os relatórios.",
+        "groups": [
+          {
+            "label": "IA",
+            "items": [
+              "YOLO11",
+              "NVIDIA TensorRT"
+            ]
+          },
+          {
+            "label": "Aplicação",
+            "items": [
+              "Python",
+              "Flask"
+            ]
+          },
+          {
+            "label": "Alertas",
+            "items": [
+              "Telegram"
+            ]
+          },
+          {
+            "label": "Gestão",
+            "items": [
+              "Relatórios em PDF",
+              "Exportação CSV"
+            ]
+          }
+        ],
+        "teamLabel": "Autoria",
+        "team": [
+          "Victor Cândido Leite — projeto individual no Grupo GVS"
+        ]
+      },
+      "closing": {
+        "title": "Do problema da empresa ao sistema em produção.",
+        "text": "Identifiquei a necessidade, propus a solução e a construí do zero: IA, telas, alertas, relatórios e a operação em produção. É o projeto em que a tecnologia mais claramente virou resultado para o negócio.",
         "back": "Voltar aos projetos",
         "contact": "Vamos conversar"
       }

@@ -56,6 +56,14 @@ export const portfolioData = {
   // caseStudy: caminho da página de estudo de caso (rota em App.jsx)
   projects: [
     {
+      id: "proj-sentinelagvs",
+      image: "/projects/sentinela-gvs/cameras.webp",
+      githubUrl: null,
+      liveUrl: null,
+      address: "Sentinela GVS · painel interno · dados de demonstração",
+      caseStudy: "/projetos/sentinela-gvs",
+    },
+    {
       id: "proj-degraueduca",
       image: "/projects/degrau-educa/home.webp",
       githubUrl: null,

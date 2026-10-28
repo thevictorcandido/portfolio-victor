@@ -93,6 +93,17 @@
       "pytest",
       "Automated tests",
       "MLOps"
+    ],
+    "sentinelagvsTitle": "Sentinela GVS — AI Surveillance",
+    "sentinelagvsBadge": "In production at Grupo GVS",
+    "sentinelagvsTagline": "AI that watches the solar plants 24/7 and alerts the team within 2 seconds",
+    "sentinelagvsDesc": "A system I conceived, built and run at Grupo GVS. It watches 36 cameras across 2 plants at once, detects people inside armed zones and schedules, and sends photo and video to the team's phones. In under three weeks: 2,813 incidents delivered, 95.6% confirmed as real people, with no license or cloud cost.",
+    "sentinelagvsTags": [
+      "Python",
+      "YOLO11",
+      "TensorRT",
+      "Flask",
+      "Computer vision"
     ]
   },
   "experience": {
@@ -1095,6 +1106,354 @@
       "closing": {
         "title": "Testing a rule is faster than playing again.",
         "text": "Keeping the rules apart from the window is what made the 74 tests possible, and they gave the team confidence to keep changing waves, co-op and the boss until the last week.",
+        "back": "Back to projects",
+        "contact": "Let's talk"
+      }
+    },
+    "sentinelagvs": {
+      "docTitle": "Sentinela GVS, case study | Victor Cândido Leite",
+      "back": "All projects",
+      "kicker": "ai-powered asset security · production system · 2026",
+      "title": "Sentinela GVS",
+      "tagline": "AI that watches the plants around the clock and alerts the team within 2 seconds.",
+      "intro": "An in-house system that watches every camera at Grupo GVS's solar plants at once and only calls the team when a person is where they should not be, with photo and video on their phones within seconds.",
+      "status": "In production at Grupo GVS · since October 2026",
+      "meta": [
+        {
+          "label": "Company",
+          "value": "Grupo GVS · solar power generation · October 2026, ongoing"
+        },
+        {
+          "label": "Scale",
+          "value": "36 cameras across 2 plants, monitored 24/7"
+        },
+        {
+          "label": "My role",
+          "value": "Idea, development and operation of the solution, end to end"
+        }
+      ],
+      "coverAlt": "Sentinela GVS panel with the list of plants and cameras and a live camera marking \"person 89%\" inside the watched zone",
+      "demoNote": "Every screen and the video come from an isolated demo instance: plants, cameras, user and incidents are fictional, and the people come from free-license Pexels videos. No real footage of the plants appears here.",
+      "stats": [
+        {
+          "value": "2,813",
+          "label": "incidents logged and delivered to the team"
+        },
+        {
+          "value": "95.6%",
+          "label": "confirmed as real people"
+        },
+        {
+          "value": "2 s",
+          "label": "from detection to phone alert (median; 90% within 4 s)"
+        },
+        {
+          "value": "4,500+",
+          "label": "Telegram alerts with no delivery failures"
+        },
+        {
+          "value": "36",
+          "label": "cameras across 2 plants, watched 24/7"
+        },
+        {
+          "value": "~90",
+          "label": "cameras of capacity on the same computer (2.5×)"
+        },
+        {
+          "value": "43 ms",
+          "label": "to analyze 16 frames (down from 160 ms)"
+        },
+        {
+          "value": "$0",
+          "label": "in licenses or cloud: runs on a company computer"
+        }
+      ],
+      "statsNote": "Results from Oct 9 to Oct 28, 2026.",
+      "problem": {
+        "eyebrow": "the problem",
+        "title": "A recording camera is not security if nobody is watching.",
+        "body": "Solar plants sit on large rural sites far from any staff. Cable and equipment theft is a real risk: it stops generation, adds replacement costs and hits revenue. The cameras were already recording, but nobody can watch dozens of feeds all night; in practice, footage only helped find out what happened after the loss.",
+        "constraintsTitle": "What had to be true",
+        "constraints": [
+          "Know as it happens, not the next day.",
+          "No outsourced monitoring.",
+          "No per-camera cloud fees.",
+          "Using the limited internet the plants already have."
+        ]
+      },
+      "solution": {
+        "eyebrow": "the solution",
+        "title": "Watch every camera and only call when it matters.",
+        "body": "A person-detection AI runs locally on the video from every camera. Each incident becomes a record with photo and video that reaches the team's phones and enters a response panel.",
+        "features": [
+          {
+            "title": "Business-rule zones",
+            "text": "Each camera has the area that matters (fence, gate, inverters) and the hours when the alarm is armed. Outside that, it bothers no one."
+          },
+          {
+            "title": "Phone alert in seconds",
+            "text": "Photo and video of the incident reach the team on Telegram, starting 5 seconds before the person entered."
+          },
+          {
+            "title": "Organized response",
+            "text": "The operator classifies each incident (authorized person, false alarm or real intrusion) and follows a real intrusion until it is solved."
+          },
+          {
+            "title": "Evidence ready for the police",
+            "text": "The original HD video is pulled from the recorder in one click, for the police report."
+          },
+          {
+            "title": "Data for management",
+            "text": "Automatic weekly and monthly PDF reports, a KPI dashboard and a view for the control-room TVs."
+          },
+          {
+            "title": "Privacy by design (LGPD)",
+            "text": "False-alarm media is deleted within 24 hours; access only from the internal network, with role-based login."
+          }
+        ],
+        "flowTitle": "How an incident travels",
+        "flowPlant": "Plant",
+        "flowCentral": "Sentinela GVS hub",
+        "flow": {
+          "cameras": "Cameras",
+          "ai": "AI detects a person in the armed zone and schedule",
+          "event": "Incident with photo and video",
+          "recorder": "Recorder with the HD video",
+          "recorderNote": "original video for the police report",
+          "outputs": [
+            "Phone alert in ~2 s",
+            "Operations panel: triage and response",
+            "PDF reports and KPIs",
+            "Control-room TVs"
+          ]
+        }
+      },
+      "screens": {
+        "eyebrow": "the screens",
+        "title": "From alert to report, in a single panel.",
+        "body": "Demo instance with four simulated cameras in two fictional plants. Pick a screen:",
+        "items": [
+          {
+            "id": "cameras",
+            "title": "Live cameras",
+            "meta": "Detection in the zone",
+            "description": "Plants and cameras on the left, the chosen camera live with the person's box inside the blue zone and the current numbers.",
+            "alt": "Camera CAM01 live with a person marked \"person 89%\" inside the blue zone and the Now panel beside it"
+          },
+          {
+            "id": "camera-noturna",
+            "title": "Night camera",
+            "meta": "Low light",
+            "description": "The same detection at night, with the silhouette marked inside the zone.",
+            "alt": "Night camera detecting a person's silhouette on a street lit by lampposts"
+          },
+          {
+            "id": "area-configuracao",
+            "title": "Zone and settings",
+            "meta": "Rules per camera",
+            "description": "The watched zone is drawn over the image; sensitivity, timings, what to detect and the schedule grid sit beside it.",
+            "alt": "Settings screen with the zone drawn over the camera and the sensitivity, wait time and video length fields"
+          },
+          {
+            "id": "grade-alarme",
+            "title": "Alarm schedule",
+            "meta": "Armed hours",
+            "description": "You paint the weekly grid where the alarm is on, and can apply the same grid to the plant's other cameras.",
+            "alt": "Weekly alarm schedule grid, Monday to Sunday, from 0 to 24 hours"
+          },
+          {
+            "id": "ocorrencias",
+            "title": "Pending incidents",
+            "meta": "Response queue",
+            "description": "Each incident with thumbnail, camera, plant, confidence and duration, waiting for triage.",
+            "alt": "List of pending events with thumbnails of five perimeter intrusion incidents"
+          },
+          {
+            "id": "visualizador",
+            "title": "Incident viewer",
+            "meta": "Video and triage",
+            "description": "The incident video next to its data and the three classifications: known, false alarm or real intrusion.",
+            "alt": "Incident window with the video of a person in the vineyard and the Known, False alarm and Real intrusion options"
+          },
+          {
+            "id": "confirmar-intrusao",
+            "title": "Confirm real intrusion",
+            "meta": "Two steps",
+            "description": "Marking a real intrusion asks for confirmation and keeps image and video until the case is solved.",
+            "alt": "\"Confirm real intrusion?\" dialog over the night camera incident"
+          },
+          {
+            "id": "alerta-intrusao",
+            "title": "Intrusion alert",
+            "meta": "Urgent situation",
+            "description": "The screen turns red and shows the plant's emergency contact, with a log of the call.",
+            "alt": "Red \"Real intrusion - urgent situation\" alert with the 190 emergency contact"
+          },
+          {
+            "id": "dados-relatorio",
+            "title": "Report data",
+            "meta": "Week and PDF",
+            "description": "Every event of the week in a table, with CSV export and the PDF report generated on the spot.",
+            "alt": "Table of the week's events with plant, camera, classification and the Export CSV and Generate PDF report buttons"
+          },
+          {
+            "id": "dashboard",
+            "title": "Events dashboard",
+            "meta": "Control room",
+            "description": "Cards of recent incidents with AI confidence and status, made for the TVs.",
+            "alt": "Dashboard with five pending incident cards, each with a thumbnail and an AI confidence bar"
+          },
+          {
+            "id": "consumo-servidor",
+            "title": "Server usage",
+            "meta": "Network, disk, CPU and GPU",
+            "description": "How much video arrives from the cameras, how much is stored and how much of the computer the AI is using, live.",
+            "alt": "Usage screen with the server's network, disk, processor, memory, GPU and download"
+          }
+        ],
+        "videoTitle": "Demo video",
+        "videoText": "A person enters the zone, the incident shows up, the operator triages it and the report reflects it. 60 seconds, no sound.",
+        "videoLabel": "60-second video showing live detection, the incident queue, triage and the dashboard"
+      },
+      "challenge": {
+        "eyebrow": "the challenge",
+        "title": "Many cameras, a weak link and a single computer.",
+        "body": "The plants' internet only supported detection on 4 or 5 cameras at a time; the rest were blind. I reorganized how video travels: each plant got a bandwidth budget, and high-quality recording stays on the local recorder. Every camera came online. Then I optimized the AI so the same computer could handle much more.",
+        "tableTitle": "AI optimization on the same computer",
+        "headers": [
+          "Metric",
+          "Before",
+          "After"
+        ],
+        "rows": [
+          [
+            "GPU usage",
+            "54%",
+            "26%"
+          ],
+          [
+            "CPU usage",
+            "5.6 cores",
+            "0.9 core"
+          ],
+          [
+            "Time to analyze 16 frames",
+            "160 ms",
+            "43 ms"
+          ],
+          [
+            "Estimated capacity",
+            "—",
+            "~90 cameras (2.5× today's)"
+          ]
+        ],
+        "dogsTitle": "Dogs are not people",
+        "dogs": "Dogs were being mistaken for people. I used the operation's own false alarms to test models and pick the best: dogs mistaken for people dropped from 8 to 2 out of 17 cases, and detection of real people improved."
+      },
+      "results": {
+        "eyebrow": "results",
+        "title": "In under three weeks of operation.",
+        "body": "From Oct 9 to Oct 28, 2026, with all 36 cameras at both plants.",
+        "headers": [
+          "Result",
+          "Number"
+        ],
+        "rows": [
+          [
+            "Incidents logged and delivered to the team",
+            "2,813"
+          ],
+          [
+            "Confirmed as real people",
+            "95.6%"
+          ],
+          [
+            "False alarms",
+            "4.4% (124)"
+          ],
+          [
+            "Time from detection to phone alert",
+            "2 s median; 90% within 4 s"
+          ],
+          [
+            "Alerts delivered on Telegram",
+            "4,500+, no delivery failures"
+          ],
+          [
+            "Video the team needs to review",
+            "33 h of incidents instead of weeks of continuous footage"
+          ],
+          [
+            "License or cloud cost",
+            "zero"
+          ]
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "next steps",
+        "title": "One computer per plant and a central hub.",
+        "body": "Each plant will analyze its own cameras and send only incidents, which eases the network and allows growing to new plants without replacing the hub. Updates are published centrally and rolled back automatically if something goes wrong. A pilot is already running at one plant in parallel with current operations.",
+        "pilot": "From the pilot: without a dedicated GPU, the plant caught only 65% of person incidents. So every new plant gets one."
+      },
+      "next": {
+        "eyebrow": "lessons learned",
+        "title": "What this project taught me.",
+        "items": [
+          {
+            "title": "Measure before changing",
+            "text": "The biggest gain did not come from swapping the AI: the network and video decoding weighed more than the model."
+          },
+          {
+            "title": "Validate on real data",
+            "text": "The operation's own false alarms became the test set for choosing the model, instead of a generic dataset."
+          },
+          {
+            "title": "Privacy is a requirement",
+            "text": "Treating LGPD from day one (short retention, internal network, role-based login) is what got the system accepted by operations."
+          }
+        ]
+      },
+      "stack": {
+        "eyebrow": "technology",
+        "title": "Local AI, no cloud.",
+        "process": "Everything runs on a company computer with an NVIDIA GPU: detection, the web panel on the internal network, alerts and reports.",
+        "groups": [
+          {
+            "label": "AI",
+            "items": [
+              "YOLO11",
+              "NVIDIA TensorRT"
+            ]
+          },
+          {
+            "label": "Application",
+            "items": [
+              "Python",
+              "Flask"
+            ]
+          },
+          {
+            "label": "Alerts",
+            "items": [
+              "Telegram"
+            ]
+          },
+          {
+            "label": "Management",
+            "items": [
+              "PDF reports",
+              "CSV export"
+            ]
+          }
+        ],
+        "teamLabel": "Author",
+        "team": [
+          "Victor Cândido Leite — solo project at Grupo GVS"
+        ]
+      },
+      "closing": {
+        "title": "From a business problem to a system in production.",
+        "text": "I spotted the need, proposed the solution and built it from scratch: AI, interface, alerts, reports and production operation. It is the project where technology most clearly turned into business results.",
         "back": "Back to projects",
         "contact": "Let's talk"
       }
