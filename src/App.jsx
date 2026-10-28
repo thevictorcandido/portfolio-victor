@@ -15,6 +15,7 @@ const caseStudies = {
   'degrau-educa': lazy(() => import('./pages/CaseStudyDegrauEduca')),
   'drift-invaders': lazy(() => import('./pages/CaseStudyDriftInvaders')),
   'sentinela-gvs': lazy(() => import('./pages/CaseStudySentinelaGvs')),
+  'wisp-tv': lazy(() => import('./pages/CaseStudyWispTv')),
 }
 
 function Home() {

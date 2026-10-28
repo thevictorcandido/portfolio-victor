@@ -64,6 +64,14 @@ export const portfolioData = {
       caseStudy: "/projetos/sentinela-gvs",
     },
     {
+      id: "proj-wisptv",
+      image: "/projects/wisp-tv/menu.webp",
+      githubUrl: null,
+      liveUrl: null,
+      address: "WISP TV · Android TV · emulador com dados fictícios",
+      caseStudy: "/projetos/wisp-tv",
+    },
+    {
       id: "proj-degraueduca",
       image: "/projects/degrau-educa/home.webp",
       githubUrl: null,

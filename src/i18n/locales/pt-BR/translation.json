@@ -104,6 +104,17 @@
       "TensorRT",
       "Flask",
       "Visão computacional"
+    ],
+    "wisptvTitle": "WISP TV — Painéis da operação direto nas TVs",
+    "wisptvBadge": "Em produção no Grupo GVS",
+    "wisptvTagline": "App Android TV que liga, se corrige e se recupera sozinho",
+    "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware.",
+    "wisptvTags": [
+      "Android TV",
+      "Java",
+      "WebView",
+      "API HTTP/JSON",
+      "Automação"
     ]
   },
   "experience": {
@@ -1454,6 +1465,377 @@
       "closing": {
         "title": "Do problema da empresa ao sistema em produção.",
         "text": "Identifiquei a necessidade, propus a solução e a construí do zero: IA, telas, alertas, relatórios e a operação em produção. É o projeto em que a tecnologia mais claramente virou resultado para o negócio.",
+        "back": "Voltar aos projetos",
+        "contact": "Vamos conversar"
+      }
+    },
+    "wisptv": {
+      "docTitle": "WISP TV, estudo de caso | Victor Cândido Leite",
+      "back": "Todos os projetos",
+      "kicker": "aplicativo android tv · sistema em produção · 2026",
+      "title": "WISP TV",
+      "tagline": "Os sistemas da operação direto nas TVs, sem computador no meio.",
+      "intro": "Um aplicativo instalado em cada TV do Centro de Operações do Grupo GVS que transforma o aparelho num terminal dos painéis das usinas: abre sozinho ao ligar, mantém cada TV na sua tela, se recupera de quedas de rede e obedece a comandos da operação.",
+      "status": "Em produção no Grupo GVS · desde outubro de 2026",
+      "meta": [
+        {
+          "label": "Empresa",
+          "value": "Grupo GVS · Centro de Operações das usinas solares · outubro de 2026"
+        },
+        {
+          "label": "Escala",
+          "value": "8 TVs no escritório, 5 com o app ativo; 7 telas pelo controle remoto"
+        },
+        {
+          "label": "Meu papel",
+          "value": "Desenvolvedor e responsável técnico: levantamento, desenvolvimento com apoio de IA, homologação e implantação"
+        }
+      ],
+      "coverAlt": "Menu do WISP TV com o logo do Centro de Operações e sete cartões de tela, TELA 1 marcada como fixa e TELA 4 em foco",
+      "demoNote": "Todas as telas e o vídeo vêm do próprio aplicativo (v1.8) rodando no emulador oficial do Android TV, apontado para um servidor de demonstração: usinas, TVs e alertas são fictícios. A página de comandos é uma maquete com o mesmo contrato de API; nada foi capturado da produção.",
+      "stats": [
+        {
+          "value": "2",
+          "label": "computadores liberados para o trabalho do dia a dia"
+        },
+        {
+          "value": "5",
+          "label": "TVs com o app em produção, num escritório com 8"
+        },
+        {
+          "value": "7",
+          "label": "telas pelo controle remoto (eram 2 na primeira versão)"
+        },
+        {
+          "value": "8",
+          "label": "versões em cerca de 2 semanas, cada uma homologada"
+        },
+        {
+          "value": "~105 s",
+          "label": "para as telas voltarem sozinhas após queda de energia"
+        },
+        {
+          "value": "~5 min",
+          "label": "para a TV voltar à sua tela, nos 4 cenários testados"
+        },
+        {
+          "value": "8/8",
+          "label": "testes dos comandos remotos aprovados, incluindo falhas"
+        },
+        {
+          "value": "0",
+          "label": "bibliotecas externas e custo de hardware"
+        }
+      ],
+      "statsNote": "Registros de homologação e implantação de 14 a 27/10/2026.",
+      "problem": {
+        "eyebrow": "o problema",
+        "title": "As TVs da operação perderam a fonte.",
+        "body": "O Centro de Operações acompanha as usinas por sistemas web: painéis de geração, de alertas e de monitoramento. Para a equipe enxergar tudo de relance, essas telas iam para as TVs do escritório por dois computadores ligados a elas. Quando esses computadores passaram a ser necessários no dia a dia, as TVs ficaram sem nada. Era preciso levar os painéis direto para a TV.",
+        "optionsTitle": "O que não servia",
+        "options": [
+          {
+            "title": "Espelhamento (Chromecast)",
+            "text": "Não aceitava o controle remoto e desenhava as páginas em baixa resolução."
+          },
+          {
+            "title": "Navegador da TV",
+            "text": "Abria a página, mas não voltava sozinho depois de uma queda de energia nem resistia a alguém apertar o controle errado."
+          },
+          {
+            "title": "Aparelhos dedicados",
+            "text": "Custo de compra e mais equipamentos na rede para manter."
+          }
+        ]
+      },
+      "solution": {
+        "eyebrow": "a solução",
+        "title": "Uma TV que se comporta como equipamento de operação.",
+        "body": "Um aplicativo próprio, instalado em cada TV, sem bibliotecas externas para o time interno conseguir manter.",
+        "features": [
+          {
+            "title": "Menu no controle remoto",
+            "text": "7 telas (5 painéis de usinas, 1 de alertas e 1 de monitoramento de geração), escolhidas com setas e OK; as setas também trocam de tela em ciclo."
+          },
+          {
+            "title": "Abre sozinho ao ligar",
+            "text": "Ao sair da espera ou depois de uma queda de energia, a TV volta à sua tela sem ninguém tocar nela."
+          },
+          {
+            "title": "Tela fixa por TV",
+            "text": "Cada TV tem a sua tela. Se alguém a tira de lá, ela volta sozinha após 5 minutos sem uso."
+          },
+          {
+            "title": "Controle pela operação",
+            "text": "Numa página web, o operador recarrega uma TV ou a devolve à tela certa com um clique, sem técnico."
+          },
+          {
+            "title": "Telas que cabem na TV",
+            "text": "Um painel feito para monitor é reduzido e centralizado por um script injetado, reconferido a cada 30 segundos."
+          },
+          {
+            "title": "Recuperação de rede",
+            "text": "Se a página não abre, o app avisa e tenta de novo a cada 30 segundos."
+          }
+        ],
+        "flowTitle": "Quem fala com quem",
+        "flowOffice": "Escritório de operação",
+        "flowNetwork": "Rede interna",
+        "flow": {
+          "remote": "Controle remoto",
+          "tv": "TV + app WISP TV: menu, tela fixa e vigia",
+          "dashboards": "Painéis de usinas",
+          "alerts": "Painel de alertas + página de comandos",
+          "external": "Painel de monitoramento de outro sistema (HTTPS)",
+          "operator": "Operador: recarregar ou devolver à tela fixa",
+          "poll": "A TV pergunta a cada ~15 s se há comando para ela; o servidor nunca se conecta à TV."
+        }
+      },
+      "screens": {
+        "eyebrow": "as telas",
+        "title": "Do menu à página de comandos.",
+        "body": "Capturas do aplicativo no emulador do Android TV em 1920×1080, com dados fictícios. Escolha uma tela:",
+        "items": [
+          {
+            "id": "menu",
+            "title": "Menu de telas",
+            "meta": "Controle remoto",
+            "description": "Sete cartões navegados com setas e OK; a tela fixa desta TV aparece marcada, e o rodapé lembra que o app abre sozinho ao ligar.",
+            "alt": "Menu com sete cartões de tela, TELA 1 marcada como fixa e TELA 4 com o foco do controle"
+          },
+          {
+            "id": "painel-usinas",
+            "title": "Painel de usinas",
+            "meta": "Tela 1",
+            "description": "A grade das usinas fictícias com potência, PR, inversores e status Normal, Alerta ou Falha.",
+            "alt": "Painel com vinte usinas fictícias, cada uma com potência, PR, inversores e status"
+          },
+          {
+            "id": "monitoramento",
+            "title": "Monitoramento ajustado",
+            "meta": "Tela 7",
+            "description": "Um painel feito para monitor de computador, reduzido e centralizado pelo script injetado para caber inteiro na TV.",
+            "alt": "Painel de monitoramento com medidores de vinte e quatro usinas e o gráfico de potência total, ajustado à tela da TV"
+          },
+          {
+            "id": "alertas",
+            "title": "Alertas da operação",
+            "meta": "Tela 6",
+            "description": "A lista de alertas das usinas com gravidade, descrição, usina e há quanto tempo aconteceu.",
+            "alt": "Lista de alertas fictícios com falhas e alertas de usinas e o tempo de cada um"
+          },
+          {
+            "id": "controle-tvs",
+            "title": "Página de comandos",
+            "meta": "Operador",
+            "description": "Cada TV com situação, tela atual, tela fixa, último contato e versão, e os botões Recarregar e Tela fixa.",
+            "alt": "Tabela com as TVs TV-01 a TV-05, situação, tela, último contato, versão e os botões Recarregar e Tela fixa"
+          },
+          {
+            "id": "erro-rede",
+            "title": "Sem rede",
+            "meta": "Recuperação",
+            "description": "Quando a página não abre, a TV explica o que conferir e tenta de novo sozinha em 30 segundos.",
+            "alt": "Mensagem \"Não foi possível abrir a TELA 3\" com contagem para a nova tentativa e o botão Tentar agora"
+          }
+        ],
+        "videoTitle": "Vídeo da demonstração",
+        "videoText": "Escolher uma tela no menu, trocar de tela com as setas e voltar sozinho à tela fixa depois de uma interferência, com o tempo acelerado. 70 segundos, sem som.",
+        "videoLabel": "Vídeo de 70 segundos mostrando o menu, a troca de telas e a volta automática à tela fixa"
+      },
+      "challenge": {
+        "eyebrow": "o desafio",
+        "title": "Fazer uma TV doméstica se comportar como equipamento de operação.",
+        "body": "TVs comuns são feitas para a sala de casa: economizam energia, fecham aplicativos \"esquecidos\" e obedecem a qualquer controle. Num escritório de operação, tudo isso atrapalha.",
+        "items": [
+          {
+            "title": "A TV não deixava o app abrir sozinho",
+            "text": "Um \"protetor\" do fabricante bloqueia o aviso de inicialização (BOOT_COMPLETED) e encerra serviços iniciados no boot. O app passou a só agendar um alarme do sistema (AlarmManager) no boot, que o protetor não bloqueia; quando a tela abre, ela liga o serviço vigia."
+          },
+          {
+            "title": "Controles alheios tiravam a TV da tela",
+            "text": "O Android não deixa um app ver o que acontece nos outros. A regra que não depende disso: fora da tela fixa há 5 minutos sem uso, a TV volta. E, para não abrir por trás do protetor de tela, o app acorda a TV antes (wake lock)."
+          },
+          {
+            "title": "Corrigir uma TV exigia um técnico",
+            "text": "Cada TV pergunta a cada ~15 s ao painel da operação se há comando para ela, confirma a execução na consulta seguinte e nunca repete um comando. Se o painel cai, a TV segue mostrando o que já mostrava e tenta de novo a cada 60 s."
+          },
+          {
+            "title": "A TV mentia o tamanho da tela",
+            "text": "O navegador interno informava 1431×805 quando a área visível era 961×541, e um painel transbordava. O app corrige essas medidas depois da carga. Na mesma investigação: a TV desenha toda a interface em 1280×720, apesar do painel Full HD."
+          }
+        ],
+        "tableTitle": "Antes e depois, medido em homologação",
+        "headers": [
+          "Situação",
+          "Antes",
+          "Depois"
+        ],
+        "rows": [
+          [
+            "Fonte das telas",
+            "2 computadores dedicados",
+            "nenhuma: o app roda na TV"
+          ],
+          [
+            "Telas após queda de energia",
+            "não abriam até alguém intervir",
+            "abrem sozinhas em ~105 s (só ~6 s são o app)"
+          ],
+          [
+            "TV tirada da tela por outro controle",
+            "ficava fora",
+            "volta em ~5 min"
+          ],
+          [
+            "Recarregar ou corrigir uma TV",
+            "técnico com computador",
+            "um clique do operador"
+          ],
+          [
+            "Telas pelo controle",
+            "2 na primeira versão",
+            "7"
+          ]
+        ]
+      },
+      "results": {
+        "eyebrow": "resultados",
+        "title": "Duas semanas, oito versões, cinco TVs.",
+        "body": "Números dos registros de homologação e implantação, de 14 a 27/10/2026.",
+        "headers": [
+          "Resultado",
+          "Número"
+        ],
+        "rows": [
+          [
+            "Computadores liberados para o dia a dia",
+            "2"
+          ],
+          [
+            "TVs com o app em produção",
+            "5, num escritório com 8"
+          ],
+          [
+            "Telas disponíveis pelo controle remoto",
+            "7 (eram 2)"
+          ],
+          [
+            "Versões liberadas",
+            "8 em cerca de 2 semanas, cada uma homologada numa TV de teste"
+          ],
+          [
+            "Recuperação automática",
+            "4 de 4 cenários de interferência, entre 5 min 05 s e 5 min 34 s"
+          ],
+          [
+            "Tela ajustada recentralizada sozinha",
+            "em menos de 40 s"
+          ],
+          [
+            "Testes dos comandos remotos",
+            "8 de 8, incluindo servidor fora do ar, comando expirado e TV sem identificação"
+          ],
+          [
+            "Bibliotecas externas e custo de hardware",
+            "zero: as TVs já existiam"
+          ]
+        ]
+      },
+      "role": {
+        "eyebrow": "minha parte",
+        "title": "Do levantamento com a operação ao script de implantação.",
+        "items": [
+          "Levantei com a operação o que cada TV precisava mostrar e como as telas eram usadas.",
+          "Desenvolvi o aplicativo do zero com apoio de IA: eu definia o comportamento, revisava o código e conduzia os testes em TV real. Sem bibliotecas externas, para o time interno manter.",
+          "Investiguei os bloqueios do fabricante e das páginas lendo os registros do sistema (logcat, dumpsys) e inspecionando o WebView ao vivo pelo DevTools.",
+          "Escrevi e executei roteiros de homologação numa TV de teste antes de cada liberação, com prints e registros.",
+          "Defini o contrato da API de comandos com o painel web da operação e testei em homologação antes da produção.",
+          "Automatizei a implantação com scripts (instalação, conferência de versão por hash, configuração de cada TV) e documentei instalação e reversão."
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "próximos passos",
+        "title": "O que vem depois.",
+        "items": [
+          "Assinar o app com a chave oficial da TI e formalizar a distribuição.",
+          "Versões dos painéis feitas para TV, com letras maiores (já prototipadas: 8 cartões por página, em rodízio).",
+          "Avaliar um aparelho externo para exibir em Full HD de verdade, já que as TVs atuais desenham a interface em 720p.",
+          "Indicadores de saúde das TVs (último contato, versão) na página de comandos."
+        ]
+      },
+      "next": {
+        "eyebrow": "aprendizados",
+        "title": "O que este projeto me ensinou.",
+        "items": [
+          {
+            "title": "Medir antes de otimizar",
+            "text": "Descobrir que a TV desenha em 720p evitou semanas de ajuste inútil no app."
+          },
+          {
+            "title": "Trabalhar com a plataforma",
+            "text": "Um alarme do sistema resolveu o que o serviço em segundo plano não conseguia."
+          },
+          {
+            "title": "Regras simples resistem melhor",
+            "text": "\"5 minutos fora da tela, volta\" funciona sem enxergar o que o Android esconde."
+          },
+          {
+            "title": "A TV busca, o servidor não empurra",
+            "text": "Inverter a direção da comunicação simplificou a segurança e tornou as falhas inofensivas."
+          },
+          {
+            "title": "IA acelera, o aparelho decide",
+            "text": "Com apoio de IA, cada versão saiu em horas; mesmo assim, três problemas só apareceram na TV real."
+          }
+        ]
+      },
+      "stack": {
+        "eyebrow": "tecnologia",
+        "title": "Android puro, sem dependências.",
+        "process": "Java puro sobre o Android TV, sem bibliotecas externas: o WebView mostra os painéis, um serviço em primeiro plano vigia a tela e um alarme do sistema garante a abertura no boot.",
+        "groups": [
+          {
+            "label": "App",
+            "items": [
+              "Android TV",
+              "Java",
+              "WebView",
+              "Serviço em primeiro plano",
+              "AlarmManager"
+            ]
+          },
+          {
+            "label": "Integração",
+            "items": [
+              "API HTTP/JSON de comandos",
+              "JavaScript injetado"
+            ]
+          },
+          {
+            "label": "Implantação",
+            "items": [
+              "ADB",
+              "PowerShell"
+            ]
+          },
+          {
+            "label": "Diagnóstico",
+            "items": [
+              "logcat",
+              "dumpsys",
+              "Chrome DevTools"
+            ]
+          }
+        ],
+        "teamLabel": "Autoria",
+        "team": [
+          "Victor Cândido Leite — desenvolvedor e responsável técnico no Grupo GVS"
+        ]
+      },
+      "closing": {
+        "title": "Equipamento que já existia, trabalhando sozinho.",
+        "text": "Sem comprar nada, as TVs do escritório viraram terminais da operação que ligam, se corrigem e se recuperam sozinhos, e dois computadores voltaram ao trabalho.",
         "back": "Voltar aos projetos",
         "contact": "Vamos conversar"
       }

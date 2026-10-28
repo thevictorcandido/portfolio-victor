@@ -104,6 +104,17 @@
       "TensorRT",
       "Flask",
       "Computer vision"
+    ],
+    "wisptvTitle": "WISP TV — Operations dashboards straight on the TVs",
+    "wisptvBadge": "In production at Grupo GVS",
+    "wisptvTagline": "An Android TV app that powers on, self-corrects and recovers on its own",
+    "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost.",
+    "wisptvTags": [
+      "Android TV",
+      "Java",
+      "WebView",
+      "HTTP/JSON API",
+      "Automation"
     ]
   },
   "experience": {
@@ -1454,6 +1465,377 @@
       "closing": {
         "title": "From a business problem to a system in production.",
         "text": "I spotted the need, proposed the solution and built it from scratch: AI, interface, alerts, reports and production operation. It is the project where technology most clearly turned into business results.",
+        "back": "Back to projects",
+        "contact": "Let's talk"
+      }
+    },
+    "wisptv": {
+      "docTitle": "WISP TV, case study | Victor Cândido Leite",
+      "back": "All projects",
+      "kicker": "android tv app · production system · 2026",
+      "title": "WISP TV",
+      "tagline": "The operations systems straight on the TVs, with no computer in between.",
+      "intro": "An app installed on each TV at Grupo GVS's Operations Center that turns it into a terminal for the plant dashboards: it opens by itself on power-up, keeps each TV on its screen, recovers from network drops and follows commands from the operators.",
+      "status": "In production at Grupo GVS · since October 2026",
+      "meta": [
+        {
+          "label": "Company",
+          "value": "Grupo GVS · solar plant Operations Center · October 2026"
+        },
+        {
+          "label": "Scale",
+          "value": "8 TVs in the office, 5 running the app; 7 screens by remote"
+        },
+        {
+          "label": "My role",
+          "value": "Developer and technical owner: requirements, AI-assisted development, acceptance testing and rollout"
+        }
+      ],
+      "coverAlt": "WISP TV menu with the Operations Center logo and seven screen cards, SCREEN 1 marked as pinned and SCREEN 4 in focus",
+      "demoNote": "Every screen and the video come from the app itself (v1.8) running on the official Android TV emulator, pointed at a demo server: plants, TVs and alerts are fictional. The command page is a mock-up with the same API contract; nothing was captured from production.",
+      "stats": [
+        {
+          "value": "2",
+          "label": "computers freed up for day-to-day work"
+        },
+        {
+          "value": "5",
+          "label": "TVs running the app in production, in an office with 8"
+        },
+        {
+          "value": "7",
+          "label": "screens by remote (2 in the first release)"
+        },
+        {
+          "value": "8",
+          "label": "releases in about 2 weeks, each one validated"
+        },
+        {
+          "value": "~105 s",
+          "label": "for screens to come back on their own after a power outage"
+        },
+        {
+          "value": "~5 min",
+          "label": "for a TV to return to its screen, in all 4 tested scenarios"
+        },
+        {
+          "value": "8/8",
+          "label": "remote-command tests passed, failure cases included"
+        },
+        {
+          "value": "0",
+          "label": "third-party libraries and hardware cost"
+        }
+      ],
+      "statsNote": "Acceptance and rollout records, Oct 14–27, 2026.",
+      "problem": {
+        "eyebrow": "the problem",
+        "title": "The operations TVs lost their source.",
+        "body": "The Operations Center monitors the plants through web systems: generation, alert and monitoring dashboards. So the team could see everything at a glance, those screens reached the office TVs through two computers wired to them. When those computers were needed for daily work, the TVs went blank. The dashboards had to go straight to the TV.",
+        "optionsTitle": "What did not work",
+        "options": [
+          {
+            "title": "Casting (Chromecast)",
+            "text": "No remote control support and low-resolution rendering."
+          },
+          {
+            "title": "The TV's browser",
+            "text": "Opened the page, but did not come back after a power outage or survive someone pressing the wrong remote."
+          },
+          {
+            "title": "Dedicated devices",
+            "text": "Purchase cost plus more equipment on the network to maintain."
+          }
+        ]
+      },
+      "solution": {
+        "eyebrow": "the solution",
+        "title": "A TV that behaves like operations equipment.",
+        "body": "A purpose-built app installed on each TV, with no third-party libraries so the in-house team can maintain it.",
+        "features": [
+          {
+            "title": "Menu on the remote",
+            "text": "7 screens (5 plant dashboards, 1 alerts and 1 generation monitoring), picked with arrows and OK; arrows also cycle between them."
+          },
+          {
+            "title": "Opens by itself on power-up",
+            "text": "After standby or a power outage, the TV returns to its screen without anyone touching it."
+          },
+          {
+            "title": "Pinned screen per TV",
+            "text": "Each TV has its own screen. If someone moves it away, it returns after 5 idle minutes."
+          },
+          {
+            "title": "Operator control",
+            "text": "From a web page, the operator reloads a TV or sends it back to its screen in one click, with no technician."
+          },
+          {
+            "title": "Screens that fit the TV",
+            "text": "A dashboard made for desktop monitors is scaled and centred by an injected script, rechecked every 30 seconds."
+          },
+          {
+            "title": "Network recovery",
+            "text": "If a page fails to load, the app says so and retries every 30 seconds."
+          }
+        ],
+        "flowTitle": "Who talks to whom",
+        "flowOffice": "Operations office",
+        "flowNetwork": "Internal network",
+        "flow": {
+          "remote": "Remote control",
+          "tv": "TV + WISP TV app: menu, pinned screen and watchdog",
+          "dashboards": "Plant dashboards",
+          "alerts": "Alerts dashboard + command page",
+          "external": "Monitoring dashboard from another system (HTTPS)",
+          "operator": "Operator: reload or send back to the pinned screen",
+          "poll": "The TV asks every ~15 s whether there is a command for it; the server never connects to the TV."
+        }
+      },
+      "screens": {
+        "eyebrow": "the screens",
+        "title": "From the menu to the command page.",
+        "body": "Captures of the app on the Android TV emulator at 1920×1080, with fictional data. Pick a screen:",
+        "items": [
+          {
+            "id": "menu",
+            "title": "Screen menu",
+            "meta": "Remote control",
+            "description": "Seven cards navigated with arrows and OK; this TV's pinned screen is marked, and the footer notes that the app opens on power-up.",
+            "alt": "Menu with seven screen cards, SCREEN 1 marked as pinned and SCREEN 4 with remote focus"
+          },
+          {
+            "id": "painel-usinas",
+            "title": "Plants dashboard",
+            "meta": "Screen 1",
+            "description": "The grid of fictional plants with power, PR, inverters and Normal, Alert or Failure status.",
+            "alt": "Dashboard with twenty fictional plants, each with power, PR, inverters and status"
+          },
+          {
+            "id": "monitoramento",
+            "title": "Scaled monitoring",
+            "meta": "Screen 7",
+            "description": "A dashboard made for desktop monitors, scaled and centred by the injected script to fit the TV.",
+            "alt": "Monitoring dashboard with gauges for twenty-four plants and the total power chart, fitted to the TV screen"
+          },
+          {
+            "id": "alertas",
+            "title": "Operations alerts",
+            "meta": "Screen 6",
+            "description": "The list of plant alerts with severity, description, plant and how long ago it happened.",
+            "alt": "List of fictional plant failures and alerts with the time of each one"
+          },
+          {
+            "id": "controle-tvs",
+            "title": "Command page",
+            "meta": "Operator",
+            "description": "Each TV with status, current screen, pinned screen, last contact and version, plus the Reload and Pinned screen buttons.",
+            "alt": "Table with TVs TV-01 to TV-05, status, screen, last contact, version and the Reload and Pinned screen buttons"
+          },
+          {
+            "id": "erro-rede",
+            "title": "No network",
+            "meta": "Recovery",
+            "description": "When a page fails to load, the TV says what to check and retries by itself in 30 seconds.",
+            "alt": "\"Could not open SCREEN 3\" message with a retry countdown and the Try now button"
+          }
+        ],
+        "videoTitle": "Demo video",
+        "videoText": "Picking a screen in the menu, cycling screens with the arrows and returning to the pinned screen after interference, sped up. 70 seconds, no sound.",
+        "videoLabel": "70-second video showing the menu, screen switching and the automatic return to the pinned screen"
+      },
+      "challenge": {
+        "eyebrow": "the challenge",
+        "title": "Making a consumer TV behave like operations equipment.",
+        "body": "Consumer TVs are built for living rooms: they save power, close \"forgotten\" apps and obey any remote. In an operations office, all of that gets in the way.",
+        "items": [
+          {
+            "title": "The TV would not let the app start by itself",
+            "text": "A manufacturer \"protector\" blocks the boot broadcast (BOOT_COMPLETED) and kills services started at boot. At boot the app now only schedules a system alarm (AlarmManager), which the protector allows; once the screen opens, it starts the watchdog service."
+          },
+          {
+            "title": "Stray remotes pulled TVs off their screen",
+            "text": "Android does not let one app see what happens in others. The rule that does not need to: off the pinned screen for 5 idle minutes, the TV goes back. And to avoid opening behind the screensaver, the app wakes the TV first (wake lock)."
+          },
+          {
+            "title": "Fixing a TV required a technician",
+            "text": "Each TV asks the operations dashboard every ~15 s whether there is a command for it, acknowledges it on the next request and never repeats a command. If the dashboard is down, the TV keeps showing what it shows and retries every 60 s."
+          },
+          {
+            "title": "The TV lied about its screen size",
+            "text": "The embedded browser reported 1431×805 while the visible area was 961×541, and one dashboard overflowed. The app corrects those values after load. Same investigation: the TV renders its whole UI at 1280×720 despite a Full HD panel."
+          }
+        ],
+        "tableTitle": "Before and after, measured in acceptance testing",
+        "headers": [
+          "Situation",
+          "Before",
+          "After"
+        ],
+        "rows": [
+          [
+            "Screen source",
+            "2 dedicated computers",
+            "none: the app runs on the TV"
+          ],
+          [
+            "Screens after a power outage",
+            "stayed off until someone stepped in",
+            "open by themselves in ~105 s (only ~6 s is the app)"
+          ],
+          [
+            "TV moved away by another remote",
+            "stayed away",
+            "returns in ~5 min"
+          ],
+          [
+            "Reloading or fixing a TV",
+            "technician with a laptop",
+            "one operator click"
+          ],
+          [
+            "Screens by remote",
+            "2 in the first release",
+            "7"
+          ]
+        ]
+      },
+      "results": {
+        "eyebrow": "results",
+        "title": "Two weeks, eight releases, five TVs.",
+        "body": "Figures from the acceptance and rollout records, Oct 14–27, 2026.",
+        "headers": [
+          "Result",
+          "Number"
+        ],
+        "rows": [
+          [
+            "Computers freed up for daily work",
+            "2"
+          ],
+          [
+            "TVs running the app in production",
+            "5, in an office with 8"
+          ],
+          [
+            "Screens available by remote",
+            "7 (up from 2)"
+          ],
+          [
+            "Releases",
+            "8 in about 2 weeks, each validated on a test TV"
+          ],
+          [
+            "Automatic recovery",
+            "4 of 4 interference scenarios, between 5 min 05 s and 5 min 34 s"
+          ],
+          [
+            "Scaled screen re-centred by itself",
+            "in under 40 s"
+          ],
+          [
+            "Remote-command tests",
+            "8 of 8, including server down, expired command and unidentified TV"
+          ],
+          [
+            "Third-party libraries and hardware cost",
+            "zero: the TVs were already there"
+          ]
+        ]
+      },
+      "role": {
+        "eyebrow": "my part",
+        "title": "From operations requirements to the rollout script.",
+        "items": [
+          "Gathered requirements with the operations team: what each TV must show and how the screens are used.",
+          "Built the app from scratch with AI assistance: I defined the behaviour, reviewed the code and ran the tests on real TVs. No third-party libraries, so the in-house team can maintain it.",
+          "Diagnosed manufacturer and web-page blockers by reading system logs (logcat, dumpsys) and inspecting the WebView live through DevTools.",
+          "Wrote and ran acceptance test plans on a test TV before every release, with screenshots and logs.",
+          "Defined the command API contract with the operations web dashboard and tested it in staging before production.",
+          "Automated rollout with scripts (install, hash-based version check, per-TV configuration) and documented installation and rollback."
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "next steps",
+        "title": "What comes next.",
+        "items": [
+          "Sign the app with the IT department's official key and formalise distribution.",
+          "TV-specific versions of the dashboards with larger type (already prototyped: 8 cards per page, rotating).",
+          "Evaluate an external device for true Full HD, since the current TVs render their UI at 720p.",
+          "TV health indicators (last contact, version) on the command page."
+        ]
+      },
+      "next": {
+        "eyebrow": "lessons learned",
+        "title": "What this project taught me.",
+        "items": [
+          {
+            "title": "Measure before optimising",
+            "text": "Finding the 720p render limit saved weeks of pointless tuning in the app."
+          },
+          {
+            "title": "Work with the platform",
+            "text": "A system alarm solved what a background service could not."
+          },
+          {
+            "title": "Simple rules hold up better",
+            "text": "\"5 minutes off the screen, go back\" works without seeing what Android hides."
+          },
+          {
+            "title": "The TV pulls, the server doesn't push",
+            "text": "Reversing the direction of communication simplified security and made failures harmless."
+          },
+          {
+            "title": "AI speeds up, the device decides",
+            "text": "With AI assistance each release took hours, yet three issues only showed up on the real TV."
+          }
+        ]
+      },
+      "stack": {
+        "eyebrow": "technology",
+        "title": "Plain Android, no dependencies.",
+        "process": "Plain Java on Android TV, with no third-party libraries: a WebView shows the dashboards, a foreground service watches the screen and a system alarm guarantees startup at boot.",
+        "groups": [
+          {
+            "label": "App",
+            "items": [
+              "Android TV",
+              "Java",
+              "WebView",
+              "Foreground service",
+              "AlarmManager"
+            ]
+          },
+          {
+            "label": "Integration",
+            "items": [
+              "HTTP/JSON command API",
+              "Injected JavaScript"
+            ]
+          },
+          {
+            "label": "Rollout",
+            "items": [
+              "ADB",
+              "PowerShell"
+            ]
+          },
+          {
+            "label": "Diagnostics",
+            "items": [
+              "logcat",
+              "dumpsys",
+              "Chrome DevTools"
+            ]
+          }
+        ],
+        "teamLabel": "Author",
+        "team": [
+          "Victor Cândido Leite — developer and technical owner at Grupo GVS"
+        ]
+      },
+      "closing": {
+        "title": "Equipment that was already there, working on its own.",
+        "text": "Without buying anything, the office TVs became operations terminals that power on, self-correct and recover on their own, and two computers went back to work.",
         "back": "Back to projects",
         "contact": "Let's talk"
       }
