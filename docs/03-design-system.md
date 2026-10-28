@@ -174,10 +174,10 @@ Página `/projetos/sentinela-gvs`, desde 2026-10-28: sistema corporativo de vigi
 - `// 04` desafio com a tabela antes/depois da otimização e o caso dos cães (8 → 2 em 17); `// 05` a tabela de resultados; `// 06` próximos passos; `// 07` aprendizados; `// 08` tecnologia e autoria.
 - O relatório em PDF do pacote ficou de fora: mesmo sendo de demonstração, cada página leva "Confidencial — Uso Interno". A tela "Dados para relatório" mostra o mesmo conteúdo.
 
-> [!WARNING]
-> **armadilha**
+> [!NOTE]
+> **contexto**
 >
-> O estudo de caso que veio com o material diz "publicar só depois da aprovação de compliance". O código e as imagens estão commitados, mas o push para a `main` publica na Vercel: só fazer depois dessa aprovação.
+> O estudo de caso que veio com o material diz "publicar só depois da aprovação de compliance". A aprovação veio em 2026-10-28 e a página foi publicada no mesmo dia. Material novo do Sentinela passa pela mesma aprovação antes do push.
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
