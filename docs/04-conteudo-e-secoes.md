@@ -22,7 +22,7 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 
 ## Skills listadas
 
-Globo único com 16 tecnologias, cada uma com texto curto e um exemplo de projeto real. A fonte dos exemplos é o grafo de notas **Tecnologias** ↔ **Repositórios** do vault do Obsidian (fora do repo).
+Globo único com 16 tecnologias, cada uma com texto curto e um exemplo de projeto real. A fonte dos exemplos é o grafo **Tecnologias** ↔ **Repositórios** do vault.
 
 - **Backend:** Python, Java, Spring Boot, Node.js, JUnit, APIs REST, Git & GitHub.
 - **Front-end:** HTML, CSS, JavaScript, React, Tailwind CSS, WordPress.
@@ -30,6 +30,7 @@ Globo único com 16 tecnologias, cada uma com texto curto e um exemplo de projet
 
 > [!WARNING]
 > **o que ainda falta**
+>
 > Node.js e Hugging Face têm exemplo genérico ("trabalho interdisciplinar do 1º semestre"): contexto do projeto a completar.
 
 ## Links externos

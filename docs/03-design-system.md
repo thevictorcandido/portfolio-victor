@@ -89,6 +89,7 @@ Inspirado no `skills --globo` de https://aramuni.dev. Lá é three.js (react-thr
 
 > [!TIP]
 > **verificado em 2026-10-22**
+>
 > Edge headless via CDP, em 1280, 375 e 320 px, pt-BR e en: clique abre o painel (opacidade 0,85 aos 90 ms), arrasto não troca a seleção, Esc fecha, Tab gira o ícone focado para a frente (opacidade 0,14 → 1) e Enter abre, sem rolagem horizontal e sem erro no console. Com `--force-prefers-reduced-motion` o painel aparece já em opacidade 1.
 
 ## Trajetória (`ui/features-with-panel.jsx`)
@@ -114,6 +115,7 @@ As animações são classes `.illo-*` no `index.css` (piscar, fluxo por `stroke-
 
 > [!TIP]
 > **verificado em 2026-10-22**
+>
 > Quadros amostrados pela Web Animations API (`getAnimations()` + `currentTime`): aos 0,9 s a curva está desenhando e o site montando; aos 4,3 s o cursor clica com o pulso, o feed está cheio e a agulha andou. Com movimento reduzido, as 3 cenas aparecem completas. A 375 px o item aberto mostra resumo + ilustração, sem rolagem horizontal; no desktop o painel troca ao clicar nos 3 cargos.
 
 ## Navbar (`Navbar.jsx`)
@@ -130,10 +132,12 @@ Desde 2026-10-23 segue o navbar-02 do shadcnui-blocks (21st.dev; o registro do 2
 
 > [!CAUTION]
 > **defeito, com causa raiz**
+>
 > No celular a barra vazava 44 px para a direita. Causa: o botão principal tinha `inline-flex` na classe base e recebia `hidden` por fora; o `cn()` do projeto não resolve conflito e o `inline-flex` vencia. Correção: o `display` saiu da classe base e cada uso define o seu.
 
 > [!TIP]
 > **verificado em 2026-10-23**
+>
 > 1440 e 1024 px: links e idioma na barra, sem sobrar nada. 768 px: idioma, "Vamos conversar" e menu. 375 px: sem rolagem horizontal; o painel abre com foco no fechar e a página travada, e o link "Habilidades" fecha o painel e para a seção a 64 px do topo (logo abaixo da barra), com o foco de volta no botão de menu.
 
 ## Estudo de caso (`pages/CaseStudyDegrauEduca.jsx`)

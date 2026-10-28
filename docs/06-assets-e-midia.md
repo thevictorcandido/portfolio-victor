@@ -22,6 +22,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 
 > [!TIP]
 > **removidas em 2026-10-22**
+>
 > `victor-agora.jpeg`, `victor-meio.jpeg` e `victor-inicio.jpeg` (uma foto por cargo na Trajetória) saíram com `git rm` quando a seção trocou de componente.
 
 ## Prints do Degrau Educa (`projects/degrau-educa/`)

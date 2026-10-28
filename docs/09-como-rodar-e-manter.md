@@ -139,5 +139,5 @@ npm run preview    # serve o dist/ localmente
 ## Documentação
 
 - Vault Obsidian: `Portfolio Victor.md` + pasta `Portfolio Victor/` (fonte principal).
-- Espelho no repo: `docs/` (mesmo conteúdo, links em Markdown padrão para renderizar no GitHub).
-- Ao mudar estado relevante (decisão, bug, número medido), atualizar os dois.
+- Espelho no repo: `docs/`, gerado por `npm run docs:sync` (`scripts/sync-docs.mjs`) desde 2026-10-28: não editar à mão. Wikilinks viram links `.md`, callouts viram alertas do GitHub, frontmatter sai. Linha ou título de callout terminado em `#so-vault` fica só no vault; se sobrar algum termo de `.docs-sync-bloqueio.txt` (raiz do vault, um por linha), o script para sem gravar nada.
+- Ao mudar estado relevante (decisão, bug, número medido), atualizar só o vault; `docs/` acompanha no próximo `docs:sync`.

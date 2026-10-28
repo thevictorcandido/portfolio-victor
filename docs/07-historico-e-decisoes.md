@@ -35,15 +35,18 @@ Voltar: [Portfolio Victor](README.md)
 
 > [!IMPORTANT]
 > **Trajetória sem título e sem fotos, em timeline horizontal**
+>
 > Em 2026-10-22 a Trajetória perdeu o cabeçalho ("03 · Vivência & Trajetória") e as fotos: a seção se explica pelo conteúdo. A primeira versão, no mesmo dia, foi o `timeline-3` em fundo verde-musgo; foi descartada (cor e componente) em favor da timeline horizontal da Hyperiux Vault, no fundo bege das outras seções e com acento laranja vivo `#FF5F00`. Dependência nova: `gsap` 3.15 (ScrollTrigger e SplitText vêm no pacote); o JS foi de 538 kB para 651 kB (gzip +45 kB). Resumo, local, bullets e chips de cada cargo saíram (recuperáveis pelo histórico): ficaram período, cargo e empresa.
 
 > [!IMPORTANT]
 > **globo de habilidades sem three.js**
+>
 > Em 2026-10-22 os dois cards (Backend, IA) viraram um globo como o `skills --globo` de aramuni.dev; no clique aparece um texto com exemplo real em vez de um link para o site da tecnologia. O original usa react-three-fiber (~950 KB só no chunk do globo); aqui é projeção à mão + `<canvas>` 2D, e o JS total foi de 512,83 kB para 538,02 kB. Detalhes em [03 - Design System](03-design-system.md).
 
 > [!IMPORTANT]
 > **só entra tecnologia com projeto real**
-> Saíram PostgreSQL, Docker, Redis, LangChain, PyTorch, Pandas & NumPy, Ollama e Scikit-Learn e OpenAI API (sem projeto real). Entraram Spring Boot, React, Vercel, HTML, CSS, JavaScript, Tailwind, JUnit e WordPress, que têm projeto no grafo de repositórios do vault. Os exemplos vêm das notas de tecnologias do vault; ao mudar um, atualizar os dois `translation.json`.
+>
+> Saíram PostgreSQL, Docker, Redis, LangChain, PyTorch, Pandas & NumPy, Ollama e Scikit-Learn e OpenAI API (sem projeto real). Entraram Spring Boot, React, Vercel, HTML, CSS, JavaScript, Tailwind, JUnit e WordPress, que têm projeto no grafo **Repositórios**. Os exemplos vêm das notas **Tecnologias**; ao mudar um, atualizar os dois `translation.json`.
 
 > [!IMPORTANT]
 > **tema claro em vez de escuro**
