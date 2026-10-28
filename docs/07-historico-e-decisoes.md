@@ -145,6 +145,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-28 entrou o Sentinela GVS, sistema de vigilância com IA em produção no Grupo GVS (projeto individual), como primeiro projeto da pilha: é o que mais claramente mostra tecnologia virando resultado para a empresa. Sem repositório nem demo pública, o estudo de caso usa só o pacote preparado para portfólio, com dados de demonstração; o PDF marcado como confidencial ficou de fora. A publicação esperou a aprovação de compliance da empresa, que veio em 2026-10-28.
 
+> [!IMPORTANT]
+> **WISP TV como segundo projeto**
+>
+> Em 2026-10-28 entrou o WISP TV, app Android TV em produção no Centro de Operações do Grupo GVS (projeto individual), como segundo projeto, logo depois do Sentinela. Mesmo processo: pacote para portfólio com dados de demonstração, página própria, galeria empilhada e vídeo. O logo interno do Centro de Operações foi liberado para publicação, e a página fala em "apoio de IA" sem citar a ferramenta.
+
 > [!NOTE]
 > **contexto**
 >

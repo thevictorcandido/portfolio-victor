@@ -15,6 +15,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `projects/degrau-educa/*.webp` | Estudo de caso do Degrau Educa (19 imagens, 817 KB); `home.webp` também é a imagem do card (desde 2026-10-28) |
 | `projects/drift-invaders/*.webp` | Estudo de caso do Drift Invaders (8 quadros 1280 × 720, WebP qualidade 86, 307 KB); `menu.webp` também é a imagem do card (desde 2026-10-28) |
 | `projects/sentinela-gvs/` | Estudo de caso do Sentinela GVS: 12 telas da instância de demonstração (WebP qualidade 84, 1600 px, 980 KB), `demo.mp4` (o vídeo de 60 s refeito em 1280 px, H.264 CRF 27, sem áudio: 13,3 MB → 2,1 MB) e `demo-poster.webp`; `cameras.webp` também é a imagem do card (desde 2026-10-28) |
+| `projects/wisp-tv/` | Estudo de caso do WISP TV: 6 telas do app no emulador (WebP qualidade 84, 1600 px, 262 KB), `demo.mp4` (70 s refeito em 1280 px a 30 fps, H.264 CRF 26, sem áudio: 2,5 MB → 0,8 MB) e `demo-poster.webp`; `menu.webp` também é a imagem do card (desde 2026-10-28). Logo "WISP · GVS — Centro de Operações" é identidade interna do Grupo GVS, liberado para publicação |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" verde elétrico `#3FEE3F` sobre carbono `#191A1D` (desde 2026-10-20; cores desde 2026-10-23) |
 | `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 197 KB sem redução de cores (desde 2026-10-21; refeita em 2026-10-23 com a paleta nova) |

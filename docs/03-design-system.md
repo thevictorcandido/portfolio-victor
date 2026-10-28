@@ -179,6 +179,15 @@ Página `/projetos/sentinela-gvs`, desde 2026-10-28: sistema corporativo de vigi
 >
 > O estudo de caso que veio com o material diz "publicar só depois da aprovação de compliance". A aprovação veio em 2026-10-28 e a página foi publicada no mesmo dia. Material novo do Sentinela passa pela mesma aprovação antes do push.
 
+## Estudo de caso do WISP TV (`pages/CaseStudyWispTv.jsx`)
+
+Página `/projetos/wisp-tv`, desde 2026-10-28: app Android TV do Centro de Operações do Grupo GVS (projeto individual, em produção), sem demo pública nem código aberto. O conteúdo veio de um pacote para portfólio (estudo de caso em PT/EN, 6 capturas, vídeo de 70 s e créditos), gerado com o próprio app v1.8 no emulador oficial do Android TV apontado para um servidor de demonstração; a página de comandos é uma maquete com o mesmo contrato de API.
+
+- Mesma estrutura do Sentinela: abertura com Empresa / Escala / Meu papel, nota sobre os dados de demonstração, 8 números com período.
+- `// 02` features e o diagrama "quem fala com quem" (escritório ↔ rede interna) em caixas HTML, a partir do Mermaid do pacote; `// 03` galeria de 6 telas com `layout="stacked"` e o vídeo na largura toda; `// 04` os 4 desafios de uma TV doméstica e a tabela antes/depois; `// 05` resultados; `// 06` a parte individual (lista); `// 07` próximos passos; `// 08` aprendizados; `// 09` tecnologia.
+- O material original cita a ferramenta de IA pelo nome; por escolha do autor, a página diz só "com apoio de IA" (no papel e no aprendizado "IA acelera, o aparelho decide").
+- A `Table` do Sentinela foi para `components/case-study/blocks.jsx` e passou a ser usada pelas duas páginas.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
