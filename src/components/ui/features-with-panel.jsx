@@ -51,12 +51,14 @@ function FeatureMedia({ content, alt }) {
     )
   }
 
-  return <img src={content} alt={alt} className="w-full h-full object-cover" />
+  return <img src={content} alt={alt} loading="lazy" className="w-full h-full object-cover object-top" />
 }
 
-const panelClass = 'relative w-full aspect-4/3 overflow-hidden rounded-2xl border border-ivory/10 bg-carbon-raised shadow-xl shadow-black/40'
+// mediaAspect: proporção do painel; 4:3 para as ilustrações, 16:10 para prints de tela
+const panelClass = (aspect) =>
+  cn('relative w-full overflow-hidden rounded-2xl border border-ivory/10 bg-carbon-raised shadow-xl shadow-black/40', aspect)
 
-export function FeaturesWithPanel({ items, header }) {
+export function FeaturesWithPanel({ items, header, mediaAspect = 'aspect-4/3' }) {
   const [active, setActive] = useState(0)
   const baseId = useId()
 
@@ -126,7 +128,7 @@ export function FeaturesWithPanel({ items, header }) {
                           {item.description && (
                             <p className="text-sm text-ivory/70 leading-relaxed">{item.description}</p>
                           )}
-                          <div className={cn(panelClass, 'mt-4 lg:hidden')}>
+                          <div className={cn(panelClass(mediaAspect), 'mt-4 lg:hidden')}>
                             <FeatureMedia content={item.media} alt={item.alt} />
                           </div>
                         </div>
@@ -140,7 +142,7 @@ export function FeaturesWithPanel({ items, header }) {
         </div>
 
         <div className="hidden lg:block sticky top-28">
-          <div className={panelClass}>
+          <div className={panelClass(mediaAspect)}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}

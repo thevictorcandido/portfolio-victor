@@ -51,7 +51,18 @@ export const portfolioData = {
     { id: "mkt", company: "Grupo GVS" },
   ],
 
+  // id "proj-<chave>" → textos em projects.<chave>Title, <chave>Desc... nos dois JSON.
+  // address: o que aparece na barra de navegador do card quando não há liveUrl;
+  // caseStudy: caminho da página de estudo de caso (rota em App.jsx)
   projects: [
+    {
+      id: "proj-degraueduca",
+      image: "/projects/degrau-educa/home.webp",
+      githubUrl: null,
+      liveUrl: null,
+      address: "localhost:3001/modulos/degrau-educa",
+      caseStudy: "/projetos/degrau-educa",
+    },
     {
       id: "proj-gvs",
       image: "/projects/grupogvs-hero.webp",

@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { ArrowUpRight, ChevronUp, ChevronDown, Globe } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ChevronUp, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { GithubIcon } from './Icons'
 import { portfolioData } from '../data/portfolioData'
+import { Link } from '../lib/router'
 
 export default function Projects() {
   const { t } = useTranslation()
@@ -98,8 +99,10 @@ export default function Projects() {
           )}
         </div>
 
-        {/* Pilha Vertical de Cards com Efeito de Profundidade */}
-        <div className="relative min-h-[580px] md:min-h-[540px]">
+        {/* Pilha Vertical de Cards com Efeito de Profundidade. Todos ocupam a
+            mesma célula da grade: a pilha fica com a altura do card mais alto,
+            em vez de uma altura fixa que cortava o conteúdo em telas médias */}
+        <div className="grid">
           {projects.map((proj, idx) => {
             const isCurrent = idx === activeIndex
             const isBehind = idx === (activeIndex + 1) % projects.length
@@ -118,7 +121,7 @@ export default function Projects() {
                   opacity: isCurrent ? 1 : isBehind ? 0.65 : 0,
                   pointerEvents: isCurrent ? 'auto' : 'none',
                 }}
-                className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xl overflow-hidden p-6 sm:p-10"
+                className="[grid-area:1/1] relative transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xl overflow-hidden p-6 sm:p-10"
               >
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full">
                   
@@ -162,17 +165,31 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      {/* Links de Ação */}
+                      {/* Links de Ação: com estudo de caso, ele é o botão principal */}
                       <div className="flex flex-wrap items-center gap-3">
+                        {proj.caseStudy && (
+                          <Link
+                            href={proj.caseStudy}
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-electric text-carbon hover:bg-electric-hover transition-all shadow-xs hover:scale-[1.02] cursor-pointer"
+                          >
+                            <span>{t('projects.caseStudy')}</span>
+                            <ArrowRight className="w-4 h-4 text-carbon/60" />
+                          </Link>
+                        )}
+
                         {proj.liveUrl && (
                           <a
                             href={proj.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-electric text-carbon hover:bg-electric-hover transition-all shadow-xs hover:scale-[1.02] cursor-pointer"
+                            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                              proj.caseStudy
+                                ? 'bg-ivory/8 hover:bg-ivory/12 text-ivory border border-ivory/10'
+                                : 'bg-electric text-carbon hover:bg-electric-hover shadow-xs hover:scale-[1.02]'
+                            }`}
                           >
                             <span>{t('projects.viewProject')}</span>
-                            <ArrowUpRight className="w-4 h-4 text-carbon/60" />
+                            <ArrowUpRight className={`w-4 h-4 ${proj.caseStudy ? 'text-ivory/60' : 'text-carbon/60'}`} />
                           </a>
                         )}
 
@@ -203,7 +220,7 @@ export default function Projects() {
                           <span className="w-2.5 h-2.5 rounded-full bg-electric" />
                         </div>
                         <span className="font-mono text-[11px] text-ivory/45 truncate max-w-[240px]">
-                          {proj.liveUrl}
+                          {proj.liveUrl ?? proj.address}
                         </span>
                         <div className="flex items-center gap-1.5 text-ivory/45">
                           <Globe className="w-3.5 h-3.5" />
@@ -219,6 +236,10 @@ export default function Projects() {
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-stone-950/10 pointer-events-none" />
+                        {/* A imagem também abre o estudo de caso; fora do Tab, que já tem o botão */}
+                        {proj.caseStudy && (
+                          <Link href={proj.caseStudy} tabIndex={-1} aria-hidden="true" className="absolute inset-0" />
+                        )}
                       </div>
 
                     </div>

@@ -70,6 +70,18 @@
       "Identidade Digital",
       "Geração de Energia",
       "Grupo GVS"
+    ],
+    "caseStudy": "Ler estudo de caso",
+    "degraueducaTitle": "Degrau Educa — Cursos Profissionalizantes",
+    "degraueducaBadge": "Projeto acadêmico em grupo · Concluído",
+    "degraueducaTagline": "Plataforma web que organiza cursos gratuitos em trilhas até o primeiro emprego",
+    "degraueducaDesc": "Trabalho Interdisciplinar da PUC Minas, feito em equipe de cinco. Reúne cursos de instituições reconhecidas em jornadas com ordem pedagógica, salva o progresso de cada aluno e tem um painel administrativo para manter o catálogo. Fiquei com o Design Thinking, os CRUDs do painel e parte do cadastro e login.",
+    "degraueducaTags": [
+      "JavaScript",
+      "HTML & CSS",
+      "Bootstrap 5",
+      "JSON Server",
+      "Design Thinking"
     ]
   },
   "experience": {
@@ -264,5 +276,388 @@
     "course": "Engenharia de Software",
     "rights": "Todos os direitos reservados.",
     "tagline": "Desenvolvido com rigor técnico, design editorial e sensibilidade criativa por Victor Cândido Leite."
+  },
+  "caseStudies": {
+    "degraueduca": {
+      "docTitle": "Degrau Educa, estudo de caso | Victor Cândido Leite",
+      "back": "Todos os projetos",
+      "kicker": "aplicação web · ux · trabalho interdisciplinar · 2026",
+      "title": "Degrau Educa",
+      "tagline": "Suba cada degrau da sua carreira com propósito.",
+      "intro": "Uma plataforma web que reúne cursos profissionalizantes gratuitos de instituições reconhecidas e os organiza em jornadas: trilhas em ordem, do primeiro curso ao primeiro emprego, com o progresso de cada aluno salvo.",
+      "status": "Concluído · entregue em junho de 2026",
+      "meta": [
+        {
+          "label": "Contexto",
+          "value": "PUC Minas · Engenharia de Software · Trabalho Interdisciplinar 1: Aplicações Web · 2026/1"
+        },
+        {
+          "label": "Equipe",
+          "value": "5 estudantes, com orientação de 3 professores"
+        },
+        {
+          "label": "Meu papel",
+          "value": "Design Thinking e UX, o painel administrativo com 4 CRUDs e parte do cadastro e login"
+        }
+      ],
+      "coverAlt": "Página inicial do Degrau Educa: a chamada \"Suba cada degrau da sua carreira com propósito\" e os botões Explorar Jornadas e Ver Cursos",
+      "stats": [
+        {
+          "value": "12",
+          "label": "funcionalidades entregues"
+        },
+        {
+          "value": "17",
+          "label": "cursos selecionados, 355 h no total"
+        },
+        {
+          "value": "3",
+          "label": "jornadas em ordem pedagógica"
+        },
+        {
+          "value": "9",
+          "label": "instituições parceiras"
+        },
+        {
+          "value": "3",
+          "label": "personas com mapa de empatia"
+        },
+        {
+          "value": "5",
+          "label": "telas em wireframe antes do código"
+        },
+        {
+          "value": "4",
+          "label": "CRUDs no painel administrativo"
+        },
+        {
+          "value": "7",
+          "label": "coleções na API do JSON Server"
+        }
+      ],
+      "problem": {
+        "eyebrow": "o problema",
+        "title": "Curso gratuito não falta. Falta saber qual vale a pena, e em que ordem.",
+        "body": "Para entrar no mercado de trabalho hoje, o diploma do ensino médio já não basta. As plataformas oferecem uma infinidade de cursos, e escolher um, ou montar uma sequência de estudos, vira uma tarefa difícil. Com os gratuitos é pior: não há como saber quais têm qualidade e são reconhecidos pelas empresas.",
+        "quotes": [
+          {
+            "label": "O que mais surpreendeu na pesquisa",
+            "text": "O aumento da empregabilidade e da média salarial de quem faz cursos profissionalizantes, e a falta de ferramentas que ajudem a posicionar esses cursos no currículo."
+          },
+          {
+            "label": "O que mais pesou",
+            "text": "A boa aceitação do estudo pela internet e a existência de soluções parecidas, que podem servir de referência."
+          },
+          {
+            "label": "O que ficou para investigar",
+            "text": "Quais plataformas de ensino e associações as empresas mais valorizam na hora de escolher um candidato."
+          }
+        ],
+        "note": "Resumo do quadro de highlights da pesquisa da equipe.",
+        "goalLabel": "Objetivo",
+        "goal": "Reunir em um só lugar cursos gratuitos de plataformas reconhecidas, classificá-los por área de interesse e encadeá-los em trilhas com uma sequência lógica e progressiva."
+      },
+      "research": {
+        "eyebrow": "pesquisa e definição",
+        "title": "Antes do código, separar o que se sabe do que se supõe.",
+        "body": "O processo seguiu o Design Thinking no Miro, a partir de um modelo dos professores: Matriz CSD para alinhar certezas, suposições e dúvidas, mapa de stakeholders, pesquisa e personas com mapa de empatia e proposta de valor.",
+        "csd": [
+          {
+            "label": "Certezas",
+            "items": [
+              "Instituições como SENAC, SESC, Udemy, Fundação Bradesco, USP e FGV oferecem cursos gratuitos",
+              "A divulgação desses cursos não é centralizada",
+              "Falta acesso para pessoas de baixa renda"
+            ]
+          },
+          {
+            "label": "Suposições",
+            "items": [
+              "Os cursos ajudam a entrar no mercado de trabalho",
+              "Acompanhar o progresso durante o curso faz diferença",
+              "O aluno precisa de interesse e constância"
+            ]
+          },
+          {
+            "label": "Dúvidas",
+            "items": [
+              "Quantos alunos o mercado de fato aproveita?",
+              "O que faz o aluno desistir?",
+              "Qual a faixa etária de quem procura esses cursos?"
+            ]
+          }
+        ],
+        "csdAlt": "Matriz de Alinhamento CSD com as colunas Dúvidas, Certezas e Suposições",
+        "csdCaption": "Matriz CSD: as dúvidas viraram perguntas para a pesquisa.",
+        "stakeholdersAlt": "Mapa de stakeholders em três círculos: fundamentais, importantes e influenciadores",
+        "stakeholdersCaption": "Mapa de stakeholders: alunos e plataformas de ensino no centro; empregadores e o MEC na borda de influência.",
+        "personasTitle": "Três personas, três pontos de partida",
+        "wantLabel": "Quer",
+        "painLabel": "Trava em",
+        "designLabel": "O que muda na interface",
+        "personas": [
+          {
+            "name": "Lucas, 19",
+            "role": "Estudante, em busca do primeiro emprego",
+            "want": "Encontrar cursos gratuitos, melhorar o currículo e conseguir o primeiro emprego.",
+            "pain": "Excesso de opções, falta de direção e pouca motivação: começa cursos e abandona.",
+            "design": "Trilha pronta, linguagem simples e incentivo ao longo do caminho."
+          },
+          {
+            "name": "Juliana, 32",
+            "role": "Assistente administrativa, estuda à noite",
+            "want": "Uma promoção e novas habilidades, sem largar o trabalho.",
+            "pain": "Falta de tempo, cansaço e dificuldade de manter a constância.",
+            "design": "Cursos objetivos, carga horária à vista e progresso que se retoma de onde parou."
+          },
+          {
+            "name": "Carlos, 28",
+            "role": "Desempregado, faz trabalhos informais",
+            "want": "Um emprego e habilidades práticas para melhorar de vida.",
+            "pain": "Acesso só pelo celular, internet limitada e pouca intimidade com tecnologia.",
+            "design": "Interface leve e responsiva, inclusiva e sem jargão."
+          }
+        ]
+      },
+      "design": {
+        "eyebrow": "do papel à tela",
+        "title": "Histórias de usuário, wireframes e um protótipo antes de programar.",
+        "body": "As personas viraram histórias de usuário no formato \"Eu como… preciso de… para…\" e uma proposta de valor para cada uma. Delas saíram os wireframes de cinco telas (home, login, perfil, curso e jornada), o user flow e um protótipo navegável, usado para validar a navegação antes do código.",
+        "storiesAlt": "Quadro de histórias de usuário com as colunas Eu como, Preciso de e Para",
+        "storiesCaption": "Histórias de usuário: cada linha liga uma persona a uma necessidade e ao motivo dela.",
+        "wireframeAlt": "Wireframe à mão da tela de jornada: cursos em caixas ligadas por setas, em serpentina",
+        "wireframeCaption": "Wireframe da jornada: a ideia da serpentina já estava no papel.",
+        "finalAlt": "Tela de jornada implementada: cinco cursos em sequência, ligados por linhas tracejadas, cada um com um switch Concluído",
+        "finalCaption": "Jornada implementada: a mesma serpentina, com um switch de conclusão em cada curso.",
+        "flowAlt": "User flow com miniaturas das telas inicial, login, usuário, jornada e cursos",
+        "flowCaption": "User flow: da tela inicial ao login, perfil, jornada e cursos.",
+        "prototype": "Abrir o protótipo no MarvelApp"
+      },
+      "solution": {
+        "eyebrow": "a solução",
+        "title": "Uma experiência para quem estuda, outra para quem cuida do catálogo.",
+        "body": "O aluno navega pelo catálogo, entra em jornadas, marca o que concluiu e acompanha a evolução no dashboard. Tudo em HTML, CSS e JavaScript puro, com Bootstrap e uma API REST simulada pelo JSON Server. Escolha uma tela:",
+        "screens": [
+          {
+            "id": "home",
+            "title": "Página inicial",
+            "meta": "Público",
+            "description": "Chamada principal, atalhos para jornadas e cursos e as jornadas em destaque.",
+            "alt": "Página inicial do Degrau Educa com a chamada principal e o início da seção Nossas Jornadas"
+          },
+          {
+            "id": "cursos",
+            "title": "Catálogo de cursos",
+            "meta": "Público · busca e filtros",
+            "description": "Busca por nome ou instituição e filtros por categoria. Cada card mostra carga horária e emissor.",
+            "alt": "Catálogo com barra de busca, filtros por categoria e cards de cursos com carga horária e emissor"
+          },
+          {
+            "id": "curso",
+            "title": "Detalhe do curso",
+            "meta": "Público · inscrição com login",
+            "description": "Descrição, ficha técnica e link para a plataforma de origem. Logado, o aluno se inscreve e depois marca como concluído.",
+            "alt": "Página do curso Algoritmos e Lógica de Programação com duração, emissor, descrição e ficha técnica"
+          },
+          {
+            "id": "jornada",
+            "title": "Jornada",
+            "meta": "Aluno",
+            "description": "Os cursos da trilha em ordem, um switch de conclusão em cada um, barra de progresso e um coração para favoritar.",
+            "alt": "Jornada Introdução ao Desenvolvimento de Programas em Python com cinco cursos em serpentina"
+          },
+          {
+            "id": "dashboard",
+            "title": "Dashboard do aluno",
+            "meta": "Aluno",
+            "description": "Dias seguidos de acesso, meta semanal, a mensagem motivacional do momento, progresso nos cursos e um atalho para retomar a jornada.",
+            "alt": "Dashboard com 5 dias de frequência, mensagem de parabéns, progresso de 100% e o botão Retomar Jornada"
+          },
+          {
+            "id": "perfil",
+            "title": "Perfil",
+            "meta": "Aluno",
+            "description": "Dados pessoais, área de interesse, foto e as listas de cursos em andamento, concluídos e favoritos.",
+            "alt": "Perfil com avatar, nome, e-mail, área de interesse e listas de cursos em andamento, concluídos e favoritos"
+          },
+          {
+            "id": "parceiros",
+            "title": "Parceiros",
+            "meta": "Público",
+            "description": "As 9 instituições por trás dos cursos, com categoria e link para o site de cada uma.",
+            "alt": "Grade com os logos das instituições parceiras, como Fundação Bradesco, Udemy, Senac e Curso em Vídeo"
+          },
+          {
+            "id": "login",
+            "title": "Login e cadastro",
+            "meta": "Público",
+            "description": "Entrada por usuário e senha; o cadastro abre num modal. O estudante vai para o dashboard, o administrador para o painel.",
+            "alt": "Tela de login com os campos usuário e senha e o link Registre-se"
+          }
+        ]
+      },
+      "admin": {
+        "eyebrow": "minha parte: o painel administrativo",
+        "title": "Um painel para o catálogo crescer sem mexer em código.",
+        "body": "O administrador entra pelo mesmo login e cai num painel com quatro módulos no menu lateral. Cada um é um CRUD sobre uma coleção do JSON Server, com fetch e os verbos GET, POST, PUT, PATCH e DELETE, e um aviso na tela a cada operação.",
+        "modules": [
+          {
+            "id": "admin-parceiros",
+            "title": "Parceiros",
+            "text": "Abas Relação, Cadastrar, Alterar e Excluir. A relação filtra a tabela enquanto se digita; Alterar sugere parceiros pelo nome e preenche o formulário; Excluir remove vários de uma vez, com \"selecionar todos\".",
+            "alt": "Módulo Parceiros: tabela com instituição, categoria, link e logo, busca e as abas Cadastrar, Relação, Alterar e Excluir"
+          },
+          {
+            "id": "admin-cursos",
+            "title": "Cursos",
+            "text": "O mesmo formulário cria e edita: título, carga horária, parceiro emissor, links, categorias, resumo, descrição, módulos separados por ponto e vírgula e tags separadas por vírgula. O slug sai do título.",
+            "alt": "Formulário de edição do curso Algoritmos e Lógica de Programação com todos os campos preenchidos"
+          },
+          {
+            "id": "admin-jornadas",
+            "title": "Jornadas",
+            "text": "Marca-se os cursos da trilha e a ordem em que o aluno deve fazê-los, com as setas ↑ e ↓. É essa ordem que desenha a serpentina na tela do aluno.",
+            "alt": "Edição da jornada de Python: cursos marcados e a lista Ordem dos cursos selecionados com setas para subir e descer"
+          },
+          {
+            "id": "admin-mensagens",
+            "title": "Mensagens motivacionais",
+            "text": "Mensagens de incentivo disparadas por gatilho: dias seguidos de acesso, total de logins, conclusão de curso ou de jornada, cliques e percentual de progresso.",
+            "alt": "Módulo Mensagens Motivacionais com o formulário de tipo de evento e quantidade e a tabela de mensagens cadastradas"
+          }
+        ],
+        "codeTitle": "Três trechos do que escrevi",
+        "code": [
+          {
+            "title": "Reordenar um curso na jornada",
+            "text": "Troca o curso de lugar com o vizinho e redesenha a lista; as setas das pontas ficam desabilitadas."
+          },
+          {
+            "title": "Slug a partir do título",
+            "text": "Tira acentos e símbolos para gerar o endereço do curso: \"Lógica de Programação\" vira \"logica-de-programacao\"."
+          },
+          {
+            "title": "Login que conta os dias seguidos",
+            "text": "Cada entrada soma ao total de acessos, mas a sequência só cresce quando o último acesso foi em outro dia. É ela que alimenta o dashboard e as mensagens."
+          }
+        ],
+        "loginNote": "No cadastro e login, também fiz parte da criação de conta (com conferência de senha e id sequencial), da entrada que atualiza total de acessos e sequência de dias e do redirecionamento por perfil: estudante para o dashboard, administrador para o painel."
+      },
+      "data": {
+        "eyebrow": "dados",
+        "title": "Sete coleções e uma API REST simulada.",
+        "body": "Sem backend próprio: o JSON Server transforma um arquivo JSON numa API REST e serve os arquivos do site. As coleções se ligam por id, e o usuário logado fica no localStorage.",
+        "collections": [
+          {
+            "name": "usuarios",
+            "text": "login, perfil (usuário ou admin), total de logins e sequência de dias"
+          },
+          {
+            "name": "cursos",
+            "text": "carga horária, emissor, link de referência, módulos, tags e categorias"
+          },
+          {
+            "name": "jornadas",
+            "text": "lista ordenada de ids de cursos, resumo e categorias"
+          },
+          {
+            "name": "progresso_usuario",
+            "text": "o que cada aluno favoritou, iniciou ou concluiu, com data"
+          },
+          {
+            "name": "categorias",
+            "text": "Tecnologia, Design e Criatividade, Desenvolvimento Pessoal"
+          },
+          {
+            "name": "parceiros",
+            "text": "nome, categoria, site e logo de cada instituição"
+          },
+          {
+            "name": "mensagens_motivacionais",
+            "text": "tipo de gatilho, quantidade para disparar e texto"
+          }
+        ],
+        "exampleCaption": "Uma jornada no db-educa.json: a ordem dos cursos é a ordem do array."
+      },
+      "stack": {
+        "eyebrow": "ferramentas e processo",
+        "title": "Web puro, do protótipo à hospedagem.",
+        "groups": [
+          {
+            "label": "Interface",
+            "items": [
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "Bootstrap 5.3",
+              "Font Awesome 6.4",
+              "Google Fonts"
+            ]
+          },
+          {
+            "label": "Dados",
+            "items": [
+              "JSON Server",
+              "Fetch API",
+              "localStorage"
+            ]
+          },
+          {
+            "label": "Processo",
+            "items": [
+              "Design Thinking no Miro",
+              "MarvelApp",
+              "Scrum",
+              "GitHub"
+            ]
+          },
+          {
+            "label": "Hospedagem",
+            "items": [
+              "Hugging Face Spaces"
+            ]
+          }
+        ],
+        "process": "O planejamento foi feito em conjunto, com Scrum e Design Thinking. Na construção, cada integrante ficou com telas e CRUDs específicos; a integração dos módulos voltou a ser feita em grupo.",
+        "teamLabel": "Equipe",
+        "team": [
+          "Emelly Vitoria Prates Maciel",
+          "João Mário Paes de Abreu",
+          "Pamela Fernandes Nilo",
+          "Túlio Marcus de Oliveira Gonçalves",
+          "Victor Cândido Leite"
+        ],
+        "advisorsLabel": "Orientação",
+        "advisors": [
+          "Danilo de Quadros Maia Filho",
+          "Luiz Henrique da Costa Silva",
+          "Cleiton Silva Tavares"
+        ]
+      },
+      "next": {
+        "eyebrow": "olhando de novo",
+        "title": "O que eu faria diferente hoje.",
+        "items": [
+          {
+            "title": "Autenticação no servidor",
+            "text": "As senhas ficam em texto puro no JSON e o login é conferido no navegador. Num produto, isso vai para o servidor, com hash de senha e sessão."
+          },
+          {
+            "title": "Feedback na própria tela",
+            "text": "Trocar os alert() por mensagens junto do campo com erro e pedir confirmação antes de excluir vários registros de uma vez."
+          },
+          {
+            "title": "Testes nos CRUDs",
+            "text": "Testes automatizados nas operações do painel, para a junção dos módulos não depender de conferir tudo à mão."
+          }
+        ]
+      },
+      "closing": {
+        "title": "Organizar o caminho também é ensinar.",
+        "text": "O Degrau Educa não cria cursos: escolhe os bons e diz em que ordem fazer. Foi meu primeiro projeto web completo em equipe, da pesquisa com personas ao painel que mantém tudo de pé.",
+        "back": "Voltar aos projetos",
+        "contact": "Vamos conversar"
+      }
+    }
   }
 }

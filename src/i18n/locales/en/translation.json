@@ -70,6 +70,18 @@
       "Digital Identity",
       "Power Generation",
       "Grupo GVS"
+    ],
+    "caseStudy": "Read case study",
+    "degraueducaTitle": "Degrau Educa — Vocational Courses",
+    "degraueducaBadge": "Academic team project · Completed",
+    "degraueducaTagline": "Web platform that organizes free courses into learning paths toward a first job",
+    "degraueducaDesc": "An interdisciplinary project at PUC Minas, built by a team of five. It gathers courses from recognized institutions into paths with a teaching order, saves each student's progress and includes an admin panel to manage the catalog. I handled the Design Thinking, the panel's CRUDs and part of sign-up and login.",
+    "degraueducaTags": [
+      "JavaScript",
+      "HTML & CSS",
+      "Bootstrap 5",
+      "JSON Server",
+      "Design Thinking"
     ]
   },
   "experience": {
@@ -264,5 +276,388 @@
     "course": "Software Engineering",
     "rights": "All rights reserved.",
     "tagline": "Crafted with technical rigor, editorial design, and creative sensibility by Victor Cândido Leite."
+  },
+  "caseStudies": {
+    "degraueduca": {
+      "docTitle": "Degrau Educa, case study | Victor Cândido Leite",
+      "back": "All projects",
+      "kicker": "web app · ux · interdisciplinary project · 2026",
+      "title": "Degrau Educa",
+      "tagline": "Climb each step of your career with purpose.",
+      "intro": "A web platform that gathers free vocational courses from recognized institutions and organizes them into paths: courses in order, from the first one to a first job, with each student's progress saved.",
+      "status": "Completed · delivered in June 2026",
+      "meta": [
+        {
+          "label": "Context",
+          "value": "PUC Minas · Software Engineering · Interdisciplinary Project 1: Web Applications · 2026/1"
+        },
+        {
+          "label": "Team",
+          "value": "5 students, advised by 3 professors"
+        },
+        {
+          "label": "My role",
+          "value": "Design Thinking and UX, the admin panel with 4 CRUDs and part of sign-up and login"
+        }
+      ],
+      "coverAlt": "Degrau Educa home page: the headline \"Climb each step of your career with purpose\" and the buttons Explore Paths and See Courses",
+      "stats": [
+        {
+          "value": "12",
+          "label": "features delivered"
+        },
+        {
+          "value": "17",
+          "label": "curated courses, 355 h in total"
+        },
+        {
+          "value": "3",
+          "label": "paths in teaching order"
+        },
+        {
+          "value": "9",
+          "label": "partner institutions"
+        },
+        {
+          "value": "3",
+          "label": "personas with empathy maps"
+        },
+        {
+          "value": "5",
+          "label": "screens wireframed before coding"
+        },
+        {
+          "value": "4",
+          "label": "CRUDs in the admin panel"
+        },
+        {
+          "value": "7",
+          "label": "collections in the JSON Server API"
+        }
+      ],
+      "problem": {
+        "eyebrow": "the problem",
+        "title": "Free courses are everywhere. Knowing which ones are worth it, and in what order, is not.",
+        "body": "Getting into the job market today takes more than a high school diploma. Platforms offer countless courses, and picking one, or planning a sequence of studies, becomes hard. With free courses it is worse: there is no way to tell which ones are good and recognized by employers.",
+        "quotes": [
+          {
+            "label": "What surprised us most",
+            "text": "The rise in employability and average salary of people who take vocational courses, and the lack of tools that help place those courses on a résumé."
+          },
+          {
+            "label": "What mattered most",
+            "text": "Studying online is widely accepted, and similar solutions exist that can serve as references."
+          },
+          {
+            "label": "Left to investigate",
+            "text": "Which learning platforms and associations employers value most when choosing a candidate."
+          }
+        ],
+        "note": "Summary of the team's research highlights board.",
+        "goalLabel": "Goal",
+        "goal": "Bring free courses from recognized platforms into one place, classify them by area of interest and chain them into paths with a logical, progressive sequence."
+      },
+      "research": {
+        "eyebrow": "research and definition",
+        "title": "Before code, separate what we know from what we assume.",
+        "body": "The process followed Design Thinking on Miro, from a template provided by the professors: a CSD Matrix to align certainties, assumptions and doubts, a stakeholder map, research, and personas with empathy maps and value propositions.",
+        "csd": [
+          {
+            "label": "Certainties",
+            "items": [
+              "Institutions like SENAC, SESC, Udemy, Fundação Bradesco, USP and FGV offer free courses",
+              "These courses are not promoted in one central place",
+              "Low-income people lack access"
+            ]
+          },
+          {
+            "label": "Assumptions",
+            "items": [
+              "Courses help people get into the job market",
+              "Tracking progress during a course makes a difference",
+              "Students need interest and consistency"
+            ]
+          },
+          {
+            "label": "Doubts",
+            "items": [
+              "How many students does the market actually hire?",
+              "What makes a student give up?",
+              "What age group looks for these courses?"
+            ]
+          }
+        ],
+        "csdAlt": "CSD Alignment Matrix with the columns Doubts, Certainties and Assumptions",
+        "csdCaption": "CSD Matrix: the doubts became research questions.",
+        "stakeholdersAlt": "Stakeholder map in three circles: fundamental, important and influencers",
+        "stakeholdersCaption": "Stakeholder map: students and learning platforms at the center; employers and the Ministry of Education at the edge.",
+        "personasTitle": "Three personas, three starting points",
+        "wantLabel": "Wants",
+        "painLabel": "Gets stuck on",
+        "designLabel": "What changes in the interface",
+        "personas": [
+          {
+            "name": "Lucas, 19",
+            "role": "Student looking for a first job",
+            "want": "Find free courses, improve his résumé and land a first job.",
+            "pain": "Too many options, no direction and low motivation: starts courses and drops them.",
+            "design": "Ready-made paths, plain language and encouragement along the way."
+          },
+          {
+            "name": "Juliana, 32",
+            "role": "Administrative assistant, studies at night",
+            "want": "A promotion and new skills without leaving her job.",
+            "pain": "Lack of time, fatigue and trouble staying consistent.",
+            "design": "Focused courses, workload in plain sight and progress that picks up where she left off."
+          },
+          {
+            "name": "Carlos, 28",
+            "role": "Unemployed, takes informal jobs",
+            "want": "A job and practical skills to improve his life.",
+            "pain": "Phone-only access, limited internet and little familiarity with technology.",
+            "design": "A light, responsive, inclusive interface without jargon."
+          }
+        ]
+      },
+      "design": {
+        "eyebrow": "from paper to screen",
+        "title": "User stories, wireframes and a prototype before coding.",
+        "body": "The personas became user stories in the \"As a… I need… so that…\" format and one value proposition each. From them came wireframes for five screens (home, login, profile, course and path), the user flow and a clickable prototype, used to validate navigation before writing code.",
+        "storiesAlt": "User stories board with the columns As a, I need and So that",
+        "storiesCaption": "User stories: each row links a persona to a need and its reason.",
+        "wireframeAlt": "Hand-drawn wireframe of the path screen: courses in boxes linked by arrows, in a snake layout",
+        "wireframeCaption": "Path wireframe: the snake layout was already on paper.",
+        "finalAlt": "Implemented path screen: five courses in sequence, linked by dashed lines, each with a Completed switch",
+        "finalCaption": "Implemented path: the same snake layout, with a completion switch on each course.",
+        "flowAlt": "User flow with thumbnails of the home, login, user, path and courses screens",
+        "flowCaption": "User flow: from the home screen to login, profile, paths and courses.",
+        "prototype": "Open the prototype on MarvelApp"
+      },
+      "solution": {
+        "eyebrow": "the solution",
+        "title": "One experience for those who study, another for those who run the catalog.",
+        "body": "Students browse the catalog, join paths, mark what they finished and follow their progress on the dashboard. All in plain HTML, CSS and JavaScript, with Bootstrap and a REST API mocked by JSON Server. Pick a screen:",
+        "screens": [
+          {
+            "id": "home",
+            "title": "Home page",
+            "meta": "Public",
+            "description": "Main headline, shortcuts to paths and courses, and the featured paths.",
+            "alt": "Degrau Educa home page with the main headline and the start of the Our Paths section"
+          },
+          {
+            "id": "cursos",
+            "title": "Course catalog",
+            "meta": "Public · search and filters",
+            "description": "Search by name or institution and filter by category. Each card shows workload and issuer.",
+            "alt": "Catalog with a search bar, category filters and course cards showing workload and issuer"
+          },
+          {
+            "id": "curso",
+            "title": "Course details",
+            "meta": "Public · enrollment requires login",
+            "description": "Description, fact sheet and a link to the original platform. Logged in, students enroll and later mark it as completed.",
+            "alt": "Course page for Algorithms and Programming Logic with duration, issuer, description and fact sheet"
+          },
+          {
+            "id": "jornada",
+            "title": "Path",
+            "meta": "Student",
+            "description": "The path's courses in order, a completion switch on each, a progress bar and a heart to save it.",
+            "alt": "Introduction to Programming in Python path with five courses in a snake layout"
+          },
+          {
+            "id": "dashboard",
+            "title": "Student dashboard",
+            "meta": "Student",
+            "description": "Consecutive login days, weekly goal, the current motivational message, course progress and a shortcut to resume the path.",
+            "alt": "Dashboard with a 5-day streak, a congratulations message, 100% progress and the Resume Path button"
+          },
+          {
+            "id": "perfil",
+            "title": "Profile",
+            "meta": "Student",
+            "description": "Personal data, area of interest, photo and the lists of courses in progress, completed and saved.",
+            "alt": "Profile with avatar, name, email, area of interest and lists of courses in progress, completed and saved"
+          },
+          {
+            "id": "parceiros",
+            "title": "Partners",
+            "meta": "Public",
+            "description": "The 9 institutions behind the courses, with category and a link to each website.",
+            "alt": "Grid with partner logos such as Fundação Bradesco, Udemy, Senac and Curso em Vídeo"
+          },
+          {
+            "id": "login",
+            "title": "Login and sign-up",
+            "meta": "Public",
+            "description": "Username and password login; sign-up opens in a modal. Students go to the dashboard, admins to the panel.",
+            "alt": "Login screen with username and password fields and the Sign up link"
+          }
+        ]
+      },
+      "admin": {
+        "eyebrow": "my part: the admin panel",
+        "title": "A panel to grow the catalog without touching code.",
+        "body": "Admins use the same login and land on a panel with four modules in the side menu. Each one is a CRUD over a JSON Server collection, using fetch with GET, POST, PUT, PATCH and DELETE, and an on-screen notice after every operation.",
+        "modules": [
+          {
+            "id": "admin-parceiros",
+            "title": "Partners",
+            "text": "List, Create, Edit and Delete tabs. The list filters the table as you type; Edit suggests partners by name and fills the form; Delete removes several at once, with \"select all\".",
+            "alt": "Partners module: table with institution, category, link and logo, a search box and the Create, List, Edit and Delete tabs"
+          },
+          {
+            "id": "admin-cursos",
+            "title": "Courses",
+            "text": "One form creates and edits: title, workload, issuing partner, links, categories, summary, description, modules separated by semicolons and tags separated by commas. The slug comes from the title.",
+            "alt": "Edit form for the Algorithms and Programming Logic course with every field filled in"
+          },
+          {
+            "id": "admin-jornadas",
+            "title": "Paths",
+            "text": "You check the path's courses and set the order students should take them in, with the ↑ and ↓ arrows. That order draws the snake layout on the student's screen.",
+            "alt": "Editing the Python path: checked courses and the Order of selected courses list with up and down arrows"
+          },
+          {
+            "id": "admin-mensagens",
+            "title": "Motivational messages",
+            "text": "Encouraging messages fired by triggers: consecutive login days, total logins, finishing a course or a path, clicks and progress percentage.",
+            "alt": "Motivational Messages module with the event type and quantity form and the table of saved messages"
+          }
+        ],
+        "codeTitle": "Three snippets I wrote",
+        "code": [
+          {
+            "title": "Reordering a course in a path",
+            "text": "Swaps the course with its neighbor and redraws the list; the arrows at the ends stay disabled."
+          },
+          {
+            "title": "Slug from the title",
+            "text": "Strips accents and symbols to build the course address: \"Lógica de Programação\" becomes \"logica-de-programacao\"."
+          },
+          {
+            "title": "Login that counts consecutive days",
+            "text": "Every login adds to the total, but the streak only grows when the last visit was on another day. It feeds the dashboard and the messages."
+          }
+        ],
+        "loginNote": "In sign-up and login, I also worked on account creation (with password confirmation and a sequential id), the login that updates total visits and the day streak, and the redirect by profile: students to the dashboard, admins to the panel."
+      },
+      "data": {
+        "eyebrow": "data",
+        "title": "Seven collections and a mocked REST API.",
+        "body": "No custom backend: JSON Server turns a JSON file into a REST API and serves the site's files. Collections link by id, and the logged-in user lives in localStorage.",
+        "collections": [
+          {
+            "name": "usuarios",
+            "text": "login, profile (user or admin), total logins and day streak"
+          },
+          {
+            "name": "cursos",
+            "text": "workload, issuer, reference link, modules, tags and categories"
+          },
+          {
+            "name": "jornadas",
+            "text": "ordered list of course ids, summary and categories"
+          },
+          {
+            "name": "progresso_usuario",
+            "text": "what each student saved, started or completed, with a date"
+          },
+          {
+            "name": "categorias",
+            "text": "Technology, Design and Creativity, Personal Development"
+          },
+          {
+            "name": "parceiros",
+            "text": "name, category, website and logo of each institution"
+          },
+          {
+            "name": "mensagens_motivacionais",
+            "text": "trigger type, threshold and text"
+          }
+        ],
+        "exampleCaption": "A path in db-educa.json: the course order is the array order."
+      },
+      "stack": {
+        "eyebrow": "tools and process",
+        "title": "Plain web, from prototype to hosting.",
+        "groups": [
+          {
+            "label": "Interface",
+            "items": [
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "Bootstrap 5.3",
+              "Font Awesome 6.4",
+              "Google Fonts"
+            ]
+          },
+          {
+            "label": "Data",
+            "items": [
+              "JSON Server",
+              "Fetch API",
+              "localStorage"
+            ]
+          },
+          {
+            "label": "Process",
+            "items": [
+              "Design Thinking on Miro",
+              "MarvelApp",
+              "Scrum",
+              "GitHub"
+            ]
+          },
+          {
+            "label": "Hosting",
+            "items": [
+              "Hugging Face Spaces"
+            ]
+          }
+        ],
+        "process": "Planning was done together, with Scrum and Design Thinking. During development, each member took specific screens and CRUDs; merging the modules was done as a group again.",
+        "teamLabel": "Team",
+        "team": [
+          "Emelly Vitoria Prates Maciel",
+          "João Mário Paes de Abreu",
+          "Pamela Fernandes Nilo",
+          "Túlio Marcus de Oliveira Gonçalves",
+          "Victor Cândido Leite"
+        ],
+        "advisorsLabel": "Advisors",
+        "advisors": [
+          "Danilo de Quadros Maia Filho",
+          "Luiz Henrique da Costa Silva",
+          "Cleiton Silva Tavares"
+        ]
+      },
+      "next": {
+        "eyebrow": "looking back",
+        "title": "What I would do differently today.",
+        "items": [
+          {
+            "title": "Server-side authentication",
+            "text": "Passwords are stored in plain text in the JSON file and login is checked in the browser. In a product, that moves to the server, with password hashing and sessions."
+          },
+          {
+            "title": "Feedback on the page",
+            "text": "Replace alert() with messages next to the field that failed and ask for confirmation before deleting several records at once."
+          },
+          {
+            "title": "Tests for the CRUDs",
+            "text": "Automated tests for the panel's operations, so merging the modules would not depend on checking everything by hand."
+          }
+        ]
+      },
+      "closing": {
+        "title": "Organizing the path is teaching too.",
+        "text": "Degrau Educa does not create courses: it picks the good ones and says in which order to take them. It was my first complete web project as part of a team, from personas to the panel that keeps it all running.",
+        "back": "Back to projects",
+        "contact": "Let's talk"
+      }
+    }
   }
 }
