@@ -12,7 +12,6 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `background-site.png` | Referência da grade de fundo; não é carregada, a grade é refeita em CSS (ver [03 - Design System](03-design-system.md)) |
 | `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
 | `projects/grupogvs-hero.webp` | Card do projeto GVS — 1440 × 900, WebP qualidade 85, 179 KB (o PNG tinha 1,4 MB; trocado em 2026-10-23) |
-| `projects/xulambis-terminal.webp` | Card do projeto Xulambis — **mockup**, não print real; WebP qualidade 90, 74 KB (desde 2026-10-23); recriado em 2026-10-20 a partir de `docs/mockups/xulambis-terminal.html` |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
 | `favicon.svg` | Favicon — monograma "V" verde elétrico `#3FEE3F` sobre carbono `#191A1D` (desde 2026-10-20; cores desde 2026-10-23) |
 | `og-image.png` | Prévia de link (Open Graph) — captura do Hero, 1200×630, 197 KB sem redução de cores (desde 2026-10-21; refeita em 2026-10-23 com a paleta nova) |

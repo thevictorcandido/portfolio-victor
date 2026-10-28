@@ -36,7 +36,7 @@ Voltar: [Portfolio Victor](README.md)
 > **O que foi movido para os JSON:**
 > | Antes | Agora |
 > |---|---|
-> | `projects[].title`, `projects[].tags` | `projects.{gvs,xulambis}Title`, `projects.{gvs,xulambis}Tags` |
+> | `projects[].title`, `projects[].tags` | `projects.<chave>Title`, `projects.<chave>Tags` (chave = `id` sem o `proj-`, ex.: `gvs`) |
 > | `experiences[].technologies`, `.imageAlt` | `experience.roles.{cor,web,mkt}.technologies`, `.imageAlt` |
 > | `skillsCategories[].technologies[].role` | `skills.techRoles.<key>` (cada tecnologia ganhou `key`) |
 > | `education[1]` inteiro + rodapé fixo do card | `education.continuous.{course,institution,period,desc,footer}` |

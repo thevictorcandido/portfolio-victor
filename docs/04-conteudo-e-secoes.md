@@ -9,7 +9,7 @@ Ordem em `App.jsx`. Coluna "fonte" diz de onde vem o texto exibido — ver [02 -
 | — | navegação | `Navbar.jsx` | Barra sólida presa no topo (estilo navbar-02): logo, 7 links com o ativo por rolagem, idioma, "Vamos conversar" e painel lateral abaixo de 1024 px | `nav.*` + `navItems` |
 | — | `hero` | `Hero.jsx` | Headline "Mente focada, código com alma criativa.", sem cabeçalho próprio (a navegação é toda da Navbar), nome alinhado à esquerda e a ilustração `pato.webp` com entrada elástica, status de disponibilidade | `hero.*` |
 | 01 | `about` | `About.jsx` | Bio em 3 parágrafos, foto "ponto de ônibus", floating dock (PUC, IA, GVS, GitHub, LinkedIn, e-mail) | `about.*` |
-| 02 | `projects` | `Projects.jsx` | Carrossel com 2 projetos (GVS e Xulambis), anterior/próximo | `projects.*` + `projects[].tags` |
+| 02 | `projects` | `Projects.jsx` | Pilha de cards de projetos (hoje só o GVS); pílulas e setas anterior/próximo aparecem só com mais de um projeto | `projects.*` + `projects[].tags` |
 | 03 | `experience` | `Experience.jsx` | Lista dos 3 cargos no Grupo GVS (cargo, período, resumo das funções) com painel de ilustração animada por cargo | `experience.*` + `experiences` |
 | 04 | `skills` | `Skills.jsx` | Globo 3D com 16 tecnologias (backend, front, infra, IA), centralizado; o clique encolhe o globo e abre ao lado um painel com texto e exemplo de projeto real | `skills.*` + `skills` |
 | 05 | `education` | `Education.jsx` | PUC Minas 2024–2029 + 4 disciplinas-chave (inclui DIAW) | `education.*` |
@@ -32,6 +32,5 @@ Globo único com 16 tecnologias, cada uma com texto curto e um exemplo de projet
 
 - Cargos da Trajetória → `https://grupogvs.com.br` (desde 2026-10-20; antes apontavam para o LinkedIn do Victor).
 - Projeto GVS → botão "Visitar Website Oficial" (`liveUrl`).
-- Projeto Xulambis → **sem botões**: repositório não é público e não há demo. Se o repo for aberto, preencher `githubUrl` em `portfolioData.js` que o botão volta sozinho.
 
 Ver [08 - Bugs e Pendências](08-bugs-e-pendencias.md).

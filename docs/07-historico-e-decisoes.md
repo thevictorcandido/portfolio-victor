@@ -125,6 +125,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-23 foi testado, numa branch separada, um modo claro alternável com fundo Baby Blue Ice `#89BBFE`, texto carbono e azul e verde escurecidos para contraste. Não agradou e a branch foi apagada; o site segue só no escuro. Se a ideia voltar: o fundo no meio da escala de luminância derruba o contraste dos textos com opacidade (`ivory/55` daria 3,1:1) e obriga a reforçar cada tom secundário.
 
+> [!IMPORTANT]
+> **Xulambis Pizza sai dos Projetos**
+>
+> Em 2026-10-28 o Xulambis Pizza (CLI de pizzaria em Java, trabalho em grupo na PUC Minas) saiu dos Projetos: dados, textos nos dois idiomas, imagem e o HTML do mockup que a gerava (`docs/mockups/`), tudo recuperável pelo histórico. O componente passou a ler os textos pelo `id` do projeto (`proj-gvs` → `projects.gvs*`) e a mostrar pílulas e setas só com mais de um projeto, para receber os próximos sem mudar código.
+
 > [!NOTE]
 > **contexto**
 >
