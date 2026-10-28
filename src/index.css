@@ -191,6 +191,21 @@ body::before {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Hero: animações encerradas ao primeiro scroll (Hero.jsx)                   */
+/* -------------------------------------------------------------------------- */
+
+/* Qualquer animação rodando no Hero durante a rolagem (seta pulando, letras do
+   nome chegando) fazia a GPU perder quadros até Projetos. Rolou, o Hero vai
+   direto ao estado final. O pato (GSAP) não pesa e fica de fora. */
+#hero[data-settled] p > span {
+  transition: none !important;
+}
+
+#hero[data-settled] .animate-bounce {
+  animation: none;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Ilustrações da Trajetória (ExperienceIllustrations.jsx)                    */
 /* -------------------------------------------------------------------------- */
 

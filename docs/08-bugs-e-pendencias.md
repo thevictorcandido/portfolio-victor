@@ -7,6 +7,20 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **rolagem travando até Projetos por animações do Hero — corrigido em 2026-10-28**
+>
+> **Sintoma:** depois das correções de 2026-10-23 e 2026-10-26, a rolagem do topo até Projetos ainda engasgava, com ou sem a animação de entrada já terminada.
+> **Causa raiz:** qualquer animação rodando no Hero durante a rolagem faz a GPU perder quadros inteiros (intervalos de 50, 67 e 83 ms, múltiplos exatos de 16,7). Fora da intro, a culpada é a seta "rolar para baixo" (`animate-bounce`, infinita). Durante a intro, também as transições do `BlurText` (letras do nome e frase). A thread principal fica ociosa (0 tarefas longas, ~18 ms de script em 2 s): o custo é de composição e rasterização na GPU.
+> **Como foi achado:** Chrome real com GPU (1920 × 1080, escala 1,5) via CDP, roda do mouse de 100 px a cada 40 ms do topo até `#projects`, 5 a 8 rodadas por variante, desligando um suspeito por CSS injetado. Rolando 4 s após carregar: com tudo ligado, 5 de 5 rodadas com 8 a 10 quadros > 25 ms; só sem o bounce, 5 de 5 lisas. Rolando 300 ms após carregar, mesmo sem o bounce, só o Hero sem transições ficou liso.
+> **Inocentes:** o pato (sem ele, a travada fica igual), a sombra dele, `will-change`, `backdrop-blur`, as seções abaixo de Projetos e os `animate-pulse` dos Projetos. O halo com `blur-3xl` reduz em parte, mas o resultado varia demais para concluir. Isolar o Hero (`isolation`, `contain: paint`) não resolve.
+> **Correção:** ao primeiro scroll, `Hero.jsx` marca a seção com `data-settled`; o CSS (`index.css`) para o bounce e tira a transição das letras, que vão direto ao estado final. Medido depois, rolando 300 ms após carregar: p95 entre quadros ~17 ms em todas as rodadas (antes, 50 a 83 ms na maioria) e 0 a 5 quadros > 25 ms (antes, 9 a 22).
+
+> [!WARNING]
+> **armadilha ao medir rolagem**
+>
+> A primeira rodada medida após o aquecimento sai ruim em quase toda variante, inclusive com tudo desligado: descartar. O painel do navegador embutido, quando oculto, não desenha quadros nem dispara `scroll`/IntersectionObserver; conferir comportamento num Chrome visível.
+
+> [!TIP]
 > **rolagem travando na animação inicial — corrigido em 2026-10-26**
 >
 > **Sintoma:** mesmo depois da correção de 2026-10-23, a rolagem do topo até Projetos ainda engasgava, principalmente durante a animação de entrada.

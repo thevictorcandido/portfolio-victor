@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -29,9 +29,20 @@ export default function Hero() {
     return () => ctx.revert()
   }, [])
 
+  // Ao primeiro scroll as animações do Hero terminam (regra em index.css):
+  // rodando junto com a rolagem, faziam a GPU perder quadros até Projetos.
+  const [settled, setSettled] = useState(() => window.scrollY > 0)
+  useEffect(() => {
+    if (settled) return
+    const settle = () => setSettled(true)
+    window.addEventListener('scroll', settle, { once: true, passive: true })
+    return () => window.removeEventListener('scroll', settle)
+  }, [settled])
+
   return (
     <section
       id="hero"
+      data-settled={settled || undefined}
       className="relative min-h-[calc(100svh-4rem)] flex flex-col justify-between overflow-hidden text-ivory select-none pt-6 pb-8"
     >
       {/* Halo de luz suave de fundo para aquecer a composição */}
