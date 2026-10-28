@@ -103,7 +103,7 @@ npm run preview    # serve o dist/ localmente
 | Links sociais, e-mail | `src/data/portfolioData.js` → `personal.social` |
 | Imagem de projeto | `public/` + campo `image` de `projects` em `portfolioData.js` |
 | Novo projeto | Entrada em `portfolioData.projects` (`id: "proj-<chave>"`, `image`, `liveUrl`/`githubUrl`, opcionais `address` e `caseStudy`) + `projects.<chave>Title`, `Badge`, `Tagline`, `Desc`, `Tags` nos dois JSON. O card lê tudo pelo `id`, sem mexer em `Projects.jsx` |
-| Novo estudo de caso | Página em `src/pages/` + entrada no mapa `caseStudies` de `App.jsx` (slug → `lazy()`) + textos em `caseStudies.<chave>` nos dois JSON + `caseStudy: "/projetos/<slug>"` no projeto |
+| Novo estudo de caso | Página em `src/pages/` montada com os blocos de `components/case-study/blocks.jsx` e `useCaseStudy('<chave>')` + entrada no mapa `caseStudies` de `App.jsx` (slug → `lazy()`) + textos em `caseStudies.<chave>` nos dois JSON (abertura, `stats`, `stack`, `next` e `closing` no mesmo formato dos outros) + `caseStudy: "/projetos/<slug>"` no projeto |
 | Cargos da Trajetória | `portfolioData.experiences` (`id`, empresa; do atual para o mais antigo) + `experience.roles.<id>` (título, período, resumo, descrição da ilustração) nos dois JSON + a ilustração do cargo no mapa `illustrations` de `Experience.jsx` |
 | Tags de projeto, textos do globo de habilidades | Os dois `translation.json` (`projects.*Tags`, `skills.items`) |
 | Adicionar uma tecnologia no globo | `portfolioData.skills` (`key`, `category`, `projectUrl`) + `skills.items.<key>` (`name`, `about`, `example`, `project`) nos dois JSON + ícone em `TechIcons.jsx` e no mapa de `Skills.jsx`. Registrar antes a nota em Tecnologias no vault |

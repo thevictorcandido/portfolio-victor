@@ -140,7 +140,7 @@ Desde 2026-10-23 segue o navbar-02 do shadcnui-blocks (21st.dev; o registro do 2
 
 Página `/projetos/degrau-educa`, no formato de https://engsoftmarcelo.dev/pt/projetos/clickseguro: cabeçalho com contexto, equipe, papel e status, faixa de números e seções numeradas (`// 01 o problema` … `// 08 olhando de novo`) com fechamento.
 
-- Mesma paleta e tipografia do site; os blocos (`SectionHeader`, `Section`, `Figure`, `CodeBlock`) ficam no próprio arquivo e podem virar compartilhados quando houver um segundo estudo de caso.
+- Mesma paleta e tipografia do site; os blocos ficam em `components/case-study/` (ver o estudo do Drift Invaders, abaixo).
 - Números da faixa em `ice` (informação); verde elétrico só no status e no botão "Vamos conversar".
 - `Figure`: imagem com borda, legenda e clique que abre o arquivo inteiro em outra aba; `frame` desenha a barra de navegador falsa; `aspect` fixa o recorte (do topo), usado nos quatro prints do painel para os títulos alinharem.
 - Seção 04 reaproveita o `FeaturesWithPanel` da Trajetória com prints no lugar das ilustrações; o componente ganhou a prop `mediaAspect` (`aspect-[16/10]` aqui, `aspect-4/3` na Trajetória) e imagens com `loading="lazy"` e `object-top`.
@@ -153,6 +153,16 @@ O card na seção Projetos ganhou `caseStudy` (botão "Ler estudo de caso" e a i
 > **verificado em 2026-10-28**
 >
 > Edge headless a 1440 px (página inteira) e navegador embutido a 1024 e 375 px: card → estudo de caso sem recarregar, título da aba e "Projetos" ativo na barra; 375 px sem rolagem horizontal; inglês sem chave faltando; "Todos os projetos" e os links da barra voltam para a inicial com a seção a 64 px do topo.
+
+## Estudo de caso do Drift Invaders (`pages/CaseStudyDriftInvaders.jsx`)
+
+Página `/projetos/drift-invaders`, desde 2026-10-28. Mesma abertura, números e fechamento do Degrau Educa, com seções próprias de jogo:
+
+- `// 01` a analogia com MLOps num quadro de 6 pares (no jogo → na vida real); `// 02` as regras, a tabela das 6 anomalias (sigla, pontos, comportamento e resposta de MLOps; rola na horizontal no celular), bônus e recursos para iniciantes; `// 03` galeria de 8 telas no `FeaturesWithPanel` com `mediaAspect="aspect-video"` (16:9 do jogo).
+- `// 04` e `// 05` são a parte de regras e testes no grupo: as regras em funções puras de `funcoes.py`, com três funções literais, e os testes, com barras por assunto (contadas nos nomes dos 74 testes) e dois testes literais. Os trechos de Python não são traduzidos.
+- `// 06` os módulos do projeto, `// 07` ferramentas e equipe (sem orientadores: `StackAndTeam` só mostra a coluna se `stack.advisorsLabel` existir), `// 08` o que faria diferente.
+
+Com o segundo estudo de caso, os blocos saíram da página do Degrau Educa para `components/case-study/blocks.jsx` (`SectionHeader`, `Section`, `Figure`, `CodeBlock`, `CaseHero`, `StatStrip`, `NextSteps`, `StackAndTeam`, `CaseClosing`) e o hook `useCaseStudy(chave)` foi para `useCaseStudy.js` (devolve `c()` e `list()` e cuida do título da aba). `Figure` passou a receber em `frame` o texto da barra de janela. O Degrau Educa ficou idêntico, conferido por captura.
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 

@@ -135,6 +135,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-28 entrou o Degrau Educa (Trabalho Interdisciplinar 1, PUC Minas, equipe de 5) como primeiro projeto, com um estudo de caso em página própria no formato do engsoftmarcelo.dev. O conteúdo saiu de uma varredura do repositório da disciplina: README e docs, banco do JSON Server e o código; as telas foram capturadas com o app rodando localmente. Para a página nova, um roteador de ~30 linhas pela History API em vez de react-router: são só duas rotas. O "Meu papel" segue o que foi confirmado: Design Thinking/UX, o painel administrativo com 4 CRUDs e parte do cadastro e login. O Space no Hugging Face e o repositório no GitHub estão privados (401 e 404), então o card não tem "Ver demo" nem "GitHub" por enquanto.
 
+> [!IMPORTANT]
+> **Drift Invaders com estudo de caso, e blocos compartilhados**
+>
+> Em 2026-10-28 entrou o Drift Invaders (Introdução a Algoritmos, PUC Minas, equipe de 4) como segundo projeto, com estudo de caso em página própria. Base: o zip do repositório (README, proposta, guia de MLOps, código e testes) e a página do mesmo projeto no site do Marcelo Gomes, colega de grupo, usada só como referência. O "Meu papel" segue o que foi confirmado: as regras em funções puras e os testes. Sem botão "GitHub", por escolha: o repositório público é o do colega. Os quadros vêm do jogo rodando sem janela, com um jogador automático. Com dois estudos de caso, os blocos das páginas viraram componentes compartilhados.
+
 > [!NOTE]
 > **contexto**
 >
