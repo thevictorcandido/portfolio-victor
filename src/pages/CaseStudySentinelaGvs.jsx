@@ -8,6 +8,7 @@ import {
   SectionHeader,
   StackAndTeam,
   StatStrip,
+  Table,
 } from '../components/case-study/blocks'
 import { useCaseStudy } from '../components/case-study/useCaseStudy'
 
@@ -17,43 +18,6 @@ import { useCaseStudy } from '../components/case-study/useCaseStudy'
 
 const IMG = '/projects/sentinela-gvs/'
 const FRAME = 'Sentinela GVS · painel interno · dados de demonstração'
-
-function Table({ headers, rows, highlightLast = false }) {
-  return (
-    <div className="overflow-x-auto rounded-2xl border border-ivory/10">
-      <table className="w-full min-w-[480px] text-left text-sm">
-        <thead className="bg-[#131417] text-[11px] uppercase tracking-wider text-ivory/55">
-          <tr>
-            {headers.map((header) => (
-              <th key={header} scope="col" className="px-4 py-3 font-semibold">
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-ivory/10 bg-carbon-raised">
-          {rows.map(([label, ...values]) => (
-            <tr key={label}>
-              <th scope="row" className="px-4 py-3 font-medium text-ivory/85">
-                {label}
-              </th>
-              {values.map((value, i) => (
-                <td
-                  key={i}
-                  className={`px-4 py-3 tabular-nums ${
-                    highlightLast && i === values.length - 1 ? 'font-semibold text-ice' : 'text-ivory/70'
-                  }`}
-                >
-                  {value}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
-}
 
 // Fluxo da ocorrência: o Mermaid do estudo original, em caixas
 function Flow({ c, list }) {
