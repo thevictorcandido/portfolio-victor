@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher'
 import { cn } from '@/lib/utils'
 import { portfolioData } from '../data/portfolioData'
+import { Link } from '../lib/router'
 
 // Estrutura e estilo do navbar-02 do shadcnui-blocks (21st.dev): barra sólida
 // de 64 px com borda inferior, logo e links à esquerda, ações à direita e, em
@@ -37,20 +38,27 @@ const outlineButton =
 const primaryButton =
   'h-9 items-center gap-1.5 rounded-md bg-electric px-4 text-sm font-medium text-carbon shadow-xs transition-colors hover:bg-electric-hover outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50'
 
-function Logo({ onClick }) {
+// Na página inicial, âncora comum (rolagem suave); num estudo de caso, volta
+// para a inicial já na seção pedida (/#about), sem recarregar
+function SectionLink({ id, onHome, ...props }) {
+  return onHome ? <a href={`#${id}`} {...props} /> : <Link href={`/#${id}`} {...props} />
+}
+
+function Logo({ onClick, onHome }) {
   return (
-    <a
-      href="#hero"
+    <SectionLink
+      id="hero"
+      onHome={onHome}
       onClick={onClick}
       title="Victor Cândido Leite"
       className="font-special text-3xl leading-none text-ivory hover:opacity-85 transition-opacity rounded-md outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50"
     >
       Victor
-    </a>
+    </SectionLink>
   )
 }
 
-function NavLinks({ active, vertical = false, onNavigate }) {
+function NavLinks({ active, onHome, vertical = false, onNavigate }) {
   const { t } = useTranslation()
   return (
     <ul className={cn('flex gap-1', vertical ? 'flex-col items-stretch -ms-3' : 'items-center')}>
@@ -58,14 +66,15 @@ function NavLinks({ active, vertical = false, onNavigate }) {
         const isActive = active === item.id
         return (
           <li key={item.id}>
-            <a
-              href={`#${item.id}`}
+            <SectionLink
+              id={item.id}
+              onHome={onHome}
               onClick={onNavigate}
               aria-current={isActive ? 'location' : undefined}
               className={cn(linkClass(isActive), vertical && 'w-full')}
             >
               {t(navKeyMap[item.id] || 'nav.home')}
-            </a>
+            </SectionLink>
           </li>
         )
       })}
@@ -74,7 +83,7 @@ function NavLinks({ active, vertical = false, onNavigate }) {
 }
 
 // Painel lateral do navbar-02 (Sheet do shadcn): entra pela direita sobre um véu
-function NavigationSheet({ open, onClose, active, returnFocusRef }) {
+function NavigationSheet({ open, onClose, active, onHome, returnFocusRef }) {
   const { t } = useTranslation()
   const titleId = useId()
   const panelRef = useRef(null)
@@ -141,7 +150,7 @@ function NavigationSheet({ open, onClose, active, returnFocusRef }) {
               {t('nav.menuTitle')}
             </h2>
             <div className="flex h-10 items-center">
-              <Logo onClick={onClose} />
+              <Logo onClick={onClose} onHome={onHome} />
             </div>
             <button
               ref={closeRef}
@@ -154,14 +163,14 @@ function NavigationSheet({ open, onClose, active, returnFocusRef }) {
             </button>
 
             <nav aria-label={t('nav.menuTitle')} className="mt-6">
-              <NavLinks active={active} vertical onNavigate={onClose} />
+              <NavLinks active={active} onHome={onHome} vertical onNavigate={onClose} />
             </nav>
 
             <div className="mt-auto flex flex-col gap-4 border-t border-ivory/10 pt-4">
-              <a href="#contact" onClick={onClose} className={cn(primaryButton, 'flex justify-center')}>
+              <SectionLink id="contact" onHome={onHome} onClick={onClose} className={cn(primaryButton, 'flex justify-center')}>
                 <span>{t('about.ctaTalk')}</span>
                 <ArrowUpRight className="size-4" />
-              </a>
+              </SectionLink>
               <span className="flex items-center gap-1.5 text-xs text-ivory/55">
                 <span className="size-2 rounded-full bg-electric animate-pulse" />
                 {t('hero.availability')}
@@ -175,9 +184,11 @@ function NavigationSheet({ open, onClose, active, returnFocusRef }) {
   )
 }
 
-export default function Navbar() {
+// onHome: false nas páginas de estudo de caso, que ficam dentro de Projetos
+export default function Navbar({ onHome = true }) {
   const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('hero')
+  const active = onHome ? activeSection : 'projects'
   const [sheetOpen, setSheetOpen] = useState(false)
   const triggerRef = useRef(null)
   // Estável: o efeito do painel depende dela e não deve reiniciar a cada render
@@ -208,20 +219,20 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 h-16 border-b border-ivory/10 bg-carbon">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8 xl:gap-12">
-            <Logo />
+            <Logo onHome={onHome} />
 
             {/* Links no desktop */}
             <nav aria-label={t('nav.menuTitle')} className="hidden lg:block">
-              <NavLinks active={activeSection} />
+              <NavLinks active={active} onHome={onHome} />
             </nav>
           </div>
 
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
-            <a href="#contact" className={cn(primaryButton, 'hidden sm:inline-flex lg:hidden xl:inline-flex')}>
+            <SectionLink id="contact" onHome={onHome} className={cn(primaryButton, 'hidden sm:inline-flex lg:hidden xl:inline-flex')}>
               <span>{t('about.ctaTalk')}</span>
               <ArrowUpRight className="size-4" />
-            </a>
+            </SectionLink>
 
             {/* Menu no celular e no tablet */}
             <button
@@ -242,7 +253,8 @@ export default function Navbar() {
       <NavigationSheet
         open={sheetOpen}
         onClose={closeSheet}
-        active={activeSection}
+        active={active}
+        onHome={onHome}
         returnFocusRef={triggerRef}
       />
     </MotionConfig>
