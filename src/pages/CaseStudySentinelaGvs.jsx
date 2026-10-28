@@ -144,6 +144,7 @@ export default function CaseStudySentinelaGvs() {
         <FeaturesWithPanel
           items={screens}
           mediaAspect="aspect-video"
+          layout="stacked"
           header={
             <div className="mb-10">
               <SectionHeader num="03" eyebrow={c('screens.eyebrow')} title={c('screens.title')}>
@@ -152,8 +153,8 @@ export default function CaseStudySentinelaGvs() {
             </div>
           }
         />
-        <div id="video" className="mt-20 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] items-start scroll-mt-24">
-          <div>
+        <div id="video" className="mt-20 scroll-mt-24">
+          <div className="mb-6 max-w-3xl">
             <h3 className="text-2xl sm:text-3xl font-display font-bold text-ivory tracking-tight">{c('screens.videoTitle')}</h3>
             <p className="mt-3 text-sm sm:text-base text-ivory/70 leading-relaxed">{c('screens.videoText')}</p>
           </div>
