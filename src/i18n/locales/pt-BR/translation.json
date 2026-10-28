@@ -82,6 +82,17 @@
       "Bootstrap 5",
       "JSON Server",
       "Design Thinking"
+    ],
+    "driftinvadersTitle": "Drift Invaders — The Pipeline Defense",
+    "driftinvadersBadge": "Jogo acadêmico em grupo · Concluído",
+    "driftinvadersTagline": "Arcade em Python que transforma problemas de MLOps em invasores",
+    "driftinvadersDesc": "Projeto final de Introdução a Algoritmos na PUC Minas, feito em equipe de quatro. Data Drift, Schema Break e Latency Spike descem pela tela; um ou dois jogadores defendem o pipeline e aprendem a resposta para cada problema. Fiquei com as regras do jogo em funções puras e os 74 testes automatizados.",
+    "driftinvadersTags": [
+      "Python",
+      "Pygame",
+      "pytest",
+      "Testes automatizados",
+      "MLOps"
     ]
   },
   "experience": {
@@ -655,6 +666,435 @@
       "closing": {
         "title": "Organizar o caminho também é ensinar.",
         "text": "O Degrau Educa não cria cursos: escolhe os bons e diz em que ordem fazer. Foi meu primeiro projeto web completo em equipe, da pesquisa com personas ao painel que mantém tudo de pé.",
+        "back": "Voltar aos projetos",
+        "contact": "Vamos conversar"
+      }
+    },
+    "driftinvaders": {
+      "docTitle": "Drift Invaders, estudo de caso | Victor Cândido Leite",
+      "back": "Todos os projetos",
+      "kicker": "python · jogo educativo · introdução a algoritmos · 2026",
+      "title": "Drift Invaders",
+      "tagline": "The Pipeline Defense: cada invasor é um problema real de MLOps.",
+      "intro": "Um arcade 2D em Python e Pygame em que um ou dois Guardiões protegem um pipeline de Machine Learning em produção. As anomalias descem pela tela, e cada uma, na primeira vez que aparece, explica o problema que representa e a resposta certa.",
+      "status": "Concluído · roda localmente com python main.py",
+      "meta": [
+        {
+          "label": "Contexto",
+          "value": "PUC Minas · Engenharia de Software · Introdução a Algoritmos / Programação · 2026/1"
+        },
+        {
+          "label": "Equipe",
+          "value": "4 estudantes, a partir do template oficial da disciplina"
+        },
+        {
+          "label": "Meu papel",
+          "value": "As regras do jogo em funções puras (funcoes.py) e os 74 testes automatizados com pytest"
+        }
+      ],
+      "coverAlt": "Menu do Drift Invaders: título The Pipeline Defense, opções de 1 jogador e 2 jogadores em cooperativo local e as dificuldades Fácil, Normal e Difícil",
+      "stats": [
+        {
+          "value": "74",
+          "label": "testes automatizados, 0,32 s para rodar"
+        },
+        {
+          "value": "33",
+          "label": "funções de regra sem depender da janela"
+        },
+        {
+          "value": "5",
+          "label": "ondas, terminando no chefe Model Decay"
+        },
+        {
+          "value": "6",
+          "label": "anomalias de MLOps como inimigos"
+        },
+        {
+          "value": "3",
+          "label": "bônus temáticos e 3 dificuldades"
+        },
+        {
+          "value": "2",
+          "label": "jogadores no cooperativo local"
+        },
+        {
+          "value": "1280×720",
+          "label": "resolução lógica, escalável"
+        },
+        {
+          "value": "0",
+          "label": "assets baixados: gráficos e sons gerados por código"
+        }
+      ],
+      "problem": {
+        "eyebrow": "o problema",
+        "title": "MLOps é abstrato para quem ainda está aprendendo a programar.",
+        "body": "Data drift, quebra de schema e pico de latência são problemas do dia a dia de quem mantém modelos de Machine Learning em produção, mas soam distantes no primeiro período. O jogo pega uma mecânica que todo mundo conhece, a defesa contra invasores, e faz cada inimigo ser um desses problemas, sem exigir conhecimento técnico para jogar.",
+        "mapTitle": "Como o jogo traduz MLOps",
+        "mapGame": "No jogo",
+        "mapMeaning": "Na vida real",
+        "map": [
+          [
+            "Guardiões",
+            "a equipe de software, dados e operações"
+          ],
+          [
+            "Invasores",
+            "problemas detectados pelo monitoramento em produção"
+          ],
+          [
+            "Tiros",
+            "ações de correção"
+          ],
+          [
+            "Zona crítica",
+            "a produção afetada pelo problema"
+          ],
+          [
+            "Vidas",
+            "a estabilidade do serviço"
+          ],
+          [
+            "Ondas",
+            "períodos de operação e monitoramento"
+          ]
+        ],
+        "note": "Analogia didática: o jogo não treina modelos reais."
+      },
+      "game": {
+        "eyebrow": "o jogo",
+        "title": "Cinco ondas, seis anomalias e uma resposta certa para cada uma.",
+        "body": "O pipeline começa com 5 vidas no Fácil, 4 no Normal e 3 no Difícil. Cada invasor destruído pontua para quem atirou e para a equipe; quem chega à faixa vermelha tira uma vida. A quinta onda termina no chefe Model Decay. Vence quem conclui as cinco ondas com ao menos uma vida.",
+        "threatsTitle": "As anomalias",
+        "headers": [
+          "Sigla",
+          "Ameaça",
+          "Pontos",
+          "No jogo",
+          "Resposta de MLOps"
+        ],
+        "threats": [
+          [
+            "DD",
+            "Data Drift",
+            "10",
+            "invasor básico",
+            "comparar distribuições e avaliar um novo treinamento"
+          ],
+          [
+            "OB",
+            "Outlier Batch",
+            "15",
+            "mais veloz",
+            "validar o lote e colocar em quarentena"
+          ],
+          [
+            "SB",
+            "Schema Break",
+            "20",
+            "mais largo",
+            "validar o schema e barrar dados incompatíveis"
+          ],
+          [
+            "LS",
+            "Latency Spike",
+            "25",
+            "estreito e muito veloz",
+            "medir gargalos e aumentar recursos"
+          ],
+          [
+            "CF",
+            "Corrupted Feature",
+            "30",
+            "surge na onda final",
+            "corrigir, preencher com regra segura ou rejeitar"
+          ],
+          [
+            "MD",
+            "Model Decay",
+            "500",
+            "chefe com barra de estabilidade",
+            "avaliar, retreinar e validar antes de publicar"
+          ]
+        ],
+        "bonusTitle": "Bônus",
+        "bonus": [
+          {
+            "name": "Retraining Boost",
+            "text": "tiro triplo por 10 segundos para quem coletar"
+          },
+          {
+            "name": "Data Validator",
+            "text": "desacelera as ameaças para a equipe"
+          },
+          {
+            "name": "Auto-Scaling",
+            "text": "reduz a recarga do tiro"
+          }
+        ],
+        "accessTitle": "Pensado para iniciantes",
+        "access": [
+          "Dois segundos seguros antes de cada onda e um aviso de 0,6 s mostrando a faixa e o tipo do próximo invasor.",
+          "Vários impactos no mesmo instante tiram no máximo uma vida, seguida de 1,5 s de escudo.",
+          "Depois de duas derrotas seguidas, assistência opcional e transparente: uma vida a mais e inimigos 15% mais lentos.",
+          "Alto contraste, efeitos reduzidos (sem tremor de tela), volume em três níveis e tela cheia."
+        ]
+      },
+      "screens": {
+        "eyebrow": "as telas",
+        "title": "Da explicação ao relatório da operação.",
+        "body": "Quadros capturados com o próprio jogo rodando, numa campanha jogada por um robô simples que mira e atira. Escolha uma tela:",
+        "items": [
+          {
+            "id": "introducao",
+            "title": "MLOps em palavras simples",
+            "meta": "Introdução · página 1",
+            "description": "Antes do menu, o jogo explica modelo, produção e MLOps em três cartões.",
+            "alt": "Tela MLOps em palavras simples com os cartões Modelo, Produção e MLOps"
+          },
+          {
+            "id": "missao",
+            "title": "A missão",
+            "meta": "Introdução · página 2",
+            "description": "O fluxo dados → modelo → monitoramento → guardiões e o que cada sigla representa.",
+            "alt": "Tela Missão: defender o pipeline, com o fluxo dados, modelo, monitoramento e guardiões e a legenda das ameaças"
+          },
+          {
+            "id": "menu",
+            "title": "Menu",
+            "meta": "Solo ou cooperativo",
+            "description": "1 ou 2 jogadores no mesmo teclado, três dificuldades, cenário, volume, efeitos e contraste.",
+            "alt": "Menu com as opções 1 jogador e 2 jogadores e as dificuldades"
+          },
+          {
+            "id": "tutorial",
+            "title": "Primeira aparição",
+            "meta": "Explicação contextual",
+            "description": "Na primeira vez que uma ameaça surge, o jogo pausa e mostra o problema e a resposta de MLOps.",
+            "alt": "Cartão Data Drift: o comportamento dos dados mudou com o tempo; resposta: comparar distribuições e avaliar um novo treinamento"
+          },
+          {
+            "id": "cooperativo",
+            "title": "Cooperativo local",
+            "meta": "Onda 3 · Normal",
+            "description": "Dois Guardiões com cores e placares próprios (P1 e P2) defendendo as mesmas vidas.",
+            "alt": "Partida cooperativa na onda 3 com duas naves, placares de P1 e P2 e anomalias descendo"
+          },
+          {
+            "id": "chefe",
+            "title": "Chefe Model Decay",
+            "meta": "Onda 5",
+            "description": "O chefe anda de um lado a outro com uma barra de estabilidade que cai a cada acerto.",
+            "alt": "Chefe Model Decay no topo da tela com a barra de estabilidade e as duas naves atirando"
+          },
+          {
+            "id": "vitoria",
+            "title": "Pipeline protegido",
+            "meta": "Fim da campanha",
+            "description": "Pontuação final, recorde e o ranking top 5 com as iniciais de quem jogou.",
+            "alt": "Tela Pipeline protegido com pontuação final de 1725 e ranking top 5"
+          },
+          {
+            "id": "relatorio",
+            "title": "Relatório de operação",
+            "meta": "Depois da partida",
+            "description": "Contenção, precisão, combo máximo, tempo médio de resposta e uma dica para a próxima partida.",
+            "alt": "Relatório de operação com contenção de 100%, precisão de 21%, combo x16 e tempo médio de 1,5 s"
+          }
+        ]
+      },
+      "rules": {
+        "eyebrow": "minha parte: as regras",
+        "title": "Regras em funções puras: recebem dicionários, devolvem dicionários.",
+        "body": "Toda entidade do jogo é um dicionário com x, y, largura e altura, agrupado em listas. As regras ficam em funcoes.py, 33 funções que não importam nada da janela do Pygame: o jogo.py chama essas funções e só depois desenha. É isso que permite testar tudo sem abrir o jogo.",
+        "points": [
+          {
+            "title": "Colisão AABB à mão",
+            "text": "Dois retângulos se tocam quando se sobrepõem nos dois eixos. Uma função de quatro comparações serve para tiros, invasores, bônus, naves e o chefe."
+          },
+          {
+            "title": "Remover sem pular ninguém",
+            "text": "Os laços percorrem cópias das listas (invasores[:]) e param no primeiro acerto de cada tiro. Assim um tiro não destrói dois invasores e nenhum elemento é pulado quando outro sai da lista."
+          },
+          {
+            "title": "Dano limitado",
+            "text": "Vários impactos no mesmo quadro tiram uma vida só e ligam o escudo; durante o escudo, novos impactos são absorvidos."
+          },
+          {
+            "title": "Pontos para quem acertou",
+            "text": "Cada tiro guarda o número do jogador que disparou. No acerto, os pontos vão para um dicionário por jogador, sem precisar de classes."
+          }
+        ],
+        "codeTitle": "Três funções de funcoes.py",
+        "code": [
+          {
+            "title": "Colisão entre retângulos",
+            "text": "A base de todas as interações do jogo."
+          },
+          {
+            "title": "Dano protegido",
+            "text": "Devolve o dano real e o tempo de escudo; 90 quadros são 1,5 s a 60 FPS."
+          },
+          {
+            "title": "Acertos separados por jogador",
+            "text": "Usada no solo e no cooperativo. A margem de acerto é a assistência opcional."
+          }
+        ]
+      },
+      "tests": {
+        "eyebrow": "minha parte: os testes",
+        "title": "74 testes que não abrem janela.",
+        "body": "Como as regras são funções puras, os testes montam dicionários, chamam a função e conferem o resultado. A suíte inteira roda em 0,32 s com python -m pytest -q e cobre também a leitura e a escrita dos arquivos, usando a pasta temporária do pytest.",
+        "groups": [
+          {
+            "name": "Ondas, campanha, chefe, cenários e dificuldades",
+            "count": "16"
+          },
+          {
+            "name": "Bônus e efeitos visuais como dados",
+            "count": "13"
+          },
+          {
+            "name": "Tiros, acertos e multiplayer",
+            "count": "10"
+          },
+          {
+            "name": "Leitura e escrita de arquivos",
+            "count": "10"
+          },
+          {
+            "name": "Pontuação, dano e limites",
+            "count": "9"
+          },
+          {
+            "name": "Colisões, lanes e zona crítica",
+            "count": "6"
+          },
+          {
+            "name": "Recorde e ranking",
+            "count": "5"
+          },
+          {
+            "name": "Criação e movimento de entidades",
+            "count": "4"
+          },
+          {
+            "name": "Relatório da partida",
+            "count": "1"
+          }
+        ],
+        "groupsNote": "Os 74 testes de tests/test_logica.py, agrupados pelo assunto principal de cada um.",
+        "codeTitle": "Dois testes",
+        "code": [
+          {
+            "title": "Dano simultâneo",
+            "text": "Quatro impactos no mesmo quadro: uma vida perdida e escudo de 90 quadros."
+          },
+          {
+            "title": "Placar no cooperativo",
+            "text": "Cada invasor pontua para quem atirou, e tiros e invasores saem das listas."
+          }
+        ]
+      },
+      "architecture": {
+        "eyebrow": "organização",
+        "title": "Sem orientação a objetos e sem rede, de propósito.",
+        "body": "O projeto usa só o que a disciplina ensinou no primeiro período: variáveis, condicionais, laços, listas, dicionários, funções, módulos e arquivos. O multiplayer é local, no mesmo teclado, seguindo a recomendação do enunciado de evitar rede.",
+        "modules": [
+          {
+            "name": "config.py",
+            "text": "constantes, cores, ondas e dificuldades em dicionários"
+          },
+          {
+            "name": "funcoes.py",
+            "text": "regras puras e testáveis"
+          },
+          {
+            "name": "jogo.py",
+            "text": "eventos, estados, laço principal e desenho"
+          },
+          {
+            "name": "sprites.py",
+            "text": "gráficos feitos com primitivas do Pygame e pré-renderizados"
+          },
+          {
+            "name": "audio.py",
+            "text": "efeitos sonoros gerados por código"
+          },
+          {
+            "name": "dados.py",
+            "text": "recorde, ranking e preferências em arquivos .txt"
+          },
+          {
+            "name": "relatorios.py",
+            "text": "métricas e o relatório da partida"
+          },
+          {
+            "name": "conteudo_mlops.py",
+            "text": "explicações e cenários didáticos"
+          }
+        ]
+      },
+      "stack": {
+        "eyebrow": "ferramentas e equipe",
+        "title": "Python, Pygame e pytest.",
+        "process": "O ponto de partida foi o template oficial da disciplina, que deu a estrutura de pastas e o ponto de entrada. A versão final não usa imagens, sons nem fontes baixados: tudo é desenhado ou gerado por código, e as fontes vêm do sistema.",
+        "groups": [
+          {
+            "label": "Linguagem",
+            "items": [
+              "Python 3.10+"
+            ]
+          },
+          {
+            "label": "Jogo",
+            "items": [
+              "Pygame Community Edition"
+            ]
+          },
+          {
+            "label": "Testes",
+            "items": [
+              "pytest"
+            ]
+          },
+          {
+            "label": "Persistência",
+            "items": [
+              "Arquivos .txt"
+            ]
+          }
+        ],
+        "teamLabel": "Equipe",
+        "team": [
+          "Júlia Vitória Santiago Assunção",
+          "Marcelo Gomes de Oliveira Junior",
+          "Paulo Cirelli Fideles de Melo",
+          "Victor Cândido Leite"
+        ]
+      },
+      "next": {
+        "eyebrow": "olhando de novo",
+        "title": "O que eu faria diferente hoje.",
+        "items": [
+          {
+            "title": "Dividir o jogo.py",
+            "text": "São quase 2 mil linhas com eventos, estados e desenho de todas as telas. Um módulo por tela deixaria cada parte mais fácil de ler e de revisar."
+          },
+          {
+            "title": "Testar o laço, não só as regras",
+            "text": "Os testes cobrem as funções puras, não a renderização. Um teste que roda algumas centenas de quadros sem janela pegaria uma tela quebrada antes da apresentação."
+          },
+          {
+            "title": "Dados de balanceamento",
+            "text": "As ondas foram ajustadas jogando. Gravar as métricas do relatório de várias partidas mostraria onde a curva fica difícil demais."
+          }
+        ]
+      },
+      "closing": {
+        "title": "Testar regra é mais rápido que jogar de novo.",
+        "text": "Separar as regras da janela foi o que fez os 74 testes possíveis, e foram eles que deram segurança para mexer nas ondas, no cooperativo e no chefe até a última semana.",
         "back": "Voltar aos projetos",
         "contact": "Vamos conversar"
       }

@@ -82,6 +82,17 @@
       "Bootstrap 5",
       "JSON Server",
       "Design Thinking"
+    ],
+    "driftinvadersTitle": "Drift Invaders — The Pipeline Defense",
+    "driftinvadersBadge": "Academic team game · Completed",
+    "driftinvadersTagline": "A Python arcade game that turns MLOps problems into invaders",
+    "driftinvadersDesc": "Final project for Introduction to Algorithms at PUC Minas, built by a team of four. Data Drift, Schema Break and Latency Spike fall down the screen; one or two players defend the pipeline and learn the fix for each problem. I handled the game rules as pure functions and the 74 automated tests.",
+    "driftinvadersTags": [
+      "Python",
+      "Pygame",
+      "pytest",
+      "Automated tests",
+      "MLOps"
     ]
   },
   "experience": {
@@ -655,6 +666,435 @@
       "closing": {
         "title": "Organizing the path is teaching too.",
         "text": "Degrau Educa does not create courses: it picks the good ones and says in which order to take them. It was my first complete web project as part of a team, from personas to the panel that keeps it all running.",
+        "back": "Back to projects",
+        "contact": "Let's talk"
+      }
+    },
+    "driftinvaders": {
+      "docTitle": "Drift Invaders, case study | Victor Cândido Leite",
+      "back": "All projects",
+      "kicker": "python · educational game · introduction to algorithms · 2026",
+      "title": "Drift Invaders",
+      "tagline": "The Pipeline Defense: every invader is a real MLOps problem.",
+      "intro": "A 2D arcade game in Python and Pygame where one or two Guardians protect a Machine Learning pipeline in production. Anomalies fall down the screen and, the first time each one appears, it explains the problem it stands for and the right response.",
+      "status": "Completed · runs locally with python main.py",
+      "meta": [
+        {
+          "label": "Context",
+          "value": "PUC Minas · Software Engineering · Introduction to Algorithms / Programming · 2026/1"
+        },
+        {
+          "label": "Team",
+          "value": "4 students, starting from the course's official template"
+        },
+        {
+          "label": "My role",
+          "value": "The game rules as pure functions (funcoes.py) and the 74 automated tests with pytest"
+        }
+      ],
+      "coverAlt": "Drift Invaders menu: The Pipeline Defense title, 1 player and 2 players local co-op options and the Easy, Normal and Hard difficulties",
+      "stats": [
+        {
+          "value": "74",
+          "label": "automated tests, 0.32 s to run"
+        },
+        {
+          "value": "33",
+          "label": "rule functions independent of the window"
+        },
+        {
+          "value": "5",
+          "label": "waves, ending with the Model Decay boss"
+        },
+        {
+          "value": "6",
+          "label": "MLOps anomalies as enemies"
+        },
+        {
+          "value": "3",
+          "label": "themed power-ups and 3 difficulties"
+        },
+        {
+          "value": "2",
+          "label": "players in local co-op"
+        },
+        {
+          "value": "1280×720",
+          "label": "logical resolution, scalable"
+        },
+        {
+          "value": "0",
+          "label": "downloaded assets: graphics and sounds made in code"
+        }
+      ],
+      "problem": {
+        "eyebrow": "the problem",
+        "title": "MLOps is abstract when you are still learning to code.",
+        "body": "Data drift, schema breaks and latency spikes are everyday problems for anyone keeping Machine Learning models in production, but they sound distant in a first semester. The game takes a mechanic everyone knows, defending against invaders, and makes every enemy one of those problems, with no technical knowledge needed to play.",
+        "mapTitle": "How the game translates MLOps",
+        "mapGame": "In the game",
+        "mapMeaning": "In real life",
+        "map": [
+          [
+            "Guardians",
+            "the software, data and operations team"
+          ],
+          [
+            "Invaders",
+            "problems caught by production monitoring"
+          ],
+          [
+            "Shots",
+            "corrective actions"
+          ],
+          [
+            "Critical zone",
+            "production hit by the problem"
+          ],
+          [
+            "Lives",
+            "service stability"
+          ],
+          [
+            "Waves",
+            "periods of operation and monitoring"
+          ]
+        ],
+        "note": "A teaching analogy: the game does not train real models."
+      },
+      "game": {
+        "eyebrow": "the game",
+        "title": "Five waves, six anomalies and one right response for each.",
+        "body": "The pipeline starts with 5 lives on Easy, 4 on Normal and 3 on Hard. Each invader destroyed scores for the shooter and for the team; any that reaches the red strip costs a life. The fifth wave ends with the Model Decay boss. You win by clearing all five waves with at least one life left.",
+        "threatsTitle": "The anomalies",
+        "headers": [
+          "Code",
+          "Threat",
+          "Points",
+          "In the game",
+          "MLOps response"
+        ],
+        "threats": [
+          [
+            "DD",
+            "Data Drift",
+            "10",
+            "basic invader",
+            "compare distributions and consider retraining"
+          ],
+          [
+            "OB",
+            "Outlier Batch",
+            "15",
+            "faster",
+            "validate the batch and quarantine it"
+          ],
+          [
+            "SB",
+            "Schema Break",
+            "20",
+            "wider",
+            "validate the schema and block incompatible data"
+          ],
+          [
+            "LS",
+            "Latency Spike",
+            "25",
+            "narrow and very fast",
+            "measure bottlenecks and add resources"
+          ],
+          [
+            "CF",
+            "Corrupted Feature",
+            "30",
+            "shows up in the final wave",
+            "fix it, fill with a safe rule or reject it"
+          ],
+          [
+            "MD",
+            "Model Decay",
+            "500",
+            "boss with a stability bar",
+            "evaluate, retrain and validate before publishing"
+          ]
+        ],
+        "bonusTitle": "Power-ups",
+        "bonus": [
+          {
+            "name": "Retraining Boost",
+            "text": "triple shot for 10 seconds for whoever picks it up"
+          },
+          {
+            "name": "Data Validator",
+            "text": "slows the threats down for the team"
+          },
+          {
+            "name": "Auto-Scaling",
+            "text": "shortens the shot cooldown"
+          }
+        ],
+        "accessTitle": "Built for beginners",
+        "access": [
+          "Two safe seconds before each wave and a 0.6 s warning showing the lane and type of the next invader.",
+          "Several hits in the same instant cost at most one life, followed by a 1.5 s shield.",
+          "After two losses in a row, an optional, transparent assist: one extra life and enemies 15% slower.",
+          "High contrast, reduced effects (no screen shake), three volume levels and fullscreen."
+        ]
+      },
+      "screens": {
+        "eyebrow": "the screens",
+        "title": "From the explanation to the operations report.",
+        "body": "Frames captured from the game itself, in a campaign played by a simple bot that aims and shoots. Pick a screen:",
+        "items": [
+          {
+            "id": "introducao",
+            "title": "MLOps in plain words",
+            "meta": "Intro · page 1",
+            "description": "Before the menu, the game explains model, production and MLOps in three cards.",
+            "alt": "MLOps in plain words screen with the Model, Production and MLOps cards"
+          },
+          {
+            "id": "missao",
+            "title": "The mission",
+            "meta": "Intro · page 2",
+            "description": "The data → model → monitoring → guardians flow and what each code stands for.",
+            "alt": "Mission screen: defend the pipeline, with the data, model, monitoring and guardians flow and the threat legend"
+          },
+          {
+            "id": "menu",
+            "title": "Menu",
+            "meta": "Solo or co-op",
+            "description": "1 or 2 players on the same keyboard, three difficulties, scenario, volume, effects and contrast.",
+            "alt": "Menu with the 1 player and 2 players options and the difficulties"
+          },
+          {
+            "id": "tutorial",
+            "title": "First appearance",
+            "meta": "Contextual explanation",
+            "description": "The first time a threat shows up, the game pauses and shows the problem and the MLOps response.",
+            "alt": "Data Drift card: data behavior changed over time; response: compare distributions and consider retraining"
+          },
+          {
+            "id": "cooperativo",
+            "title": "Local co-op",
+            "meta": "Wave 3 · Normal",
+            "description": "Two Guardians with their own colors and scores (P1 and P2) defending the same lives.",
+            "alt": "Co-op match in wave 3 with two ships, P1 and P2 scores and anomalies falling"
+          },
+          {
+            "id": "chefe",
+            "title": "Model Decay boss",
+            "meta": "Wave 5",
+            "description": "The boss moves side to side with a stability bar that drops with every hit.",
+            "alt": "Model Decay boss at the top of the screen with its stability bar and both ships shooting"
+          },
+          {
+            "id": "vitoria",
+            "title": "Pipeline protected",
+            "meta": "End of the campaign",
+            "description": "Final score, high score and the top 5 ranking with the players' initials.",
+            "alt": "Pipeline protected screen with a final score of 1725 and the top 5 ranking"
+          },
+          {
+            "id": "relatorio",
+            "title": "Operations report",
+            "meta": "After the match",
+            "description": "Containment, accuracy, max combo, average response time and a tip for the next match.",
+            "alt": "Operations report with 100% containment, 21% accuracy, x16 combo and 1.5 s average time"
+          }
+        ]
+      },
+      "rules": {
+        "eyebrow": "my part: the rules",
+        "title": "Rules as pure functions: dictionaries in, dictionaries out.",
+        "body": "Every game entity is a dictionary with x, y, width and height, grouped in lists. The rules live in funcoes.py, 33 functions that import nothing from the Pygame window: jogo.py calls them and only then draws. That is what makes everything testable without opening the game.",
+        "points": [
+          {
+            "title": "Hand-written AABB collision",
+            "text": "Two rectangles touch when they overlap on both axes. One four-comparison function serves shots, invaders, power-ups, ships and the boss."
+          },
+          {
+            "title": "Removing without skipping",
+            "text": "Loops iterate over copies of the lists (invasores[:]) and stop at each shot's first hit. So one shot never destroys two invaders and no element is skipped when another leaves the list."
+          },
+          {
+            "title": "Capped damage",
+            "text": "Several hits in the same frame cost one life and turn the shield on; while it lasts, new hits are absorbed."
+          },
+          {
+            "title": "Points for the shooter",
+            "text": "Each shot stores the number of the player who fired it. On a hit, points go to a per-player dictionary, no classes needed."
+          }
+        ],
+        "codeTitle": "Three functions from funcoes.py",
+        "code": [
+          {
+            "title": "Rectangle collision",
+            "text": "The basis of every interaction in the game."
+          },
+          {
+            "title": "Protected damage",
+            "text": "Returns the actual damage and the shield time; 90 frames are 1.5 s at 60 FPS."
+          },
+          {
+            "title": "Hits split by player",
+            "text": "Used in solo and co-op. The hit margin is the optional assist."
+          }
+        ]
+      },
+      "tests": {
+        "eyebrow": "my part: the tests",
+        "title": "74 tests that never open a window.",
+        "body": "Since the rules are pure functions, the tests build dictionaries, call the function and check the result. The whole suite runs in 0.32 s with python -m pytest -q and also covers reading and writing files, using pytest's temporary folder.",
+        "groups": [
+          {
+            "name": "Waves, campaign, boss, scenarios and difficulties",
+            "count": "16"
+          },
+          {
+            "name": "Power-ups and visual effects as data",
+            "count": "13"
+          },
+          {
+            "name": "Shots, hits and multiplayer",
+            "count": "10"
+          },
+          {
+            "name": "Reading and writing files",
+            "count": "10"
+          },
+          {
+            "name": "Scoring, damage and limits",
+            "count": "9"
+          },
+          {
+            "name": "Collisions, lanes and critical zone",
+            "count": "6"
+          },
+          {
+            "name": "High score and ranking",
+            "count": "5"
+          },
+          {
+            "name": "Creating and moving entities",
+            "count": "4"
+          },
+          {
+            "name": "Match report",
+            "count": "1"
+          }
+        ],
+        "groupsNote": "The 74 tests in tests/test_logica.py, grouped by the main subject of each.",
+        "codeTitle": "Two tests",
+        "code": [
+          {
+            "title": "Simultaneous damage",
+            "text": "Four hits in the same frame: one life lost and a 90-frame shield."
+          },
+          {
+            "title": "Co-op scoreboard",
+            "text": "Each invader scores for the shooter, and shots and invaders leave their lists."
+          }
+        ]
+      },
+      "architecture": {
+        "eyebrow": "structure",
+        "title": "No object orientation and no networking, on purpose.",
+        "body": "The project only uses what the course taught in the first semester: variables, conditionals, loops, lists, dictionaries, functions, modules and files. Multiplayer is local, on the same keyboard, following the brief's advice to avoid networking.",
+        "modules": [
+          {
+            "name": "config.py",
+            "text": "constants, colors, waves and difficulties as dictionaries"
+          },
+          {
+            "name": "funcoes.py",
+            "text": "pure, testable rules"
+          },
+          {
+            "name": "jogo.py",
+            "text": "events, states, main loop and drawing"
+          },
+          {
+            "name": "sprites.py",
+            "text": "graphics built from Pygame primitives and pre-rendered"
+          },
+          {
+            "name": "audio.py",
+            "text": "sound effects generated in code"
+          },
+          {
+            "name": "dados.py",
+            "text": "high score, ranking and preferences in .txt files"
+          },
+          {
+            "name": "relatorios.py",
+            "text": "metrics and the match report"
+          },
+          {
+            "name": "conteudo_mlops.py",
+            "text": "explanations and teaching scenarios"
+          }
+        ]
+      },
+      "stack": {
+        "eyebrow": "tools and team",
+        "title": "Python, Pygame and pytest.",
+        "process": "The starting point was the course's official template, which provided the folder structure and entry point. The final version uses no downloaded images, sounds or fonts: everything is drawn or generated in code, and fonts come from the system.",
+        "groups": [
+          {
+            "label": "Language",
+            "items": [
+              "Python 3.10+"
+            ]
+          },
+          {
+            "label": "Game",
+            "items": [
+              "Pygame Community Edition"
+            ]
+          },
+          {
+            "label": "Tests",
+            "items": [
+              "pytest"
+            ]
+          },
+          {
+            "label": "Storage",
+            "items": [
+              ".txt files"
+            ]
+          }
+        ],
+        "teamLabel": "Team",
+        "team": [
+          "Júlia Vitória Santiago Assunção",
+          "Marcelo Gomes de Oliveira Junior",
+          "Paulo Cirelli Fideles de Melo",
+          "Victor Cândido Leite"
+        ]
+      },
+      "next": {
+        "eyebrow": "looking back",
+        "title": "What I would do differently today.",
+        "items": [
+          {
+            "title": "Split jogo.py",
+            "text": "It is almost 2,000 lines of events, states and drawing for every screen. One module per screen would make each part easier to read and review."
+          },
+          {
+            "title": "Test the loop, not just the rules",
+            "text": "The tests cover the pure functions, not rendering. A test running a few hundred frames without a window would catch a broken screen before the presentation."
+          },
+          {
+            "title": "Balancing data",
+            "text": "The waves were tuned by playing. Saving the report metrics from many matches would show where the curve gets too hard."
+          }
+        ]
+      },
+      "closing": {
+        "title": "Testing a rule is faster than playing again.",
+        "text": "Keeping the rules apart from the window is what made the 74 tests possible, and they gave the team confidence to keep changing waves, co-op and the boss until the last week.",
         "back": "Back to projects",
         "contact": "Let's talk"
       }
