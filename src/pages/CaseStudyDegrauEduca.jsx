@@ -1,16 +1,25 @@
-import { useEffect } from 'react'
-import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { ArrowUpRight } from 'lucide-react'
 import { FeaturesWithPanel } from '../components/ui/features-with-panel'
-import { Link } from '../lib/router'
+import {
+  CaseClosing,
+  CaseHero,
+  CodeBlock,
+  Figure,
+  NextSteps,
+  Section,
+  SectionHeader,
+  StackAndTeam,
+  StatStrip,
+} from '../components/case-study/blocks'
+import { useCaseStudy } from '../components/case-study/useCaseStudy'
 
-// Estudo de caso do Degrau Educa (/projetos/degrau-educa), no formato do
-// engsoftmarcelo.dev: cabeçalho com contexto, equipe e papel, números, e seções
-// numeradas do problema ao que faria diferente. Textos em caseStudies.degraueduca
-// nos dois JSON; aqui ficam só estrutura, imagens e os trechos de código.
+// Estudo de caso do Degrau Educa (/projetos/degrau-educa): seções numeradas do
+// problema ao que faria diferente. Textos em caseStudies.degraueduca nos dois
+// JSON; aqui ficam só estrutura, imagens e os trechos de código.
 
 const IMG = '/projects/degrau-educa/'
 const PROTOTYPE_URL = 'https://marvelapp.com/prototype/g85h3jb/screen/98664685'
+const FRAME = 'localhost:3001/modulos/degrau-educa'
 
 // Trechos do repositório do projeto (admin.js e login.html), como estão lá
 const CODE = [
@@ -45,84 +54,8 @@ const JOURNEY_JSON = `{
   "cursos_ids": ["1", "2", "3", "4", "5"]
 }`
 
-function SectionHeader({ num, eyebrow, title, children }) {
-  return (
-    <header className="max-w-3xl">
-      <p className="font-mono text-xs uppercase tracking-wider text-ivory/55">
-        <span className="text-ice">// {num}</span> {eyebrow}
-      </p>
-      <h2 className="mt-3 text-3xl sm:text-5xl font-display font-bold text-ivory tracking-tight leading-[1.08]">
-        {title}
-      </h2>
-      {children && <p className="mt-5 text-base sm:text-lg text-ivory/70 leading-relaxed">{children}</p>}
-    </header>
-  )
-}
-
-function Section({ id, children, className = '' }) {
-  return (
-    <section id={id} className={`py-20 md:py-28 border-t border-ivory/10 scroll-mt-16 ${className}`}>
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">{children}</div>
-    </section>
-  )
-}
-
-// Imagem com legenda; o clique abre o arquivo inteiro em outra aba. Com
-// aspect, o recorte fica fixo (do topo), para imagens lado a lado alinharem
-function Figure({ src, alt, caption, frame = false, aspect, className = '' }) {
-  const image = (
-    <a href={src} target="_blank" rel="noopener noreferrer" className={`block overflow-hidden bg-carbon ${aspect ?? ''}`}>
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className={`w-full transition-transform duration-500 ease-out hover:scale-[1.02] ${aspect ? 'h-full object-cover object-top' : 'h-auto'}`}
-      />
-    </a>
-  )
-  return (
-    <figure className={className}>
-      <div className="rounded-2xl overflow-hidden border border-ivory/10 bg-carbon-raised shadow-xl shadow-black/40">
-        {frame && (
-          <div className="bg-[#131417] px-4 py-2.5 flex items-center gap-2 border-b border-ivory/10" aria-hidden="true">
-            <span className="w-2.5 h-2.5 rounded-full bg-ivory/25" />
-            <span className="w-2.5 h-2.5 rounded-full bg-ivory/25" />
-            <span className="w-2.5 h-2.5 rounded-full bg-electric" />
-            <span className="ml-3 font-mono text-[11px] text-ivory/45 truncate">localhost:3001/modulos/degrau-educa</span>
-          </div>
-        )}
-        {image}
-      </div>
-      {caption && <figcaption className="mt-3 text-sm text-ivory/55 leading-relaxed">{caption}</figcaption>}
-    </figure>
-  )
-}
-
-function CodeBlock({ code, label }) {
-  return (
-    <pre
-      aria-label={label}
-      className="overflow-x-auto rounded-xl border border-ivory/10 bg-[#131417] p-4 text-[12.5px] leading-relaxed text-ivory/85"
-      style={{ fontFamily: "'Fira Code', ui-monospace, monospace" }}
-    >
-      <code>{code}</code>
-    </pre>
-  )
-}
-
 export default function CaseStudyDegrauEduca() {
-  const { t } = useTranslation()
-  const c = (key, opts) => t(`caseStudies.degraueduca.${key}`, opts)
-  const list = (key) => c(key, { returnObjects: true })
-
-  // Título da aba: volta ao do site ao sair da página
-  useEffect(() => {
-    const previous = document.title
-    document.title = c('docTitle')
-    return () => {
-      document.title = previous
-    }
-  })
+  const { c, list } = useCaseStudy('degraueduca')
 
   const screens = list('solution.screens').map((screen) => ({
     ...screen,
@@ -131,56 +64,8 @@ export default function CaseStudyDegrauEduca() {
 
   return (
     <article>
-      {/* Abertura */}
-      <header className="pt-10 pb-16 md:pb-20">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-ivory/70 hover:text-ivory transition-colors rounded-md outline-none focus-visible:ring-[3px] focus-visible:ring-electric/50"
-          >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            {c('back')}
-          </Link>
-
-          <p className="mt-10 font-mono text-xs uppercase tracking-wider text-ivory/55">// {c('kicker')}</p>
-          <h1 className="mt-3 text-5xl sm:text-7xl font-display font-bold text-ivory tracking-tight leading-none">
-            {c('title')}
-          </h1>
-          <p className="mt-4 text-xl sm:text-2xl font-display font-light italic text-ice">{c('tagline')}</p>
-          <p className="mt-6 max-w-2xl text-base sm:text-lg text-ivory/70 leading-relaxed">{c('intro')}</p>
-
-          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-ivory/10 bg-ivory/5 px-3.5 py-1.5 text-xs font-semibold text-ivory">
-            <span className="w-2 h-2 rounded-full bg-electric" aria-hidden="true" />
-            {c('status')}
-          </p>
-
-          <dl className="mt-10 grid gap-6 sm:grid-cols-3 border-t border-ivory/10 pt-8">
-            {list('meta').map((item) => (
-              <div key={item.label}>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{item.label}</dt>
-                <dd className="mt-2 text-sm text-ivory/85 leading-relaxed">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <Figure className="mt-12" src={`${IMG}home.webp`} alt={c('coverAlt')} frame />
-        </div>
-      </header>
-
-      {/* Números */}
-      <div className="border-t border-ivory/10">
-        <dl className="max-w-6xl mx-auto px-6 sm:px-8 py-12 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-          {list('stats').map((stat) => (
-            <div key={stat.label}>
-              <dt className="sr-only">{stat.label}</dt>
-              <dd>
-                <span className="block text-4xl sm:text-5xl font-display font-bold text-ice leading-none">{stat.value}</span>
-                <span className="mt-2 block text-sm text-ivory/55 leading-snug">{stat.label}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
+      <CaseHero c={c} list={list} cover={`${IMG}home.webp`} frame={FRAME} />
+      <StatStrip stats={list('stats')} />
 
       {/* 01 · problema */}
       <Section id="problema">
@@ -265,7 +150,7 @@ export default function CaseStudyDegrauEduca() {
             <Figure src={`${IMG}historias-usuario.webp`} alt={c('design.storiesAlt')} caption={c('design.storiesCaption')} />
           </div>
           <div className="space-y-8">
-            <Figure src={`${IMG}jornada.webp`} alt={c('design.finalAlt')} caption={c('design.finalCaption')} frame />
+            <Figure src={`${IMG}jornada.webp`} alt={c('design.finalAlt')} caption={c('design.finalCaption')} frame={FRAME} />
             <Figure src={`${IMG}user-flow.webp`} alt={c('design.flowAlt')} caption={c('design.flowCaption')} />
             <a
               href={PROTOTYPE_URL}
@@ -354,77 +239,16 @@ export default function CaseStudyDegrauEduca() {
         <SectionHeader num="07" eyebrow={c('stack.eyebrow')} title={c('stack.title')}>
           {c('stack.process')}
         </SectionHeader>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {list('stack.groups').map((group) => (
-            <div key={group.label}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{group.label}</h3>
-              <ul className="mt-3 flex flex-wrap gap-1.5">
-                {group.items.map((item) => (
-                  <li key={item} className="px-2.5 py-1 text-xs font-medium rounded-md bg-ivory/8 text-ivory/85">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 border-t border-ivory/10 pt-8">
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{c('stack.teamLabel')}</h3>
-            <ul className="mt-3 space-y-1 text-sm text-ivory/85">
-              {list('stack.team').map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{c('stack.advisorsLabel')}</h3>
-            <ul className="mt-3 space-y-1 text-sm text-ivory/85">
-              {list('stack.advisors').map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <StackAndTeam c={c} list={list} />
       </Section>
 
       {/* 08 · o que faria diferente */}
       <Section id="proximos-passos">
         <SectionHeader num="08" eyebrow={c('next.eyebrow')} title={c('next.title')} />
-        <ol className="mt-12 grid gap-4 md:grid-cols-3">
-          {list('next.items').map((item, i) => (
-            <li key={item.title} className="rounded-2xl border border-ivory/10 bg-carbon-raised p-6">
-              <span className="font-mono text-xs text-ice">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="mt-2 text-lg font-display font-bold text-ivory">{item.title}</h3>
-              <p className="mt-2 text-sm text-ivory/70 leading-relaxed">{item.text}</p>
-            </li>
-          ))}
-        </ol>
+        <NextSteps items={list('next.items')} />
       </Section>
 
-      {/* Fechamento */}
-      <Section>
-        <div className="max-w-3xl">
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-ivory tracking-tight leading-[1.08]">{c('closing.title')}</h2>
-          <p className="mt-5 text-base sm:text-lg text-ivory/70 leading-relaxed">{c('closing.text')}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-ivory/8 hover:bg-ivory/12 text-ivory border border-ivory/10 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-              {c('closing.back')}
-            </Link>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-electric text-carbon hover:bg-electric-hover transition-colors"
-            >
-              {c('closing.contact')}
-              <ArrowRight className="w-4 h-4 text-carbon/60" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </Section>
+      <CaseClosing c={c} />
     </article>
   )
 }
