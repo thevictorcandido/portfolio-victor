@@ -58,14 +58,15 @@ export default function Projects() {
 
           {/* Navegação por Pílulas e Controles de Pilha 3D */}
           {hasNavigation && (
-            <div className="flex items-center gap-3">
-              <div className="flex items-center bg-carbon-raised/90 border border-ivory/10 rounded-full p-1 shadow-2xs">
+            <div className="flex items-center gap-3 min-w-0">
+              {/* Com muitos projetos a barra não cabe no celular: rola na horizontal */}
+              <div className="flex items-center max-w-full overflow-x-auto [scrollbar-width:none] bg-carbon-raised/90 border border-ivory/10 rounded-full p-1 shadow-2xs">
                 {projects.map((proj, idx) => (
                   <button
                     key={proj.id}
                     type="button"
                     onClick={() => setActiveIndex(idx)}
-                    className={`px-4 py-2 text-xs font-semibold rounded-full transition-all duration-300 cursor-pointer ${
+                    className={`shrink-0 whitespace-nowrap px-4 py-2 text-xs font-semibold rounded-full transition-all duration-300 cursor-pointer ${
                       activeIndex === idx
                         ? 'bg-electric text-carbon shadow-xs'
                         : 'text-ivory/70 hover:text-ivory hover:bg-ivory/8'
