@@ -62,6 +62,7 @@
     "gvsDesc": "Projeto profissional real concebido e desenvolvido inteiramente por mim para o Grupo GVS, reformulando a imagem digital corporativa para o mercado de geração de energia sustentável. Inclui arquitetura de usinas, portal de carreiras e projetos socioambientais.",
     "prev": "Anterior",
     "next": "Próximo",
+    "swipeHint": "Arraste o card para o lado para trocar de projeto.",
     "gvsTitle": "Site Institucional — Grupo GVS",
     "gvsTags": [
       "Desenvolvimento Web",

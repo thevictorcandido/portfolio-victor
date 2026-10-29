@@ -158,6 +158,12 @@ Página `/projetos/degrau-educa`, no formato de https://engsoftmarcelo.dev/pt/pr
 
 O card na seção Projetos ganhou `caseStudy` (botão "Ler estudo de caso" e a imagem viram links para a página) e `address` (texto da barra de navegador quando não há `liveUrl`). A pilha de cards passou a usar uma grade com todos na mesma célula (`[grid-area:1/1]`): a altura segue o card mais alto. Antes era `min-h` fixo com cards `absolute`, e a 1024 px o texto do Degrau Educa vazava 74 px e escondia os botões (o do GVS já vazava 7 px).
 
+> [!NOTE]
+> **arrastar o card troca de projeto, desde 2026-10-29**
+>
+> Pedido do Victor: menos rolagem e menos toques. O card da frente segue o dedo ou o mouse na horizontal (com um giro leve) e, solto além de 60 px, vai para o próximo (arrastando para a esquerda) ou o anterior (para a direita), com a volta circular das setas. Eventos de ponteiro no card, sem biblioteca: `touch-action: pan-y` deixa a rolagem vertical com o navegador; o sentido só é decidido depois de 8 px; um arraste nunca vira clique (`onClickCapture`); `onDragStart` bloqueado para o mouse não puxar o link ou a imagem. Entre as pílulas e o card, a dica "Arraste o card para o lado para trocar de projeto." (`projects.swipeHint`). A pílula ativa rola para o centro da barra quando o projeto muda, sem mover a página.
+> Testado com toque real (CDP) a 375 px e com mouse a 1280 px: esquerda, de novo esquerda, direita, arraste curto de 35 px (não troca), deslizar vertical de 300 px sobre o card (a página rola, o projeto não muda), arraste começando no botão (troca e não abre) e toque simples no botão (abre o estudo de caso). A pílula ativa ficou visível em todos.
+
 > [!TIP]
 > **verificado em 2026-10-28**
 >
