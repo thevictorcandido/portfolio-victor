@@ -1,6 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { LayoutGrid } from "lucide-react";
 import {
   AnimatePresence,
   MotionConfig,
@@ -16,74 +15,49 @@ export const FloatingDock = ({
   items,
   desktopClassName,
   mobileClassName,
-  toggleLabel = "Abrir menu de links",
 }) => {
   // reducedMotion="user": com "reduzir movimento" ligado no sistema, o motion
-  // desliga as animações de transform (tooltip, menu mobile) e mantém só opacidade
+  // desliga as animações de transform (tooltip) e mantém só opacidade
   return (
     <MotionConfig reducedMotion="user">
       <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} toggleLabel={toggleLabel} />
+      <FloatingDockMobile items={items} className={mobileClassName} />
     </MotionConfig>
   );
 };
 
+// No celular os ícones ficam lado a lado, sempre à vista, na mesma barra do
+// desktop sem a ampliação. O original abria uma coluna vertical por cima do
+// texto a partir de um botão: um toque a mais e o texto escondido atrás.
 const FloatingDockMobile = ({
   items,
   className,
-  toggleLabel,
 }) => {
-  const [open, setOpen] = useState(false);
   return (
-    <div className={cn("relative block md:hidden", className)}>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2 items-center"
+    <nav
+      className={cn(
+        "flex md:hidden items-center gap-1.5 rounded-2xl bg-carbon-raised/90 border border-ivory/10 px-2.5 py-2 shadow-xs",
+        className
+      )}
+    >
+      {items.map((item) => {
+        const safeHref = item.href || '#';
+        const isExternal = typeof safeHref === 'string' && safeHref.startsWith('http');
+        return (
+          <a
+            key={item.title}
+            href={safeHref}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+            aria-label={item.title}
+            title={item.title}
+            className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ivory/8 border border-ivory/10 text-ivory/80 hover:bg-ivory/15 hover:text-ivory transition-colors outline-none focus-visible:ring-2 focus-visible:ring-electric"
           >
-            {items.map((item, idx) => {
-              const safeHref = item.href || '#';
-              const isExternal = typeof safeHref === 'string' && safeHref.startsWith('http');
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: 10,
-                    transition: {
-                      delay: idx * 0.05,
-                    },
-                  }}
-                  transition={{ delay: (items.length - 1 - idx) * 0.05 }}
-                >
-                  <a
-                    href={safeHref}
-                    target={isExternal ? '_blank' : undefined}
-                    rel={isExternal ? 'noopener noreferrer' : undefined}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-carbon-raised border border-ivory/10 shadow-xs text-ivory/80 hover:text-ivory"
-                  >
-                    <div className="h-4 w-4 flex items-center justify-center">{item.icon}</div>
-                  </a>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-carbon-raised border border-ivory/10 shadow-xs text-ivory/70 hover:text-ivory"
-        aria-label={toggleLabel}
-      >
-        <LayoutGrid className="h-5 w-5" />
-      </button>
-    </div>
+            {item.icon}
+          </a>
+        );
+      })}
+    </nav>
   );
 };
 

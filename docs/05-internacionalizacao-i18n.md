@@ -42,7 +42,7 @@ Voltar: [Portfolio Victor](README.md)
 > | `skillsCategories[].technologies[].role` | `skills.techRoles.<key>` (cada tecnologia ganhou `key`) |
 > | `education[1]` inteiro + rodapé fixo do card | `education.continuous.{course,institution,period,desc,footer}` |
 > | "Navegação" fixo no menu do Hero | `nav.menuTitle` |
-> | `aria-label` fixo do FloatingDock | prop `toggleLabel` ← `about.dock.toggle` |
+> | `aria-label` dos links do FloatingDock no celular | o `title` de cada item (`about.dock.*`); o botão de abrir e `about.dock.toggle` saíram em 2026-10-29 |
 > | "Engenharia de Software" fixo no Footer | `footer.course` |
 >
 > **Verificação:** build servido com `vite preview`, DOM renderizado pelo Edge headless com `--lang=en-US`; varredura de texto visível + `alt`/`aria-label`/`title`/`placeholder` sem nenhum resto em português (sobram só nomes próprios: Grupo GVS, PUC Minas, Cândido).

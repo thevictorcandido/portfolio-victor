@@ -64,7 +64,7 @@ Com "reduzir movimento" ligado no sistema (`prefers-reduced-motion: reduce`):
 | Rolagem por âncora | mesmo bloco: `scroll-behavior: auto !important` | Salto direto |
 | "Voltar ao topo" (JS) | `Footer.jsx` consulta `matchMedia` antes do `scrollTo` | Salto direto |
 | Globo de habilidades | `SkillsGlobe` consulta `matchMedia` | Sem giro automático nem inércia; o ícone escolhido salta direto para a frente. Arrastar continua funcionando |
-| FloatingDock (motion/react) | `MotionConfig reducedMotion="user"` + `useReducedMotion()` no `IconContainer` | Tooltip/menu sem deslocamento; ícones sem ampliação, tamanho fixo |
+| FloatingDock (motion/react) | `MotionConfig reducedMotion="user"` + `useReducedMotion()` no `IconContainer` | Tooltip sem deslocamento; ícones sem ampliação, tamanho fixo |
 | Pato do Hero (GSAP) | `Hero.jsx` consulta `matchMedia` | Aparece direto no tamanho final, já inclinado 6° |
 | Ilustrações da Trajetória | regra global (com `animation-delay: 0s`) | Cada cena aparece parada e completa |
 | Painel da Trajetória (motion/react) | `MotionConfig reducedMotion="user"` | Troca de ilustração e abertura do item só com opacidade |
@@ -191,7 +191,7 @@ Página `/projetos/wisp-tv`, desde 2026-10-28: app Android TV do Centro de Opera
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
-- `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre").
+- `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre"). No celular (abaixo de `md`), desde 2026-10-29: os 6 ícones lado a lado numa barra sempre visível, cada link com `aria-label`. O original abria uma coluna vertical por cima do texto a partir de um botão de grade: um toque a mais, texto escondido e espaço vazio desproporcional (pedido do Victor). Cabe numa linha até 320 px, sem rolagem horizontal.
 - `features-with-panel.jsx` — lista numerada com painel de mídia preso na tela (Trajetória), do ScrollX UI.
 
 > [!TIP]
