@@ -26,7 +26,7 @@ export const portfolioData = {
   // o ícone fica no mapa de Skills.jsx. A fonte dos exemplos são as notas
   // "Tecnologias" e "Repositórios" do vault do Obsidian. projectUrl é opcional.
   skills: [
-    { key: "python", category: "backend", projectUrl: "https://github.com/engsoftmarcelo/drift-invaders-pipeline-defense" },
+    { key: "python", category: "backend", projectUrl: null },
     { key: "java", category: "backend", projectUrl: "https://github.com/thevictorcandido/ProgMod_XulambsFoods26-2/tree/Aula0710" },
     { key: "spring", category: "backend", projectUrl: "https://github.com/thevictorcandido/AV1" },
     { key: "nodejs", category: "backend", projectUrl: null },

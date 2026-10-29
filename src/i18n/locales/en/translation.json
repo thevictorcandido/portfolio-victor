@@ -151,9 +151,9 @@
     "items": {
       "python": {
         "name": "Python",
-        "about": "A language with lean syntax, used from automation to data science. It is where I learned algorithms in my first semester.",
-        "example": "Drift Invaders, the final project for Introduction to Algorithms, built by a team of four: a Pygame arcade with five waves, local co-op mode and 74 pytest tests.",
-        "project": "Drift Invaders · PUC Minas"
+        "about": "A language with lean syntax, used from automation to data science.",
+        "example": "It was the language of my whole first semester at PUC Minas: I learned algorithms with it in Introduction to Algorithms and took the course exams in Python.",
+        "project": "Introduction to Algorithms · 1st semester"
       },
       "java": {
         "name": "Java",

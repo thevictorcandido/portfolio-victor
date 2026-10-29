@@ -160,7 +160,7 @@ O card na seção Projetos ganhou `caseStudy` (botão "Ler estudo de caso" e a i
 
 ## Blocos compartilhados (`components/case-study/`)
 
-Com o segundo estudo de caso (o Drift Invaders, retirado em 2026-10-29), os blocos saíram da página do Degrau Educa para `components/case-study/blocks.jsx` (`SectionHeader`, `Section`, `Figure`, `CodeBlock`, `CaseHero`, `StatStrip`, `NextSteps`, `StackAndTeam`, `CaseClosing`) e o hook `useCaseStudy(chave)` foi para `useCaseStudy.js` (devolve `c()` e `list()` e cuida do título da aba). `Figure` passou a receber em `frame` o texto da barra de janela. O Degrau Educa ficou idêntico, conferido por captura.
+Com o segundo estudo de caso, os blocos saíram da página do Degrau Educa para `components/case-study/blocks.jsx` (`SectionHeader`, `Section`, `Figure`, `CodeBlock`, `CaseHero`, `StatStrip`, `NextSteps`, `StackAndTeam`, `CaseClosing`) e o hook `useCaseStudy(chave)` foi para `useCaseStudy.js` (devolve `c()` e `list()` e cuida do título da aba). `Figure` passou a receber em `frame` o texto da barra de janela. O Degrau Educa ficou idêntico, conferido por captura.
 
 ## Estudo de caso do Sentinela GVS (`pages/CaseStudySentinelaGvs.jsx`)
 

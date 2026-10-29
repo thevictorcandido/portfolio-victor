@@ -139,14 +139,14 @@ Voltar: [Portfolio Victor](README.md)
 > Em 2026-10-28 entrou o Degrau Educa (Trabalho Interdisciplinar 1, PUC Minas, equipe de 5) como primeiro projeto, com um estudo de caso em página própria no formato do engsoftmarcelo.dev. O conteúdo saiu de uma varredura do repositório da disciplina: README e docs, banco do JSON Server e o código; as telas foram capturadas com o app rodando localmente. Para a página nova, um roteador de ~30 linhas pela History API em vez de react-router: são só duas rotas. O "Meu papel" segue o que foi confirmado: Design Thinking/UX, o painel administrativo com 4 CRUDs e parte do cadastro e login. O Space no Hugging Face e o repositório no GitHub estão privados (401 e 404), então o card não tem "Ver demo" nem "GitHub" por enquanto.
 
 > [!IMPORTANT]
-> **Drift Invaders com estudo de caso, e blocos compartilhados**
+> **blocos de estudo de caso compartilhados**
 >
-> Em 2026-10-28 entrou o Drift Invaders (Introdução a Algoritmos, PUC Minas, equipe de 4) como segundo projeto, com estudo de caso em página própria. Base: o zip do repositório (README, proposta, guia de MLOps, código e testes) e a página do mesmo projeto no site do Marcelo Gomes, colega de grupo, usada só como referência. O "Meu papel" segue o que foi confirmado: as regras em funções puras e os testes. Sem botão "GitHub", por escolha: o repositório público é o do colega. Os quadros vêm do jogo rodando sem janela, com um jogador automático. Com dois estudos de caso, os blocos das páginas viraram componentes compartilhados.
+> Em 2026-10-28, com o segundo estudo de caso, os blocos das páginas viraram componentes compartilhados (`components/case-study/`), usados por todos os estudos.
 
 > [!IMPORTANT]
-> **Drift Invaders sai dos Projetos**
+> **Python fica no globo sem projeto**
 >
-> Em 2026-10-29 o Drift Invaders saiu dos Projetos: card, estudo de caso em `/projetos/drift-invaders`, os 8 quadros e os textos nos dois idiomas, tudo recuperável pelo histórico (commit `af5ad1d`). Os blocos compartilhados ficam, usados pelos outros três estudos. O exemplo de Python no globo de Habilidades continua citando o jogo e linkando o repositório do grupo.
+> Em 2026-10-29 o único projeto em Python saiu do site e do vault. Python fica no globo mesmo assim, como exceção à regra do projeto real: foi a linguagem de todo o 1º semestre (Introdução a Algoritmos e as provas). O exemplo diz isso e o ícone não tem link, como o Node.js.
 
 > [!IMPORTANT]
 > **Sentinela GVS como primeiro projeto, aprovado pelo compliance**

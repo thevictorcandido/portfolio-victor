@@ -151,9 +151,9 @@
     "items": {
       "python": {
         "name": "Python",
-        "about": "Linguagem de sintaxe enxuta, usada de automação a ciência de dados. Foi onde aprendi algoritmos no 1º semestre.",
-        "example": "Drift Invaders, projeto final de Introdução a Algoritmos feito em grupo de quatro: um arcade em Pygame com cinco ondas, modo cooperativo local e 74 testes em pytest.",
-        "project": "Drift Invaders · PUC Minas"
+        "about": "Linguagem de sintaxe enxuta, usada de automação a ciência de dados.",
+        "example": "Foi a linguagem de todo o meu 1º semestre na PUC Minas: aprendi algoritmos com ela em Introdução a Algoritmos e fiz as provas da disciplina em Python.",
+        "project": "Introdução a Algoritmos · 1º semestre"
       },
       "java": {
         "name": "Java",
