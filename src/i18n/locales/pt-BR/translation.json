@@ -263,6 +263,13 @@
       "Modelagem de Processos & Arquitetura de Software",
       "Desenvolvimento e Integração de Aplicações Web (DIAW)"
     ],
+    "efgnl": {
+      "course": "Formação Gerencial em Administração",
+      "institution": "EFG-NL — Escola de Formação Gerencial de Nova Lima · Metodologia SEBRAE",
+      "period": "2022 — 2024",
+      "desc": "Curso de administração feito junto com o ensino médio, na metodologia do SEBRAE: gestão, pesquisa, resolução de problemas e liderança de equipe, com comunicação e trabalho em grupo na prática.",
+      "footer": "Em paralelo ao ensino médio"
+    },
     "continuous": {
       "course": "Desenvolvimento Web Contemporâneo & UI/UX",
       "institution": "Estudo Contínuo & IA Aplicada",

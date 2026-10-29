@@ -263,6 +263,13 @@
       "Process Modeling & Software Architecture",
       "Web Application Development and Integration (DIAW)"
     ],
+    "efgnl": {
+      "course": "Management Training in Business Administration",
+      "institution": "EFG-NL — Nova Lima School of Management Training · SEBRAE methodology",
+      "period": "2022 — 2024",
+      "desc": "A business administration program taken alongside high school, following the methodology of SEBRAE (Brazil's small business agency): management, research, problem solving and team leadership, with hands-on communication and teamwork.",
+      "footer": "Alongside high school"
+    },
     "continuous": {
       "course": "Modern Web Development & UI/UX",
       "institution": "Continuous Learning & Applied AI",

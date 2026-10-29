@@ -14,6 +14,7 @@ A tese do site: mostrar alguém que une **rigor técnico** (Engenharia de Softwa
 ## Quem é o Victor (dados que o site exibe)
 
 - **Formação:** Bacharelado em Engenharia de Software, PUC Minas, 2026 — 2029 (em andamento). Entrada em 2026, confirmada pelo Victor em 2026-10-29 (antes constava 2024 por engano).
+- **Formação anterior:** Administração na EFG-NL (Escola de Formação Gerencial de Nova Lima, metodologia SEBRAE), fev/2022 a dez/2024, em paralelo ao ensino médio. Fonte: LinkedIn, lido em 2026-10-29.
 - **Idiomas:** português nativo, inglês intermediário.
 - **Currículo:** ver **Currículo**.
 - **Local:** Nova Lima / Belo Horizonte, MG.

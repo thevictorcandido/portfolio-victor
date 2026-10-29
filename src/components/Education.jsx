@@ -29,13 +29,15 @@ export default function Education() {
         </div>
 
         {/* Grid de Formação */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
           {education.map((item) => {
+            // A PUC usa as chaves da raiz de education.*; os outros cards, education.<id>.*
             const isPuc = item.id === 'puc'
-            const courseTitle = isPuc ? t('education.degree') : t('education.continuous.course')
-            const institution = isPuc ? t('education.institution') : t('education.continuous.institution')
-            const period = isPuc ? t('education.period') : t('education.continuous.period')
-            const description = isPuc ? t('education.desc') : t('education.continuous.desc')
+            const key = (puc, field) => (isPuc ? `education.${puc}` : `education.${item.id}.${field}`)
+            const courseTitle = t(key('degree', 'course'))
+            const institution = t(key('institution', 'institution'))
+            const period = t(key('period', 'period'))
+            const description = t(key('desc', 'desc'))
 
             return (
               <div
@@ -68,7 +70,7 @@ export default function Education() {
                 <div className="mt-8 pt-5 border-t border-ivory/10 flex items-center gap-2 text-xs text-ivory/55 font-medium">
                   <BookOpen className="w-4 h-4 text-ivory/45" />
                   <span>
-                    {isPuc ? t('education.coursesTitle') : t('education.continuous.footer')}
+                    {t(key('coursesTitle', 'footer'))}
                   </span>
                 </div>
               </div>

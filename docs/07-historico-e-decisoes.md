@@ -144,6 +144,11 @@ Voltar: [Portfolio Victor](README.md)
 > Em 2026-10-28, com o segundo estudo de caso, os blocos das páginas viraram componentes compartilhados (`components/case-study/`), usados por todos os estudos.
 
 > [!IMPORTANT]
+> **EFG-NL na Formação**
+>
+> Em 2026-10-29 entrou na Formação o curso de administração da EFG-NL (2022–2024, metodologia SEBRAE), feito junto com o ensino médio, entre a PUC Minas e o estudo contínuo. Dados do LinkedIn: curso, período e as 11 competências associadas, das quais o texto do card usa só as de gestão (pesquisa, resolução de problemas, liderança, comunicação, trabalho em equipe). A grade passou para 3 colunas a partir de `lg`; abaixo disso os cards empilham.
+
+> [!IMPORTANT]
 > **Python fica no globo sem projeto**
 >
 > Em 2026-10-29 o único projeto em Python saiu do site e do vault. Python fica no globo mesmo assim, como exceção à regra do projeto real: foi a linguagem de todo o 1º semestre (Introdução a Algoritmos e as provas). O exemplo diz isso e o ícone não tem link, como o Node.js.

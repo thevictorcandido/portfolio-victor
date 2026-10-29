@@ -87,6 +87,6 @@ export const portfolioData = {
     },
   ],
 
-  // Textos de cada card em education.* (puc) e education.continuous.* nos arquivos de tradução
-  education: [{ id: "puc" }, { id: "continuous" }],
+  // Textos de cada card em education.* (puc) e education.<id>.* (efgnl, continuous) nos arquivos de tradução
+  education: [{ id: "puc" }, { id: "efgnl" }, { id: "continuous" }],
 }
