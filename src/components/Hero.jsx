@@ -54,7 +54,7 @@ export default function Hero() {
       {/* Centro: nome em duas linhas à esquerda e o pato à direita. Abaixo de lg (celular
           e tablet), nome e pato centralizados um sobre o outro, o nome em ~70% da largura */}
       <div className="flex-1 flex items-center py-6 sm:py-10 my-auto">
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col items-center lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8 lg:gap-12">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col items-center lg:flex-row lg:items-center lg:justify-between gap-10 sm:gap-12 lg:gap-12">
           <div className="min-w-0">
             {/* Linha 1: VICTOR com BlurText por letras */}
             <div className="overflow-visible flex justify-center lg:justify-start">
@@ -85,7 +85,7 @@ export default function Hero() {
           {/* Pato: entra com zoom elástico e um giro curto para a direita.
               Mesmo tamanho de fonte do nome: com altura em em, o pato acompanha o nome.
               Ao lado dele (lg+) fica um pouco mais alto que as duas linhas (1,8em);
-              embaixo, centralizado, menor (1,5em) para não pesar mais que o nome */}
+              embaixo, centralizado, menor (1,7em) para não pesar mais que o nome */}
           <div className="self-center lg:self-auto shrink-0 text-[72px] sm:text-[104px] md:text-[128px] lg:text-[140px] xl:text-[180px] leading-none">
             <img
               ref={duckRef}
@@ -93,7 +93,7 @@ export default function Hero() {
               alt=""
               width={664}
               height={788}
-              className="h-[1.5em] lg:h-[2.1em] w-auto drop-shadow-[0_24px_32px_rgb(0_0_0/0.45)] select-none will-change-transform"
+              className="h-[1.7em] lg:h-[2.1em] w-auto drop-shadow-[0_24px_32px_rgb(0_0_0/0.45)] select-none will-change-transform"
               loading="eager"
               draggable={false}
             />

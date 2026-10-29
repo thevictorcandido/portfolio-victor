@@ -32,7 +32,7 @@ Nome em duas linhas (Fira Code bold, `BlurText` por letra) alinhado à esquerda;
 > [!NOTE]
 > **celular e tablet, desde 2026-10-29**
 >
-> Abaixo de `lg` (1024 px), nome e pato ficam centralizados no mesmo eixo, o pato embaixo (pedido do Victor: antes o nome ia à esquerda e o pato a um canto, grande demais). Fonte do nome 72 / 104 / 128 px (base / `sm` / `md`), o nome ocupando ~70–80% da largura; o pato com `h-[1.5em]` em vez de 2.1em, para não pesar mais que o nome (117 px no celular, 193 px no tablet de 768). Medido em 320, 375, 640, 768 e 1023 px: centro do nome = centro do pato, sem rolagem horizontal. Do `lg` para cima nada mudou.
+> Abaixo de `lg` (1024 px), nome e pato ficam centralizados no mesmo eixo, o pato embaixo (pedido do Victor: antes o nome ia à esquerda e o pato a um canto, grande demais). Fonte do nome 72 / 104 / 128 px (base / `sm` / `md`), o nome ocupando ~70–80% da largura; o pato com `h-[1.7em]` em vez de 2.1em, para não pesar mais que o nome (122 px no celular, 218 px no tablet de 768), e 40 px de espaço entre nome e pato (48 px do `sm` para cima). Primeiro foi 1,5em com 24 px; no mesmo dia o Victor pediu o pato um pouco maior e mais afastado. Medido em 320, 375, 640, 768 e 1023 px: centro do nome = centro do pato, sem rolagem horizontal. Do `lg` para cima nada mudou.
 
 Entrada do pato com GSAP, 0,45 s depois de carregar: zoom `scale 0 → 1` em 1,6 s com `elastic.out(1, 0.4)` e, ao mesmo tempo, giro `-10° → 6°` (para a direita) em 1,9 s com `elastic.out(1, 0.6)`, mais amortecido, para o giro balançar menos que o zoom. Medido avançando a linha do tempo do GSAP: a escala passa de 1,27 e volta a 0,96 antes de assentar; o giro passa de 8,4° e assenta em 6°.
 
