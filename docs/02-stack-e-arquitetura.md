@@ -34,7 +34,6 @@ src/
   lib/utils.js             cn() — join simples de classes
   lib/router.js            rotas pela History API: usePathname, navigate, <Link>
   pages/CaseStudyDegrauEduca.jsx   estudo de caso /projetos/degrau-educa (lazy)
-  pages/CaseStudyDriftInvaders.jsx estudo de caso /projetos/drift-invaders (lazy)
   pages/CaseStudySentinelaGvs.jsx  estudo de caso /projetos/sentinela-gvs (lazy)
   pages/CaseStudyWispTv.jsx        estudo de caso /projetos/wisp-tv (lazy)
   components/case-study/   blocos e hook useCaseStudy das páginas de estudo de caso

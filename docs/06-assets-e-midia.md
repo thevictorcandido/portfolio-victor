@@ -13,7 +13,6 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 | `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
 | `projects/grupogvs-hero.webp` | Card do projeto GVS — 1440 × 900, WebP qualidade 85, 179 KB (o PNG tinha 1,4 MB; trocado em 2026-10-23) |
 | `projects/degrau-educa/*.webp` | Estudo de caso do Degrau Educa (19 imagens, 817 KB); `home.webp` também é a imagem do card (desde 2026-10-28) |
-| `projects/drift-invaders/*.webp` | Estudo de caso do Drift Invaders (8 quadros 1280 × 720, WebP qualidade 86, 307 KB); `menu.webp` também é a imagem do card (desde 2026-10-28) |
 | `projects/sentinela-gvs/` | Estudo de caso do Sentinela GVS: 12 telas da instância de demonstração (WebP qualidade 84, 1600 px, 980 KB), `demo.mp4` (o vídeo de 60 s refeito em 1280 px, H.264 CRF 27, sem áudio: 13,3 MB → 2,1 MB) e `demo-poster.webp`; `cameras.webp` também é a imagem do card (desde 2026-10-28) |
 | `projects/wisp-tv/` | Estudo de caso do WISP TV: 6 telas do app no emulador (WebP qualidade 84, 1600 px, 262 KB), `demo.mp4` (70 s refeito em 1280 px a 30 fps, H.264 CRF 26, sem áudio: 2,5 MB → 0,8 MB) e `demo-poster.webp`; `menu.webp` também é a imagem do card (desde 2026-10-28). Logo "WISP · GVS — Centro de Operações" é identidade interna do Grupo GVS, liberado para publicação |
 | `fonts/HyperlegibleSans-*.woff2`, `fonts/SmileMoon.otf` | `index.css` |
@@ -40,12 +39,6 @@ Como as telas foram feitas, em 2026-10-28:
 > **armadilha**
 >
 > `Start-Process -ArgumentList @(...)` não põe aspas: um caminho com espaço ("Victor Leite") quebra o `--screenshot` e o Edge sai sem gerar nada. Usar o caminho curto (`C:\Users\VICTOR~1\...`). E telas de celular saem cortadas no headless, que não encolhe a janela abaixo de ~500 px.
-
-## Quadros do Drift Invaders (`projects/drift-invaders/`)
-
-O jogo (Python + Pygame CE) rodou num ambiente isolado criado com `uv venv` no scratchpad, com `SDL_VIDEODRIVER=dummy`, sem abrir janela. Antes, `python -m pytest -q` no projeto: 74 testes passando em 0,32 s.
-
-Um roteiro de captura importa o próprio `src/jogo.py`, chama `inicializar_subsistema()` e repete o laço de `executar_jogo()` com `capturar_inputs` trocado por um jogador automático: mira no invasor mais baixo da sua metade da tela e segura o tiro. Os tutoriais de primeira aparição são fechados sozinhos. A tela é salva com `pygame.image.save` em pontos escolhidos: introdução (duas páginas), menu, tutorial do Data Drift, cooperativo na onda 3 (o quadro com mais ameaças, com um bot mais lento), chefe na onda 5, vitória e relatório. Nenhum arquivo do jogo foi alterado; o ranking gravado pela partida fica só na cópia extraída.
 
 ## Recorte do pato (`pato.webp`)
 
