@@ -191,7 +191,7 @@ Página `/projetos/wisp-tv`, desde 2026-10-28: app Android TV do Centro de Opera
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
-- `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre"). No celular (abaixo de `md`), desde 2026-10-29: os 6 ícones lado a lado numa barra sempre visível, cada link com `aria-label`. O original abria uma coluna vertical por cima do texto a partir de um botão de grade: um toque a mais, texto escondido e espaço vazio desproporcional (pedido do Victor). Cabe numa linha até 320 px, sem rolagem horizontal.
+- `floating-dock.jsx` — dock estilo macOS com magnificação (usado no "Sobre"). No celular (abaixo de `md`), desde 2026-10-29: os 6 ícones lado a lado numa barra sempre visível, cada link com `aria-label`. O original abria uma coluna vertical por cima do texto a partir de um botão de grade: um toque a mais, texto escondido e espaço vazio desproporcional (pedido do Victor). Cabe numa linha até 320 px, sem rolagem horizontal. O "Vamos conversar" acima dela fica centralizado no mesmo eixo, e a seta tem 32 px no celular, a altura das duas linhas de texto (64 px do `sm` para cima). Medido a 320 e 375 px: centro do bloco = centro da barra.
 - `features-with-panel.jsx` — lista numerada com painel de mídia preso na tela (Trajetória), do ScrollX UI.
 
 > [!TIP]

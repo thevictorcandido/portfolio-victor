@@ -119,17 +119,17 @@ export default function About() {
             </div>
 
             {/* Rodapé do Card: Botão de Ação Circular + Floating Dock dos Cards Restantes */}
-            <div className="mt-10 pt-6 border-t border-ivory/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              
+            {/* No celular, os dois em coluna e centralizados; a seta tem a altura das duas linhas de texto */}
+            <div className="mt-10 pt-6 border-t border-ivory/10 flex flex-col items-center sm:flex-row sm:items-center justify-between gap-6">
+
               {/* Botão de Conexão Circular no padrão Shatlyk1011 */}
               <a
                 href={`mailto:${personal.social?.email || "victorcandidoleite@gmail.com"}`}
-                className="group flex items-center gap-4 text-ivory/85 hover:text-ivory transition-colors"
+                className="group flex items-center gap-3 sm:gap-4 text-ivory/85 hover:text-ivory transition-colors"
               >
-                <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full border border-ivory/20 bg-carbon-raised group-hover:border-electric group-hover:bg-electric transition-all duration-300 shadow-2xs">
+                <div className="flex size-8 sm:size-16 shrink-0 items-center justify-center rounded-full border border-ivory/20 bg-carbon-raised group-hover:border-electric group-hover:bg-electric transition-all duration-300 shadow-2xs">
                   <ArrowUpRight
-                    size={20}
-                    className="text-ivory/80 transition-all duration-300 group-hover:-rotate-45 group-hover:text-carbon"
+                    className="size-4 sm:size-5 text-ivory/80 transition-all duration-300 group-hover:-rotate-45 group-hover:text-carbon"
                   />
                 </div>
                 <div>
