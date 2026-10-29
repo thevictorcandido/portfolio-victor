@@ -124,10 +124,12 @@ export default function Projects() {
                 }}
                 className="[grid-area:1/1] relative transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xl overflow-hidden p-6 sm:p-10"
               >
-                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full">
+                {/* grid-cols-1 e min-w-0: sem eles a coluna crescia até o min-content da barra
+                    de janela (334 px) e o texto e a imagem estouravam o card no celular */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full">
                   
                   {/* Coluna Esquerda: Texto, Metadados e Ações */}
-                  <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+                  <div className="min-w-0 lg:col-span-5 flex flex-col justify-between h-full space-y-6">
                     <div>
                       {/* Badge e Categoria */}
                       <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -210,26 +212,26 @@ export default function Projects() {
                   </div>
 
                   {/* Coluna Direita: Imagem Real com Moldura e Efeito Visual */}
-                  <div className="lg:col-span-7">
+                  <div className="min-w-0 lg:col-span-7">
                     <div className="relative rounded-2xl overflow-hidden border border-ivory/10 shadow-lg bg-carbon group">
                       
                       {/* Barra superior de janela estilo navegador ou terminal */}
-                      <div className="bg-[#131417] px-4 py-2.5 flex items-center justify-between border-b border-white/10 text-xs text-ivory/45">
-                        <div className="flex items-center gap-2">
+                      <div className="bg-[#131417] px-4 py-2.5 flex items-center justify-between gap-3 border-b border-white/10 text-xs text-ivory/45">
+                        <div className="flex shrink-0 items-center gap-2">
                           <span className="w-2.5 h-2.5 rounded-full bg-ivory/25" />
                           <span className="w-2.5 h-2.5 rounded-full bg-ivory/25" />
                           <span className="w-2.5 h-2.5 rounded-full bg-electric" />
                         </div>
-                        <span className="font-mono text-[11px] text-ivory/45 truncate max-w-[240px]">
+                        <span className="min-w-0 flex-1 text-center font-mono text-[11px] text-ivory/45 truncate">
                           {proj.liveUrl ?? proj.address}
                         </span>
-                        <div className="flex items-center gap-1.5 text-ivory/45">
+                        <div className="flex shrink-0 items-center gap-1.5 text-ivory/45">
                           <Globe className="w-3.5 h-3.5" />
                         </div>
                       </div>
 
-                      {/* Imagem Real do Projeto */}
-                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-carbon">
+                      {/* Imagem Real do Projeto: 16:9, a proporção dos prints (16:10 cortava as laterais) */}
+                      <div className="relative aspect-video w-full overflow-hidden bg-carbon">
                         <img
                           src={proj.image}
                           alt={transData.title}

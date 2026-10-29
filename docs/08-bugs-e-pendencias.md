@@ -7,6 +7,13 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **texto e imagem estourando o card de Projetos no celular — corrigido em 2026-10-29**
+>
+> **Sintoma:** no celular, o texto e a imagem de cada card de Projetos batiam na borda direita e eram cortados, sem respiro.
+> **Causa raiz:** a grade interna do card não tinha colunas definidas, então a coluna única cresceu até o min-content do conteúdo. Quem mandava era a barra de janela em cima da imagem: o endereço tinha `truncate max-w-[240px]`, e a barra inteira pedia 334 px num card com 218 px úteis (320 px de tela) ou 273 px (375 px). O `overflow-hidden` do card cortava o excesso. No tablet (768) cabia por 2 px.
+> **Correção:** `grid-cols-1` (`minmax(0, 1fr)`) na grade do card, `min-w-0` nas duas colunas e o endereço com `flex-1 min-w-0 truncate`, que encolhe e ganha reticências. A moldura da imagem passou de 16:10 para 16:9, a proporção de 3 dos 4 prints (16:10 cortava as laterais dos painéis). Medido nos 4 cards em 320, 375, 640, 768, 1024 e 1440 px: nenhum elemento passa da área útil do card.
+
+> [!TIP]
 > **rolagem travando depois de visitar o Contato (Zen/Firefox) — corrigido em 2026-10-28**
 >
 > **Sintoma:** no Zen Browser (Firefox), com touchpad: descer a página, voltar ao topo e descer de novo engasgava; recarregando, a primeira descida era lisa.
