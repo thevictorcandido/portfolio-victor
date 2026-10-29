@@ -10,7 +10,7 @@ Portfólio pessoal de Victor Cândido Leite, estudante de Engenharia de Software
 |---|---|---|
 | — | Início | Apresentação, foto e seletor de idioma |
 | 01 | Sobre | Bio e atalhos para links |
-| 02 | Projetos | Sentinela GVS (vigilância com IA) e WISP TV (painéis da operação nas TVs), em produção no Grupo GVS, Degrau Educa e Drift Invaders (PUC Minas), todos com estudo de caso em `/projetos/<slug>`, e o site institucional do Grupo GVS |
+| 02 | Projetos | Sentinela GVS (vigilância com IA) e WISP TV (painéis da operação nas TVs), em produção no Grupo GVS, e Degrau Educa (PUC Minas), todos com estudo de caso em `/projetos/<slug>`, e o site institucional do Grupo GVS |
 | 03 | Trajetória | Timeline horizontal com os três cargos no Grupo GVS, revelados conforme a rolagem |
 | 04 | Habilidades | Globo 3D com 16 tecnologias; o clique mostra onde cada uma foi usada |
 | 05 | Formação | Engenharia de Software na PUC Minas e estudo contínuo |

@@ -80,14 +80,6 @@ export const portfolioData = {
       caseStudy: "/projetos/degrau-educa",
     },
     {
-      id: "proj-driftinvaders",
-      image: "/projects/drift-invaders/menu.webp",
-      githubUrl: null,
-      liveUrl: null,
-      address: "pygame · 1280×720 · python main.py",
-      caseStudy: "/projetos/drift-invaders",
-    },
-    {
       id: "proj-gvs",
       image: "/projects/grupogvs-hero.webp",
       githubUrl: null,
