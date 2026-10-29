@@ -69,27 +69,28 @@ export default function About() {
         {/* Adaptação no estilo Shatlyk1011/team-member-card */}
         <div className="relative flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-14">
           
-          {/* Card da Foto com moldura editorial */}
-          <div className="relative w-full max-w-[360px] sm:max-w-[400px] lg:w-[420px] shrink-0 h-[480px] sm:h-[540px] rounded-3xl overflow-hidden border border-ivory/10 shadow-md group bg-ivory/8">
+          {/* Card da Foto com moldura editorial. Quadrada: a foto é 3:4 e o terço de
+              cima é o forro do ponto de ônibus; com object-bottom o corte sai todo do
+              topo e o rosto fica no meio, com o queixo acima da etiqueta */}
+          <div className="relative w-full max-w-[320px] lg:w-[360px] lg:max-w-none lg:self-start shrink-0 aspect-square rounded-3xl overflow-hidden border border-ivory/10 shadow-md group bg-ivory/8">
             <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent" />
             <img
               src="/vitin ponto de onibus estilo.jpeg"
               alt="Victor Cândido Leite"
-              className="h-full w-full object-cover object-[center_30%] duration-700 ease-out group-hover:scale-105"
+              className="h-full w-full object-cover object-bottom duration-700 ease-out group-hover:scale-105"
             />
-            {/* Tag flutuante sobre a foto */}
-            <div className="absolute bottom-5 left-5 right-5 z-20 flex items-center justify-between text-stone-100 pointer-events-none">
-              <div>
-                <p className="text-xs uppercase tracking-wider font-semibold text-stone-300 font-sans">
-                  {t('about.photoRole')}
-                </p>
-                <p className="text-sm font-bold font-display text-white">
-                  Victor Cândido Leite
-                </p>
-              </div>
-              <span className="text-[11px] px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/20 font-medium text-stone-100">
-                {t('about.photoCity')}
-              </span>
+            {/* Cidade no canto de cima, sobre o fundo; nome e cargo embaixo, com a largura
+                toda: lado a lado, no quadrado, os dois quebravam linha e cobriam o queixo */}
+            <span className="absolute top-4 right-4 z-20 whitespace-nowrap text-[11px] px-2.5 py-1 rounded-full bg-black/35 backdrop-blur-md border border-white/20 font-medium text-stone-100 pointer-events-none">
+              {t('about.photoCity')}
+            </span>
+            <div className="absolute bottom-4 left-5 right-5 z-20 text-stone-100 pointer-events-none">
+              <p className="text-[11px] uppercase tracking-wider font-semibold text-stone-300 font-sans">
+                {t('about.photoRole')}
+              </p>
+              <p className="text-sm font-bold font-display text-white">
+                Victor Cândido Leite
+              </p>
             </div>
           </div>
 

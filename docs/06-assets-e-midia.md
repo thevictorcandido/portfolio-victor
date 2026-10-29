@@ -10,7 +10,7 @@ Tudo em `public/`, servido na raiz (`/arquivo`). Levantamento feito em 2026-10-2
 |---|---|
 | `pato.webp` | Pato do Hero, recortado do fundo, 664 × 788, 30 KB (desde 2026-10-22) |
 | `background-site.png` | Referência da grade de fundo; não é carregada, a grade é refeita em CSS (ver [03 - Design System](03-design-system.md)) |
-| `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre |
+| `vitin ponto de onibus estilo.jpeg` | Foto da seção Sobre, 960 × 1280 (3:4). Desde 2026-10-29 numa moldura quadrada (até 320 px no celular, 360 px do `lg` para cima, antes 400 × 540) com `object-bottom`: o corte sai do topo (o forro do ponto de ônibus) e o rosto fica no meio, com o queixo acima da etiqueta. A cidade foi para o canto de cima; nome e cargo ficam embaixo, numa linha cada |
 | `projects/grupogvs-hero.webp` | Card do projeto GVS — 1440 × 900, WebP qualidade 85, 179 KB (o PNG tinha 1,4 MB; trocado em 2026-10-23) |
 | `projects/degrau-educa/*.webp` | Estudo de caso do Degrau Educa (19 imagens, 817 KB); `home.webp` também é a imagem do card (desde 2026-10-28) |
 | `projects/sentinela-gvs/` | Estudo de caso do Sentinela GVS: 12 telas da instância de demonstração (WebP qualidade 84, 1600 px, 980 KB), `demo.mp4` (o vídeo de 60 s refeito em 1280 px, H.264 CRF 27, sem áudio: 13,3 MB → 2,1 MB) e `demo-poster.webp`; `cameras.webp` também é a imagem do card (desde 2026-10-28) |
