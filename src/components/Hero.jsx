@@ -51,47 +51,49 @@ export default function Hero() {
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[600px] bg-gradient-to-b from-ice/10 via-electric/[0.04] to-transparent rounded-full blur-3xl -z-10"
       />
 
-      {/* Centro: Nome em duas linhas alinhado à esquerda e o pato à direita (abaixo, no celular) */}
+      {/* Centro: nome em duas linhas à esquerda e o pato à direita. Abaixo de lg (celular
+          e tablet), nome e pato centralizados um sobre o outro, o nome em ~70% da largura */}
       <div className="flex-1 flex items-center py-6 sm:py-10 my-auto">
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col items-center lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8 lg:gap-12">
           <div className="min-w-0">
             {/* Linha 1: VICTOR com BlurText por letras */}
-            <div className="overflow-visible flex justify-start">
+            <div className="overflow-visible flex justify-center lg:justify-start">
               <BlurText
                 text="VICTOR"
                 delay={85}
                 animateBy="letters"
                 direction="top"
-                className="font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-ivory hover:text-white transition-colors"
+                className="font-bold text-[72px] sm:text-[104px] md:text-[128px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-center lg:justify-start whitespace-nowrap text-ivory hover:text-white transition-colors"
                 style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
               />
             </div>
 
             {/* Linha 2: CÂNDIDO com BlurText por letras */}
             {/* mt em em: o circunflexo do Â fica logo abaixo do I e encostava nele */}
-            <div className="overflow-visible flex justify-start">
+            <div className="overflow-visible flex justify-center lg:justify-start">
               <BlurText
                 text="CÂNDIDO"
                 delay={85}
                 animateBy="letters"
                 direction="top"
-                className="mt-[0.24em] font-bold text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-start whitespace-nowrap text-ivory hover:text-white transition-colors"
+                className="mt-[0.24em] font-bold text-[72px] sm:text-[104px] md:text-[128px] lg:text-[140px] xl:text-[180px] leading-[0.78] tracking-tighter uppercase justify-center lg:justify-start whitespace-nowrap text-ivory hover:text-white transition-colors"
                 style={{ fontFamily: "'Fira Code', 'Hyperlegible Sans', monospace" }}
               />
             </div>
           </div>
 
           {/* Pato: entra com zoom elástico e um giro curto para a direita.
-              Mesmo tamanho de fonte do nome: com altura em em, o pato fica um
-              pouco mais alto que as duas linhas (1,8em) em toda largura de tela */}
-          <div className="self-end lg:self-auto shrink-0 text-[72px] sm:text-[120px] md:text-[150px] lg:text-[140px] xl:text-[180px] leading-none">
+              Mesmo tamanho de fonte do nome: com altura em em, o pato acompanha o nome.
+              Ao lado dele (lg+) fica um pouco mais alto que as duas linhas (1,8em);
+              embaixo, centralizado, menor (1,5em) para não pesar mais que o nome */}
+          <div className="self-center lg:self-auto shrink-0 text-[72px] sm:text-[104px] md:text-[128px] lg:text-[140px] xl:text-[180px] leading-none">
             <img
               ref={duckRef}
               src="/pato.webp"
               alt=""
               width={664}
               height={788}
-              className="h-[2.1em] w-auto drop-shadow-[0_24px_32px_rgb(0_0_0/0.45)] select-none will-change-transform"
+              className="h-[1.5em] lg:h-[2.1em] w-auto drop-shadow-[0_24px_32px_rgb(0_0_0/0.45)] select-none will-change-transform"
               loading="eager"
               draggable={false}
             />
