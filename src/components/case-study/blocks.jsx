@@ -171,8 +171,11 @@ export function CaseClosing({ c }) {
   )
 }
 
-// Lista de chips agrupada (ferramentas) e nomes da equipe
+// Lista de chips agrupada (ferramentas) e, quando houver, nomes da equipe e da
+// orientação. Projetos individuais não têm o bloco (o "Autoria" saiu em 2026-10-29).
 export function StackAndTeam({ c, list }) {
+  const hasTeam = Boolean(c('stack.teamLabel', { defaultValue: '' }))
+  const hasAdvisors = Boolean(c('stack.advisorsLabel', { defaultValue: '' }))
   return (
     <>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -189,26 +192,30 @@ export function StackAndTeam({ c, list }) {
           </div>
         ))}
       </div>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 border-t border-ivory/10 pt-8">
-        <div>
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{c('stack.teamLabel')}</h3>
-          <ul className="mt-3 space-y-1 text-sm text-ivory/85">
-            {list('stack.team').map((name) => (
-              <li key={name}>{name}</li>
-            ))}
-          </ul>
+      {(hasTeam || hasAdvisors) && (
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 border-t border-ivory/10 pt-8">
+          {hasTeam && (
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{c('stack.teamLabel')}</h3>
+              <ul className="mt-3 space-y-1 text-sm text-ivory/85">
+                {list('stack.team').map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {hasAdvisors && (
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{c('stack.advisorsLabel')}</h3>
+              <ul className="mt-3 space-y-1 text-sm text-ivory/85">
+                {list('stack.advisors').map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-        {c('stack.advisorsLabel', { defaultValue: '' }) && (
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-ivory/55">{c('stack.advisorsLabel')}</h3>
-            <ul className="mt-3 space-y-1 text-sm text-ivory/85">
-              {list('stack.advisors').map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+      )}
     </>
   )
 }
