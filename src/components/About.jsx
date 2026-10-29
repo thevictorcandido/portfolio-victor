@@ -71,8 +71,9 @@ export default function About() {
           
           {/* Card da Foto com moldura editorial. Quadrada: a foto é 3:4 e o terço de
               cima é o forro do ponto de ônibus; com object-bottom o corte sai todo do
-              topo e o rosto fica no meio, com o queixo acima da etiqueta */}
-          <div className="relative w-full max-w-[320px] lg:w-[360px] lg:max-w-none lg:self-start shrink-0 aspect-square rounded-3xl overflow-hidden border border-ivory/10 shadow-md group bg-ivory/8">
+              topo e o rosto fica no meio, com o queixo acima da etiqueta. No desktop, centralizada
+              na altura do texto; até 480 px, o recorte de 960 px não é ampliado nem em tela 2× */}
+          <div className="relative w-full max-w-[320px] lg:w-[380px] xl:w-[400px] lg:max-w-none lg:self-center shrink-0 aspect-square rounded-3xl overflow-hidden border border-ivory/10 shadow-md group bg-ivory/8">
             <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent" />
             <img
               src="/vitin ponto de onibus estilo.jpeg"
@@ -95,7 +96,7 @@ export default function About() {
           </div>
 
           {/* Coluna de Texto, Frase & Detalhes */}
-          <div className="flex-1 flex flex-col justify-between py-2">
+          <div className="flex-1 min-w-0 flex flex-col justify-between py-2">
             
             {/* Bloco Superior: Nome e Biografia */}
             <div>
@@ -109,7 +110,7 @@ export default function About() {
               </h3>
 
               {/* Texto sobre mim (Biografia) */}
-              <div className="mt-6 space-y-4 text-ivory/70 text-sm sm:text-base leading-relaxed font-normal">
+              <div className="mt-6 space-y-4 text-ivory/70 text-sm sm:text-base lg:text-[15px] leading-relaxed font-normal">
                 {Array.isArray(bioParagraphs) &&
                   bioParagraphs.map((paragraph, index) => (
                     <p key={index} className="leading-relaxed">
@@ -120,8 +121,9 @@ export default function About() {
             </div>
 
             {/* Rodapé do Card: Botão de Ação Circular + Floating Dock dos Cards Restantes */}
-            {/* No celular, os dois em coluna e centralizados; a seta tem a altura das duas linhas de texto */}
-            <div className="mt-10 pt-6 border-t border-ivory/10 flex flex-col items-center sm:flex-row sm:items-center justify-between gap-6">
+            {/* No celular, os dois em coluna e centralizados; a seta tem a altura das duas linhas de texto.
+                Onde a coluna é estreita (lg com a foto ao lado), a barra de ícones quebra para baixo */}
+            <div className="mt-10 pt-6 border-t border-ivory/10 flex flex-col items-center sm:flex-row sm:flex-wrap sm:items-center justify-between gap-6 sm:gap-x-4">
 
               {/* Botão de Conexão Circular no padrão Shatlyk1011 */}
               <a

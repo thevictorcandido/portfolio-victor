@@ -7,6 +7,13 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **texto do Sobre passando da borda no desktop — corrigido em 2026-10-29**
+>
+> **Sintoma:** escondido pelo `overflow-hidden` da seção: a 1024 px a coluna de texto passava 156 px da borda (o fim das linhas sumia); com a foto maior, passou a acontecer também a 1280 px.
+> **Causa raiz:** a coluna de texto era `flex-1` sem `min-w-0` e não encolhia abaixo de ~634 px, a largura de "Vamos conversar" (264 px) + barra de ícones (346 px) + espaço numa linha só, que não quebrava.
+> **Correção:** `min-w-0` na coluna, `sm:flex-wrap` e `sm:gap-x-4` na linha de baixo, foto em 380 px (`lg`) / 400 px (`xl`). Medido de 375 a 1920 px: nada passa da borda; de 1280 px para cima a linha de baixo cabe numa linha, a 1024 a barra de ícones desce.
+
+> [!TIP]
 > **girar o globo de Habilidades rolava a página no celular — corrigido em 2026-10-29**
 >
 > **Sintoma:** no celular, arrastar o globo para girar subia ou descia a página junto.
