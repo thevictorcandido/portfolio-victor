@@ -9,7 +9,7 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Trabalho da disciplina **DIAW** da PUC Minas (Prof. João Paulo Aramuni). Além da entrega acadêmica, é o portfólio profissional do Victor para oportunidades em tecnologia.
 
-A tese do site: mostrar alguém que une **rigor técnico** (Engenharia de Software, backend, IA) com **sensibilidade criativa** (design, comunicação, audiovisual). Headline: *"Mente focada, código com alma criativa."*
+A tese do site: mostrar alguém que une **rigor técnico** (Engenharia de Software, IA aplicada, rumo ao backend) com **sensibilidade criativa** (design, comunicação, audiovisual). Headline: *"Mente focada, código com alma criativa."*
 
 ## Quem é o Victor (dados que o site exibe)
 
@@ -18,7 +18,8 @@ A tese do site: mostrar alguém que une **rigor técnico** (Engenharia de Softwa
 - **Idiomas:** português nativo, inglês intermediário.
 - **Currículo:** ver **Currículo**.
 - **Local:** Nova Lima / Belo Horizonte, MG.
-- **Foco declarado:** Backend & Arquitetura (principal) e IA aplicada (segundo foco).
+- **Cargo atual:** Analista de TI no Grupo GVS. **Objetivo de carreira:** desenvolvedor backend, que ele ainda não é (confirmado em 2026-10-29). Desenvolve aplicações que resolvem problemas reais com apoio de IA, com parte de backend. Nunca apresentá-lo como "Desenvolvedor Backend".
+- **Foco declarado:** Backend & Arquitetura (principal, como objetivo) e IA aplicada (segundo foco).
 - **Contato:** victorcandidoleite@gmail.com · GitHub `thevictorcandido` · LinkedIn `victorcandidoleite`.
 
 ### Trajetória no Grupo GVS (geração de energia renovável)

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Victor Cândido Leite — Engenharia de Software & Web",
-    "description": "Portfólio de Victor Cândido Leite. Estudante de Engenharia de Software na PUC Minas, com atuação em TI no Grupo GVS e foco em Backend e IA."
+    "description": "Portfólio de Victor Cândido Leite, Analista de TI no Grupo GVS e estudante de Engenharia de Software na PUC Minas. Desenvolve aplicações que resolvem problemas reais com apoio de IA e quer seguir carreira como desenvolvedor backend."
   },
   "switcher": {
     "label": "Selecionar idioma",
@@ -31,14 +31,14 @@
     "tag": "01 · Trajetória & Visão",
     "headline": "Criando com rigor técnico,",
     "headlineHighlight": "pensando como criador de produtos.",
-    "roleCategory": "ENGENHARIA DE SOFTWARE · FOCO EM BACKEND & IA",
+    "roleCategory": "ANALISTA DE TI · RUMO AO BACKEND, COM IA APLICADA",
     "nameLight": "Victor",
     "nameBold": "Cândido Leite",
-    "photoRole": "Desenvolvedor & Criador",
+    "photoRole": "Analista de TI",
     "photoCity": "Belo Horizonte, MG",
     "ctaTalk": "Vamos conversar",
     "bioParagraphs": [
-      "Sou estudante de Engenharia de Software na Pontifícia Universidade Católica de Minas Gerais (PUC Minas), apaixonado pela interseção entre lógica rigorosa, arquitetura de software e design de interfaces.",
+      "Sou Analista de TI no Grupo GVS e estudante de Engenharia de Software na Pontifícia Universidade Católica de Minas Gerais (PUC Minas). Desenvolvo aplicações que resolvem problemas reais, com a IA como apoio, e nelas cuido também da parte de backend: é para lá que quero levar a carreira, como desenvolvedor backend.",
       "Acredito que o bom desenvolvimento de software vai além de escrever código funcional: trata-se de criar produtos agradáveis, intuitivos e com propósito claro. Cultivo uma rotina diária de aprendizado contínuo, aprofundando-me nos fundamentos de algoritmos, orientação a objetos com Java e no ecossistema moderno da web com JavaScript e React.",
       "Trabalho de forma nativa com Inteligência Artificial, utilizando ferramentas de ponta para explorar novas ideias, prototipar rapidamente, depurar soluções complexas e manter um fluxo de engenharia produtivo, sempre com rigor crítico sobre a elegância e a sustentabilidade de cada linha de código."
     ],

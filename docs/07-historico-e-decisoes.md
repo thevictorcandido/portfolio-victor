@@ -144,6 +144,11 @@ Voltar: [Portfolio Victor](README.md)
 > Em 2026-10-28, com o segundo estudo de caso, os blocos das páginas viraram componentes compartilhados (`components/case-study/`), usados por todos os estudos.
 
 > [!IMPORTANT]
+> **Analista de TI, com o backend como objetivo**
+>
+> Em 2026-10-29 o site deixou de apresentar o Victor como desenvolvedor: a etiqueta da foto virou "Analista de TI" (era "Desenvolvedor & Criador"), a linha acima do nome virou "Analista de TI · Rumo ao backend, com IA aplicada" (era "Engenharia de Software · Foco em Backend & IA"), e a descrição do site e o primeiro parágrafo do Sobre dizem o cargo atual, que ele desenvolve aplicações para problemas reais com apoio de IA, com parte de backend, e que backend é o objetivo de carreira. Os textos sobre IA e IA aplicada ficaram como estavam. "Backend" segue como categoria do globo e do título de Habilidades, que falam de tecnologia e não de cargo.
+
+> [!IMPORTANT]
 > **EFG-NL na Formação**
 >
 > Em 2026-10-29 entrou na Formação o curso de administração da EFG-NL (2022–2024, metodologia SEBRAE), feito junto com o ensino médio, entre a PUC Minas e o estudo contínuo. Dados do LinkedIn: curso, período e as 11 competências associadas, das quais o texto do card usa só as de gestão (pesquisa, resolução de problemas, liderança, comunicação, trabalho em equipe). A grade passou para 3 colunas a partir de `lg`; abaixo disso os cards empilham.

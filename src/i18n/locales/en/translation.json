@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Victor Cândido Leite — Software Engineering & Web",
-    "description": "Portfolio of Victor Cândido Leite. Software Engineering student at PUC Minas, working in IT at Grupo GVS, focused on Backend and AI."
+    "description": "Portfolio of Victor Cândido Leite, IT Analyst at Grupo GVS and Software Engineering student at PUC Minas. He builds applications that solve real problems with the help of AI and is working toward a career as a backend developer."
   },
   "switcher": {
     "label": "Select language",
@@ -31,14 +31,14 @@
     "tag": "01 · Journey & Vision",
     "headline": "Crafting with technical rigor,",
     "headlineHighlight": "thinking as a product creator.",
-    "roleCategory": "SOFTWARE ENGINEERING · FOCUS ON BACKEND & AI",
+    "roleCategory": "IT ANALYST · HEADING TOWARD BACKEND, WITH APPLIED AI",
     "nameLight": "Victor",
     "nameBold": "Cândido Leite",
-    "photoRole": "Developer & Creator",
+    "photoRole": "IT Analyst",
     "photoCity": "Belo Horizonte, MG · Brazil",
     "ctaTalk": "Let's connect",
     "bioParagraphs": [
-      "I am a Software Engineering undergraduate at Pontifícia Universidade Católica de Minas Gerais (PUC Minas), passionate about the intersection between rigorous logic, systems architecture, and thoughtful interface design.",
+      "I am an IT Analyst at Grupo GVS and a Software Engineering undergraduate at Pontifícia Universidade Católica de Minas Gerais (PUC Minas). I build applications that solve real problems, with AI as support, and I also handle their backend: that is where I want to take my career, as a backend developer.",
       "I believe building good software goes beyond writing functional code: it is about delivering pleasant, intuitive, and purpose-driven products. I cultivate a disciplined routine of continuous learning, diving deep into computer science fundamentals, object-oriented programming with Java, and the modern web ecosystem with JavaScript and React.",
       "I operate natively with Artificial Intelligence, leveraging cutting-edge AI models and developer agents to explore novel ideas, rapidly prototype solutions, debug complex architectures, and sustain a productive engineering workflow, always applying critical judgment over code elegance and maintainability."
     ],
