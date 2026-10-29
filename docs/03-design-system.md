@@ -186,6 +186,7 @@ Página `/projetos/wisp-tv`, desde 2026-10-28: app Android TV do Centro de Opera
 - `// 02` features e o diagrama "quem fala com quem" (escritório ↔ rede interna) em caixas HTML, a partir do Mermaid do pacote; `// 03` galeria de 6 telas com `layout="stacked"` e o vídeo na largura toda; `// 04` os 4 desafios de uma TV doméstica e a tabela antes/depois; `// 05` resultados; `// 06` a parte individual (lista); `// 07` próximos passos; `// 08` aprendizados; `// 09` tecnologia.
 - O material original cita a ferramenta de IA pelo nome; por escolha do autor, a página diz só "com apoio de IA" (no papel e no aprendizado "IA acelera, o aparelho decide").
 - A `Table` do Sentinela foi para `components/case-study/blocks.jsx` e passou a ser usada pelas duas páginas.
+- Celular sem rolagem lateral (desde 2026-10-29, pedido do Victor: menos toques e menos ida e volta). Abaixo de `sm` (640 px), a `Table` vira uma lista (`TableList`, um `<dl>`): com duas colunas, rótulo à esquerda e número à direita, na mesma linha; com três, o rótulo em cima e Antes | Depois lado a lado embaixo, cada valor com o nome da coluna. Do `sm` para cima, a tabela de sempre. O `CodeBlock` quebra as linhas no celular em vez de rolar. Medido a 320 e 375 px nos três estudos de caso: nenhum elemento com rolagem horizontal (antes: 4 tabelas e 4 trechos de código).
 
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 

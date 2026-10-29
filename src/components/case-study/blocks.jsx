@@ -58,11 +58,12 @@ export function Figure({ src, alt, caption, frame, aspect, className = '' }) {
   )
 }
 
+// No celular as linhas quebram em vez de rolar para o lado
 export function CodeBlock({ code, label }) {
   return (
     <pre
       aria-label={label}
-      className="overflow-x-auto rounded-xl border border-ivory/10 bg-[#131417] p-4 text-[12.5px] leading-relaxed text-ivory/85"
+      className="whitespace-pre-wrap break-words sm:whitespace-pre sm:overflow-x-auto rounded-xl border border-ivory/10 bg-[#131417] p-4 text-[12.5px] leading-relaxed text-ivory/85"
       style={{ fontFamily: "'Fira Code', ui-monospace, monospace" }}
     >
       <code>{code}</code>
@@ -212,41 +213,77 @@ export function StackAndTeam({ c, list }) {
   )
 }
 
+// Tabela no celular: nada de rolar para o lado. Com duas colunas, rótulo à
+// esquerda e número à direita na mesma linha; com mais, o rótulo em cima e os
+// valores lado a lado embaixo, cada um com o nome da sua coluna.
+function TableList({ headers, rows, highlightLast }) {
+  const valueClass = (i, total) =>
+    `tabular-nums ${highlightLast && i === total - 1 ? 'font-semibold text-ice' : 'text-ivory/70'}`
+
+  return (
+    <dl className="divide-y divide-ivory/10 rounded-2xl border border-ivory/10 bg-carbon-raised text-sm sm:hidden">
+      {rows.map(([label, ...values]) =>
+        values.length === 1 ? (
+          <div key={label} className="flex items-baseline justify-between gap-4 px-4 py-3">
+            <dt className="font-medium text-ivory/85">{label}</dt>
+            <dd className={`max-w-[48%] text-right ${valueClass(0, 1)}`}>{values[0]}</dd>
+          </div>
+        ) : (
+          <div key={label} className="px-4 py-3.5">
+            <dt className="font-medium text-ivory/85">{label}</dt>
+            <dd className="mt-2 grid gap-3" style={{ gridTemplateColumns: `repeat(${values.length}, minmax(0, 1fr))` }}>
+              {values.map((value, i) => (
+                <div key={i}>
+                  <span className="block text-[10px] font-semibold uppercase tracking-wider text-ivory/45">{headers[i + 1]}</span>
+                  <span className={`mt-0.5 block ${valueClass(i, values.length)}`}>{value}</span>
+                </div>
+              ))}
+            </dd>
+          </div>
+        )
+      )}
+    </dl>
+  )
+}
+
 // Tabela de duas ou mais colunas: a primeira é o rótulo da linha; highlightLast
-// destaca a última coluna (o "depois", o número). Rola na horizontal no celular.
+// destaca a última coluna (o "depois", o número). No celular vira a TableList.
 export function Table({ headers, rows, highlightLast = false }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-ivory/10">
-      <table className="w-full min-w-[480px] text-left text-sm">
-        <thead className="bg-[#131417] text-[11px] uppercase tracking-wider text-ivory/55">
-          <tr>
-            {headers.map((header) => (
-              <th key={header} scope="col" className="px-4 py-3 font-semibold">
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-ivory/10 bg-carbon-raised">
-          {rows.map(([label, ...values]) => (
-            <tr key={label}>
-              <th scope="row" className="px-4 py-3 font-medium text-ivory/85">
-                {label}
-              </th>
-              {values.map((value, i) => (
-                <td
-                  key={i}
-                  className={`px-4 py-3 tabular-nums ${
-                    highlightLast && i === values.length - 1 ? 'font-semibold text-ice' : 'text-ivory/70'
-                  }`}
-                >
-                  {value}
-                </td>
+    <>
+      <TableList headers={headers} rows={rows} highlightLast={highlightLast} />
+      <div className="hidden sm:block overflow-x-auto rounded-2xl border border-ivory/10">
+        <table className="w-full min-w-[480px] text-left text-sm">
+          <thead className="bg-[#131417] text-[11px] uppercase tracking-wider text-ivory/55">
+            <tr>
+              {headers.map((header) => (
+                <th key={header} scope="col" className="px-4 py-3 font-semibold">
+                  {header}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody className="divide-y divide-ivory/10 bg-carbon-raised">
+            {rows.map(([label, ...values]) => (
+              <tr key={label}>
+                <th scope="row" className="px-4 py-3 font-medium text-ivory/85">
+                  {label}
+                </th>
+                {values.map((value, i) => (
+                  <td
+                    key={i}
+                    className={`px-4 py-3 tabular-nums ${
+                      highlightLast && i === values.length - 1 ? 'font-semibold text-ice' : 'text-ivory/70'
+                    }`}
+                  >
+                    {value}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   )
 }
