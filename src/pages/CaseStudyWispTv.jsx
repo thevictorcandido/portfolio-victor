@@ -110,7 +110,7 @@ export default function CaseStudyWispTv() {
         <FeaturesWithPanel
           items={screens}
           mediaAspect="aspect-video"
-          layout="stacked"
+          layout="select"
           header={
             <div className="mb-10">
               <SectionHeader num="03" eyebrow={c('screens.eyebrow')} title={c('screens.title')}>

@@ -79,61 +79,6 @@ function MediaPanel({ items, active, mediaAspect }) {
   )
 }
 
-// layout "stacked": os itens em grade no alto e uma mídia grande, na largura
-// toda, embaixo. Para prints de tela, que ficavam pequenos na coluna ao lado.
-function StackedFeatures({ items, header, mediaAspect, active, setActive, baseId }) {
-  const panelId = `${baseId}-panel`
-  const current = items[active]
-  return (
-    <div>
-      {header}
-      <ul className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {items.map((item, index) => {
-          const isActive = active === index
-          return (
-            <li key={item.id}>
-              <button
-                type="button"
-                onClick={() => setActive(index)}
-                aria-pressed={isActive}
-                aria-controls={panelId}
-                className={cn(
-                  'flex h-full w-full items-start gap-3 rounded-xl px-3.5 py-3 text-left ring-1 transition-colors duration-200 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-electric',
-                  isActive ? 'ring-ivory/25 bg-carbon-raised/80' : 'ring-transparent hover:bg-ivory/5'
-                )}
-              >
-                <span
-                  className={cn(
-                    'mt-0.5 size-6 rounded-full flex items-center justify-center text-[11px] font-semibold shrink-0 transition-colors duration-200',
-                    isActive ? 'bg-electric text-carbon' : 'bg-ivory/8 text-ivory/55'
-                  )}
-                >
-                  {index + 1}
-                </span>
-                <span className="min-w-0">
-                  <span className={cn('block text-sm sm:text-base font-display font-bold leading-snug', isActive ? 'text-ivory' : 'text-ivory/70')}>
-                    {item.title}
-                  </span>
-                  {item.meta && <span className="mt-0.5 block text-xs font-medium text-ivory/55">{item.meta}</span>}
-                </span>
-              </button>
-            </li>
-          )
-        })}
-      </ul>
-
-      <div id={panelId} className="mt-8" aria-live="polite">
-        {current.description && (
-          <p className="mb-5 max-w-3xl text-sm sm:text-base text-ivory/70 leading-relaxed">
-            <strong className="font-semibold text-ivory">{current.title}:</strong> {current.description}
-          </p>
-        )}
-        <MediaPanel items={items} active={active} mediaAspect={mediaAspect} />
-      </div>
-    </div>
-  )
-}
-
 // Número, título e a linha de apoio (meta) de um item: o mesmo bloco na caixa
 // fechada e em cada opção da lista
 function ItemLabel({ item, index, highlighted }) {
@@ -309,14 +254,6 @@ export function FeaturesWithPanel({ items, header, mediaAspect = 'aspect-4/3', l
     return (
       <MotionConfig reducedMotion="user">
         <SelectFeatures items={items} header={header} mediaAspect={mediaAspect} active={active} setActive={setActive} baseId={baseId} />
-      </MotionConfig>
-    )
-  }
-
-  if (layout === 'stacked') {
-    return (
-      <MotionConfig reducedMotion="user">
-        <StackedFeatures items={items} header={header} mediaAspect={mediaAspect} active={active} setActive={setActive} baseId={baseId} />
       </MotionConfig>
     )
   }

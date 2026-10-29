@@ -170,6 +170,7 @@ export default function CaseStudyDegrauEduca() {
         <FeaturesWithPanel
           items={screens}
           mediaAspect="aspect-[16/10]"
+          layout="select"
           header={
             <div className="mb-10">
               <SectionHeader num="04" eyebrow={c('solution.eyebrow')} title={c('solution.title')}>
