@@ -337,13 +337,15 @@ export default function SkillsGlobe({ items, selectedKey, onSelect, expanded = f
 
   // Sem seleção o globo fica maior; a altura anima junto com a coluna da grade
   // e o ResizeObserver redesenha a cada quadro da transição. O isolate prende
-  // o z-index dos ícones (até 100) ao palco: sem ele, passavam sobre a navbar
+  // o z-index dos ícones (até 100) ao palco: sem ele, passavam sobre a navbar.
+  // touch-none: no celular o dedo só gira o globo; com pan-y, o arrasto vertical
+  // rolava a página junto. A página continua rolando fora do globo.
   return (
     <div
       ref={stageRef}
       role="group"
       aria-label={label}
-      className={`relative isolate w-full h-[clamp(300px,82vw,500px)] transition-[height] duration-[420ms] ease-[cubic-bezier(0.32,0.72,0,1)] cursor-grab active:cursor-grabbing select-none touch-pan-y ${
+      className={`relative isolate w-full h-[clamp(300px,82vw,500px)] transition-[height] duration-[420ms] ease-[cubic-bezier(0.32,0.72,0,1)] cursor-grab active:cursor-grabbing select-none touch-none ${
         expanded ? 'lg:h-[600px]' : ''
       }`}
       onPointerDown={handlePointerDown}

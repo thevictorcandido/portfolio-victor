@@ -7,6 +7,14 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **girar o globo de Habilidades rolava a página no celular — corrigido em 2026-10-29**
+>
+> **Sintoma:** no celular, arrastar o globo para girar subia ou descia a página junto.
+> **Causa raiz:** o palco do globo tinha `touch-action: pan-y`, que entrega ao navegador todo arrasto com componente vertical: a página rolava e o giro perdia o gesto.
+> **Correção:** `touch-none` no palco (`SkillsGlobe.jsx`). Fora do globo a página rola normalmente; o palco tem no máximo 82vw de altura, então sempre sobra área para rolar.
+> **Teste com toque real (CDP, 375 px):** arrasto vertical, horizontal e diagonal no globo: página parada e globo girando; deslizar no título da seção rola a página; tocar num ícone abre o painel. Controle: forçando `pan-y` de volta, o mesmo arrasto vertical rolou a página 145 px.
+
+> [!TIP]
 > **texto e imagem estourando o card de Projetos no celular — corrigido em 2026-10-29**
 >
 > **Sintoma:** no celular, o texto e a imagem de cada card de Projetos batiam na borda direita e eram cortados, sem respiro.
