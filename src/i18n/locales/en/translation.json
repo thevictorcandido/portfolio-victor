@@ -58,53 +58,21 @@
     "counterPrefix": "Project",
     "viewProject": "Visit Official Website",
     "gvsBadge": "Live in Production",
-    "gvsTagline": "Complete overhaul of the company digital presence and corporate portal",
     "gvsDesc": "A real professional project conceived and developed entirely by me for Grupo GVS, redesigning the brand's digital image for the clean energy generation market. Features power plant architecture, careers portal, and socio-environmental initiatives.",
     "prev": "Previous",
     "next": "Next",
     "swipeHint": "Drag the card sideways to switch projects.",
     "gvsTitle": "Corporate Website — Grupo GVS",
-    "gvsTags": [
-      "Web Development",
-      "UI/UX",
-      "Digital Identity",
-      "Power Generation",
-      "Grupo GVS"
-    ],
     "caseStudy": "Read case study",
     "degraueducaTitle": "Degrau Educa — Vocational Courses",
     "degraueducaBadge": "Academic team project · Completed",
-    "degraueducaTagline": "Web platform that organizes free courses into learning paths toward a first job",
     "degraueducaDesc": "An interdisciplinary project at PUC Minas, built by a team of five. It gathers courses from recognized institutions into paths with a teaching order, saves each student's progress and includes an admin panel to manage the catalog. I handled the Design Thinking, the panel's CRUDs and part of sign-up and login.",
-    "degraueducaTags": [
-      "JavaScript",
-      "HTML & CSS",
-      "Bootstrap 5",
-      "JSON Server",
-      "Design Thinking"
-    ],
     "sentinelagvsTitle": "Sentinela GVS — AI Surveillance",
     "sentinelagvsBadge": "In production at Grupo GVS",
-    "sentinelagvsTagline": "AI that watches the solar plants 24/7 and alerts the team within 2 seconds",
     "sentinelagvsDesc": "A system I conceived, built and run at Grupo GVS. It watches 36 cameras across 2 plants at once, detects people inside armed zones and schedules, and sends photo and video to the team's phones. In under three weeks: 2,813 incidents delivered, 95.6% confirmed as real people, with no license or cloud cost.",
-    "sentinelagvsTags": [
-      "Python",
-      "YOLO11",
-      "TensorRT",
-      "Flask",
-      "Computer vision"
-    ],
     "wisptvTitle": "WISP TV — Operations dashboards straight on the TVs",
     "wisptvBadge": "In production at Grupo GVS",
-    "wisptvTagline": "An Android TV app that powers on, self-corrects and recovers on its own",
-    "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost.",
-    "wisptvTags": [
-      "Android TV",
-      "Java",
-      "WebView",
-      "HTTP/JSON API",
-      "Automation"
-    ]
+    "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost."
   },
   "experience": {
     "tag": "03 · Experience & Journey",

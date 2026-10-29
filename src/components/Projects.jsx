@@ -87,9 +87,7 @@ export default function Projects() {
     return {
       title: t(`projects.${key}Title`),
       badge: t(`projects.${key}Badge`),
-      tagline: t(`projects.${key}Tagline`),
       description: t(`projects.${key}Desc`),
-      tags: t(`projects.${key}Tags`, { returnObjects: true }),
     }
   }
 
@@ -228,34 +226,18 @@ export default function Projects() {
                       </div>
 
                       {/* Título do Projeto */}
-                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-ivory tracking-tight leading-snug mb-2">
+                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-ivory tracking-tight leading-snug mb-4">
                         {transData.title}
                       </h3>
 
-                      {/* Tagline / Subtítulo */}
-                      <p className="text-xs sm:text-sm font-medium text-ivory/55 mb-4">
-                        {transData.tagline}
-                      </p>
-
-                      {/* Descrição Detalhada */}
+                      {/* Descrição Detalhada. Sem subtítulo nem chips de tecnologia desde
+                          2026-10-29: a descrição já resume, e o estudo de caso lista a stack */}
                       <p className="text-sm sm:text-base text-ivory/70 leading-relaxed font-normal">
                         {transData.description}
                       </p>
                     </div>
 
-                    {/* Tags de Tecnologias */}
                     <div>
-                      <div className="flex flex-wrap gap-1.5 mb-6">
-                        {transData.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-ivory/8 text-ivory/80"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
                       {/* Links de Ação: com estudo de caso, ele é o botão principal */}
                       <div className="flex flex-wrap items-center gap-3">
                         {proj.caseStudy && (

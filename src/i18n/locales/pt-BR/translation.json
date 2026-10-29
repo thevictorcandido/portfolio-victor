@@ -58,53 +58,21 @@
     "counterPrefix": "Projeto",
     "viewProject": "Visitar Website Oficial",
     "gvsBadge": "Website em Produção",
-    "gvsTagline": "Reformulação completa da presença digital e portal corporativo da empresa",
     "gvsDesc": "Projeto profissional real concebido e desenvolvido inteiramente por mim para o Grupo GVS, reformulando a imagem digital corporativa para o mercado de geração de energia sustentável. Inclui arquitetura de usinas, portal de carreiras e projetos socioambientais.",
     "prev": "Anterior",
     "next": "Próximo",
     "swipeHint": "Arraste o card para o lado para trocar de projeto.",
     "gvsTitle": "Site Institucional — Grupo GVS",
-    "gvsTags": [
-      "Desenvolvimento Web",
-      "UI/UX",
-      "Identidade Digital",
-      "Geração de Energia",
-      "Grupo GVS"
-    ],
     "caseStudy": "Ler estudo de caso",
     "degraueducaTitle": "Degrau Educa — Cursos Profissionalizantes",
     "degraueducaBadge": "Projeto acadêmico em grupo · Concluído",
-    "degraueducaTagline": "Plataforma web que organiza cursos gratuitos em trilhas até o primeiro emprego",
     "degraueducaDesc": "Trabalho Interdisciplinar da PUC Minas, feito em equipe de cinco. Reúne cursos de instituições reconhecidas em jornadas com ordem pedagógica, salva o progresso de cada aluno e tem um painel administrativo para manter o catálogo. Fiquei com o Design Thinking, os CRUDs do painel e parte do cadastro e login.",
-    "degraueducaTags": [
-      "JavaScript",
-      "HTML & CSS",
-      "Bootstrap 5",
-      "JSON Server",
-      "Design Thinking"
-    ],
     "sentinelagvsTitle": "Sentinela GVS — Vigilância com IA",
     "sentinelagvsBadge": "Em produção no Grupo GVS",
-    "sentinelagvsTagline": "IA que vigia as usinas solares 24 h e avisa a equipe em 2 segundos",
     "sentinelagvsDesc": "Sistema que idealizei, desenvolvi e opero no Grupo GVS. Assiste 36 câmeras em 2 usinas ao mesmo tempo, detecta pessoas na área e no horário armados e manda foto e vídeo para o celular da equipe. Em menos de três semanas: 2.813 ocorrências entregues, 95,6% confirmadas como pessoa real, sem custo de licença ou nuvem.",
-    "sentinelagvsTags": [
-      "Python",
-      "YOLO11",
-      "TensorRT",
-      "Flask",
-      "Visão computacional"
-    ],
     "wisptvTitle": "WISP TV — Painéis da operação direto nas TVs",
     "wisptvBadge": "Em produção no Grupo GVS",
-    "wisptvTagline": "App Android TV que liga, se corrige e se recupera sozinho",
-    "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware.",
-    "wisptvTags": [
-      "Android TV",
-      "Java",
-      "WebView",
-      "API HTTP/JSON",
-      "Automação"
-    ]
+    "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware."
   },
   "experience": {
     "tag": "03 · Vivência & Trajetória",
