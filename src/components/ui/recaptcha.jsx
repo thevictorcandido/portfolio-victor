@@ -3,10 +3,10 @@ import { useEffect, useImperativeHandle, useRef } from 'react'
 // Largura do widget no tamanho "normal"; abaixo disso usamos o "compact"
 const NORMAL_WIDTH = 304
 
-// Distância da tela em que o script começa a carregar. Carregado junto com a
-// página, ele rodava tarefas longas de JS durante a animação de entrada e
-// travava a rolagem do topo até os projetos.
-const LOAD_MARGIN = '800px 0px'
+// O script só carrega quando a pessoa começa a usar o formulário. Uma vez na
+// página, ele roda tarefas de 60 a 100 ms na rolagem (medido no Zen/Firefox):
+// carregado junto com a página ou só por passar pelo Contato, travava a rolagem.
+const INTENT_EVENTS = ['focusin', 'pointerdown']
 
 let loader = null
 
@@ -72,20 +72,18 @@ export function ReCaptcha({ siteKey, hl, onVerify, onExpire, onError, ref }) {
         })
     }
 
-    // Só carrega quando o formulário chega perto da tela
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return
-        observer.disconnect()
-        load()
-      },
-      { rootMargin: LOAD_MARGIN }
-    )
-    observer.observe(containerRef.current)
+    // Só carrega no primeiro foco ou toque dentro do formulário
+    const form = containerRef.current.closest('form') ?? document
+    const stopListening = () => INTENT_EVENTS.forEach((type) => form.removeEventListener(type, onIntent))
+    const onIntent = () => {
+      stopListening()
+      load()
+    }
+    INTENT_EVENTS.forEach((type) => form.addEventListener(type, onIntent, { passive: true }))
 
     return () => {
       cancelled = true
-      observer.disconnect()
+      stopListening()
       widgetId.current = null
     }
   }, [siteKey])

@@ -7,6 +7,19 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **rolagem travando depois de visitar o Contato (Zen/Firefox) — corrigido em 2026-10-28**
+>
+> **Sintoma:** no Zen Browser (Firefox), com touchpad: descer a página, voltar ao topo e descer de novo engasgava; recarregando, a primeira descida era lisa.
+> **Causa raiz:** o script do reCAPTCHA carregava quando o formulário chegava a 800 px da tela e, uma vez na página, roda tarefas de 60 a 104 ms na thread principal durante a rolagem (173 a 293 ms bloqueados em ~1 s de rolagem; sem ele, 0 a 32 ms). Quem passava pelo Contato levava o peso para o resto da visita. Ele não registra listener de `wheel`/`scroll`/`touch`, e esconder o iframe não muda nada: o custo é o script, não o widget.
+> **Como foi achado:** Zen automatizado por WebDriver BiDi (`--remote-debugging-port`, perfil novo com `layout.css.devPixelsPerPx` 1,5), roda do mouse de 100 px a cada 40 ms. O roteiro "descer até o fim, voltar ao topo, descer" reproduz em 5 de 5 rodadas, com ou sem insistir acima do topo; a insistência não importa. Esconder Habilidades ou Trajetória não muda; esconder o Contato, ou trocar `window.grecaptcha` por um stub antes do script, zera os quadros ruins. No Chrome o mesmo roteiro era liso: só aparece no motor do Firefox.
+> **Correção:** `ui/recaptcha.jsx` carrega o script no primeiro `focusin` ou `pointerdown` dentro do `<form>` (o clique em "Enviar" sem marcar a caixa também conta). Medido depois, no Zen: 10 de 10 rodadas lisas (p95 16,7 ms, 0 quadros > 25 ms; antes, 7 a 11 por rodada). Conferido: passar pelo Contato não carrega nada; focar um campo carrega script e widget.
+
+> [!WARNING]
+> **armadilha: testar só no Chrome**
+>
+> O motor do Firefox (Zen, Firefox) tem custos diferentes. Um defeito de rolagem pode existir só nele. `zen.exe` fica em `C:\Program Files\Zen Browser\`; dá para automatizar por WebDriver BiDi em `ws://127.0.0.1:<porta>/session`, com `browsingContext.activate` antes de medir, senão o `requestAnimationFrame` fica estrangulado.
+
+> [!TIP]
 > **rolagem travando até Projetos por animações do Hero — corrigido em 2026-10-28**
 >
 > **Sintoma:** depois das correções de 2026-10-23 e 2026-10-26, a rolagem do topo até Projetos ainda engasgava, com ou sem a animação de entrada já terminada.
@@ -26,7 +39,7 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 > **Sintoma:** mesmo depois da correção de 2026-10-23, a rolagem do topo até Projetos ainda engasgava, principalmente durante a animação de entrada.
 > **Causa raiz:** o script do reCAPTCHA (`recaptcha__*.js`, do formulário de Contato) carregava junto com a página e executava tarefas longas de JS (~50 ms cada) bem durante a intro e a primeira rolagem.
 > **Como foi achado:** trace do Chrome com GPU real (1920 × 1080, escala 1,5), rolando do topo até Projetos logo após carregar, desligando um suspeito por vez. Bloquear o reCAPTCHA levou o p95 do intervalo entre quadros de 33 ms para 17 ms; grade de fundo, halo, sombra do pato, `backdrop-blur` e o desfoque das letras do nome não mudaram nada mensurável. Com o cache de shaders frio (primeira visita) há travadas de GPU de até ~190 ms que aparecem com qualquer combinação de efeitos: custo único de compilação, não corrigível pelo site.
-> **Correção:** `ui/recaptcha.jsx` só carrega o script quando o widget fica a 800 px da tela (IntersectionObserver). Medido depois: nenhuma função do reCAPTCHA no trecho, script e iframe ausentes no topo e presentes ao chegar em Contato.
+> **Correção:** `ui/recaptcha.jsx` só carrega o script quando o widget fica a 800 px da tela (IntersectionObserver; trocado em 2026-10-28 por carga no primeiro uso do formulário). Medido depois: nenhuma função do reCAPTCHA no trecho, script e iframe ausentes no topo e presentes ao chegar em Contato.
 
 > [!TIP]
 > **rolagem travando desde o topo — corrigido em 2026-10-23**
