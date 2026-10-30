@@ -104,8 +104,9 @@ export default function About() {
                 {t('about.roleCategory')}
               </p>
 
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl leading-[1.1] font-display font-light tracking-tight text-ivory">
-                {t('about.nameLight')} <br />
+              {/* Nome numa linha só: nos tamanhos de sempre cabe até em 320 px (280 de 292 px) */}
+              <h3 className="whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl leading-[1.1] font-display font-light tracking-tight text-ivory">
+                {t('about.nameLight')}{' '}
                 <span className="font-bold text-ivory">{t('about.nameBold')}</span>
               </h3>
 
