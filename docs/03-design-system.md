@@ -158,6 +158,8 @@ Página `/projetos/degrau-educa`, no formato de https://engsoftmarcelo.dev/pt/pr
 
 O card na seção Projetos ganhou `caseStudy` (botão "Ler estudo de caso" e a imagem viram links para a página) e `address` (texto da barra de navegador quando não há `liveUrl`). A pilha de cards passou a usar uma grade com todos na mesma célula (`[grid-area:1/1]`): a altura segue o card mais alto. Antes era `min-h` fixo com cards `absolute`, e a 1024 px o texto do Degrau Educa vazava 74 px e escondia os botões (o do GVS já vazava 7 px).
 
+Cabeçalho de Projetos (2026-10-29, pedido do Victor): o título fica numa linha inteira, com "Projetos selecionados," em branco em cima e "código vivo & vivência real." em azul embaixo, sem quebrar do `sm` para cima (40 px no `sm`, 48 px do `md` em diante); as pílulas e as setas vão para a linha de baixo. Antes ficavam lado a lado e apertavam o título em 4 linhas no desktop, e a pílula 04 aparecia cortada. Abaixo de 640 px a parte azul quebra naturalmente.
+
 Desde 2026-10-29 (pedido do Victor) o card de Projetos não tem subtítulo nem chips de tecnologia: a descrição curta já resume, e cada estudo de caso lista a stack. Saíram `projects.<id>Tagline` e `projects.<id>Tags` dos dois idiomas (8 chaves em cada). O card fica com selo, título, descrição, botões e imagem; no celular, o do Sentinela foi de 833 para 697 px de altura. O Site Institucional do GVS, sem estudo de caso, também perdeu os chips.
 
 > [!NOTE]

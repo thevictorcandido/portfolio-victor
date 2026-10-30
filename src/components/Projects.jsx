@@ -101,17 +101,18 @@ export default function Projects() {
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Cabeçalho da Seção com Toque Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-5 pb-8 border-b border-ivory/10">
+        {/* Cabeçalho da Seção com Toque Editorial. Título em cima, numa linha inteira, e as
+            pílulas embaixo: lado a lado, as pílulas apertavam o título em 4 linhas */}
+        <div className="flex flex-col gap-6 mb-5 pb-8 border-b border-ivory/10">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ivory/55 mb-3">
               <span>02</span>
               <span className="w-8 h-px bg-ivory/25" />
               <span>{t('projects.tag')}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-ivory tracking-tight leading-tight">
-              {t('projects.headline')} <br />
-              <span className="font-display font-light text-ice italic inline-block mt-1">
+            <h2 className="text-3xl sm:text-[40px] md:text-5xl font-display font-bold text-ivory tracking-tight leading-tight">
+              <span className="block sm:whitespace-nowrap">{t('projects.headline')}</span>
+              <span className="block sm:whitespace-nowrap font-display font-light text-ice italic mt-1">
                 {t('projects.headlineHighlight')}
               </span>
             </h2>
