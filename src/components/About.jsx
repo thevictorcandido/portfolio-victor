@@ -52,7 +52,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Cabeçalho Editorial */}
-        <div className="max-w-2xl mb-12 md:mb-16">
+        <div className="max-w-2xl lg:max-w-none mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ivory/55 mb-3">
             <span>01</span>
             <span className="w-8 h-px bg-ivory/25" />
@@ -60,7 +60,7 @@ export default function About() {
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-ivory tracking-tight leading-tight">
             {t('about.headline')} <br />
-            <span className="font-display font-light text-ice italic inline-block mt-1">
+            <span className="font-display font-light text-ice italic inline-block mt-1 lg:whitespace-nowrap">
               {t('about.headlineHighlight')}
             </span>
           </h2>

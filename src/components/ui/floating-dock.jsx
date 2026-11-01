@@ -99,14 +99,15 @@ function IconContainer({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [42, 68, 42]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [42, 68, 42]);
+  // Pico de 56 px: com os vizinhos a 54 px de distância, é o maior que não sobrepõe ícones
+  let widthTransform = useTransform(distance, [-150, 0, 150], [42, 56, 42]);
+  let heightTransform = useTransform(distance, [-150, 0, 150], [42, 56, 42]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 34, 20]);
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 28, 20]);
   let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 34, 20]
+    [20, 28, 20]
   );
 
   let width = useSpring(widthTransform, {
@@ -135,18 +136,22 @@ function IconContainer({
   const safeHref = href || '#';
   const isExternal = typeof safeHref === 'string' && safeHref.startsWith('http');
 
+  // O link tem tamanho fixo e o círculo cresce por cima dele, fora do fluxo: se a
+  // ampliação alargasse a barra, ela quebraria para a linha de baixo, saindo de
+  // sob o mouse, e voltaria ao encolher, sem parar
   return (
     <a
       href={safeHref}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="relative block size-[42px] shrink-0"
     >
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-ivory/8 hover:bg-ivory/15 border border-ivory/10 shadow-2xs transition-colors"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 flex aspect-square items-center justify-center rounded-full bg-ivory/8 hover:bg-ivory/15 border border-ivory/10 shadow-2xs transition-colors"
       >
         <AnimatePresence>
           {hovered && (
