@@ -72,7 +72,10 @@
     "sentinelagvsDesc": "Sistema que idealizei, desenvolvi e opero no Grupo GVS. Assiste 36 câmeras em 2 usinas ao mesmo tempo, detecta pessoas na área e no horário armados e manda foto e vídeo para o celular da equipe. Em menos de três semanas: 2.813 ocorrências entregues, 95,6% confirmadas como pessoa real, sem custo de licença ou nuvem.",
     "wisptvTitle": "WISP TV — Painéis da operação direto nas TVs",
     "wisptvBadge": "Em produção no Grupo GVS",
-    "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware."
+    "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware.",
+    "aluguelcarrosTitle": "Aluguel de Carros — Sistema Web Full Stack",
+    "aluguelcarrosBadge": "Laboratório de DIAW · PUC Minas",
+    "aluguelcarrosDesc": "Sistema web em que clientes pedem o aluguel de automóveis e empresas e bancos analisam a renda, dão parecer e executam o contrato, com crédito bancário. Fiz sozinho a modelagem UML, a API em Spring Boot com JWT, o front em React e a verificação: 130 testes da API, 67 do front e 6 fluxos ponta a ponta no Chrome e no Firefox."
   },
   "experience": {
     "tag": "03 · Vivência & Trajetória",
@@ -1363,6 +1366,472 @@
       "closing": {
         "title": "Equipamento que já existia, trabalhando sozinho.",
         "text": "Sem comprar nada, as TVs do escritório viraram terminais da operação que ligam, se corrigem e se recuperam sozinhos, e dois computadores voltaram ao trabalho.",
+        "back": "Voltar aos projetos",
+        "contact": "Vamos conversar"
+      }
+    },
+    "aluguelcarros": {
+      "docTitle": "Aluguel de Carros, estudo de caso | Victor Cândido Leite",
+      "back": "Todos os projetos",
+      "kicker": "sistema web full stack · laboratório de diaw · 2026",
+      "title": "Aluguel de Carros",
+      "tagline": "Do pedido do cliente ao contrato com crédito, com cada regra validada na API.",
+      "intro": "Um sistema web para clientes pedirem o aluguel de automóveis e para agentes, empresas e bancos, avaliarem esses pedidos do ponto de vista financeiro, executarem os contratos e concederem crédito. API em Spring Boot, front em React e banco no Supabase, do enunciado da disciplina à verificação final.",
+      "status": "Concluído · entregue em novembro de 2026",
+      "meta": [
+        {
+          "label": "Contexto",
+          "value": "PUC Minas · Desenvolvimento e Integração de Aplicações Web (DIAW) · Laboratório 02, valendo 15 pontos"
+        },
+        {
+          "label": "Escala",
+          "value": "3 perfis de acesso, 12 telas, 13 tarefas, cada uma com issue e pull request"
+        },
+        {
+          "label": "Meu papel",
+          "value": "Projeto individual: modelagem UML, API, front-end, testes e verificação"
+        }
+      ],
+      "coverAlt": "Tela de análise do pedido 2 da cliente Marina Costa: placa Mercosul RTA2F41, caminho do pedido em análise, renda comprometida de 13,1% contra a referência de 30%, rendimentos e formulário de parecer",
+      "demoNote": "Todas as telas vêm do próprio sistema rodando localmente, com o banco H2 do perfil de desenvolvimento e os usuários fictícios criados pela migração inicial (Marina, João, Locadora Rota Sul e Banco Horizonte, entre outros). Nenhum dado é real.",
+      "stats": [
+        {
+          "value": "130",
+          "label": "testes da API, com JUnit 5 e MockMvc"
+        },
+        {
+          "value": "67",
+          "label": "testes do front-end, com Vitest e Testing Library"
+        },
+        {
+          "value": "6 de 6",
+          "label": "fluxos ponta a ponta passando no Chrome e no Firefox"
+        },
+        {
+          "value": "36",
+          "label": "combinações de tela e largura medidas, sem nenhuma falha"
+        },
+        {
+          "value": "370",
+          "label": "pares de cor medidos, todos acima do contraste mínimo"
+        },
+        {
+          "value": "1,16 s",
+          "label": "maior tempo de carregamento (LCP) no celular, com CPU 4× mais lenta"
+        },
+        {
+          "value": "104 KB",
+          "label": "transferidos na primeira visita, com o JavaScript em gzip"
+        },
+        {
+          "value": "7 de 9",
+          "label": "pontos da revisão de código corrigidos; 2 registrados como limitação"
+        }
+      ],
+      "statsNote": "Medições da verificação de 2026-11-04, com o build de produção, em 1440, 900 e 390 px.",
+      "problem": {
+        "eyebrow": "o enunciado",
+        "title": "Pedir, avaliar e contratar um aluguel pela internet.",
+        "body": "O laboratório pedia um sistema para efetuar, cancelar e modificar pedidos de aluguel de automóveis. Clientes se cadastram e enviam pedidos; agentes, que são empresas e bancos, avaliam cada pedido do ponto de vista financeiro e, com parecer positivo, executam o contrato. O automóvel fica registrado como propriedade do cliente, da empresa ou do banco, conforme o contrato, e um banco pode associar um crédito ao aluguel. A arquitetura também vinha definida: MVC, com um subsistema para as páginas web e outro para a gestão de pedidos e contratos.",
+        "actors": [
+          {
+            "title": "Cliente",
+            "text": "Cadastra RG, CPF, endereço, profissão e até 3 rendimentos. Cria, consulta, modifica e cancela os próprios pedidos e acompanha cada etapa."
+          },
+          {
+            "title": "Empresa",
+            "text": "Agente que analisa a renda do cliente, registra o parecer, executa o contrato e mantém o cadastro dos automóveis que são dela."
+          },
+          {
+            "title": "Banco",
+            "text": "Agente que também analisa e contrata e é o único que concede crédito: valor financiado, taxa de juros mensal e número de parcelas."
+          }
+        ],
+        "goalLabel": "O objetivo",
+        "goal": "cada regra do enunciado garantida pela API, e não só pela tela, e cada perfil enxergando apenas o que é seu."
+      },
+      "architecture": {
+        "eyebrow": "arquitetura e modelagem",
+        "title": "Primeiro o modelo, depois o código, e o modelo revisado no fim.",
+        "body": "O React faz o papel de View e consome a API em JSON. No Spring Boot, controller é o Controller; service, repository e model formam o Model. Os pacotes seguem a organização usada nos projetos da disciplina. Os diagramas foram feitos em PlantUML antes do código e revisados duas vezes, até a versão 3 bater com o sistema entregue.",
+        "packagesAlt": "Diagrama de pacotes v3: subsistema de páginas web em React com routes, pages, components, contexts, utils e services, ligado por HTTP e JSON ao subsistema Spring Boot com application, config, controller, service, security, exception, repository e model, e ao Supabase por JDBC",
+        "packagesCaption": "Diagrama de pacotes (v3): os dois subsistemas do MVC, ligados por HTTP e JSON.",
+        "useCasesAlt": "Diagrama de casos de uso v3 com os atores Cliente, Empresa e Banco e os casos de cadastro, pedidos, análise, contrato, crédito e automóveis",
+        "useCasesCaption": "Casos de uso (v3), base das 13 histórias de usuário.",
+        "classesAlt": "Diagrama de classes v3: Usuario abstrato com Cliente e Agente, Agente especializado em Empresa e Banco, PedidoAluguel com Parecer e Contrato, ContratoCredito, Automovel, Rendimento, Endereco e os enums Perfil, StatusPedido e TipoContrato",
+        "classesCaption": "Diagrama de classes (v3): 11 entidades e 3 enums, com a herança JOINED de Usuario. Clique para abrir em tamanho real.",
+        "tableTitle": "O que mudou entre as versões do modelo",
+        "headers": [
+          "Versão",
+          "Mudança",
+          "Motivo"
+        ],
+        "rows": [
+          [
+            "v1 → v2",
+            "Sai o pacote dto; entram application e config no back-end",
+            "Seguir a organização dos projetos da disciplina, com entrada e saída da API em model, sem nunca expor a senha"
+          ],
+          [
+            "v2",
+            "Automovel ganha valorDiaria e PedidoAluguel ganha getValorTotal()",
+            "Calcular o valor do pedido e a renda comprometida na análise"
+          ],
+          [
+            "v2 → v3",
+            "security lê id e perfil do próprio JWT, sem ir a repository",
+            "O filtro autentica cada requisição sem consultar o banco"
+          ],
+          [
+            "v3",
+            "Métodos de manutenção nas entidades, como exigirAlteravel() e associarCredito()",
+            "Manter as regras dentro do domínio, e não espalhadas pelos serviços"
+          ],
+          [
+            "v3",
+            "Pacote utils no front-end",
+            "Reunir a formatação de moeda, datas e documentos e o título de cada tela"
+          ]
+        ]
+      },
+      "lifecycle": {
+        "eyebrow": "o ciclo do pedido",
+        "title": "Seis estados, e cada transição conferida.",
+        "body": "O coração do sistema é o caminho do pedido. Cada mudança de estado passa por um método da entidade, que recusa a transição se o pedido não estiver no estado certo; a API transforma essa recusa numa mensagem clara para a tela.",
+        "steps": [
+          {
+            "status": "ENVIADO",
+            "title": "Enviado",
+            "who": "O cliente escolhe o carro e o período"
+          },
+          {
+            "status": "EM_ANALISE",
+            "title": "Em análise",
+            "who": "O agente aciona \"Analisar\", de forma explícita"
+          },
+          {
+            "status": "APROVADO",
+            "title": "Aprovado",
+            "who": "Parecer favorável, com justificativa"
+          },
+          {
+            "status": "CONTRATADO",
+            "title": "Contratado",
+            "who": "O agente executa o contrato"
+          }
+        ],
+        "exits": [
+          {
+            "status": "REPROVADO",
+            "text": "Parecer desfavorável: o pedido sai da fila com a justificativa visível ao cliente."
+          },
+          {
+            "status": "CANCELADO",
+            "text": "O cliente cancela a qualquer momento antes do contrato."
+          }
+        ],
+        "note": "Modificar o carro ou as datas de um pedido já avaliado avisa antes, descarta o parecer e devolve o pedido para ENVIADO.",
+        "rulesTitle": "Regras de negócio que a API garante",
+        "rules": [
+          "Até 3 rendimentos por cliente; a renda mensal é a soma deles.",
+          "Login, CPF e RG únicos, e o CPF com os dígitos verificadores conferidos.",
+          "A ficha financeira só aparece para o agente, com a renda comprometida e a referência informativa de 30%.",
+          "O dono do carro sai do tipo do contrato: o cliente, a empresa que executou ou o banco que financiou.",
+          "Uma empresa só fica proprietária de um carro que já é dela; um banco só fica proprietário concedendo crédito.",
+          "Só o proprietário atual edita ou exclui um automóvel, e carro que já aparece em pedido não é excluído.",
+          "A conta do cliente não é excluída com pedido em andamento ou contrato executado.",
+          "Um cliente nunca vê nem altera o pedido de outro: a API responde como se o pedido não existisse."
+        ],
+        "codeCycleTitle": "As transições ficam na entidade",
+        "codeCycleText": "O pedido só entra em análise se estiver aguardando, e o parecer só é registrado com o pedido em análise. O status final sai do próprio parecer.",
+        "codeContractTitle": "Quem pode ficar com o carro",
+        "codeContractText": "A regra que a verificação mostrou que faltava: antes, uma empresa podia ficar, pelo contrato, com o carro de outra empresa. O teste do perfil passava; faltava conferir o dono."
+      },
+      "screens": {
+        "eyebrow": "as telas",
+        "title": "Uma tela para cada passo do pedido.",
+        "body": "Capturas do sistema rodando localmente, com os usuários fictícios dos dados iniciais. Escolha uma tela:",
+        "items": [
+          {
+            "id": "novo-pedido",
+            "title": "Novo pedido",
+            "meta": "Cliente",
+            "description": "Os carros aparecem com a placa no padrão Mercosul e o valor da diária; ao escolher o período, o número de diárias e o total são calculados na hora.",
+            "alt": "Tela Novo pedido com oito carros em cartões, o Jeep Compass selecionado e o período de 18 a 21/12/2026 somando 4 diárias e R$ 1.400,00"
+          },
+          {
+            "id": "meus-pedidos",
+            "title": "Meus pedidos",
+            "meta": "Cliente · status de cada pedido",
+            "description": "Os pedidos com a contagem por status e um selo para cada etapa: aguardando análise, em análise, aprovado e contratado.",
+            "alt": "Lista Meus pedidos da cliente Marina Costa com quatro pedidos e os status Aprovado, Aguardando análise, Em análise e Contratado"
+          },
+          {
+            "id": "detalhe-pedido",
+            "title": "Detalhe do pedido",
+            "meta": "Cliente · caminho completo",
+            "description": "O caminho do pedido com a data de cada etapa, o parecer do agente e o contrato, com o crédito do banco.",
+            "alt": "Pedido 1 contratado: Jeep Compass por 5 diárias, R$ 1.750,00, parecer favorável da Locadora Rota Sul e contrato com crédito de 6 parcelas pelo Banco Horizonte"
+          },
+          {
+            "id": "meus-dados",
+            "title": "Meus dados e rendimentos",
+            "meta": "Cliente · até 3 rendimentos",
+            "description": "Os rendimentos usados na análise, com o contador \"2 de 3\", e a exclusão de conta bloqueada enquanto houver pedido em andamento.",
+            "alt": "Seção Rendimentos com dois empregadores somando R$ 5.500,00 por mês e o botão Excluir conta desativado, com o aviso de pedidos em andamento"
+          },
+          {
+            "id": "fila",
+            "title": "Fila de pedidos",
+            "meta": "Empresa ou banco",
+            "description": "A fila abre filtrada nos pedidos aguardando análise, do mais antigo ao mais novo, com atalho para analisar o mais antigo.",
+            "alt": "Fila de pedidos da Locadora Rota Sul com contadores por status e um pedido aguardando análise"
+          },
+          {
+            "id": "analise",
+            "title": "Análise do pedido",
+            "meta": "Agente · ficha financeira",
+            "description": "Renda comprometida contra a referência de 30%, os rendimentos, os dados do cliente e o formulário de parecer, com justificativa obrigatória.",
+            "alt": "Análise do pedido 2: renda comprometida de 13,1%, rendimentos somando R$ 5.500,00, dados da cliente e formulário de parecer"
+          },
+          {
+            "id": "executar-contrato",
+            "title": "Executar contrato",
+            "meta": "Banco · crédito",
+            "description": "O agente escolhe quem fica dono do carro; com o banco como proprietário, o contrato de crédito é obrigatório.",
+            "alt": "Diálogo Executar contrato com a opção O banco fica proprietário marcada e o crédito de R$ 480,00 a 1,49% ao mês em 3 parcelas"
+          },
+          {
+            "id": "contratos",
+            "title": "Contratos e créditos",
+            "meta": "Agente",
+            "description": "Os contratos executados, com o proprietário do carro, a data da assinatura e o crédito concedido.",
+            "alt": "Tabela de contratos do Banco Horizonte com o pedido 1, proprietário Banco Horizonte e crédito de R$ 1.750,00 em 6 vezes"
+          },
+          {
+            "id": "automoveis",
+            "title": "Automóveis",
+            "meta": "Agente · proprietário atual",
+            "description": "O cadastro dos carros; depois do contrato, o Jeep Compass passou a ser do Banco Horizonte, e só o dono vê os botões de editar e excluir.",
+            "alt": "Tabela de oito automóveis com placa, matrícula, ano, diária e proprietário, o Jeep Compass em nome do Banco Horizonte"
+          }
+        ]
+      },
+      "security": {
+        "eyebrow": "segurança",
+        "title": "Cada perfil só vê o que é seu.",
+        "body": "O login devolve um JWT dentro de um cookie HttpOnly, que o JavaScript da página não consegue ler. As regras de acesso por perfil ficam na configuração do Spring Security; a verificação de dono, nos serviços. Em desenvolvimento, o Vite repassa /api para o Spring, e front e API ficam na mesma origem, sem CORS aberto.",
+        "codeTitle": "Rotas por perfil, sessão sem estado",
+        "codeText": "Cliente e agentes têm rotas próprias, e todo o resto exige login. Liberar /error foi uma correção: sem isso, um acesso negado (403) virava \"sessão vencida\" (401), e só o teste ponta a ponta mostrou.",
+        "tableTitle": "Testes de segurança, com a API rodando",
+        "headers": [
+          "Teste",
+          "Resultado"
+        ],
+        "rows": [
+          [
+            "Segredos no build do navegador e no histórico do git",
+            "Nada encontrado"
+          ],
+          [
+            "Chamadas sem cookie e com token de assinatura forjada",
+            "401 em todas"
+          ],
+          [
+            "João pedindo, alterando e cancelando o pedido da Marina",
+            "404 nas três"
+          ],
+          [
+            "Cliente em rota de agente e agente em rota de cliente",
+            "403"
+          ],
+          [
+            "Mesma sessão depois do logout",
+            "401"
+          ],
+          [
+            "Senha errada e usuário inexistente",
+            "Mesma mensagem e mesmo tempo (78 e 75 ms)"
+          ],
+          [
+            "Requisição vinda de outra origem",
+            "Recusada, sem CORS"
+          ]
+        ]
+      },
+      "quality": {
+        "eyebrow": "testes e verificação",
+        "title": "Medido no sistema rodando, não lido no código.",
+        "body": "Antes da entrega, uma tarefa inteira foi de verificação: revisão de código, testes de segurança com cada perfil e uma medição visual que entrou com cada perfil e passou por 12 telas em 3 larguras. O CI do GitHub roda os testes da API e o lint, os testes e o build do front em cada pull request.",
+        "suites": [
+          {
+            "value": "130",
+            "title": "Testes da API",
+            "text": "JUnit 5 e MockMvc: todas as transições do pedido, o limite de rendimentos, contrato e crédito, permissões por perfil, isolamento entre clientes e as migrações."
+          },
+          {
+            "value": "67",
+            "title": "Testes do front-end",
+            "text": "Vitest e Testing Library nas telas e componentes, com o Biome para formatação e lint."
+          },
+          {
+            "value": "6",
+            "title": "Fluxos ponta a ponta",
+            "text": "Playwright no Chrome e no Firefox: do cadastro ao contrato, reprovação, modificação, cancelamento e o acesso de cada perfil."
+          }
+        ],
+        "findingsTitle": "O que a verificação encontrou e corrigiu",
+        "findingsBody": "Dos 9 pontos da revisão de código, 7 foram corrigidos e 2 ficaram registrados como limitação. A medição achou mais três defeitos.",
+        "findings": [
+          {
+            "title": "Contrato tomava o carro de outra empresa",
+            "text": "O teste conferia o perfil, não o dono. Agora só a empresa dona do carro fica proprietária, com um teste para o caso."
+          },
+          {
+            "title": "Conflito simultâneo virava erro 500",
+            "text": "Duas requisições que violavam a mesma restrição do banco respondiam 500. Agora respondem 409, com \"Estes dados mudaram enquanto você salvava\"."
+          },
+          {
+            "title": "O tempo do login revelava usuários",
+            "text": "Usuário inexistente respondia mais rápido. O BCrypt passou a rodar nos dois casos: 78 ms contra 75 ms."
+          },
+          {
+            "title": "Uma consulta por linha",
+            "text": "As listas de pedidos e contratos faziam uma consulta para cada linha. Resolvido com @EntityGraph nos repositórios."
+          },
+          {
+            "title": "Layout pulando no celular",
+            "text": "Na tela Novo pedido, o painel de período era empurrado quando a lista chegava: CLS de 0,292. Depois da correção, 0,001."
+          },
+          {
+            "title": "Alvos de toque pequenos",
+            "text": "Campos e botões tinham de 32 a 40 px. Em tela de toque, sobem para 44 px; no computador, o desenho não mudou."
+          }
+        ],
+        "tableTitle": "Desempenho e acessibilidade, no build de produção",
+        "headers": [
+          "Medida",
+          "Resultado"
+        ],
+        "rows": [
+          [
+            "Maior LCP no celular, CPU 4× mais lenta e 4G simulado",
+            "1,16 s (meta: 2,5 s)"
+          ],
+          [
+            "CLS de todas as telas",
+            "Entre 0 e 0,005"
+          ],
+          [
+            "INP nos cliques medidos",
+            "Entre 24 e 40 ms"
+          ],
+          [
+            "Primeira visita",
+            "104 KB transferidos"
+          ],
+          [
+            "Contraste de texto",
+            "370 pares, nenhum abaixo do mínimo"
+          ],
+          [
+            "Rolagem horizontal em 1440, 900 e 390 px",
+            "Nenhuma, nas 36 combinações"
+          ]
+        ]
+      },
+      "next": {
+        "eyebrow": "aprendizados",
+        "title": "O que este projeto me ensinou.",
+        "items": [
+          {
+            "title": "Conferir o dono, não só o perfil",
+            "text": "O defeito mais sério passou pelos testes porque eles verificavam o tipo de usuário, não de quem era o carro. Autorização tem duas perguntas."
+          },
+          {
+            "title": "O teste ponta a ponta pega o que o unitário não pega",
+            "text": "O MockMvc mostrava 403; o navegador recebia 401, porque o Spring encaminha o erro para /error. Só o fluxo real revelou."
+          },
+          {
+            "title": "O modelo é um documento vivo",
+            "text": "Três versões dos diagramas, sem sobrescrever as anteriores, mostram o que mudou e por quê. No fim, o modelo bate com o código."
+          }
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "limitações e próximos passos",
+        "title": "O que fica para quando for publicado.",
+        "body": "A entrega foi o repositório, sem publicação. Estes pontos ficaram registrados na especificação e na verificação:",
+        "items": [
+          "Um token copiado continua válido até expirar (8 horas) depois do logout; uma lista de tokens revogados resolve.",
+          "O cookie sai sem a flag Secure para o login funcionar em http local; com HTTPS, ela é ligada por configuração.",
+          "Não há limite de tentativas na rota de login.",
+          "Dois pedidos do mesmo carro no mesmo período são aceitos por ora: ponto em aberto levado ao professor.",
+          "Publicar front e API com HTTPS, os cabeçalhos HSTS e CSP e uma política de privacidade antes de lidar com CPF e renda reais."
+        ]
+      },
+      "stack": {
+        "eyebrow": "tecnologia",
+        "title": "Java no back, React no front, PostgreSQL no Supabase.",
+        "process": "A API sobe sem nenhuma configuração no perfil local, com H2, para quem for corrigir. Com o .env preenchido, vai para o Supabase: o Flyway cria as tabelas e os dados de exemplo, e uma migração liga o RLS em todas as tabelas para a API pública do Supabase não expor os dados.",
+        "groups": [
+          {
+            "label": "Back-end",
+            "items": [
+              "Java 25",
+              "Spring Boot 4",
+              "Spring Security",
+              "JWT em cookie HttpOnly",
+              "Spring Data JPA",
+              "Maven"
+            ]
+          },
+          {
+            "label": "Banco de dados",
+            "items": [
+              "Supabase (PostgreSQL)",
+              "Flyway",
+              "H2 no perfil local",
+              "RLS"
+            ]
+          },
+          {
+            "label": "Front-end",
+            "items": [
+              "React 19",
+              "Vite 8",
+              "React Router",
+              "CSS Modules",
+              "Lucide"
+            ]
+          },
+          {
+            "label": "Qualidade",
+            "items": [
+              "JUnit 5",
+              "MockMvc",
+              "Vitest",
+              "Testing Library",
+              "Playwright",
+              "Biome",
+              "GitHub Actions"
+            ]
+          },
+          {
+            "label": "Modelagem",
+            "items": [
+              "PlantUML",
+              "Casos de uso",
+              "Classes",
+              "Pacotes",
+              "Histórias de usuário"
+            ]
+          }
+        ]
+      },
+      "closing": {
+        "title": "Do enunciado ao contrato, com cada regra testada.",
+        "text": "Foi o projeto em que mais trabalhei no backend: modelar o domínio, proteger cada rota e provar com testes que as regras do enunciado valem também fora da tela.",
         "back": "Voltar aos projetos",
         "contact": "Vamos conversar"
       }

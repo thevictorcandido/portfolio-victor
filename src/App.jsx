@@ -12,6 +12,7 @@ import { usePathname } from './lib/router'
 
 // Estudos de caso: cada um é um chunk à parte, baixado só quando a página abre
 const caseStudies = {
+  'aluguel-de-carros': lazy(() => import('./pages/CaseStudyAluguelCarros')),
   'degrau-educa': lazy(() => import('./pages/CaseStudyDegrauEduca')),
   'sentinela-gvs': lazy(() => import('./pages/CaseStudySentinelaGvs')),
   'wisp-tv': lazy(() => import('./pages/CaseStudyWispTv')),

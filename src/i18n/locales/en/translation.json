@@ -72,7 +72,10 @@
     "sentinelagvsDesc": "A system I conceived, built and run at Grupo GVS. It watches 36 cameras across 2 plants at once, detects people inside armed zones and schedules, and sends photo and video to the team's phones. In under three weeks: 2,813 incidents delivered, 95.6% confirmed as real people, with no license or cloud cost.",
     "wisptvTitle": "WISP TV — Operations dashboards straight on the TVs",
     "wisptvBadge": "In production at Grupo GVS",
-    "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost."
+    "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost.",
+    "aluguelcarrosTitle": "Car Rental — Full Stack Web System",
+    "aluguelcarrosBadge": "Web Development Lab · PUC Minas",
+    "aluguelcarrosDesc": "A web system where customers request car rentals and companies and banks review their income, issue an assessment and execute the contract, with bank credit. I built it on my own: UML modeling, a Spring Boot API with JWT, a React front end and the verification: 130 API tests, 67 front-end tests and 6 end-to-end flows in Chrome and Firefox."
   },
   "experience": {
     "tag": "03 · Experience & Journey",
@@ -1363,6 +1366,472 @@
       "closing": {
         "title": "Equipment that was already there, working on its own.",
         "text": "Without buying anything, the office TVs became operations terminals that power on, self-correct and recover on their own, and two computers went back to work.",
+        "back": "Back to projects",
+        "contact": "Let's talk"
+      }
+    },
+    "aluguelcarros": {
+      "docTitle": "Car Rental, case study | Victor Cândido Leite",
+      "back": "All projects",
+      "kicker": "full stack web system · web development lab · 2026",
+      "title": "Car Rental",
+      "tagline": "From the customer's request to a contract with credit, with every rule enforced by the API.",
+      "intro": "A web system where customers request car rentals and agents, companies and banks, assess those requests financially, execute the contracts and grant credit. A Spring Boot API, a React front end and a Supabase database, from the course assignment to the final verification.",
+      "status": "Completed · delivered in November 2026",
+      "meta": [
+        {
+          "label": "Context",
+          "value": "PUC Minas · Web Application Development and Integration (DIAW) · Lab 02, worth 15 points"
+        },
+        {
+          "label": "Scale",
+          "value": "3 access roles, 12 screens, 13 tasks, each with an issue and a pull request"
+        },
+        {
+          "label": "My role",
+          "value": "Solo project: UML modeling, API, front end, tests and verification"
+        }
+      ],
+      "coverAlt": "Assessment screen for request 2 from customer Marina Costa: Mercosur plate RTA2F41, request path under review, 13.1% of income committed against the 30% reference, income list and assessment form",
+      "demoNote": "Every screen comes from the system itself running locally, with the development profile's H2 database and the fictitious users created by the initial migration (Marina, João, Locadora Rota Sul and Banco Horizonte, among others). No data is real.",
+      "stats": [
+        {
+          "value": "130",
+          "label": "API tests, with JUnit 5 and MockMvc"
+        },
+        {
+          "value": "67",
+          "label": "front-end tests, with Vitest and Testing Library"
+        },
+        {
+          "value": "6 of 6",
+          "label": "end-to-end flows passing in Chrome and Firefox"
+        },
+        {
+          "value": "36",
+          "label": "screen and width combinations measured, with no failures"
+        },
+        {
+          "value": "370",
+          "label": "color pairs measured, all above minimum contrast"
+        },
+        {
+          "value": "1.16 s",
+          "label": "slowest load time (LCP) on a phone, with a 4× slower CPU"
+        },
+        {
+          "value": "104 KB",
+          "label": "transferred on the first visit, with gzipped JavaScript"
+        },
+        {
+          "value": "7 of 9",
+          "label": "code review findings fixed; 2 recorded as limitations"
+        }
+      ],
+      "statsNote": "Measurements from the 2026-11-04 verification, on the production build, at 1440, 900 and 390 px.",
+      "problem": {
+        "eyebrow": "the assignment",
+        "title": "Request, assess and contract a rental online.",
+        "body": "The lab asked for a system to place, cancel and modify car rental requests. Customers sign up and send requests; agents, which are companies and banks, assess each request financially and, with a positive assessment, execute the contract. The car is registered as owned by the customer, the company or the bank, depending on the contract, and a bank can attach credit to the rental. The architecture was set too: MVC, with one subsystem for the web pages and another for managing requests and contracts.",
+        "actors": [
+          {
+            "title": "Customer",
+            "text": "Registers ID numbers, address, occupation and up to 3 incomes. Creates, views, modifies and cancels their own requests and follows every step."
+          },
+          {
+            "title": "Company",
+            "text": "An agent that reviews the customer's income, records the assessment, executes the contract and maintains the cars it owns."
+          },
+          {
+            "title": "Bank",
+            "text": "An agent that also assesses and contracts, and the only one that grants credit: financed amount, monthly interest rate and number of installments."
+          }
+        ],
+        "goalLabel": "The goal",
+        "goal": "every rule of the assignment enforced by the API, not just the screen, and every role seeing only what belongs to it."
+      },
+      "architecture": {
+        "eyebrow": "architecture and modeling",
+        "title": "Model first, then code, and the model revised at the end.",
+        "body": "React plays the View and consumes the API as JSON. In Spring Boot, controller is the Controller; service, repository and model form the Model. Packages follow the structure used in the course projects. The diagrams were drawn in PlantUML before the code and revised twice, until version 3 matched the delivered system.",
+        "packagesAlt": "Package diagram v3: React web pages subsystem with routes, pages, components, contexts, utils and services, linked by HTTP and JSON to the Spring Boot subsystem with application, config, controller, service, security, exception, repository and model, and to Supabase over JDBC",
+        "packagesCaption": "Package diagram (v3): the two MVC subsystems, linked by HTTP and JSON.",
+        "useCasesAlt": "Use case diagram v3 with the Customer, Company and Bank actors and the sign-up, requests, assessment, contract, credit and cars use cases",
+        "useCasesCaption": "Use cases (v3), the basis for the 13 user stories.",
+        "classesAlt": "Class diagram v3: abstract Usuario with Cliente and Agente, Agente specialized into Empresa and Banco, PedidoAluguel with Parecer and Contrato, ContratoCredito, Automovel, Rendimento, Endereco and the Perfil, StatusPedido and TipoContrato enums",
+        "classesCaption": "Class diagram (v3): 11 entities and 3 enums, with JOINED inheritance for Usuario. Click to open at full size.",
+        "tableTitle": "What changed between model versions",
+        "headers": [
+          "Version",
+          "Change",
+          "Reason"
+        ],
+        "rows": [
+          [
+            "v1 → v2",
+            "The dto package goes away; application and config come in on the back end",
+            "Follow the course projects' structure, with API input and output in model, never exposing the password"
+          ],
+          [
+            "v2",
+            "Automovel gets valorDiaria and PedidoAluguel gets getValorTotal()",
+            "Compute the request's value and the committed income in the assessment"
+          ],
+          [
+            "v2 → v3",
+            "security reads id and role from the JWT itself, without going to repository",
+            "The filter authenticates every request without querying the database"
+          ],
+          [
+            "v3",
+            "Maintenance methods on the entities, such as exigirAlteravel() and associarCredito()",
+            "Keep the rules inside the domain instead of spread across services"
+          ],
+          [
+            "v3",
+            "A utils package on the front end",
+            "Gather currency, date and document formatting and each screen's title"
+          ]
+        ]
+      },
+      "lifecycle": {
+        "eyebrow": "the request lifecycle",
+        "title": "Six states, and every transition checked.",
+        "body": "The heart of the system is the request's path. Every state change goes through an entity method that refuses the transition if the request is not in the right state; the API turns that refusal into a clear message on screen.",
+        "steps": [
+          {
+            "status": "ENVIADO",
+            "title": "Sent",
+            "who": "The customer picks the car and the dates"
+          },
+          {
+            "status": "EM_ANALISE",
+            "title": "Under review",
+            "who": "The agent explicitly clicks \"Analyze\""
+          },
+          {
+            "status": "APROVADO",
+            "title": "Approved",
+            "who": "Favorable assessment, with a justification"
+          },
+          {
+            "status": "CONTRATADO",
+            "title": "Contracted",
+            "who": "The agent executes the contract"
+          }
+        ],
+        "exits": [
+          {
+            "status": "REPROVADO",
+            "text": "Unfavorable assessment: the request leaves the queue, with the justification visible to the customer."
+          },
+          {
+            "status": "CANCELADO",
+            "text": "The customer cancels at any time before the contract."
+          }
+        ],
+        "note": "Changing the car or the dates of an assessed request warns first, discards the assessment and sends the request back to ENVIADO.",
+        "rulesTitle": "Business rules the API enforces",
+        "rules": [
+          "Up to 3 incomes per customer; monthly income is their sum.",
+          "Unique login, CPF and RG, with the CPF check digits validated.",
+          "The financial profile is shown only to agents, with the committed income and the informative 30% reference.",
+          "The car's owner comes from the contract type: the customer, the company that executed it or the bank that financed it.",
+          "A company only becomes the owner of a car that is already its own; a bank only becomes the owner by granting credit.",
+          "Only the current owner edits or deletes a car, and a car that appears in a request cannot be deleted.",
+          "A customer account cannot be deleted with a request in progress or an executed contract.",
+          "A customer never sees or changes another customer's request: the API answers as if it did not exist."
+        ],
+        "codeCycleTitle": "Transitions live in the entity",
+        "codeCycleText": "A request only goes under review if it is waiting, and an assessment is only recorded while under review. The final status comes from the assessment itself.",
+        "codeContractTitle": "Who can keep the car",
+        "codeContractText": "The rule the verification showed was missing: a company could take, through the contract, another company's car. The role test passed; the owner was never checked."
+      },
+      "screens": {
+        "eyebrow": "the screens",
+        "title": "One screen for each step of the request.",
+        "body": "Captures of the system running locally, with the fictitious users from the initial data. Pick a screen:",
+        "items": [
+          {
+            "id": "novo-pedido",
+            "title": "New request",
+            "meta": "Customer",
+            "description": "Cars show their Mercosur plate and daily rate; once the dates are picked, the number of days and the total are computed right away.",
+            "alt": "New request screen with eight cars as cards, the Jeep Compass selected and December 18 to 21, 2026 adding up to 4 days and R$ 1,400.00"
+          },
+          {
+            "id": "meus-pedidos",
+            "title": "My requests",
+            "meta": "Customer · status of each request",
+            "description": "Requests with a count per status and a badge for each step: waiting, under review, approved and contracted.",
+            "alt": "My requests list for customer Marina Costa with four requests and the statuses Approved, Waiting for review, Under review and Contracted"
+          },
+          {
+            "id": "detalhe-pedido",
+            "title": "Request details",
+            "meta": "Customer · full path",
+            "description": "The request path with the date of each step, the agent's assessment and the contract, with the bank's credit.",
+            "alt": "Request 1 contracted: Jeep Compass for 5 days, R$ 1,750.00, favorable assessment by Locadora Rota Sul and a contract with 6-installment credit from Banco Horizonte"
+          },
+          {
+            "id": "meus-dados",
+            "title": "My data and incomes",
+            "meta": "Customer · up to 3 incomes",
+            "description": "The incomes used in the assessment, with the \"2 of 3\" counter, and account deletion blocked while a request is in progress.",
+            "alt": "Incomes section with two employers adding up to R$ 5,500.00 a month and the disabled Delete account button, with the requests in progress notice"
+          },
+          {
+            "id": "fila",
+            "title": "Request queue",
+            "meta": "Company or bank",
+            "description": "The queue opens filtered on waiting requests, oldest first, with a shortcut to review the oldest one.",
+            "alt": "Request queue for Locadora Rota Sul with counts per status and one request waiting for review"
+          },
+          {
+            "id": "analise",
+            "title": "Request assessment",
+            "meta": "Agent · financial profile",
+            "description": "Committed income against the 30% reference, the incomes, the customer's data and the assessment form, with a required justification.",
+            "alt": "Assessment of request 2: 13.1% of income committed, incomes adding up to R$ 5,500.00, customer data and the assessment form"
+          },
+          {
+            "id": "executar-contrato",
+            "title": "Execute contract",
+            "meta": "Bank · credit",
+            "description": "The agent chooses who owns the car; with the bank as owner, the credit contract is required.",
+            "alt": "Execute contract dialog with the bank owns the car option selected and credit of R$ 480.00 at 1.49% a month in 3 installments"
+          },
+          {
+            "id": "contratos",
+            "title": "Contracts and credit",
+            "meta": "Agent",
+            "description": "Executed contracts, with the car's owner, the signing date and the credit granted.",
+            "alt": "Contracts table for Banco Horizonte with request 1, owner Banco Horizonte and credit of R$ 1,750.00 in 6 installments"
+          },
+          {
+            "id": "automoveis",
+            "title": "Cars",
+            "meta": "Agent · current owner",
+            "description": "The car registry; after the contract, the Jeep Compass now belongs to Banco Horizonte, and only the owner sees the edit and delete buttons.",
+            "alt": "Table of eight cars with plate, registration, year, daily rate and owner, the Jeep Compass owned by Banco Horizonte"
+          }
+        ]
+      },
+      "security": {
+        "eyebrow": "security",
+        "title": "Each role only sees what is its own.",
+        "body": "Login returns a JWT inside an HttpOnly cookie, which the page's JavaScript cannot read. Role-based access rules live in the Spring Security configuration; ownership checks, in the services. In development, Vite forwards /api to Spring, so front end and API share the same origin, with no open CORS.",
+        "codeTitle": "Routes by role, stateless session",
+        "codeText": "Customers and agents have their own routes, and everything else requires login. Allowing /error was a fix: without it, a denied access (403) turned into \"session expired\" (401), and only the end-to-end test showed it.",
+        "tableTitle": "Security tests, with the API running",
+        "headers": [
+          "Test",
+          "Result"
+        ],
+        "rows": [
+          [
+            "Secrets in the browser build and in the git history",
+            "Nothing found"
+          ],
+          [
+            "Calls without a cookie and with a forged-signature token",
+            "401 on all"
+          ],
+          [
+            "João reading, changing and canceling Marina's request",
+            "404 on all three"
+          ],
+          [
+            "Customer on an agent route and agent on a customer route",
+            "403"
+          ],
+          [
+            "Same session after logout",
+            "401"
+          ],
+          [
+            "Wrong password and nonexistent user",
+            "Same message and same time (78 and 75 ms)"
+          ],
+          [
+            "Request from another origin",
+            "Refused, no CORS"
+          ]
+        ]
+      },
+      "quality": {
+        "eyebrow": "tests and verification",
+        "title": "Measured on the running system, not read from the code.",
+        "body": "Before delivery, a whole task went to verification: a code review, security tests with every role and a visual measurement that logged in as each role and went through 12 screens at 3 widths. GitHub CI runs the API tests and the front end's lint, tests and build on every pull request.",
+        "suites": [
+          {
+            "value": "130",
+            "title": "API tests",
+            "text": "JUnit 5 and MockMvc: every request transition, the income limit, contract and credit, permissions per role, isolation between customers and the migrations."
+          },
+          {
+            "value": "67",
+            "title": "Front-end tests",
+            "text": "Vitest and Testing Library on screens and components, with Biome for formatting and lint."
+          },
+          {
+            "value": "6",
+            "title": "End-to-end flows",
+            "text": "Playwright in Chrome and Firefox: from sign-up to contract, rejection, modification, cancellation and each role's access."
+          }
+        ],
+        "findingsTitle": "What the verification found and fixed",
+        "findingsBody": "Of the 9 code review findings, 7 were fixed and 2 were recorded as limitations. The measurement found three more defects.",
+        "findings": [
+          {
+            "title": "A contract could take another company's car",
+            "text": "The test checked the role, not the owner. Now only the company that owns the car becomes its owner, with a test for that case."
+          },
+          {
+            "title": "Concurrent conflicts returned a 500",
+            "text": "Two requests violating the same database constraint returned 500. They now return 409, with \"This data changed while you were saving\"."
+          },
+          {
+            "title": "Login timing revealed users",
+            "text": "A nonexistent user answered faster. BCrypt now runs in both cases: 78 ms versus 75 ms."
+          },
+          {
+            "title": "One query per row",
+            "text": "The request and contract lists ran one query per row. Fixed with @EntityGraph in the repositories."
+          },
+          {
+            "title": "Layout shifting on phones",
+            "text": "On the New request screen, the date panel was pushed down when the list arrived: a CLS of 0.292. After the fix, 0.001."
+          },
+          {
+            "title": "Small touch targets",
+            "text": "Fields and buttons were 32 to 40 px. On touch screens they grow to 44 px; on a computer, the design did not change."
+          }
+        ],
+        "tableTitle": "Performance and accessibility, on the production build",
+        "headers": [
+          "Measure",
+          "Result"
+        ],
+        "rows": [
+          [
+            "Slowest LCP on a phone, 4× slower CPU and simulated 4G",
+            "1.16 s (target: 2.5 s)"
+          ],
+          [
+            "CLS across all screens",
+            "Between 0 and 0.005"
+          ],
+          [
+            "INP on the measured clicks",
+            "Between 24 and 40 ms"
+          ],
+          [
+            "First visit",
+            "104 KB transferred"
+          ],
+          [
+            "Text contrast",
+            "370 pairs, none below the minimum"
+          ],
+          [
+            "Horizontal scroll at 1440, 900 and 390 px",
+            "None, in all 36 combinations"
+          ]
+        ]
+      },
+      "next": {
+        "eyebrow": "lessons",
+        "title": "What this project taught me.",
+        "items": [
+          {
+            "title": "Check the owner, not just the role",
+            "text": "The most serious defect slipped through the tests because they checked the user type, not who owned the car. Authorization asks two questions."
+          },
+          {
+            "title": "End-to-end tests catch what unit tests miss",
+            "text": "MockMvc showed 403; the browser got 401, because Spring forwards the error to /error. Only the real flow revealed it."
+          },
+          {
+            "title": "The model is a living document",
+            "text": "Three versions of the diagrams, without overwriting the earlier ones, show what changed and why. In the end, the model matches the code."
+          }
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "limitations and next steps",
+        "title": "What is left for when it gets published.",
+        "body": "The deliverable was the repository, with no deployment. These points were recorded in the specification and the verification:",
+        "items": [
+          "A copied token stays valid until it expires (8 hours) after logout; a revoked-token list solves it.",
+          "The cookie is sent without the Secure flag so login works over local http; with HTTPS, a setting turns it on.",
+          "There is no rate limit on the login route.",
+          "Two requests for the same car in the same period are accepted for now: an open point taken to the professor.",
+          "Deploy front end and API with HTTPS, HSTS and CSP headers and a privacy policy before handling real CPF and income data."
+        ]
+      },
+      "stack": {
+        "eyebrow": "technology",
+        "title": "Java on the back, React on the front, PostgreSQL on Supabase.",
+        "process": "The API starts with no configuration in the local profile, on H2, for whoever grades it. With the .env filled in, it goes to Supabase: Flyway creates the tables and sample data, and a migration turns on RLS for every table so Supabase's public API does not expose the data.",
+        "groups": [
+          {
+            "label": "Back end",
+            "items": [
+              "Java 25",
+              "Spring Boot 4",
+              "Spring Security",
+              "JWT in an HttpOnly cookie",
+              "Spring Data JPA",
+              "Maven"
+            ]
+          },
+          {
+            "label": "Database",
+            "items": [
+              "Supabase (PostgreSQL)",
+              "Flyway",
+              "H2 in the local profile",
+              "RLS"
+            ]
+          },
+          {
+            "label": "Front end",
+            "items": [
+              "React 19",
+              "Vite 8",
+              "React Router",
+              "CSS Modules",
+              "Lucide"
+            ]
+          },
+          {
+            "label": "Quality",
+            "items": [
+              "JUnit 5",
+              "MockMvc",
+              "Vitest",
+              "Testing Library",
+              "Playwright",
+              "Biome",
+              "GitHub Actions"
+            ]
+          },
+          {
+            "label": "Modeling",
+            "items": [
+              "PlantUML",
+              "Use cases",
+              "Classes",
+              "Packages",
+              "User stories"
+            ]
+          }
+        ]
+      },
+      "closing": {
+        "title": "From the assignment to the contract, with every rule tested.",
+        "text": "It is the project where I worked the most on the back end: modeling the domain, protecting every route and proving with tests that the assignment's rules hold beyond the screen.",
         "back": "Back to projects",
         "contact": "Let's talk"
       }

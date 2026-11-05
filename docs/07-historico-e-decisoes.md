@@ -168,6 +168,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-10-28 entrou o WISP TV, app Android TV em produção no Centro de Operações do Grupo GVS (projeto individual), como segundo projeto, logo depois do Sentinela. Mesmo processo: pacote para portfólio com dados de demonstração, página própria, galeria empilhada e vídeo. O logo interno do Centro de Operações foi liberado para publicação, e a página fala em "apoio de IA" sem citar a ferramenta.
 
+> [!IMPORTANT]
+> **Aluguel de Carros como terceiro projeto**
+>
+> Em 2026-11-05 entrou o Sistema de Aluguel de Carros (Laboratório 02 de DIAW, projeto individual), como terceiro projeto, depois dos dois sistemas em produção do Grupo GVS e antes do Degrau Educa: é o que mais mostra backend (Spring Boot, JWT, regras na API e testes), o objetivo de carreira do Victor. Estudo de caso completo a partir da documentação do repositório; as telas foram capturadas com o sistema rodando localmente e um cenário montado pela API. Para isso a API precisou rodar pelo terminal do app: no ambiente isolado dos comandos, o Java falha com "Unable to establish loopback connection" (o mesmo registrado na nota do projeto).
+
 > [!NOTE]
 > **contexto**
 >

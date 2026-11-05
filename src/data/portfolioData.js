@@ -72,6 +72,14 @@ export const portfolioData = {
       caseStudy: "/projetos/wisp-tv",
     },
     {
+      id: "proj-aluguelcarros",
+      image: "/projects/aluguel-de-carros/analise.webp",
+      githubUrl: "https://github.com/thevictorcandido/sistema-de-aluguel-de-carro",
+      liveUrl: null,
+      address: "127.0.0.1:5173 · Aluguel de Carros · dados de demonstração",
+      caseStudy: "/projetos/aluguel-de-carros",
+    },
+    {
       id: "proj-degraueduca",
       image: "/projects/degrau-educa/home.webp",
       githubUrl: null,

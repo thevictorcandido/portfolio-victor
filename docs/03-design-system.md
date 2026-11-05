@@ -204,6 +204,15 @@ Página `/projetos/wisp-tv`, desde 2026-10-28: app Android TV do Centro de Opera
 - A `Table` do Sentinela foi para `components/case-study/blocks.jsx` e passou a ser usada pelas duas páginas.
 - Celular sem rolagem lateral (desde 2026-10-29, pedido do Victor: menos toques e menos ida e volta). Abaixo de `sm` (640 px), a `Table` vira uma lista (`TableList`, um `<dl>`): com duas colunas, rótulo à esquerda e número à direita, na mesma linha; com três, o rótulo em cima e Antes | Depois lado a lado embaixo, cada valor com o nome da coluna. Do `sm` para cima, a tabela de sempre. O `CodeBlock` quebra as linhas no celular em vez de rolar. Medido a 320 e 375 px nos três estudos de caso: nenhum elemento com rolagem horizontal (antes: 4 tabelas e 4 trechos de código).
 
+## Estudo de caso do Aluguel de Carros (`pages/CaseStudyAluguelCarros.jsx`)
+
+Página `/projetos/aluguel-de-carros`, desde 2026-11-05: Laboratório 02 de DIAW (Spring Boot + React + Supabase), projeto individual, com repositório público no GitHub (o card tem o botão "GitHub"). Conteúdo do README, `docs/SPEC.md`, `docs/VERIFICACAO.md` e `docs/APRESENTACAO.md` do repositório; os números são os da verificação de 2026-11-04.
+
+- Abertura com Contexto / Escala / Meu papel, nota de dados fictícios, 8 números (130, 67, 6 de 6, 36, 370, 1,16 s, 104 KB, 7 de 9).
+- `// 01` enunciado com os 3 perfis; `// 02` arquitetura MVC com os diagramas v3 (pacotes e casos de uso lado a lado, classes na largura toda) e a tabela v1 → v3; `// 03` ciclo do pedido em caixas (`Lifecycle`: os 4 estados do caminho e as saídas REPROVADO e CANCELADO), as regras de negócio e 2 trechos reais de código; `// 04` galeria de 9 telas com `layout="select"`; `// 05` segurança, com o `SecurityConfig` e a tabela dos testes; `// 06` testes e verificação (3 suítes, 6 achados, tabela de desempenho); `// 07` aprendizados; `// 08` limitações; `// 09` tecnologia, sem bloco de equipe.
+- Sem menção à ferramenta de IA usada no desenvolvimento, como nos outros estudos.
+- O `Snippet` (título e texto ao lado do código) precisou de `grid-cols-1`: sem ele, a coluna crescia até a linha de código mais longa e a página rolava para o lado a 375 px. Medido depois: nada passa da borda a 320 e 375 px, nos dois idiomas; de 768 px para cima só o conteúdo dos blocos de código passa, dentro da rolagem deles.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.
