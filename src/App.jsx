@@ -14,6 +14,7 @@ import { usePathname } from './lib/router'
 const caseStudies = {
   'aluguel-de-carros': lazy(() => import('./pages/CaseStudyAluguelCarros')),
   'degrau-educa': lazy(() => import('./pages/CaseStudyDegrauEduca')),
+  quaquadro: lazy(() => import('./pages/CaseStudyQuaquadro')),
   'sentinela-gvs': lazy(() => import('./pages/CaseStudySentinelaGvs')),
   'wisp-tv': lazy(() => import('./pages/CaseStudyWispTv')),
 }

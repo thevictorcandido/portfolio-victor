@@ -75,7 +75,10 @@
     "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware.",
     "aluguelcarrosTitle": "Aluguel de Carros — Sistema Web Full Stack",
     "aluguelcarrosBadge": "Laboratório de DIAW · PUC Minas",
-    "aluguelcarrosDesc": "Sistema web em que clientes pedem o aluguel de automóveis e empresas e bancos analisam a renda, dão parecer e executam o contrato, com crédito bancário. Fiz sozinho a modelagem UML, a API em Spring Boot com JWT, o front em React e a verificação: 130 testes da API, 67 do front e 6 fluxos ponta a ponta no Chrome e no Firefox."
+    "aluguelcarrosDesc": "Sistema web em que clientes pedem o aluguel de automóveis e empresas e bancos analisam a renda, dão parecer e executam o contrato, com crédito bancário. Fiz sozinho a modelagem UML, a API em Spring Boot com JWT, o front em React e a verificação: 130 testes da API, 67 do front e 6 fluxos ponta a ponta no Chrome e no Firefox.",
+    "quaquadroTitle": "Quaquadro — Site do Meu Negócio de Quadros",
+    "quaquadroBadge": "Negócio próprio · site no ar",
+    "quaquadroDesc": "Site que fiz do zero para a Quaquadro, meu negócio de quadros ilustrados a partir de fotos. O visitante monta o pedido em poucos passos e ele chega pronto no WhatsApp, enquanto um lembrete entra no meu calendário. Astro na Cloudflare, nota 100 no Lighthouse nas 4 categorias e LCP de 1,1 s."
   },
   "experience": {
     "tag": "03 · Vivência & Trajetória",
@@ -1832,6 +1835,395 @@
       "closing": {
         "title": "Do enunciado ao contrato, com cada regra testada.",
         "text": "Foi o projeto em que mais trabalhei no backend: modelar o domínio, proteger cada rota e provar com testes que as regras do enunciado valem também fora da tela.",
+        "back": "Voltar aos projetos",
+        "contact": "Vamos conversar"
+      }
+    },
+    "quaquadro": {
+      "docTitle": "Quaquadro, estudo de caso | Victor Cândido Leite",
+      "back": "Todos os projetos",
+      "kicker": "site de negócio próprio · astro · 2026",
+      "title": "Quaquadro",
+      "tagline": "Um site que transforma visita em pedido pronto no WhatsApp.",
+      "intro": "A Quaquadro transforma fotos de clientes em ilustrações impressas e emolduradas, e eu faço tudo: atendimento, desenho, impressão, montagem e entrega. Refiz o site do zero para chegar a quem ainda não me conhece, com a identidade do pato de origami e um pedido guiado que termina no WhatsApp.",
+      "status": "No ar desde 2 de novembro de 2026 · domínio próprio em andamento",
+      "meta": [
+        {
+          "label": "Negócio",
+          "value": "Quaquadro · quadros ilustrados a partir de fotos · Grande BH · A4 por R$ 100 e 50 × 40 cm por R$ 160"
+        },
+        {
+          "label": "Escala",
+          "value": "Uma página de venda, privacidade, termos e 404; 11 quadros reais na galeria"
+        },
+        {
+          "label": "Meu papel",
+          "value": "Tudo: o negócio e o site, do briefing e da identidade ao código, à verificação e à publicação"
+        }
+      ],
+      "coverAlt": "Abertura do site da Quaquadro: título \"Um momento só seu.\", preço a partir de R$ 100, botão Montar meu quadro e um quadro com o pato de origami sobre papel quadriculado",
+      "demoNote": "Telas do site publicado, com movimento reduzido para o quadro da abertura aparecer pronto. O pedido foi preenchido só para mostrar a prévia, sem enviar. Os quadros da galeria são de clientes, publicados com autorização.",
+      "stats": [
+        {
+          "value": "100",
+          "label": "no Lighthouse em desempenho, acessibilidade, boas práticas e SEO"
+        },
+        {
+          "value": "1,1 s",
+          "label": "de LCP, o tempo até o maior elemento da tela aparecer"
+        },
+        {
+          "value": "0,002",
+          "label": "de CLS: quase nenhum deslocamento de layout"
+        },
+        {
+          "value": "0 ms",
+          "label": "de TBT, o tempo em que a página fica travada"
+        },
+        {
+          "value": "72 de 72",
+          "label": "pares de cor medidos nos pixels acima do contraste mínimo"
+        },
+        {
+          "value": "58 KB",
+          "label": "na maior imagem do site, em AVIF ou WebP"
+        },
+        {
+          "value": "7 de 7",
+          "label": "testes da lógica do pedido: preço, prazo e mensagem"
+        },
+        {
+          "value": "0",
+          "label": "vulnerabilidades no npm audit"
+        }
+      ],
+      "statsNote": "Verificação de 2026-11-02, no build de produção. Testes conferidos de novo em 2026-11-05.",
+      "problem": {
+        "eyebrow": "o negócio",
+        "title": "Vender quadros para quem ainda não me conhece.",
+        "body": "A Quaquadro começou quando uma colega de marketing viu meu trabalho como editor de vídeo e confiou em mim para fazer um quadro, mesmo eu nunca tendo feito um. O nome junta o \"qua qua\" do pato, meu símbolo desde a época de editor, com \"quadro\". Até aqui, quase todos os clientes eram colegas de trabalho, sem marketing.",
+        "options": [
+          {
+            "title": "O site antigo",
+            "text": "Era um trabalho da faculdade, do 1º semestre. Dele ficaram só as imagens, os preços, o Instagram e o telefone."
+          },
+          {
+            "title": "O pedido solto",
+            "text": "Cada conversa começava do zero no WhatsApp: tamanho, estilo, prazo e cidade perguntados um a um."
+          },
+          {
+            "title": "O padrão dos sites de quadro",
+            "text": "Vitrine de produto pronto e cara de loja genérica, o oposto de um quadro feito a partir de um momento seu."
+          }
+        ],
+        "goalLabel": "O objetivo",
+        "goal": "em poucos segundos, quem chega entende o que é vendido e quanto custa, e sai com um pedido pronto no meu WhatsApp."
+      },
+      "decisions": {
+        "eyebrow": "decisões",
+        "title": "Pequeno de propósito.",
+        "body": "Cada escolha partiu do tamanho do negócio: uma pessoa, poucos pedidos e nenhum custo mensal que não se pague.",
+        "items": [
+          {
+            "title": "Pedido guiado até o WhatsApp",
+            "text": "A arte só existe depois das fotos e da aprovação, então não há compra de produto pronto. O site organiza o pedido e a conversa continua no WhatsApp."
+          },
+          {
+            "title": "Sem fotos guardadas no site",
+            "text": "Guardar fotos de pessoas, inclusive crianças, traria custo e obrigações da LGPD. O cliente envia as fotos direto na conversa."
+          },
+          {
+            "title": "Pagamento por link, depois da arte",
+            "text": "Pagamento único por link, com Pix ou cartão, só depois da aprovação da arte. Sem sinal e sem gateway no site."
+          },
+          {
+            "title": "Astro, sem React",
+            "text": "A página é estática e boa para SEO. A única interação, o pedido, é TypeScript simples, e o pedido é um objeto único: trocar o destino não exige refazer a tela."
+          },
+          {
+            "title": "Animação em CSS",
+            "text": "O traço do título e o quadro que se monta na rolagem são CSS e TypeScript simples, sem biblioteca de animação."
+          },
+          {
+            "title": "Cloudflare em vez da Vercel",
+            "text": "O plano gratuito da Vercel proíbe uso comercial, e o pago custa US$ 20 por mês. Na Cloudflare, cada push na main publica em cerca de 3 minutos."
+          }
+        ]
+      },
+      "identity": {
+        "eyebrow": "identidade",
+        "title": "As cores saíram das dobras do pato.",
+        "body": "O símbolo é um pato de origami, desenhado em vetor. A paleta foi medida nas dobras dele: um site claro, em tons pastéis, sem seções escuras, com escuros que vão até o quase preto para dar contraste ao texto. Cada cor tem um uso definido, e as que não passam de 4,5:1 nunca viram texto pequeno.",
+        "colors": [
+          {
+            "name": "Papel",
+            "use": "Fundo principal"
+          },
+          {
+            "name": "Pedra",
+            "use": "Superfícies e divisórias"
+          },
+          {
+            "name": "Manteiga",
+            "use": "Destaque suave"
+          },
+          {
+            "name": "Palha",
+            "use": "Destaque médio"
+          },
+          {
+            "name": "Ocre",
+            "use": "Só decoração (3,2:1)"
+          },
+          {
+            "name": "Ocre escuro",
+            "use": "Links e detalhes (5,4:1)"
+          },
+          {
+            "name": "Oliva",
+            "use": "Texto secundário (7,6:1)"
+          },
+          {
+            "name": "Musgo",
+            "use": "Títulos e linhas (11:1)"
+          },
+          {
+            "name": "Tinta",
+            "use": "Texto e botões (16,6:1)"
+          }
+        ],
+        "note": "Os quadros da galeria entram por composição, a partir do vetor de cada arte, sobre cenas vazias de parede e chão. A fonte do logotipo é comercial, então ele entra como vetor e os textos usam a Outfit."
+      },
+      "screens": {
+        "eyebrow": "as telas",
+        "title": "Uma página que leva ao pedido.",
+        "body": "Telas do site publicado, a 1600 × 900. Escolha uma:",
+        "items": [
+          {
+            "id": "hero",
+            "title": "Abertura",
+            "meta": "Promessa e preço",
+            "description": "O título, o preço de entrada e o botão para montar o quadro. Com movimento, o quadro se monta conforme a página rola.",
+            "alt": "Abertura com o título Um momento só seu, o preço a partir de R$ 100 e um quadro com o pato de origami"
+          },
+          {
+            "id": "galeria",
+            "title": "Quadros reais",
+            "meta": "11 quadros de clientes",
+            "description": "Cada quadro saiu de fotos enviadas por um cliente e só foi impresso depois da aprovação dele.",
+            "alt": "Galeria com quadros ilustrados de clientes em molduras pretas apoiadas na parede"
+          },
+          {
+            "id": "processo",
+            "title": "Como funciona",
+            "meta": "Conversa, arte e quadro",
+            "description": "Os três passos do pedido, com o pato se montando em cada etapa: nada vai para a moldura sem o ok do cliente.",
+            "alt": "Seção Nada vai para a moldura sem o seu ok, com os passos Conversa, Arte e Quadro e o pato em três estágios"
+          },
+          {
+            "id": "origem",
+            "title": "Por que um pato?",
+            "meta": "A história da marca",
+            "description": "De onde vem o nome e o símbolo, e o fato de uma pessoa só fazer tudo.",
+            "alt": "Seção Por que um pato, com o quadro do pato e os textos Qua qua + quadro, Começou com uma colega e Uma pessoa só"
+          },
+          {
+            "id": "pedido",
+            "title": "Monte seu quadro",
+            "meta": "Prévia e preço na hora",
+            "description": "Tamanho, estilo, pessoas, ocasião, prazo e cidade, com a prévia do quadro na proporção certa e o preço ao lado.",
+            "alt": "Formulário de pedido com 50 × 40 cm e Desenho 2D escolhidos, campos preenchidos e a prévia do quadro com R$ 160,00"
+          },
+          {
+            "id": "perguntas",
+            "title": "Antes de pedir",
+            "meta": "Perguntas frequentes",
+            "description": "Preço, prazo, aprovação da arte, estilos, fotos antigas, entrega, pagamento e cancelamento.",
+            "alt": "Lista de perguntas frequentes fechadas, de Quanto custa a Posso cancelar"
+          }
+        ],
+        "mobileTitle": "No celular",
+        "mobileText": "Em telas de toque, o cabeçalho troca os links por um botão \"Menu\", visível desde a abertura. A página não rola para os lados em nenhuma largura, de 390 a 1440 px, e os alvos de toque têm pelo menos 44 px.",
+        "mobileAlt": "Abertura do site no celular, com o botão Menu, o título, o preço e o quadro do pato"
+      },
+      "order": {
+        "eyebrow": "o pedido",
+        "title": "Do formulário ao WhatsApp, sem nada no meio.",
+        "body": "O pedido é a única parte com lógica. Ela fica num arquivo só, com testes: preço por tamanho, prazo mínimo de 2 semanas no fuso de Brasília e a mensagem montada com o que o cliente escolheu.",
+        "steps": [
+          {
+            "title": "Monte seu quadro",
+            "text": "Tamanho, estilo, pessoas, ocasião, prazo e cidade, com prévia e preço na hora."
+          },
+          {
+            "title": "Conferência",
+            "text": "Nome, cidade e prazo validados na tela; a data fora do prazo é apagada ao sair do campo."
+          },
+          {
+            "title": "Lembrete",
+            "text": "Uma função na Cloudflare cria o lembrete no meu calendário do Notion, sem segurar o cliente."
+          },
+          {
+            "title": "WhatsApp",
+            "text": "A conversa abre com a mensagem pronta. As fotos vão por lá."
+          }
+        ],
+        "codeMessageTitle": "A mensagem sai do pedido",
+        "codeMessageText": "Só entra o que o cliente preencheu, e o preço vem do tamanho escolhido. Sem JavaScript, o botão ainda abre o WhatsApp.",
+        "codeApiTitle": "A função que cria o lembrete",
+        "codeApiText": "Recusa pedidos de outra origem, limita a 5 envios por minuto e ignora robôs com um campo invisível que só eles preenchem."
+      },
+      "quality": {
+        "eyebrow": "verificação",
+        "title": "Medido no build de produção.",
+        "body": "Antes de publicar, uma fase inteira de verificação: velocidade, contraste nos pixels, rolagem em várias larguras, links, segredos e dependências.",
+        "headers": [
+          "Verificação",
+          "Resultado"
+        ],
+        "rows": [
+          [
+            "Lighthouse",
+            "100 nas 4 categorias"
+          ],
+          [
+            "Velocidade",
+            "LCP 1,1 s, CLS 0,002, TBT 0 ms"
+          ],
+          [
+            "Contraste nos pixels",
+            "72 de 72 pares"
+          ],
+          [
+            "Rolagem horizontal em 390, 900 e 1440 px",
+            "Nenhuma"
+          ],
+          [
+            "Maior imagem",
+            "58 KB, em AVIF ou WebP"
+          ],
+          [
+            "npm audit e segredos no repositório",
+            "0 vulnerabilidades, nenhum segredo"
+          ],
+          [
+            "Sem JavaScript",
+            "Título e formulário presentes"
+          ],
+          [
+            "Links e página 404",
+            "Sem quebras; a 404 responde 404"
+          ]
+        ],
+        "findingsTitle": "O que a verificação encontrou e corrigiu",
+        "findings": [
+          {
+            "title": "Botão da abertura sem clique",
+            "text": "Uma camada de papel, invisível, ficava por cima dele. Faltava pointer-events: none."
+          },
+          {
+            "title": "Largura zero no celular deitado",
+            "text": "O cálculo da abertura dava altura negativa. Nessa orientação, ela passou a usar o layout em colunas."
+          },
+          {
+            "title": "Prévia errada ao recarregar",
+            "text": "O navegador restaurava a escolha do tamanho, mas a prévia não acompanhava."
+          },
+          {
+            "title": "Página arrastando para os lados",
+            "text": "O campo de data do iPhone tem largura própria e o menu fechado ficava fora da tela. Colunas minmax(0, 1fr) e menu fechado com display: none."
+          },
+          {
+            "title": "Link sem prévia no WhatsApp",
+            "text": "O endereço configurado era de um domínio que ainda não existe. A imagem de prévia passou a sair do endereço publicado."
+          },
+          {
+            "title": "Alvos de toque pequenos",
+            "text": "O logotipo e o link do Instagram ficavam abaixo de 44 px."
+          }
+        ]
+      },
+      "next": {
+        "eyebrow": "aprendizados",
+        "title": "O que este projeto me ensinou.",
+        "items": [
+          {
+            "title": "O que não aparece também bloqueia",
+            "text": "Uma camada invisível por cima do botão principal impedia o clique. Só a verificação no navegador mostrou."
+          },
+          {
+            "title": "O iPhone tem regras próprias",
+            "text": "O seletor de data ignora min e max e tem largura própria. O Chrome nunca reproduziu o arraste lateral: o aparelho real é a prova final."
+          },
+          {
+            "title": "Começar pelo tamanho do negócio",
+            "text": "Sem banco, sem fotos guardadas e sem gateway: menos custo e menos risco, e o pedido pode mudar de destino sem refazer a tela."
+          }
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "antes de divulgar",
+        "title": "O que falta para anunciar.",
+        "body": "O site está no ar, mas ainda não foi divulgado. Estes passos vêm antes:",
+        "items": [
+          "Comprar o domínio próprio e trocar o endereço provisório da Cloudflare na configuração, no robots.txt e no sitemap.",
+          "Validar termos, privacidade e cancelamento com um advogado e incluir os dados do fornecedor que o Decreto 7.962/2013 pede.",
+          "Alinhar o prazo em todas as seções e testar o pedido e a prévia do link num iPhone de verdade.",
+          "Ligar o painel de pedidos com a planilha, já publicado e desligado até as credenciais estarem prontas."
+        ]
+      },
+      "stack": {
+        "eyebrow": "tecnologia",
+        "title": "Estático na frente, uma função atrás.",
+        "process": "A página é gerada pelo Astro e servida pela Cloudflare. A única parte no servidor é a função do pedido, com o limite nativo de envios da Cloudflare. As imagens dos quadros saem dos vetores originais por um script, já otimizadas.",
+        "groups": [
+          {
+            "label": "Site",
+            "items": [
+              "Astro 7",
+              "TypeScript",
+              "Tailwind CSS 4",
+              "Outfit (Fontsource)"
+            ]
+          },
+          {
+            "label": "Hospedagem",
+            "items": [
+              "Cloudflare Workers",
+              "Deploy a cada push",
+              "Limite de envios",
+              "Cabeçalhos de segurança"
+            ]
+          },
+          {
+            "label": "Integrações",
+            "items": [
+              "WhatsApp",
+              "API do Notion"
+            ]
+          },
+          {
+            "label": "Qualidade",
+            "items": [
+              "Biome",
+              "astro check",
+              "node:test",
+              "Lighthouse"
+            ]
+          },
+          {
+            "label": "Imagens",
+            "items": [
+              "sharp",
+              "AVIF e WebP",
+              "Python (prévia de link)"
+            ]
+          }
+        ]
+      },
+      "closing": {
+        "title": "Do pato ao pedido.",
+        "text": "É o projeto em que fui ao mesmo tempo cliente e desenvolvedor: decidir o que o negócio precisa, cortar o que não se paga e entregar um site rápido que já está no ar.",
         "back": "Voltar aos projetos",
         "contact": "Vamos conversar"
       }

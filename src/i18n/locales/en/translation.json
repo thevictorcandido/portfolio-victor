@@ -75,7 +75,10 @@
     "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost.",
     "aluguelcarrosTitle": "Car Rental — Full Stack Web System",
     "aluguelcarrosBadge": "Web Development Lab · PUC Minas",
-    "aluguelcarrosDesc": "A web system where customers request car rentals and companies and banks review their income, issue an assessment and execute the contract, with bank credit. I built it on my own: UML modeling, a Spring Boot API with JWT, a React front end and the verification: 130 API tests, 67 front-end tests and 6 end-to-end flows in Chrome and Firefox."
+    "aluguelcarrosDesc": "A web system where customers request car rentals and companies and banks review their income, issue an assessment and execute the contract, with bank credit. I built it on my own: UML modeling, a Spring Boot API with JWT, a React front end and the verification: 130 API tests, 67 front-end tests and 6 end-to-end flows in Chrome and Firefox.",
+    "quaquadroTitle": "Quaquadro — Website for My Art Print Business",
+    "quaquadroBadge": "My own business · live site",
+    "quaquadroDesc": "A website I built from scratch for Quaquadro, my business of illustrated prints made from customers' photos. Visitors put together their order in a few steps and it arrives ready on WhatsApp, while a reminder goes into my calendar. Astro on Cloudflare, a Lighthouse score of 100 in all 4 categories and a 1.1 s LCP."
   },
   "experience": {
     "tag": "03 · Experience & Journey",
@@ -1832,6 +1835,395 @@
       "closing": {
         "title": "From the assignment to the contract, with every rule tested.",
         "text": "It is the project where I worked the most on the back end: modeling the domain, protecting every route and proving with tests that the assignment's rules hold beyond the screen.",
+        "back": "Back to projects",
+        "contact": "Let's talk"
+      }
+    },
+    "quaquadro": {
+      "docTitle": "Quaquadro, case study | Victor Cândido Leite",
+      "back": "All projects",
+      "kicker": "website for my own business · astro · 2026",
+      "title": "Quaquadro",
+      "tagline": "A website that turns a visit into an order ready on WhatsApp.",
+      "intro": "Quaquadro turns customers' photos into printed, framed illustrations, and I do everything: customer service, drawing, printing, framing and delivery. I rebuilt the website from scratch to reach people who do not know me yet, with the origami duck identity and a guided order that ends on WhatsApp.",
+      "status": "Live since November 2, 2026 · custom domain in progress",
+      "meta": [
+        {
+          "label": "Business",
+          "value": "Quaquadro · illustrated prints from photos · Greater Belo Horizonte · A4 for R$ 100 and 50 × 40 cm for R$ 160"
+        },
+        {
+          "label": "Scale",
+          "value": "A sales page plus privacy, terms and 404; 11 real prints in the gallery"
+        },
+        {
+          "label": "My role",
+          "value": "Everything: the business and the site, from the brief and identity to code, verification and launch"
+        }
+      ],
+      "coverAlt": "Quaquadro homepage: the headline \"Um momento só seu.\", a starting price of R$ 100, the Montar meu quadro button and a frame with the origami duck on grid paper",
+      "demoNote": "Screens from the live site, with reduced motion so the opening frame appears already assembled. The order form was filled in only to show the preview, never sent. The gallery prints belong to customers and are published with permission.",
+      "stats": [
+        {
+          "value": "100",
+          "label": "on Lighthouse for performance, accessibility, best practices and SEO"
+        },
+        {
+          "value": "1.1 s",
+          "label": "LCP, the time until the largest element appears"
+        },
+        {
+          "value": "0.002",
+          "label": "CLS: almost no layout shift"
+        },
+        {
+          "value": "0 ms",
+          "label": "TBT, the time the page stays blocked"
+        },
+        {
+          "value": "72 of 72",
+          "label": "color pairs measured in pixels above minimum contrast"
+        },
+        {
+          "value": "58 KB",
+          "label": "for the largest image on the site, in AVIF or WebP"
+        },
+        {
+          "value": "7 of 7",
+          "label": "tests of the order logic: price, deadline and message"
+        },
+        {
+          "value": "0",
+          "label": "vulnerabilities in npm audit"
+        }
+      ],
+      "statsNote": "Verification from 2026-11-02, on the production build. Tests checked again on 2026-11-05.",
+      "problem": {
+        "eyebrow": "the business",
+        "title": "Selling prints to people who do not know me yet.",
+        "body": "Quaquadro started when a marketing colleague saw my work as a video editor and trusted me to make a framed print, even though I had never made one. The name joins the duck's \"qua qua\", my symbol since my editing days, with \"quadro\", Portuguese for frame. Until now, almost every customer was a coworker, with no marketing at all.",
+        "options": [
+          {
+            "title": "The old site",
+            "text": "It was a first-semester college assignment. Only the images, prices, Instagram and phone number survived."
+          },
+          {
+            "title": "Loose orders",
+            "text": "Every WhatsApp conversation started from scratch: size, style, deadline and city asked one by one."
+          },
+          {
+            "title": "The usual print shop site",
+            "text": "A storefront of finished products with a generic shop feel, the opposite of a print made from a moment of your own."
+          }
+        ],
+        "goalLabel": "The goal",
+        "goal": "within seconds, visitors understand what is sold and how much it costs, and leave with an order ready on my WhatsApp."
+      },
+      "decisions": {
+        "eyebrow": "decisions",
+        "title": "Small on purpose.",
+        "body": "Every choice started from the size of the business: one person, a few orders and no monthly cost that does not pay for itself.",
+        "items": [
+          {
+            "title": "A guided order that ends on WhatsApp",
+            "text": "The art only exists after the photos and the approval, so there is no ready-made product to buy. The site organizes the order and the conversation continues on WhatsApp."
+          },
+          {
+            "title": "No photos stored on the site",
+            "text": "Storing photos of people, children included, would bring costs and LGPD (Brazil's data protection law) obligations. Customers send photos straight in the chat."
+          },
+          {
+            "title": "Payment by link, after the art",
+            "text": "A single payment by link, with Pix or card, only after the art is approved. No deposit and no payment gateway on the site."
+          },
+          {
+            "title": "Astro, no React",
+            "text": "The page is static and good for SEO. The only interaction, the order, is plain TypeScript, and the order is a single object: changing its destination does not require rebuilding the screen."
+          },
+          {
+            "title": "CSS animation",
+            "text": "The headline stroke and the frame that assembles on scroll are CSS and plain TypeScript, with no animation library."
+          },
+          {
+            "title": "Cloudflare instead of Vercel",
+            "text": "Vercel's free plan forbids commercial use, and the paid one costs US$ 20 a month. On Cloudflare, every push to main goes live in about 3 minutes."
+          }
+        ]
+      },
+      "identity": {
+        "eyebrow": "identity",
+        "title": "The colors came from the duck's folds.",
+        "body": "The symbol is an origami duck, drawn as a vector. The palette was measured on its folds: a light site in pastel tones, with no dark sections, and darks that go almost to black to give the text contrast. Each color has a set use, and the ones below 4.5:1 never become small text.",
+        "colors": [
+          {
+            "name": "Paper",
+            "use": "Main background"
+          },
+          {
+            "name": "Stone",
+            "use": "Surfaces and dividers"
+          },
+          {
+            "name": "Butter",
+            "use": "Soft highlight"
+          },
+          {
+            "name": "Straw",
+            "use": "Medium highlight"
+          },
+          {
+            "name": "Ochre",
+            "use": "Decoration only (3.2:1)"
+          },
+          {
+            "name": "Dark ochre",
+            "use": "Links and details (5.4:1)"
+          },
+          {
+            "name": "Olive",
+            "use": "Secondary text (7.6:1)"
+          },
+          {
+            "name": "Moss",
+            "use": "Headings and lines (11:1)"
+          },
+          {
+            "name": "Ink",
+            "use": "Text and buttons (16.6:1)"
+          }
+        ],
+        "note": "The gallery prints are composited from each artwork's vector onto empty wall-and-floor scenes. The logo typeface is commercial, so the logo is a vector and the text uses Outfit."
+      },
+      "screens": {
+        "eyebrow": "the screens",
+        "title": "One page that leads to the order.",
+        "body": "Screens from the live site at 1600 × 900. Pick one:",
+        "items": [
+          {
+            "id": "hero",
+            "title": "Opening",
+            "meta": "Promise and price",
+            "description": "The headline, the starting price and the button to build your print. With motion on, the frame assembles as the page scrolls.",
+            "alt": "Opening with the headline Um momento só seu, the starting price of R$ 100 and a frame with the origami duck"
+          },
+          {
+            "id": "galeria",
+            "title": "Real prints",
+            "meta": "11 customer prints",
+            "description": "Each print came from photos a customer sent and was only printed after their approval.",
+            "alt": "Gallery of customers' illustrated prints in black frames leaning against a wall"
+          },
+          {
+            "id": "processo",
+            "title": "How it works",
+            "meta": "Chat, art and print",
+            "description": "The three steps of an order, with the duck assembling at each one: nothing goes into the frame without the customer's ok.",
+            "alt": "Section Nada vai para a moldura sem o seu ok, with the steps Conversa, Arte and Quadro and the duck at three stages"
+          },
+          {
+            "id": "origem",
+            "title": "Why a duck?",
+            "meta": "The brand story",
+            "description": "Where the name and the symbol come from, and the fact that one person does everything.",
+            "alt": "Section Por que um pato, with the duck print and the texts about the name, the first colleague and doing everything alone"
+          },
+          {
+            "id": "pedido",
+            "title": "Build your print",
+            "meta": "Live preview and price",
+            "description": "Size, style, people, occasion, deadline and city, with a preview of the print at the right proportion and the price beside it.",
+            "alt": "Order form with 50 × 40 cm and 2D drawing selected, fields filled in and the print preview showing R$ 160.00"
+          },
+          {
+            "id": "perguntas",
+            "title": "Before ordering",
+            "meta": "Frequently asked questions",
+            "description": "Price, deadline, art approval, styles, old photos, delivery, payment and cancellation.",
+            "alt": "List of collapsed frequently asked questions, from Quanto custa to Posso cancelar"
+          }
+        ],
+        "mobileTitle": "On phones",
+        "mobileText": "On touch screens, the header swaps the links for a \"Menu\" button, visible from the start. The page never scrolls sideways at any width from 390 to 1440 px, and touch targets are at least 44 px.",
+        "mobileAlt": "Site opening on a phone, with the Menu button, the headline, the price and the duck print"
+      },
+      "order": {
+        "eyebrow": "the order",
+        "title": "From the form to WhatsApp, with nothing in between.",
+        "body": "The order is the only part with logic. It lives in a single file, with tests: price by size, a 2-week minimum deadline in the Brasília time zone and the message built from the customer's choices.",
+        "steps": [
+          {
+            "title": "Build your print",
+            "text": "Size, style, people, occasion, deadline and city, with a live preview and price."
+          },
+          {
+            "title": "Check",
+            "text": "Name, city and deadline validated on screen; a date outside the range is cleared when leaving the field."
+          },
+          {
+            "title": "Reminder",
+            "text": "A Cloudflare function creates the reminder in my Notion calendar without holding the customer back."
+          },
+          {
+            "title": "WhatsApp",
+            "text": "The chat opens with the message ready. Photos go there."
+          }
+        ],
+        "codeMessageTitle": "The message comes from the order",
+        "codeMessageText": "Only what the customer filled in goes in, and the price comes from the chosen size. Without JavaScript, the button still opens WhatsApp.",
+        "codeApiTitle": "The function that creates the reminder",
+        "codeApiText": "It refuses requests from another origin, limits sending to 5 per minute and ignores bots with an invisible field only they fill in."
+      },
+      "quality": {
+        "eyebrow": "verification",
+        "title": "Measured on the production build.",
+        "body": "Before launch, a whole verification phase: speed, contrast in pixels, scrolling at several widths, links, secrets and dependencies.",
+        "headers": [
+          "Check",
+          "Result"
+        ],
+        "rows": [
+          [
+            "Lighthouse",
+            "100 in all 4 categories"
+          ],
+          [
+            "Speed",
+            "LCP 1.1 s, CLS 0.002, TBT 0 ms"
+          ],
+          [
+            "Contrast in pixels",
+            "72 of 72 pairs"
+          ],
+          [
+            "Horizontal scroll at 390, 900 and 1440 px",
+            "None"
+          ],
+          [
+            "Largest image",
+            "58 KB, in AVIF or WebP"
+          ],
+          [
+            "npm audit and secrets in the repository",
+            "0 vulnerabilities, no secrets"
+          ],
+          [
+            "Without JavaScript",
+            "Headline and form present"
+          ],
+          [
+            "Links and 404 page",
+            "No broken links; the 404 returns 404"
+          ]
+        ],
+        "findingsTitle": "What the verification found and fixed",
+        "findings": [
+          {
+            "title": "Opening button not clickable",
+            "text": "An invisible paper layer sat on top of it. It was missing pointer-events: none."
+          },
+          {
+            "title": "Zero width on a phone in landscape",
+            "text": "The opening's calculation produced a negative height. In that orientation it now uses the column layout."
+          },
+          {
+            "title": "Wrong preview after reload",
+            "text": "The browser restored the size choice, but the preview did not follow."
+          },
+          {
+            "title": "Page dragging sideways",
+            "text": "The iPhone date field has its own width and the closed menu sat off screen. minmax(0, 1fr) columns and the closed menu with display: none."
+          },
+          {
+            "title": "No link preview on WhatsApp",
+            "text": "The configured address pointed to a domain that does not exist yet. The preview image now comes from the live address."
+          },
+          {
+            "title": "Small touch targets",
+            "text": "The logo and the Instagram link were below 44 px."
+          }
+        ]
+      },
+      "next": {
+        "eyebrow": "lessons",
+        "title": "What this project taught me.",
+        "items": [
+          {
+            "title": "What you cannot see can still block",
+            "text": "An invisible layer over the main button stopped the click. Only checking in the browser showed it."
+          },
+          {
+            "title": "The iPhone has its own rules",
+            "text": "Its date picker ignores min and max and has its own width. Chrome never reproduced the sideways drag: the real device is the final test."
+          },
+          {
+            "title": "Start from the size of the business",
+            "text": "No database, no stored photos and no gateway: less cost and less risk, and the order can change destination without rebuilding the screen."
+          }
+        ]
+      },
+      "roadmap": {
+        "eyebrow": "before promoting",
+        "title": "What is left before announcing it.",
+        "body": "The site is live but has not been promoted yet. These steps come first:",
+        "items": [
+          "Buy the custom domain and replace the temporary Cloudflare address in the config, robots.txt and sitemap.",
+          "Validate the terms, privacy and cancellation policies with a lawyer and add the supplier details required by Brazilian e-commerce law (Decree 7,962/2013).",
+          "Align the deadline across every section and test the order and the link preview on a real iPhone.",
+          "Turn on the orders dashboard linked to the spreadsheet, already deployed and switched off until the credentials are ready."
+        ]
+      },
+      "stack": {
+        "eyebrow": "technology",
+        "title": "Static in front, one function behind.",
+        "process": "Astro generates the page and Cloudflare serves it. The only server-side part is the order function, with Cloudflare's native rate limiting. Print images are generated from the original vectors by a script, already optimized.",
+        "groups": [
+          {
+            "label": "Site",
+            "items": [
+              "Astro 7",
+              "TypeScript",
+              "Tailwind CSS 4",
+              "Outfit (Fontsource)"
+            ]
+          },
+          {
+            "label": "Hosting",
+            "items": [
+              "Cloudflare Workers",
+              "Deploy on every push",
+              "Rate limiting",
+              "Security headers"
+            ]
+          },
+          {
+            "label": "Integrations",
+            "items": [
+              "WhatsApp",
+              "Notion API"
+            ]
+          },
+          {
+            "label": "Quality",
+            "items": [
+              "Biome",
+              "astro check",
+              "node:test",
+              "Lighthouse"
+            ]
+          },
+          {
+            "label": "Images",
+            "items": [
+              "sharp",
+              "AVIF and WebP",
+              "Python (link preview)"
+            ]
+          }
+        ]
+      },
+      "closing": {
+        "title": "From the duck to the order.",
+        "text": "It is the project where I was both the client and the developer: deciding what the business needs, cutting what does not pay for itself and shipping a fast site that is already live.",
         "back": "Back to projects",
         "contact": "Let's talk"
       }

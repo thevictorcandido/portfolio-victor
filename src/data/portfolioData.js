@@ -80,6 +80,14 @@ export const portfolioData = {
       caseStudy: "/projetos/aluguel-de-carros",
     },
     {
+      id: "proj-quaquadro",
+      image: "/projects/quaquadro/hero.webp",
+      githubUrl: null,
+      liveUrl: null,
+      address: "Quaquadro · site no ar na Cloudflare",
+      caseStudy: "/projetos/quaquadro",
+    },
+    {
       id: "proj-degraueduca",
       image: "/projects/degrau-educa/home.webp",
       githubUrl: null,

@@ -213,6 +213,14 @@ Página `/projetos/aluguel-de-carros`, desde 2026-11-05: Laboratório 02 de DIAW
 - Sem menção à ferramenta de IA usada no desenvolvimento, como nos outros estudos.
 - O `Snippet` (título e texto ao lado do código) precisou de `grid-cols-1`: sem ele, a coluna crescia até a linha de código mais longa e a página rolava para o lado a 375 px. Medido depois: nada passa da borda a 320 e 375 px, nos dois idiomas; de 768 px para cima só o conteúdo dos blocos de código passa, dentro da rolagem deles.
 
+## Estudo de caso da Quaquadro (`pages/CaseStudyQuaquadro.jsx`)
+
+Página `/projetos/quaquadro`, desde 2026-11-05: site do negócio próprio de quadros ilustrados, em Astro na Cloudflare. Repositório privado, então o card não tem "GitHub"; também não tem "Ver site", porque o site está no ar mas ainda não foi divulgado (falta domínio e revisão jurídica). Números da verificação de 2026-11-02 e dos 7 testes do pedido, rodados de novo no clone.
+
+- `// 01` o negócio; `// 02` 6 decisões; `// 03` identidade com as 9 cores da paleta em amostras (nome, hex, uso e contraste); `// 04` galeria de 6 telas com `layout="select"` e o celular ao lado; `// 05` o pedido (`OrderFlow` em 4 passos e 2 trechos de código); `// 06` verificação; `// 07` aprendizados; `// 08` antes de divulgar; `// 09` tecnologia.
+- Fora da página, de propósito: os custos de moldura e impressão (estão no mesmo `pedido.ts`) e a origem das cenas de fundo da galeria.
+- Mesma correção do Aluguel de Carros: o `Snippet` já nasce com `grid-cols-1`. Medido: nada passa da borda de 320 a 1280 px, nos dois idiomas.
+
 ## Componentes 21st.dev adaptados (`src/components/ui/`)
 
 - `blur-text.jsx` — texto que entra desfocando.

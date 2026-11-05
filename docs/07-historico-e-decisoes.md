@@ -173,6 +173,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-11-05 entrou o Sistema de Aluguel de Carros (Laboratório 02 de DIAW, projeto individual), como terceiro projeto, depois dos dois sistemas em produção do Grupo GVS e antes do Degrau Educa: é o que mais mostra backend (Spring Boot, JWT, regras na API e testes), o objetivo de carreira do Victor. Estudo de caso completo a partir da documentação do repositório; as telas foram capturadas com o sistema rodando localmente e um cenário montado pela API. Para isso a API precisou rodar pelo terminal do app: no ambiente isolado dos comandos, o Java falha com "Unable to establish loopback connection" (o mesmo registrado na nota do projeto).
 
+> [!IMPORTANT]
+> **Quaquadro como quarto projeto**
+>
+> Em 2026-11-05 entrou a Quaquadro, o site do negócio próprio de quadros ilustrados (Astro na Cloudflare), como quarto projeto, depois do Aluguel de Carros e antes do Degrau Educa. Estudo de caso a partir das notas do vault (briefing, spec e verificação) e do repositório privado, clonado só para leitura. Sem link para o site no ar até o Victor decidir a divulgação.
+
 > [!NOTE]
 > **contexto**
 >
