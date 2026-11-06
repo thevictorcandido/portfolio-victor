@@ -1,5 +1,7 @@
-// Regenera docs/ a partir do vault do Obsidian (fonte principal da documentação).
-// Uso: npm run docs:sync — o caminho do vault pode vir em OBSIDIAN_VAULT.
+// Regenera docs/ a partir do vault do Obsidian no Google Drive (fonte principal da documentação).
+// Uso: npm run docs:sync — o caminho do vault pode vir em OBSIDIAN_VAULT (o Drive muda de letra
+// entre máquinas). As notas ficam em <vault>/portfolio-victor/Documentação/: "00 - Portfolio
+// Victor" vira o README.md e as demais, 01-…, viram NN-slug.md.
 //
 // Conversão:
 // - frontmatter e comentários %% %% saem;
@@ -12,14 +14,25 @@ import { readFileSync, writeFileSync, readdirSync, rmSync, existsSync } from 'no
 import { join, basename } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const VAULT = process.env.OBSIDIAN_VAULT ?? 'C:/Users/Victor Leite/Documents/Obsidian Vault'
-const MOC = 'Portfolio Victor'
+const VAULT = process.env.OBSIDIAN_VAULT ?? 'G:/My Drive/Obsidian Vault'
+const NOTES_DIR = join(VAULT, 'portfolio-victor', 'Documentação')
+const README_NOTE = '00 - Portfolio Victor'
+// Nomes que apontam para o README: a nota de abertura e o índice do projeto no vault
+const README_LINKS = [README_NOTE, 'portfolio-victor']
 const DOCS = fileURLToPath(new URL('../docs/', import.meta.url))
 const ONLY_VAULT = '#so-vault'
 const BLOCKLIST = join(VAULT, '.docs-sync-bloqueio.txt')
-const blocked = existsSync(BLOCKLIST)
-  ? readFileSync(BLOCKLIST, 'utf8').split(/\r?\n/).map((t) => t.trim().toLowerCase()).filter(Boolean)
-  : []
+
+if (!existsSync(join(NOTES_DIR, `${README_NOTE}.md`))) {
+  console.error(`Notas não encontradas em ${NOTES_DIR}. Defina OBSIDIAN_VAULT com a pasta do vault.`)
+  process.exit(1)
+}
+// Sem a lista de termos proibidos, nada é gravado: rodar sem o filtro deixaria vazar o que não pode ir para o repo
+if (!existsSync(BLOCKLIST)) {
+  console.error(`Lista de termos bloqueados não encontrada em ${BLOCKLIST}.`)
+  process.exit(1)
+}
+const blocked = readFileSync(BLOCKLIST, 'utf8').split(/\r?\n/).map((t) => t.trim().toLowerCase()).filter(Boolean)
 
 const ALERTS = {
   info: 'NOTE', note: 'NOTE', abstract: 'NOTE', summary: 'NOTE', example: 'NOTE', quote: 'NOTE',
@@ -33,14 +46,14 @@ const slug = (name) =>
   name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
-const notesDir = join(VAULT, MOC)
-if (!existsSync(notesDir)) {
-  console.error(`Vault não encontrado em ${VAULT}. Defina OBSIDIAN_VAULT.`)
-  process.exit(1)
-}
-
-const notes = readdirSync(notesDir).filter((f) => f.endsWith('.md')).map((f) => basename(f, '.md')).sort()
-const target = new Map([[MOC, 'README.md'], ...notes.map((n) => [n, `${slug(n)}.md`])])
+const notes = readdirSync(NOTES_DIR)
+  .filter((f) => f.endsWith('.md'))
+  .map((f) => basename(f, '.md'))
+  .filter((n) => n !== README_NOTE)
+  .sort()
+// Arquivo de saída de cada nota; o README fica com os nomes de README_LINKS
+const target = new Map([...README_LINKS.map((n) => [n, 'README.md']), ...notes.map((n) => [n, `${slug(n)}.md`])])
+const sources = new Map([[README_NOTE, 'README.md'], ...notes.map((n) => [n, `${slug(n)}.md`])])
 
 function convertLinks(line) {
   return line.replace(/(!?)\[\[([^\]|#]+)(#[^\]|]+)?(?:\|([^\]]+))?\]\]/g, (_, embed, name, heading, alias) => {
@@ -79,9 +92,9 @@ function convert(src) {
 }
 
 const output = new Map()
-for (const [name, file] of target) {
-  const src = readFileSync(join(name === MOC ? VAULT : notesDir, `${name}.md`), 'utf8').replace(/\r\n/g, '\n')
-  const header = name === MOC ? `<!-- Espelho do vault Obsidian. Fonte: Obsidian Vault/${MOC}.md -->\n\n` : ''
+for (const [name, file] of sources) {
+  const src = readFileSync(join(NOTES_DIR, `${name}.md`), 'utf8').replace(/\r\n/g, '\n')
+  const header = name === README_NOTE ? '<!-- Espelho do vault Obsidian. Fonte: Obsidian Vault/portfolio-victor/Documentação/ -->\n\n' : ''
   output.set(file, header + convert(src))
 }
 
@@ -95,4 +108,4 @@ if (leaks.length) {
 for (const f of readdirSync(DOCS)) if (f.endsWith('.md')) rmSync(join(DOCS, f))
 for (const [file, text] of output) writeFileSync(join(DOCS, file), text)
 
-console.log(`docs/ sincronizado: ${target.size} arquivos a partir de ${VAULT}`)
+console.log(`docs/ sincronizado: ${sources.size} arquivos a partir de ${NOTES_DIR}`)

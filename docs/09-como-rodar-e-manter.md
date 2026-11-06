@@ -138,6 +138,6 @@ npm run preview    # serve o dist/ localmente
 
 ## Documentação
 
-- Vault Obsidian: `Portfolio Victor.md` + pasta `Portfolio Victor/` (fonte principal).
+- Vault Obsidian no Google Drive (`G:/My Drive/Obsidian Vault`): pasta `portfolio-victor/Documentação/` (fonte principal). A nota `00 - Portfolio Victor` vira o `README.md` de `docs/`. Em outra máquina, com o Drive em outra letra, rodar com `OBSIDIAN_VAULT` apontando para a pasta do vault.
 - Espelho no repo: `docs/`, gerado por `npm run docs:sync` (`scripts/sync-docs.mjs`) desde 2026-10-28: não editar à mão. Wikilinks viram links `.md`, callouts viram alertas do GitHub, frontmatter sai. Linha ou título de callout terminado em `#so-vault` fica só no vault; se sobrar algum termo de `.docs-sync-bloqueio.txt` (raiz do vault, um por linha), o script para sem gravar nada.
 - Ao mudar estado relevante (decisão, bug, número medido), atualizar só o vault; `docs/` acompanha no próximo `docs:sync`.
