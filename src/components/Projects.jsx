@@ -44,7 +44,11 @@ export default function Projects() {
 
   const onPointerMove = (event) => {
     const d = drag.current
-    if (!d || d.id !== event.pointerId) return
+    // Arraste já solto (d.done) ou mouse sem botão: não move. O Firefox não dispara o
+    // click depois de um arraste capturado, então o registro ficava vivo e o card
+    // seguia o mouse solto, já que o mouse mantém o mesmo pointerId.
+    if (!d || d.done || d.id !== event.pointerId) return
+    if (event.pointerType === 'mouse' && event.buttons === 0) return
     const dx = event.clientX - d.x
     const dy = event.clientY - d.y
     if (d.horizontal === null) {
@@ -62,13 +66,17 @@ export default function Projects() {
 
   const onPointerEnd = (event) => {
     const d = drag.current
-    if (!d || d.id !== event.pointerId) return
+    if (!d || d.done || d.id !== event.pointerId) return
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId)
+    }
     if (d.moved && event.type === 'pointerup') {
       const dx = event.clientX - d.x
       if (dx <= -SWIPE_DISTANCE) handleNext()
       else if (dx >= SWIPE_DISTANCE) handlePrev()
     }
-    // mantém o registro até o click que o navegador dispara logo depois do arraste
+    // mantém o registro, já encerrado, para bloquear o click que o Chrome dispara logo
+    // depois do arraste; o próximo pointerdown sempre o substitui
     drag.current = d.moved ? { ...d, done: true } : null
     setDragX(0)
   }

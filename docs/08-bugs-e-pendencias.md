@@ -7,6 +7,14 @@ Levantamento de 2026-10-20, sobre o commit `ae0f854`. Ordenado por impacto.
 ## Bugs
 
 > [!TIP]
+> **card de Projetos seguindo o mouse depois de soltar (Zen/Firefox) — corrigido em 2026-11-06**
+>
+> **Sintoma:** no Zen, arrastar o card e soltar trocava o projeto, mas ao trazer o ponteiro de volta o card continuava se mexendo, como se o botão ainda estivesse apertado.
+> **Causa raiz:** ao soltar, o registro do arraste ficava guardado (`done: true`) para bloquear o click que o Chrome dispara logo depois. O Firefox não dispara esse click depois de um arraste com o ponteiro capturado, então o registro nunca era apagado; e o `pointermove` seguinte, sem botão, passava no teste `d.id === event.pointerId`, porque o mouse mantém o mesmo `pointerId`. Os testes de 2026-10-29 só rodaram no Chrome, onde o click sempre chega.
+> **Correção:** `onPointerMove` e `onPointerEnd` ignoram arraste já encerrado; mouse com `buttons === 0` não move o card; a captura do ponteiro é liberada ao soltar.
+> **Teste:** Zen automatizado por WebDriver BiDi com mouse real (arrastar 220 px, soltar, mover sem botão): antes `translateX(20px)`, depois `translateX(0px)`. No Chrome, os 15 casos de mouse e toque continuam passando.
+
+> [!TIP]
 > **texto do Sobre passando da borda no desktop — corrigido em 2026-10-29**
 >
 > **Sintoma:** escondido pelo `overflow-hidden` da seção: a 1024 px a coluna de texto passava 156 px da borda (o fim das linhas sumia); com a foto maior, passou a acontecer também a 1280 px.
