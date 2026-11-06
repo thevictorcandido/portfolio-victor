@@ -16,7 +16,10 @@ import {
   TailwindIcon,
   WordPressIcon,
   VercelIcon,
-  HuggingFaceIcon,
+  PostgreSQLIcon,
+  TypeScriptIcon,
+  AstroIcon,
+  CloudflareIcon,
 } from './TechIcons'
 import { portfolioData } from '../data/portfolioData'
 
@@ -31,15 +34,18 @@ const techIconMap = {
   nodejs: NodeIcon,
   junit: JUnitIcon,
   rest: RestIcon,
+  postgresql: PostgreSQLIcon,
   git: GitIcon,
   html: HtmlIcon,
   css: CssIcon,
   javascript: JavaScriptIcon,
+  typescript: TypeScriptIcon,
   react: ReactIcon,
   tailwind: TailwindIcon,
+  astro: AstroIcon,
   wordpress: WordPressIcon,
   vercel: VercelIcon,
-  huggingface: HuggingFaceIcon,
+  cloudflare: CloudflareIcon,
   prompt: PromptIcon,
 }
 

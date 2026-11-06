@@ -159,6 +159,12 @@
         "example": "O formulário de contato deste portfólio envia a mensagem pela API do EmailJS, que só aceita o envio com o token do reCAPTCHA válido.",
         "project": "Este portfólio · Contato"
       },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "about": "Banco de dados relacional de código aberto, com SQL completo e transações confiáveis.",
+        "example": "No sistema de aluguel de carros, a API em Spring Boot grava no PostgreSQL do Supabase: o Flyway cria as tabelas e os dados de exemplo, e uma migração liga o RLS em todas as tabelas.",
+        "project": "Aluguel de Carros · DIAW"
+      },
       "git": {
         "name": "Git & GitHub",
         "about": "Versionamento de código e colaboração em repositórios remotos.",
@@ -183,6 +189,12 @@
         "example": "Nas atividades de DIW montei um catálogo de filmes com map, filter e reduce e uma vitrine de produtos com busca e filtro por categoria direto no DOM.",
         "project": "Atividades DIW · Semanas 8 e 9"
       },
+      "typescript": {
+        "name": "TypeScript",
+        "about": "JavaScript com tipos, que acusa erros antes de o código rodar.",
+        "example": "No site da Quaquadro, o pedido é TypeScript num arquivo só, com testes: preço por tamanho, prazo mínimo de 2 semanas no fuso de Brasília e a mensagem que chega pronta no WhatsApp.",
+        "project": "Quaquadro · pedido"
+      },
       "react": {
         "name": "React",
         "about": "Biblioteca para construir interfaces a partir de componentes reutilizáveis.",
@@ -194,6 +206,12 @@
         "about": "Framework de CSS utilitário: o estilo é composto por classes direto no markup.",
         "example": "Todo o layout deste portfólio, inclusive este globo, é feito com Tailwind v4.",
         "project": "Este portfólio"
+      },
+      "astro": {
+        "name": "Astro",
+        "about": "Framework que gera páginas estáticas e só envia JavaScript onde há interação.",
+        "example": "Refiz do zero o site da Quaquadro, meu negócio de quadros ilustrados, em Astro: nota 100 no Lighthouse nas 4 categorias e LCP de 1,1 s.",
+        "project": "Quaquadro · site"
       },
       "wordpress": {
         "name": "WordPress",
@@ -207,11 +225,11 @@
         "example": "Hospeda este portfólio em victorcandido.dev: cada push na main vira um deploy novo, sem passo manual.",
         "project": "victorcandido.dev"
       },
-      "huggingface": {
-        "name": "Hugging Face",
-        "about": "Plataforma de modelos de IA abertos que também hospeda aplicações nos Spaces.",
-        "example": "Hospedou o site do trabalho interdisciplinar do 1º semestre.",
-        "project": "Trabalho Interdisciplinar · 1º semestre"
+      "cloudflare": {
+        "name": "Cloudflare",
+        "about": "Rede global que hospeda sites e roda funções perto do visitante, nos Workers.",
+        "example": "O site da Quaquadro roda na Cloudflare Workers: cada push na main publica em cerca de 3 minutos, e uma função cria o lembrete do pedido no meu calendário do Notion.",
+        "project": "Quaquadro · hospedagem"
       },
       "prompt": {
         "name": "Engenharia de Prompt",

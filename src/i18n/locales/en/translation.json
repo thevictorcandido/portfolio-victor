@@ -159,6 +159,12 @@
         "example": "This portfolio's contact form sends messages through the EmailJS API, which only accepts them with a valid reCAPTCHA token.",
         "project": "This portfolio · Contact"
       },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "about": "An open-source relational database with full SQL and reliable transactions.",
+        "example": "In the car rental system, the Spring Boot API writes to PostgreSQL on Supabase: Flyway creates the tables and sample data, and a migration turns on RLS for every table.",
+        "project": "Car Rental · DIAW"
+      },
       "git": {
         "name": "Git & GitHub",
         "about": "Code versioning and collaboration on remote repositories.",
@@ -183,6 +189,12 @@
         "example": "In the DIW assignments I built a movie catalog with map, filter and reduce, and a product showcase with search and category filters straight in the DOM.",
         "project": "DIW assignments · Weeks 8 and 9"
       },
+      "typescript": {
+        "name": "TypeScript",
+        "about": "JavaScript with types, which catches errors before the code runs.",
+        "example": "On the Quaquadro site, the order is TypeScript in a single file, with tests: price by size, a 2-week minimum deadline in the Brasília time zone and the message that arrives ready on WhatsApp.",
+        "project": "Quaquadro · order"
+      },
       "react": {
         "name": "React",
         "about": "A library for building interfaces out of reusable components.",
@@ -194,6 +206,12 @@
         "about": "A utility-first CSS framework: styles are composed from classes right in the markup.",
         "example": "The whole layout of this portfolio, this globe included, is built with Tailwind v4.",
         "project": "This portfolio"
+      },
+      "astro": {
+        "name": "Astro",
+        "about": "A framework that builds static pages and only ships JavaScript where there is interaction.",
+        "example": "I rebuilt the site of Quaquadro, my illustrated-frame business, from scratch in Astro: 100 on Lighthouse in all 4 categories and a 1.1 s LCP.",
+        "project": "Quaquadro · site"
       },
       "wordpress": {
         "name": "WordPress",
@@ -207,11 +225,11 @@
         "example": "It hosts this portfolio at victorcandido.dev: every push to main becomes a new deploy, with no manual step.",
         "project": "victorcandido.dev"
       },
-      "huggingface": {
-        "name": "Hugging Face",
-        "about": "A platform for open AI models that also hosts applications on Spaces.",
-        "example": "It hosted the website of my first-semester interdisciplinary project.",
-        "project": "Interdisciplinary Project · 1st semester"
+      "cloudflare": {
+        "name": "Cloudflare",
+        "about": "A global network that hosts sites and runs functions close to the visitor, on Workers.",
+        "example": "The Quaquadro site runs on Cloudflare Workers: every push to main goes live in about 3 minutes, and a function adds the order reminder to my Notion calendar.",
+        "project": "Quaquadro · hosting"
       },
       "prompt": {
         "name": "Prompt Engineering",

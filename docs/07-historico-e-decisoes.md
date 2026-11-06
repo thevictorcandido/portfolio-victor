@@ -183,6 +183,11 @@ Voltar: [Portfolio Victor](README.md)
 >
 > Em 2026-11-05 entrou a Quaquadro, o site do negócio próprio de quadros ilustrados (Astro na Cloudflare), como quarto projeto, depois do Aluguel de Carros e antes do Degrau Educa. Estudo de caso a partir das notas do vault (briefing, spec e verificação) e do repositório privado, clonado só para leitura. Sem link para o site no ar até o Victor decidir a divulgação.
 
+> [!IMPORTANT]
+> **Globo com as tecnologias dos projetos novos**
+>
+> Em 2026-11-06 o globo foi de 16 para 19 tecnologias. Entraram PostgreSQL (Supabase com Flyway no Aluguel de Carros), TypeScript, Astro e Cloudflare (Quaquadro). Saiu o Hugging Face, que só hospedou o site do trabalho do 1º semestre. Os três da Quaquadro apontam para o estudo de caso, porque o repositório é privado e o site ainda não é divulgado. Python fica, agora também usado no Sentinela.
+
 > [!NOTE]
 > **contexto**
 >

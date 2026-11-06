@@ -12,7 +12,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > - Site completo com 7 seções: Hero, Sobre, Projetos, Trajetória, Habilidades, Formação, Contato (+ Navbar e Footer).
 > - Internacionalização pt-BR / en com seletor de idioma — 153 chaves, paridade 100%; versão em inglês sem nenhum texto em português (verificado no DOM renderizado).
 > - Formulário de contato com envio real via EmailJS e reCAPTCHA v2, validado em produção em 2026-10-21.
-> - Habilidades num globo 3D interativo (desde 2026-10-22): 16 tecnologias, cada uma com exemplo de projeto real (fonte: **Tecnologias** e **Repositórios**).
+> - Habilidades num globo 3D interativo (desde 2026-10-22): 19 tecnologias, cada uma com exemplo de projeto real (fonte: **Tecnologias** e **Repositórios**).
 > - Favicon próprio (monograma "V" verde/carbono).
 > - Código no GitHub: último push em 2026-10-22 (`4718272..7ec8c0b`, 6 commits). `.env.local` não versionado.
 > - **Publicado na Vercel** em https://www.victorcandido.dev (o apex `victorcandido.dev` redireciona com 308). Deploy automático a cada push na `main` — confirmado de novo em 2026-10-22: o globo de habilidades entrou no ar ~20 s depois do push (`index-Dyv5IByl.js`).
@@ -22,7 +22,7 @@ Portfólio pessoal de **Victor Cândido Leite**, feito para a disciplina **DIAW*
 > [!WARNING]
 > **o que ainda falta**
 >
-> - Node.js e Hugging Face no globo com exemplo genérico, até completar o contexto do trabalho interdisciplinar do 1º semestre.
+> - Node.js no globo com exemplo genérico, até completar o contexto do trabalho interdisciplinar do 1º semestre.
 > - Prévia de link sempre em pt-BR (robôs de prévia não executam JS) — limitação aceita.
 
 ## Índice
