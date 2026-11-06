@@ -11,6 +11,10 @@ import { RECAPTCHA_SITE_KEY } from '../config/recaptchaConfig'
 export default function Contact() {
   const { t, i18n } = useTranslation()
   const { personal } = portfolioData
+  const email = personal.social?.email ?? ''
+  const at = email.indexOf('@')
+  const emailUser = at > 0 ? email.slice(0, at) : email
+  const emailDomain = at > 0 ? email.slice(at) : ''
   const [copied, setCopied] = useState(false)
   // idle | captcha (caixa não marcada) | sending | success | error
   const [status, setStatus] = useState('idle')
@@ -97,17 +101,21 @@ export default function Contact() {
             </div>
 
             {/* Card de Email Direto com Cópia Rápida */}
-            <div className="p-6 rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3.5">
+            {/* De 1024 a 1279 px a coluna é estreita para e-mail e botão lado a lado: o botão desce */}
+            <div className="p-6 rounded-3xl bg-carbon-raised border border-ivory/10 shadow-xs flex flex-col sm:flex-row sm:items-center lg:flex-col lg:items-start xl:flex-row xl:items-center justify-between gap-4">
+              <div className="flex items-center gap-3.5 min-w-0">
                 <div className="w-11 h-11 rounded-2xl bg-ivory/8 flex items-center justify-center text-ivory shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-ivory/45 uppercase tracking-wider">
                     Email
                   </p>
-                  <p className="text-sm sm:text-base font-bold font-display text-ivory break-all">
-                    {personal.social?.email}
+                  {/* Se faltar espaço, quebra antes do @, nunca no meio do endereço */}
+                  <p className="text-sm sm:text-base font-bold font-display text-ivory">
+                    {emailUser}
+                    <wbr />
+                    {emailDomain}
                   </p>
                 </div>
               </div>
