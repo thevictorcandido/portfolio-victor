@@ -171,7 +171,7 @@ Voltar: [Portfolio Victor](README.md)
 > [!IMPORTANT]
 > **Sentinela GVS atualizado com o pacote v2**
 >
-> Em 2026-11-06 o estudo do Sentinela seguiu o estudo de caso revisado pela empresa: escala de 54 câmeras em 3 usinas (eram 36 em 2), resultados de 05/10 a 06/11 (13.360 ocorrências, 94,1% das classificadas confirmadas, 5,9% de alarmes falsos, 20.900+ mensagens com 99,97% de entrega, 274 h de vídeo) e o papel descrito como desenvolvedor principal a pedido do O&M, com a liderança acompanhando as necessidades, em vez de "idealizei e opero". Entraram a seção Minha participação, o O&M no diagrama e a tela do vinhedo. As telas, o vídeo e o PDF do pacote são os mesmos de 28/10. O pacote diz "publicar só depois da aprovação de compliance": o commit ficou local até o Victor confirmar a aprovação desta versão.
+> Em 2026-11-06 o estudo do Sentinela seguiu o estudo de caso revisado pela empresa: escala de 54 câmeras em 3 usinas (eram 36 em 2), resultados de 05/10 a 06/11 (13.360 ocorrências, 94,1% das classificadas confirmadas, 5,9% de alarmes falsos, 20.900+ mensagens com 99,97% de entrega, 274 h de vídeo) e o papel descrito como desenvolvedor principal a pedido do O&M, com a liderança acompanhando as necessidades, em vez de "idealizei e opero". Entraram a seção Minha participação, o O&M no diagrama e a tela do vinhedo. As telas, o vídeo e o PDF do pacote são os mesmos de 28/10. O pacote diz "publicar só depois da aprovação de compliance": o Victor confirmou a aprovação desta versão no mesmo dia, e ela foi publicada (`9191349`).
 
 > [!IMPORTANT]
 > **Aluguel de Carros como terceiro projeto**
