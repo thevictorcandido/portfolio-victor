@@ -69,7 +69,7 @@
     "degraueducaDesc": "Trabalho Interdisciplinar da PUC Minas, feito em equipe de cinco. Reúne cursos de instituições reconhecidas em jornadas com ordem pedagógica, salva o progresso de cada aluno e tem um painel administrativo para manter o catálogo. Fiquei com o Design Thinking, os CRUDs do painel e parte do cadastro e login.",
     "sentinelagvsTitle": "Sentinela GVS — Vigilância com IA",
     "sentinelagvsBadge": "Em produção no Grupo GVS",
-    "sentinelagvsDesc": "Sistema que idealizei, desenvolvi e opero no Grupo GVS. Assiste 36 câmeras em 2 usinas ao mesmo tempo, detecta pessoas na área e no horário armados e manda foto e vídeo para o celular da equipe. Em menos de três semanas: 2.813 ocorrências entregues, 95,6% confirmadas como pessoa real, sem custo de licença ou nuvem.",
+    "sentinelagvsDesc": "Sistema de vigilância com IA que desenvolvo para o Grupo GVS, a pedido da Operação e Manutenção das usinas. Assiste 54 câmeras em 3 usinas ao mesmo tempo, detecta pessoas na área e no horário armados e manda foto e vídeo para o celular da equipe. Em um mês: 13.360 ocorrências entregues, 94,1% confirmadas como pessoa real, sem custo de licença ou nuvem.",
     "wisptvTitle": "WISP TV — Painéis da operação direto nas TVs",
     "wisptvBadge": "Em produção no Grupo GVS",
     "wisptvDesc": "Aplicativo que desenvolvi para o Centro de Operações do Grupo GVS levar os painéis das usinas direto para as TVs do escritório, sem computador no meio. Abre sozinho depois de uma queda de energia, volta à tela certa e recebe comandos da operação. Liberou 2 computadores e roda em 5 TVs, sem custo de hardware.",
@@ -668,48 +668,48 @@
       "kicker": "segurança patrimonial com ia · sistema em produção · 2026",
       "title": "Sentinela GVS",
       "tagline": "IA que vigia as usinas 24 horas e avisa a equipe em 2 segundos.",
-      "intro": "Um sistema próprio que assiste todas as câmeras das usinas solares do Grupo GVS ao mesmo tempo e só chama a equipe quando há uma pessoa onde não deveria haver, com foto e vídeo no celular em segundos.",
+      "intro": "Um sistema próprio, pedido pela Operação e Manutenção (O&M) das usinas solares do Grupo GVS, que assiste todas as câmeras ao mesmo tempo e só chama a equipe quando há uma pessoa onde não deveria haver, com foto e vídeo no celular em segundos.",
       "status": "Em produção no Grupo GVS · desde outubro de 2026",
       "meta": [
         {
           "label": "Empresa",
-          "value": "Grupo GVS · geração de energia solar · outubro de 2026, em evolução"
+          "value": "Grupo GVS · geração de energia solar · demanda da Operação e Manutenção (O&M) · outubro de 2026, em evolução"
         },
         {
           "label": "Escala",
-          "value": "36 câmeras em 2 usinas, monitoradas 24 horas"
+          "value": "54 câmeras em 3 usinas, monitoradas 24 horas"
         },
         {
           "label": "Meu papel",
-          "value": "Idealização, desenvolvimento e operação da solução, de ponta a ponta"
+          "value": "Desenvolvedor principal: a maior parte das funcionalidades e dos requisitos não funcionais (desempenho, disponibilidade, segurança e privacidade)"
         }
       ],
       "coverAlt": "Painel do Sentinela GVS com a lista de usinas e câmeras e uma câmera ao vivo marcando \"pessoa 89%\" dentro da área vigiada",
       "demoNote": "Todas as telas e o vídeo vêm de uma instância de demonstração isolada: usinas, câmeras, usuário e ocorrências são fictícios, e as pessoas são de vídeos com licença livre do Pexels. Nenhuma imagem real das usinas aparece aqui.",
       "stats": [
         {
-          "value": "2.813",
+          "value": "13.360",
           "label": "ocorrências registradas e entregues à equipe"
         },
         {
-          "value": "95,6%",
-          "label": "confirmadas como pessoa de verdade"
+          "value": "94,1%",
+          "label": "das ocorrências classificadas confirmadas como pessoa de verdade"
         },
         {
           "value": "2 s",
           "label": "da detecção ao alerta no celular (mediana; 90% em até 4 s)"
         },
         {
-          "value": "4.500+",
-          "label": "alertas no Telegram, sem falha de envio"
+          "value": "99,97%",
+          "label": "de entrega nas mais de 20.900 mensagens pelo Telegram"
         },
         {
-          "value": "36",
-          "label": "câmeras em 2 usinas, vigiadas 24 h"
+          "value": "54",
+          "label": "câmeras em 3 usinas, vigiadas 24 h"
         },
         {
           "value": "~90",
-          "label": "câmeras de capacidade no mesmo computador (2,5×)"
+          "label": "câmeras de capacidade estimada no mesmo computador"
         },
         {
           "value": "43 ms",
@@ -720,11 +720,11 @@
           "label": "de licença ou nuvem: roda num computador da empresa"
         }
       ],
-      "statsNote": "Resultados de 09/10 a 28/10/2026.",
+      "statsNote": "Resultados de 05/10 a 06/11/2026.",
       "problem": {
         "eyebrow": "o problema",
         "title": "Câmera gravando não é segurança se ninguém está olhando.",
-        "body": "As usinas solares ficam em áreas rurais extensas, longe de qualquer equipe. Furto de cabos e de equipamentos é um risco real: interrompe a geração, gera custo de reposição e afeta a receita. As câmeras já gravavam, mas ninguém consegue assistir dezenas de telas a noite inteira; na prática, a gravação só servia para descobrir o que tinha acontecido depois do prejuízo.",
+        "body": "A necessidade veio do setor de Operação e Manutenção (O&M). As usinas solares ficam em áreas rurais extensas, longe de qualquer equipe, e furto de cabos e de equipamentos é um risco real: interrompe a geração, gera custo de reposição e afeta a receita. As câmeras já gravavam, mas ninguém consegue assistir dezenas de telas a noite inteira; na prática, a gravação só servia para descobrir o que tinha acontecido depois do prejuízo.",
         "constraintsTitle": "O que precisava ser verdade",
         "constraints": [
           "Saber na hora, não no dia seguinte.",
@@ -777,8 +777,22 @@
             "Painel de operação: classificação e atendimento",
             "Relatórios em PDF e indicadores",
             "TVs da sala de operação"
-          ]
+          ],
+          "om": "O&M",
+          "omNote": "necessidades e regras de alarme para o painel"
         }
+      },
+      "role": {
+        "eyebrow": "minha participação",
+        "title": "A operação define o que precisa; eu construo.",
+        "body": "O projeto nasceu de uma demanda do O&M, que define o que a operação precisa. Minha liderança acompanha essas necessidades comigo e as mantém atualizadas conforme a operação evolui. Eu desenvolvo a maior parte das funcionalidades e dos requisitos não funcionais.",
+        "items": [
+          "Funcionalidades: detecção, regras de alarme por câmera, ocorrências e classificação, alertas, relatórios e as telas.",
+          "Desempenho para caber muitas câmeras numa máquina só, com a mesma placa de vídeo.",
+          "Funcionamento 24 horas sem depender de alguém logado.",
+          "Segurança de acesso e privacidade dos dados, desde o primeiro dia.",
+          "Participação no desenho da expansão, que leva o processamento para cada usina."
+        ]
       },
       "screens": {
         "eyebrow": "as telas",
@@ -798,6 +812,13 @@
             "meta": "Pouca luz",
             "description": "A mesma detecção à noite, com a silhueta marcada dentro da área.",
             "alt": "Câmera noturna detectando a silhueta de uma pessoa numa rua iluminada por postes"
+          },
+          {
+            "id": "camera-vinhedo",
+            "title": "Pessoa no vinhedo",
+            "meta": "Detecção de dia",
+            "description": "Outra câmera da demonstração com uma pessoa detectada dentro da área, com a confiança da IA e os números do momento ao lado.",
+            "alt": "Câmera CAM02 Corredor Vinhedo ao vivo com uma pessoa marcada \"pessoa 92%\" dentro da área azul e o painel Agora ao lado"
           },
           {
             "id": "area-configuracao",
@@ -870,7 +891,7 @@
       "challenge": {
         "eyebrow": "o desafio",
         "title": "Muitas câmeras, internet fraca e um único computador.",
-        "body": "A internet das usinas comportava a detecção em só 4 ou 5 câmeras por vez; as outras ficavam cegas. Reorganizei como o vídeo trafega: cada usina ganhou uma cota de banda, e a gravação em alta qualidade continua no gravador local. Todas as câmeras passaram a ser vigiadas. Depois, otimizei a IA para o mesmo computador dar conta de muito mais.",
+        "body": "A internet das usinas comportava a detecção em só 4 ou 5 câmeras por vez; as outras ficavam cegas. A forma como o vídeo trafega foi reorganizada: cada usina ganhou uma cota de banda, e a gravação em alta qualidade continua no gravador local. Assim, todas as câmeras passaram a ser vigiadas. Depois, a IA foi otimizada para o mesmo computador dar conta de muito mais.",
         "tableTitle": "Otimização da IA no mesmo computador",
         "headers": [
           "Indicador",
@@ -894,18 +915,18 @@
             "43 ms"
           ],
           [
-            "Capacidade estimada",
+            "Capacidade estimada no mesmo computador",
             "—",
-            "~90 câmeras (2,5× as atuais)"
+            "~90 câmeras"
           ]
         ],
         "dogsTitle": "Cães não são pessoas",
-        "dogs": "Cães estavam sendo confundidos com pessoas. Usei os próprios alarmes falsos da operação para testar modelos e escolher o melhor: os cães confundidos caíram de 8 para 2 em 17 casos, e a detecção de pessoas reais melhorou."
+        "dogs": "Cães estavam sendo confundidos com pessoas. Os próprios alarmes falsos da operação serviram para testar modelos de IA e escolher o melhor: os cães confundidos caíram de 8 para 2 em 17 casos, e a detecção de pessoas reais melhorou."
       },
       "results": {
         "eyebrow": "resultados",
-        "title": "Em menos de três semanas de operação.",
-        "body": "De 09/10 a 28/10/2026, com as 36 câmeras das duas usinas.",
+        "title": "Um mês de operação, em três usinas.",
+        "body": "De 05/10 a 06/11/2026, com as 54 câmeras das três usinas.",
         "headers": [
           "Resultado",
           "Número"
@@ -913,27 +934,27 @@
         "rows": [
           [
             "Ocorrências registradas e entregues à equipe",
-            "2.813"
+            "13.360"
           ],
           [
-            "Confirmadas como pessoa de verdade",
-            "95,6%"
+            "Ocorrências classificadas confirmadas como pessoa de verdade",
+            "94,1%"
           ],
           [
             "Alarmes falsos",
-            "4,4% (124)"
+            "5,9%"
           ],
           [
             "Tempo da detecção ao alerta no celular",
             "2 s de mediana; 90% em até 4 s"
           ],
           [
-            "Alertas entregues no Telegram",
-            "4.500+, sem falha de envio"
+            "Mensagens enviadas pelo Telegram",
+            "20.900+, com 99,97% de entrega"
           ],
           [
             "Vídeo que a equipe precisa olhar",
-            "33 h de ocorrências, em vez de semanas de gravação contínua"
+            "274 h de ocorrências, em vez de um mês de gravação contínua de todas as câmeras"
           ],
           [
             "Custo de licença ou nuvem",
@@ -944,7 +965,7 @@
       "roadmap": {
         "eyebrow": "próximos passos",
         "title": "Um computador em cada usina e uma central.",
-        "body": "Cada usina passa a analisar as próprias câmeras e enviar só as ocorrências, o que tira o peso da internet e permite crescer para novas usinas sem trocar a central. As atualizações são publicadas de forma centralizada e desfeitas sozinhas se algo der errado. Um piloto já roda numa usina em paralelo à operação atual.",
+        "body": "O sistema está evoluindo para um computador em cada usina e uma central: cada usina analisa as próprias câmeras e envia só as ocorrências, o que tira o peso da internet e permite crescer para novas usinas sem trocar a central. As atualizações são publicadas de forma centralizada e desfeitas sozinhas se algo der errado. Um piloto em uma usina roda em paralelo à operação atual.",
         "pilot": "Do piloto: sem placa de vídeo dedicada, a usina detectou só 65% das ocorrências com pessoa. Por isso cada usina nova recebe uma."
       },
       "next": {
@@ -952,16 +973,16 @@
         "title": "O que este projeto me ensinou.",
         "items": [
           {
+            "title": "A área de negócio por perto",
+            "text": "As regras de alarme, a classificação e os relatórios nasceram do dia a dia do O&M, não de suposição."
+          },
+          {
             "title": "Medir antes de mudar",
             "text": "O maior ganho não veio de trocar a IA: a internet e a leitura do vídeo pesavam mais que a inteligência artificial."
           },
           {
-            "title": "Validar com dados reais",
-            "text": "Os próprios alarmes falsos da operação viraram o teste para escolher o modelo, em vez de um conjunto de dados genérico."
-          },
-          {
-            "title": "Privacidade é requisito",
-            "text": "Tratar LGPD desde o primeiro dia (retenção curta, rede interna, login por perfil) foi o que fez a operação aceitar o sistema."
+            "title": "Dados reais e privacidade desde o início",
+            "text": "Os próprios alarmes falsos viraram o teste para escolher o modelo, e tratar a LGPD como requisito desde o primeiro dia ajudou o sistema a ser adotado."
           }
         ]
       },
@@ -1000,8 +1021,8 @@
         ]
       },
       "closing": {
-        "title": "Do problema da empresa ao sistema em produção.",
-        "text": "Identifiquei a necessidade, propus a solução e a construí do zero: IA, telas, alertas, relatórios e a operação em produção. É o projeto em que a tecnologia mais claramente virou resultado para o negócio.",
+        "title": "Da demanda da operação ao sistema em produção.",
+        "text": "O O&M trouxe a necessidade; eu construí a maior parte do sistema: a IA, as regras, as telas, os alertas, os relatórios e o que faz tudo aguentar 24 horas. É o projeto em que a tecnologia mais claramente virou resultado para o negócio.",
         "back": "Voltar aos projetos",
         "contact": "Vamos conversar"
       }

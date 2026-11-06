@@ -169,6 +169,11 @@ Voltar: [Portfolio Victor](README.md)
 > Em 2026-10-28 entrou o WISP TV, app Android TV em produção no Centro de Operações do Grupo GVS (projeto individual), como segundo projeto, logo depois do Sentinela. Mesmo processo: pacote para portfólio com dados de demonstração, página própria, galeria empilhada e vídeo. O logo interno do Centro de Operações foi liberado para publicação, e a página fala em "apoio de IA" sem citar a ferramenta.
 
 > [!IMPORTANT]
+> **Sentinela GVS atualizado com o pacote v2**
+>
+> Em 2026-11-06 o estudo do Sentinela seguiu o estudo de caso revisado pela empresa: escala de 54 câmeras em 3 usinas (eram 36 em 2), resultados de 05/10 a 06/11 (13.360 ocorrências, 94,1% das classificadas confirmadas, 5,9% de alarmes falsos, 20.900+ mensagens com 99,97% de entrega, 274 h de vídeo) e o papel descrito como desenvolvedor principal a pedido do O&M, com a liderança acompanhando as necessidades, em vez de "idealizei e opero". Entraram a seção Minha participação, o O&M no diagrama e a tela do vinhedo. As telas, o vídeo e o PDF do pacote são os mesmos de 28/10. O pacote diz "publicar só depois da aprovação de compliance": o commit ficou local até o Victor confirmar a aprovação desta versão.
+
+> [!IMPORTANT]
 > **Aluguel de Carros como terceiro projeto**
 >
 > Em 2026-11-05 entrou o Sistema de Aluguel de Carros (Laboratório 02 de DIAW, projeto individual), como terceiro projeto, depois dos dois sistemas em produção do Grupo GVS e antes do Degrau Educa: é o que mais mostra backend (Spring Boot, JWT, regras na API e testes), o objetivo de carreira do Victor. Estudo de caso completo a partir da documentação do repositório; as telas foram capturadas com o sistema rodando localmente e um cenário montado pela API. Para isso a API precisou rodar pelo terminal do app: no ambiente isolado dos comandos, o Java falha com "Unable to establish loopback connection" (o mesmo registrado na nota do projeto).

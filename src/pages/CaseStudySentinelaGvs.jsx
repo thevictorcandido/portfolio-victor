@@ -49,6 +49,11 @@ function Flow({ c, list }) {
             </li>
           ))}
         </ul>
+        {/* O&M define as regras que o painel aplica (diagrama da versão de 2026-11-06) */}
+        <div className={`${box} mt-4 border-dashed text-ivory/60`}>
+          {c('solution.flow.om')}
+          <span className="mt-1 block text-xs text-ivory/45">→ {c('solution.flow.omNote')}</span>
+        </div>
       </div>
     </div>
   )
@@ -103,7 +108,22 @@ export default function CaseStudySentinelaGvs() {
         <Flow c={c} list={list} />
       </Section>
 
-      {/* 03 · telas e vídeo */}
+      {/* 03 · minha participação */}
+      <Section id="minha-parte">
+        <SectionHeader num="03" eyebrow={c('role.eyebrow')} title={c('role.title')}>
+          {c('role.body')}
+        </SectionHeader>
+        <ul className="mt-12 grid gap-x-10 gap-y-5 md:grid-cols-2">
+          {list('role.items').map((item) => (
+            <li key={item} className="flex gap-3 text-sm sm:text-base text-ivory/80 leading-relaxed">
+              <span className="mt-2.5 w-1.5 h-1.5 shrink-0 rounded-full bg-ice" aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* 04 · telas e vídeo */}
       <Section id="telas">
         <FeaturesWithPanel
           items={screens}
@@ -111,7 +131,7 @@ export default function CaseStudySentinelaGvs() {
           layout="select"
           header={
             <div className="mb-10">
-              <SectionHeader num="03" eyebrow={c('screens.eyebrow')} title={c('screens.title')}>
+              <SectionHeader num="04" eyebrow={c('screens.eyebrow')} title={c('screens.title')}>
                 {c('screens.body')}
               </SectionHeader>
             </div>
@@ -135,9 +155,9 @@ export default function CaseStudySentinelaGvs() {
         </div>
       </Section>
 
-      {/* 04 · desafio técnico */}
+      {/* 05 · desafio técnico */}
       <Section id="desafio">
-        <SectionHeader num="04" eyebrow={c('challenge.eyebrow')} title={c('challenge.title')}>
+        <SectionHeader num="05" eyebrow={c('challenge.eyebrow')} title={c('challenge.title')}>
           {c('challenge.body')}
         </SectionHeader>
         <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-start">
@@ -158,9 +178,9 @@ export default function CaseStudySentinelaGvs() {
         </div>
       </Section>
 
-      {/* 05 · resultados */}
+      {/* 06 · resultados */}
       <Section id="resultados">
-        <SectionHeader num="05" eyebrow={c('results.eyebrow')} title={c('results.title')}>
+        <SectionHeader num="06" eyebrow={c('results.eyebrow')} title={c('results.title')}>
           {c('results.body')}
         </SectionHeader>
         <div className="mt-12 max-w-4xl">
@@ -168,23 +188,23 @@ export default function CaseStudySentinelaGvs() {
         </div>
       </Section>
 
-      {/* 06 · próximos passos */}
+      {/* 07 · próximos passos */}
       <Section id="proximos-passos">
-        <SectionHeader num="06" eyebrow={c('roadmap.eyebrow')} title={c('roadmap.title')}>
+        <SectionHeader num="07" eyebrow={c('roadmap.eyebrow')} title={c('roadmap.title')}>
           {c('roadmap.body')}
         </SectionHeader>
         <p className="mt-10 max-w-3xl border-l-2 border-ice pl-5 text-base text-ivory/85 leading-relaxed">{c('roadmap.pilot')}</p>
       </Section>
 
-      {/* 07 · aprendizados */}
+      {/* 08 · aprendizados */}
       <Section id="aprendizados">
-        <SectionHeader num="07" eyebrow={c('next.eyebrow')} title={c('next.title')} />
+        <SectionHeader num="08" eyebrow={c('next.eyebrow')} title={c('next.title')} />
         <NextSteps items={list('next.items')} />
       </Section>
 
-      {/* 08 · tecnologia */}
+      {/* 09 · tecnologia */}
       <Section id="tecnologia">
-        <SectionHeader num="08" eyebrow={c('stack.eyebrow')} title={c('stack.title')}>
+        <SectionHeader num="09" eyebrow={c('stack.eyebrow')} title={c('stack.title')}>
           {c('stack.process')}
         </SectionHeader>
         <StackAndTeam c={c} list={list} />

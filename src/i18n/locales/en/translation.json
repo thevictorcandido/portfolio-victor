@@ -69,7 +69,7 @@
     "degraueducaDesc": "An interdisciplinary project at PUC Minas, built by a team of five. It gathers courses from recognized institutions into paths with a teaching order, saves each student's progress and includes an admin panel to manage the catalog. I handled the Design Thinking, the panel's CRUDs and part of sign-up and login.",
     "sentinelagvsTitle": "Sentinela GVS — AI Surveillance",
     "sentinelagvsBadge": "In production at Grupo GVS",
-    "sentinelagvsDesc": "A system I conceived, built and run at Grupo GVS. It watches 36 cameras across 2 plants at once, detects people inside armed zones and schedules, and sends photo and video to the team's phones. In under three weeks: 2,813 incidents delivered, 95.6% confirmed as real people, with no license or cloud cost.",
+    "sentinelagvsDesc": "An AI surveillance system I develop for Grupo GVS, requested by the solar plants' Operations & Maintenance team. It watches 54 cameras across 3 plants at once, detects people inside armed zones and schedules, and sends photo and video to the team's phones. In one month: 13,360 incidents delivered, 94.1% confirmed as real people, with no license or cloud costs.",
     "wisptvTitle": "WISP TV — Operations dashboards straight on the TVs",
     "wisptvBadge": "In production at Grupo GVS",
     "wisptvDesc": "An app I built for Grupo GVS's Operations Center to put the plant dashboards straight on the office TVs, with no computer in between. It opens by itself after a power outage, returns to the right screen and takes commands from the operators. It freed up 2 computers and runs on 5 TVs, at no hardware cost.",
@@ -668,63 +668,63 @@
       "kicker": "ai-powered asset security · production system · 2026",
       "title": "Sentinela GVS",
       "tagline": "AI that watches the plants around the clock and alerts the team within 2 seconds.",
-      "intro": "An in-house system that watches every camera at Grupo GVS's solar plants at once and only calls the team when a person is where they should not be, with photo and video on their phones within seconds.",
+      "intro": "An in-house system, requested by the Operations & Maintenance (O&M) team of Grupo GVS's solar plants, that watches every camera at once and only calls the team when a person is where they shouldn't be, with photo and video on their phones within seconds.",
       "status": "In production at Grupo GVS · since October 2026",
       "meta": [
         {
           "label": "Company",
-          "value": "Grupo GVS · solar power generation · October 2026, ongoing"
+          "value": "Grupo GVS · solar power generation · requested by Operations & Maintenance (O&M) · October 2026, ongoing"
         },
         {
           "label": "Scale",
-          "value": "36 cameras across 2 plants, monitored 24/7"
+          "value": "54 cameras across 3 plants, monitored 24/7"
         },
         {
           "label": "My role",
-          "value": "Idea, development and operation of the solution, end to end"
+          "value": "Lead developer: most features and non-functional requirements (performance, availability, security and privacy)"
         }
       ],
       "coverAlt": "Sentinela GVS panel with the list of plants and cameras and a live camera marking \"person 89%\" inside the watched zone",
       "demoNote": "Every screen and the video come from an isolated demo instance: plants, cameras, user and incidents are fictional, and the people come from free-license Pexels videos. No real footage of the plants appears here.",
       "stats": [
         {
-          "value": "2,813",
+          "value": "13,360",
           "label": "incidents logged and delivered to the team"
         },
         {
-          "value": "95.6%",
-          "label": "confirmed as real people"
+          "value": "94.1%",
+          "label": "of classified incidents confirmed as real people"
         },
         {
           "value": "2 s",
           "label": "from detection to phone alert (median; 90% within 4 s)"
         },
         {
-          "value": "4,500+",
-          "label": "Telegram alerts with no delivery failures"
+          "value": "99.97%",
+          "label": "delivery across 20,900+ Telegram messages"
         },
         {
-          "value": "36",
-          "label": "cameras across 2 plants, watched 24/7"
+          "value": "54",
+          "label": "cameras across 3 plants, watched 24/7"
         },
         {
           "value": "~90",
-          "label": "cameras of capacity on the same computer (2.5×)"
+          "label": "cameras of estimated capacity on the same computer"
         },
         {
           "value": "43 ms",
-          "label": "to analyze 16 frames (down from 160 ms)"
+          "label": "to analyze 16 frames (was 160 ms)"
         },
         {
-          "value": "$0",
-          "label": "in licenses or cloud: runs on a company computer"
+          "value": "R$ 0",
+          "label": "in license or cloud costs: it runs on a company computer"
         }
       ],
-      "statsNote": "Results from Oct 9 to Oct 28, 2026.",
+      "statsNote": "Results from Oct 5 to Nov 6, 2026.",
       "problem": {
         "eyebrow": "the problem",
         "title": "A recording camera is not security if nobody is watching.",
-        "body": "Solar plants sit on large rural sites far from any staff. Cable and equipment theft is a real risk: it stops generation, adds replacement costs and hits revenue. The cameras were already recording, but nobody can watch dozens of feeds all night; in practice, footage only helped find out what happened after the loss.",
+        "body": "The need came from the Operations & Maintenance (O&M) team. Solar plants sit on large rural sites far from any staff, and cable and equipment theft is a real risk: it interrupts generation, adds replacement costs and hits revenue. Cameras were already recording, but nobody can watch dozens of feeds all night; in practice, footage only helped find out what had happened after the loss.",
         "constraintsTitle": "What had to be true",
         "constraints": [
           "Know as it happens, not the next day.",
@@ -777,8 +777,22 @@
             "Operations panel: triage and response",
             "PDF reports and KPIs",
             "Control-room TVs"
-          ]
+          ],
+          "om": "O&M",
+          "omNote": "needs and alarm rules for the panel"
         }
+      },
+      "role": {
+        "eyebrow": "my role",
+        "title": "Operations define the needs; I build.",
+        "body": "The project started as an O&M request, and O&M defines what operations need. My lead works with me to keep those needs up to date as operations evolve. I build most of the features and most of the non-functional requirements.",
+        "items": [
+          "Features: detection, per-camera alarm rules, incidents and triage, alerts, reports and the UI.",
+          "Performance to fit many cameras on one machine, with the same GPU.",
+          "24/7 operation without anyone logged in.",
+          "Access security and data privacy, from day one.",
+          "Taking part in designing the expansion that moves processing to each plant."
+        ]
       },
       "screens": {
         "eyebrow": "the screens",
@@ -798,6 +812,13 @@
             "meta": "Low light",
             "description": "The same detection at night, with the silhouette marked inside the zone.",
             "alt": "Night camera detecting a person's silhouette on a street lit by lampposts"
+          },
+          {
+            "id": "camera-vinhedo",
+            "title": "Person in the vineyard",
+            "meta": "Daytime detection",
+            "description": "Another demo camera with a person detected inside the zone, with the AI confidence and live numbers alongside.",
+            "alt": "Camera CAM02 Corredor Vinhedo live with a person marked \"pessoa 92%\" inside the blue zone and the Agora panel beside it"
           },
           {
             "id": "area-configuracao",
@@ -870,7 +891,7 @@
       "challenge": {
         "eyebrow": "the challenge",
         "title": "Many cameras, a weak link and a single computer.",
-        "body": "The plants' internet only supported detection on 4 or 5 cameras at a time; the rest were blind. I reorganized how video travels: each plant got a bandwidth budget, and high-quality recording stays on the local recorder. Every camera came online. Then I optimized the AI so the same computer could handle much more.",
+        "body": "Plant internet links only supported detection on 4 or 5 cameras at a time; the rest were blind. The way video travels was reorganized: each plant got a bandwidth budget, and high-quality recording stays on the local recorder. That brought every camera online. Then the AI was optimized so the same computer could handle much more.",
         "tableTitle": "AI optimization on the same computer",
         "headers": [
           "Metric",
@@ -894,18 +915,18 @@
             "43 ms"
           ],
           [
-            "Estimated capacity",
+            "Estimated capacity on the same computer",
             "—",
-            "~90 cameras (2.5× today's)"
+            "~90 cameras"
           ]
         ],
         "dogsTitle": "Dogs are not people",
-        "dogs": "Dogs were being mistaken for people. I used the operation's own false alarms to test models and pick the best: dogs mistaken for people dropped from 8 to 2 out of 17 cases, and detection of real people improved."
+        "dogs": "Dogs were being mistaken for people. The operation's own false alarms were used to test AI models and pick the best one: dogs mistaken for people dropped from 8 to 2 out of 17 cases, and real-person detection improved."
       },
       "results": {
         "eyebrow": "results",
-        "title": "In under three weeks of operation.",
-        "body": "From Oct 9 to Oct 28, 2026, with all 36 cameras at both plants.",
+        "title": "One month of operation, across three plants.",
+        "body": "From Oct 5 to Nov 6, 2026, with all 54 cameras at the three plants.",
         "headers": [
           "Result",
           "Number"
@@ -913,27 +934,27 @@
         "rows": [
           [
             "Incidents logged and delivered to the team",
-            "2,813"
+            "13,360"
           ],
           [
-            "Confirmed as real people",
-            "95.6%"
+            "Classified incidents confirmed as real people",
+            "94.1%"
           ],
           [
             "False alarms",
-            "4.4% (124)"
+            "5.9%"
           ],
           [
             "Time from detection to phone alert",
             "2 s median; 90% within 4 s"
           ],
           [
-            "Alerts delivered on Telegram",
-            "4,500+, no delivery failures"
+            "Messages sent through Telegram",
+            "20,900+, with 99.97% delivery"
           ],
           [
             "Video the team needs to review",
-            "33 h of incidents instead of weeks of continuous footage"
+            "274 h of incidents, instead of a month of continuous recording from every camera"
           ],
           [
             "License or cloud cost",
@@ -944,7 +965,7 @@
       "roadmap": {
         "eyebrow": "next steps",
         "title": "One computer per plant and a central hub.",
-        "body": "Each plant will analyze its own cameras and send only incidents, which eases the network and allows growing to new plants without replacing the hub. Updates are published centrally and rolled back automatically if something goes wrong. A pilot is already running at one plant in parallel with current operations.",
+        "body": "The system is moving to one computer per plant plus a central hub: each plant analyzes its own cameras and sends only incidents, which takes the load off the network and allows growth to new plants without replacing the hub. Updates are published centrally and roll back automatically if something goes wrong. A pilot at one plant runs in parallel with current operations.",
         "pilot": "From the pilot: without a dedicated GPU, the plant caught only 65% of person incidents. So every new plant gets one."
       },
       "next": {
@@ -952,16 +973,16 @@
         "title": "What this project taught me.",
         "items": [
           {
+            "title": "Keep the business close",
+            "text": "Alarm rules, triage and reports came from O&M's daily routine, not from assumptions."
+          },
+          {
             "title": "Measure before changing",
-            "text": "The biggest gain did not come from swapping the AI: the network and video decoding weighed more than the model."
+            "text": "The biggest gain did not come from swapping the AI: the network and video decoding weighed more than the artificial intelligence."
           },
           {
-            "title": "Validate on real data",
-            "text": "The operation's own false alarms became the test set for choosing the model, instead of a generic dataset."
-          },
-          {
-            "title": "Privacy is a requirement",
-            "text": "Treating LGPD from day one (short retention, internal network, role-based login) is what got the system accepted by operations."
+            "title": "Real data and privacy from the start",
+            "text": "The operation's own false alarms became the test for choosing the model, and treating LGPD as a requirement from day one helped the system get adopted."
           }
         ]
       },
@@ -1000,8 +1021,8 @@
         ]
       },
       "closing": {
-        "title": "From a business problem to a system in production.",
-        "text": "I spotted the need, proposed the solution and built it from scratch: AI, interface, alerts, reports and production operation. It is the project where technology most clearly turned into business results.",
+        "title": "From an operations request to a production system.",
+        "text": "O&M brought the need; I built most of the system: the AI, the rules, the screens, the alerts, the reports and what keeps it all running 24/7. It is the project where technology most clearly turned into business results.",
         "back": "Back to projects",
         "contact": "Let's talk"
       }
